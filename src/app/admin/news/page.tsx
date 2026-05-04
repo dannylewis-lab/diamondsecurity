@@ -134,11 +134,11 @@ export default function NewsManagement() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">News Management</h1>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">News Management</h1>
         <button onClick={openCreate}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-colors"
-          style={{ background: '#1a2744' }}>
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-colors self-start sm:self-auto shrink-0"
+          style={{ background: 'linear-gradient(135deg, #1a56db, #0EA5E9)' }}>
           <Plus size={16} /> New Article
         </button>
       </div>
