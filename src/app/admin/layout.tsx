@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Newspaper, Sparkles, MessageSquare,
   FolderOpen, Settings, LogOut, Eye, EyeOff, Shield,
-  ChevronRight,
+  ChevronRight, Mail, KeyRound, ArrowLeft,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
@@ -19,150 +19,296 @@ const sidebarLinks = [
   { label: 'Settings',        href: '/admin/settings',  icon: Settings },
 ]
 
+/* ─── Shared spinner ────────────────────────────────────────────────────────── */
+function Spinner() {
+  return (
+    <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+    </svg>
+  )
+}
+
 /* ─── Login Screen ─────────────────────────────────────────────────────────── */
+type View = 'login' | 'forgot' | 'reset'
+
 function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
+  const [view, setView]         = useState<View>('login')
   const [email, setEmail]       = useState('')
   const [password, setPassword] = useState('')
+  const [newPass, setNewPass]   = useState('')
   const [showPass, setShowPass] = useState(false)
   const [error, setError]       = useState('')
+  const [success, setSuccess]   = useState('')
   const [loading, setLoading]   = useState(false)
   const supabase = createClient()
 
+  /* Detect password-recovery token when user clicks the email link */
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        setView('reset')
+        setError('')
+        setSuccess('')
+      }
+    })
+    return () => subscription.unsubscribe()
+  }, [])
+
+  const clear = () => { setError(''); setSuccess('') }
+
+  /* ── Sign in ── */
   const handleLogin = async () => {
-    setError('')
+    clear()
     if (!email || !password) { setError('Please enter both email and password.'); return }
     setLoading(true)
     const { data, error: authError } = await supabase.auth.signInWithPassword({ email, password })
     if (authError || !data.user) {
-      setError(authError?.message ?? 'No user returned.')
+      setError('Invalid email or password. Please try again.')
     } else {
       onLogin(data.user)
     }
     setLoading(false)
   }
 
-  return (
+  /* ── Send reset email ── */
+  const handleForgotPassword = async () => {
+    clear()
+    if (!email) { setError('Please enter your email address.'); return }
+    setLoading(true)
+    const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/admin`,
+    })
+    if (resetError) {
+      setError(resetError.message)
+    } else {
+      setSuccess('Reset link sent! Check your inbox and click the link to set a new password.')
+    }
+    setLoading(false)
+  }
+
+  /* ── Set new password ── */
+  const handleResetPassword = async () => {
+    clear()
+    if (!newPass || newPass.length < 6) { setError('Password must be at least 6 characters.'); return }
+    setLoading(true)
+    const { error: updateError } = await supabase.auth.updateUser({ password: newPass })
+    if (updateError) {
+      setError(updateError.message)
+    } else {
+      setSuccess('Password updated! You can now sign in.')
+      setView('login')
+      setNewPass('')
+    }
+    setLoading(false)
+  }
+
+  /* ── Shared wrapper ── */
+  const cardStripe = (
+    <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #2563EB, #3B82F6)' }} />
+  )
+
+  const logoBlock = (
+    <div className="text-center mb-8">
+      <div className="flex items-center justify-center gap-3 mb-3">
+        <div className="relative h-14 w-14 shrink-0">
+          <Image
+            src="/logoo.jpeg"
+            alt="Diamond Global Securities"
+            width={160} height={160}
+            className="h-14 w-auto object-contain"
+            style={{ mixBlendMode: 'screen' }}
+          />
+        </div>
+        <div className="text-left leading-tight">
+          <div className="font-extrabold text-white text-lg tracking-wide">DIAMOND GLOBAL</div>
+          <div className="text-xs font-bold tracking-[0.22em]" style={{ color: '#c8cc00' }}>SECURITIES LIMITED</div>
+        </div>
+      </div>
+      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs text-blue-300 font-medium tracking-wide mt-1">
+        <Shield size={10} className="text-blue-400" />
+        Admin Portal
+      </div>
+    </div>
+  )
+
+  const feedbackBlock = (
+    <>
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm text-red-600 flex items-center gap-2">
+          <span className="w-4 h-4 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-bold shrink-0">!</span>
+          {error}
+        </div>
+      )}
+      {success && (
+        <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-3 text-sm text-blue-700 flex items-center gap-2">
+          <span className="w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs shrink-0">✓</span>
+          {success}
+        </div>
+      )}
+    </>
+  )
+
+  const inputClass = "w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-colors"
+  const btnClass   = "w-full py-3.5 text-white font-semibold rounded-xl transition-all text-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:opacity-90 shadow-lg"
+  const btnStyle   = { background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' }
+
+  const outerWrap = (children: React.ReactNode) => (
     <div
       className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #0a1128 0%, #1a2744 55%, #0c2240 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #020B2D 0%, #050E25 55%, #071435 100%)' }}
     >
-      <div className="hero-dots absolute inset-0 opacity-50" />
-
-      {/* Decorative ring */}
+      <div className="hero-dots absolute inset-0 opacity-40" />
       <div
         className="absolute -left-32 top-1/2 w-[500px] h-[500px] rounded-full border-[60px] border-white opacity-[0.03] pointer-events-none"
         style={{ transform: 'translateY(-50%)' }}
       />
-
       <div className="relative z-10 w-full max-w-sm">
-        {/* Logo block */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="relative h-14 w-14 shrink-0">
-              <Image
-                src="/logoo.jpeg"
-                alt="Diamond Global Securities"
-                width={160}
-                height={160}
-                className="h-14 w-auto object-contain"
-                style={{ mixBlendMode: 'screen' }}
-              />
-            </div>
-            <div className="text-left leading-tight">
-              <div className="font-extrabold text-white text-lg tracking-wide">DIAMOND GLOBAL</div>
-              <div className="text-xs font-bold tracking-[0.22em]" style={{ color: '#c8cc00' }}>
-                SECURITIES LIMITED
-              </div>
-            </div>
-          </div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs text-blue-300 font-medium tracking-wide mt-1">
-            <Shield size={10} className="text-emerald-400" />
-            Admin Portal
-          </div>
-        </div>
-
-        {/* Card */}
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          {/* Card header stripe */}
-          <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #10b981, #059669)' }} />
-
-          <div className="p-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-1">Sign in</h2>
-            <p className="text-sm text-gray-400 mb-6">Enter your credentials to access the dashboard</p>
-
-            <div className="space-y-4">
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={e => { setEmail(e.target.value); setError('') }}
-                  onKeyDown={e => e.key === 'Enter' && handleLogin()}
-                  placeholder="admin@diamondsecurities.co.tz"
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
-                  Password
-                </label>
-                <div className="relative">
-                  <input
-                    type={showPass ? 'text' : 'password'}
-                    value={password}
-                    onChange={e => { setPassword(e.target.value); setError('') }}
-                    onKeyDown={e => e.key === 'Enter' && handleLogin()}
-                    placeholder="••••••••••"
-                    className="w-full px-4 py-3 pr-11 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-colors"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPass(!showPass)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-                  >
-                    {showPass ? <EyeOff size={15} /> : <Eye size={15} />}
-                  </button>
-                </div>
-              </div>
-
-              {error && (
-                <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm text-red-600 flex items-center gap-2">
-                  <span className="w-4 h-4 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-bold shrink-0">!</span>
-                  {error}
-                </div>
-              )}
-
-              <button
-                onClick={handleLogin}
-                disabled={loading}
-                className="w-full py-3.5 text-white font-semibold rounded-xl transition-all text-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:opacity-90 shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #1a2744 0%, #0f2a44 100%)' }}
-              >
-                {loading ? (
-                  <>
-                    <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-                    </svg>
-                    Signing in...
-                  </>
-                ) : (
-                  <>Sign In <ChevronRight size={15} /></>
-                )}
-              </button>
-            </div>
-
-            <p className="text-center text-xs text-gray-400 mt-6">
-              <Link href="/" className="hover:text-emerald-600 transition-colors">← Back to main site</Link>
-            </p>
-          </div>
-        </div>
-
+        {logoBlock}
+        {children}
         <p className="text-center text-xs text-blue-400/60 mt-5">
           © {new Date().getFullYear()} Diamond Global Securities Limited · CMSA Licensed
+        </p>
+      </div>
+    </div>
+  )
+
+  /* ── Forgot password view ── */
+  if (view === 'forgot') return outerWrap(
+    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+      {cardStripe}
+      <div className="p-8">
+        <button onClick={() => { setView('login'); clear() }} className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-600 mb-5 transition-colors">
+          <ArrowLeft size={13} /> Back to sign in
+        </button>
+        <div className="w-11 h-11 rounded-2xl bg-blue-50 flex items-center justify-center mb-4">
+          <Mail size={20} className="text-blue-500" />
+        </div>
+        <h2 className="text-xl font-bold text-gray-900 mb-1">Forgot password?</h2>
+        <p className="text-sm text-gray-400 mb-6">Enter your email and we'll send a reset link.</p>
+
+        <div className="space-y-4">
+          <div>
+            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Email Address</label>
+            <input
+              type="email"
+              value={email}
+              onChange={e => { setEmail(e.target.value); clear() }}
+              onKeyDown={e => e.key === 'Enter' && handleForgotPassword()}
+              placeholder="admin@diamondsecurities.co.tz"
+              className={inputClass}
+            />
+          </div>
+          {feedbackBlock}
+          <button onClick={handleForgotPassword} disabled={loading} className={btnClass} style={btnStyle}>
+            {loading ? <><Spinner /> Sending...</> : <><Mail size={15} /> Send Reset Link</>}
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+
+  /* ── Reset password view (after clicking email link) ── */
+  if (view === 'reset') return outerWrap(
+    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+      {cardStripe}
+      <div className="p-8">
+        <div className="w-11 h-11 rounded-2xl bg-blue-50 flex items-center justify-center mb-4">
+          <KeyRound size={20} className="text-blue-500" />
+        </div>
+        <h2 className="text-xl font-bold text-gray-900 mb-1">Set new password</h2>
+        <p className="text-sm text-gray-400 mb-6">Choose a strong password for your admin account.</p>
+
+        <div className="space-y-4">
+          <div>
+            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">New Password</label>
+            <div className="relative">
+              <input
+                type={showPass ? 'text' : 'password'}
+                value={newPass}
+                onChange={e => { setNewPass(e.target.value); clear() }}
+                onKeyDown={e => e.key === 'Enter' && handleResetPassword()}
+                placeholder="At least 6 characters"
+                className={`${inputClass} pr-11`}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPass(!showPass)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                {showPass ? <EyeOff size={15} /> : <Eye size={15} />}
+              </button>
+            </div>
+          </div>
+          {feedbackBlock}
+          <button onClick={handleResetPassword} disabled={loading} className={btnClass} style={btnStyle}>
+            {loading ? <><Spinner /> Updating...</> : <><KeyRound size={15} /> Set New Password</>}
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+
+  /* ── Default login view ── */
+  return outerWrap(
+    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+      {cardStripe}
+      <div className="p-8">
+        <h2 className="text-xl font-bold text-gray-900 mb-1">Sign in</h2>
+        <p className="text-sm text-gray-400 mb-6">Enter your credentials to access the dashboard</p>
+
+        <div className="space-y-4">
+          <div>
+            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Email Address</label>
+            <input
+              type="email"
+              value={email}
+              onChange={e => { setEmail(e.target.value); clear() }}
+              onKeyDown={e => e.key === 'Enter' && handleLogin()}
+              placeholder="admin@diamondsecurities.co.tz"
+              className={inputClass}
+            />
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider">Password</label>
+              <button
+                type="button"
+                onClick={() => { setView('forgot'); clear() }}
+                className="text-xs text-blue-500 hover:text-blue-700 font-medium transition-colors"
+              >
+                Forgot password?
+              </button>
+            </div>
+            <div className="relative">
+              <input
+                type={showPass ? 'text' : 'password'}
+                value={password}
+                onChange={e => { setPassword(e.target.value); clear() }}
+                onKeyDown={e => e.key === 'Enter' && handleLogin()}
+                placeholder="••••••••••"
+                className={`${inputClass} pr-11`}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPass(!showPass)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                {showPass ? <EyeOff size={15} /> : <Eye size={15} />}
+              </button>
+            </div>
+          </div>
+
+          {feedbackBlock}
+
+          <button onClick={handleLogin} disabled={loading} className={btnClass} style={btnStyle}>
+            {loading ? <><Spinner /> Signing in...</> : <>Sign In <ChevronRight size={15} /></>}
+          </button>
+        </div>
+
+        <p className="text-center text-xs text-gray-400 mt-6">
+          <Link href="/" className="hover:text-blue-500 transition-colors">← Back to main site</Link>
         </p>
       </div>
     </div>
