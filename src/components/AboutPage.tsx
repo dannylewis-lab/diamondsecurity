@@ -433,7 +433,7 @@ export default function AboutPage() {
             {[
               {
                 src:  '/staff-selina.jpeg',
-                name: 'Ms. Selina Isaya Kong\'oa',
+                name: 'CPA(T) Selina Isaya Kong\'oa',
                 role: 'Finance Officer',
                 init: 'SK',
               },
