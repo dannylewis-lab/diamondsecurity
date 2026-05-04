@@ -34,7 +34,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
     setLoading(true)
     const { data, error: authError } = await supabase.auth.signInWithPassword({ email, password })
     if (authError || !data.user) {
-      setError('Invalid email or password. Please try again.')
+      setError(authError?.message ?? 'Login failed — no user returned.')
     } else {
       onLogin(data.user)
     }
