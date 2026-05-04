@@ -65,13 +65,6 @@ const process = [
   { step: '04', title: 'Start Investing', desc: 'Place your first trade on the DSE or let our fund managers handle your portfolio.' },
 ]
 
-const fees = [
-  { service: 'Account Opening', fee: 'Free', note: 'No setup or maintenance fee' },
-  { service: 'Equity Brokerage / Dealing', fee: '1.5%', note: 'Per transaction value' },
-  { service: 'Bond Trading', fee: '0.5%', note: 'Per transaction value' },
-  { service: 'Investment Advisory', fee: 'Free', note: 'First consultation free' },
-  { service: 'Fund Management', fee: '1.0% p.a.', note: 'Of assets under management' },
-]
 
 const faqs = [
   {
@@ -301,39 +294,6 @@ export default function ServicesPage() {
               <ArrowUpRight size={16} />
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* Fee Schedule */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-3">Transparent Fee Schedule</h2>
-            <p className="text-gray-500">No hidden charges. Know exactly what you pay.</p>
-          </div>
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-            <table className="w-full">
-              <thead>
-                <tr style={{ background: 'linear-gradient(90deg, #020B2D, #041444)' }}>
-                  <th className="text-left px-6 py-4 text-sm font-semibold text-white">Service</th>
-                  <th className="text-left px-6 py-4 text-sm font-semibold text-white">Fee</th>
-                  <th className="text-left px-6 py-4 text-sm font-semibold text-white">Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                {fees.map((row, i) => (
-                  <tr key={row.service} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="px-6 py-4 text-sm font-medium text-gray-900">{row.service}</td>
-                    <td className="px-6 py-4 text-sm font-bold text-[#0EA5E9]">{row.fee}</td>
-                    <td className="px-6 py-4 text-sm text-gray-500">{row.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-xs text-gray-400 mt-4 text-center">
-            * Fees are subject to applicable government taxes. Contact us for institutional pricing.
-          </p>
         </div>
       </section>
 
