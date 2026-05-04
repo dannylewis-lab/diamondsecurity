@@ -41,7 +41,19 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
   const [error, setError]       = useState('')
   const [success, setSuccess]   = useState('')
   const [loading, setLoading]   = useState(false)
+  const [attempts, setAttempts] = useState(0)
+  const [lockout, setLockout]   = useState(0) // seconds remaining
   const supabase = createClient()
+
+  const MAX_ATTEMPTS  = 5
+  const LOCKOUT_SECS  = 30
+
+  /* Lockout countdown */
+  useEffect(() => {
+    if (lockout <= 0) return
+    const t = setTimeout(() => setLockout(l => l - 1), 1000)
+    return () => clearTimeout(t)
+  }, [lockout])
 
   /* Detect password-recovery token when user clicks the email link */
   useEffect(() => {
@@ -59,12 +71,21 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
 
   /* ── Sign in ── */
   const handleLogin = async () => {
+    if (lockout > 0) return
     clear()
     if (!email || !password) { setError('Please enter both email and password.'); return }
     setLoading(true)
     const { data, error: authError } = await supabase.auth.signInWithPassword({ email, password })
     if (authError || !data.user) {
-      setError('Invalid email or password. Please try again.')
+      const next = attempts + 1
+      setAttempts(next)
+      if (next >= MAX_ATTEMPTS) {
+        setLockout(LOCKOUT_SECS)
+        setAttempts(0)
+        setError(`Too many failed attempts. Please wait ${LOCKOUT_SECS} seconds.`)
+      } else {
+        setError(`Invalid email or password. ${MAX_ATTEMPTS - next} attempt${MAX_ATTEMPTS - next === 1 ? '' : 's'} remaining.`)
+      }
     } else {
       onLogin(data.user)
     }
@@ -302,8 +323,17 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
 
           {feedbackBlock}
 
-          <button onClick={handleLogin} disabled={loading} className={btnClass} style={btnStyle}>
-            {loading ? <><Spinner /> Signing in...</> : <>Sign In <ChevronRight size={15} /></>}
+          <button
+            onClick={handleLogin}
+            disabled={loading || lockout > 0}
+            className={btnClass}
+            style={lockout > 0 ? { background: '#94a3b8' } : btnStyle}
+          >
+            {loading
+              ? <><Spinner /> Signing in...</>
+              : lockout > 0
+                ? `Locked · wait ${lockout}s`
+                : <>Sign In <ChevronRight size={15} /></>}
           </button>
         </div>
 
