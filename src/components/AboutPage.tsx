@@ -356,11 +356,15 @@ export default function AboutPage() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-emerald-600 text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Leader</p>
-            <h2 className="text-4xl font-bold text-gray-900">Leadership</h2>
+            <p className="text-blue-600 text-xs font-bold uppercase tracking-[0.2em] mb-3">Our People</p>
+            <h2 className="text-4xl font-bold text-gray-900">Leadership &amp; Team</h2>
+            <p className="text-gray-400 mt-3 max-w-xl mx-auto text-[15px]">
+              A team of licensed professionals dedicated to delivering disciplined, transparent, and client-centred financial services.
+            </p>
           </div>
 
-          <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-lg grid grid-cols-1 lg:grid-cols-5">
+          {/* CEO — full-width feature card */}
+          <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-lg grid grid-cols-1 lg:grid-cols-5 mb-10">
             {/* Photo */}
             <div className="lg:col-span-2 relative min-h-[280px] sm:min-h-[380px] lg:min-h-0">
               <Image
@@ -371,18 +375,18 @@ export default function AboutPage() {
               />
               <div
                 className="absolute bottom-0 left-0 right-0 px-7 py-6"
-                style={{ background: 'linear-gradient(to top, rgba(10,17,40,0.97) 0%, rgba(10,17,40,0.3) 70%, transparent 100%)' }}
+                style={{ background: 'linear-gradient(to top, rgba(2,11,45,0.97) 0%, rgba(2,11,45,0.3) 70%, transparent 100%)' }}
               >
                 <p className="text-white font-extrabold text-xl tracking-tight">Mr. Beatus Mlingi</p>
-                <p className="text-emerald-400 text-xs font-bold tracking-[0.18em] uppercase mt-1.5">
-                  Chief Executive Officer — Diamond Global Securities Limited
+                <p className="text-xs font-bold tracking-[0.18em] uppercase mt-1.5" style={{ color: '#c8cc00' }}>
+                  Chief Executive Officer
                 </p>
               </div>
             </div>
 
             {/* Bio */}
             <div className="lg:col-span-3 p-9 lg:p-14 flex flex-col justify-center bg-white">
-              <div className="w-8 h-0.5 bg-emerald-500 mb-7" />
+              <div className="w-8 h-0.5 mb-7" style={{ background: '#2563EB' }} />
               <p className="text-gray-700 leading-relaxed text-[15px] mb-5">
                 Mr. Beatus Mlingi is a distinguished capital markets professional with extensive experience
                 at the heart of Tanzania's securities industry. His deep expertise in investment operations,
@@ -408,20 +412,90 @@ export default function AboutPage() {
                   'Commitment to institutional excellence',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5 text-sm text-gray-600">
-                    <CheckCircle size={14} className="text-emerald-500 mt-0.5 shrink-0" />
+                    <CheckCircle size={14} className="mt-0.5 shrink-0" style={{ color: '#2563EB' }} />
                     {item}
                   </div>
                 ))}
               </div>
 
               <div className="pt-6 border-t border-gray-100 flex items-center gap-3">
-                <div className="w-1 h-7 bg-emerald-500 rounded-full" />
+                <div className="w-1 h-7 rounded-full" style={{ background: '#2563EB' }} />
                 <div>
                   <p className="text-xs font-bold text-gray-900 tracking-wide">Diamond Global Securities Limited</p>
                   <p className="text-xs text-gray-400">Victoria, Dar es Salaam, Tanzania</p>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Staff grid — three cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              {
+                src:  '/staff-selina.jpeg',
+                name: 'Ms. Selina Isaya Kong\'oa',
+                role: 'Finance Officer',
+                init: 'SK',
+              },
+              {
+                src:  '/staff-marylilian.png',
+                name: 'Ms. Marylilian Siara',
+                role: 'Dealing Officer',
+                init: 'MS',
+              },
+              {
+                src:  '/staff-imani.png',
+                name: 'Mr. Imani Amulike',
+                role: 'Compliance Officer',
+                init: 'IA',
+              },
+            ].map(({ src, name, role, init }) => (
+              <div
+                key={name}
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden group hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
+                {/* Photo */}
+                <div className="relative h-64 w-full overflow-hidden">
+                  <Image
+                    src={src}
+                    alt={`${name} — ${role}, Diamond Global Securities`}
+                    fill
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {/* Gradient overlay */}
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: 'linear-gradient(to top, rgba(2,11,45,0.75) 0%, transparent 55%)' }}
+                  />
+                  {/* Role pill */}
+                  <div className="absolute top-3 left-3">
+                    <span
+                      className="text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full"
+                      style={{ background: 'rgba(37,99,235,0.85)', color: '#fff' }}
+                    >
+                      {role}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Info */}
+                <div className="px-5 py-4 flex items-center gap-3">
+                  <div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center text-white text-xs font-black shrink-0"
+                    style={{ background: 'linear-gradient(135deg, #2563EB, #1D4ED8)' }}
+                  >
+                    {init}
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 text-sm leading-tight">{name}</p>
+                    <p className="text-xs text-blue-600 font-semibold mt-0.5">{role}</p>
+                  </div>
+                </div>
+
+                {/* Bottom accent */}
+                <div className="h-[3px] w-0 group-hover:w-full transition-all duration-500" style={{ background: 'linear-gradient(90deg, #2563EB, #3B82F6)' }} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
