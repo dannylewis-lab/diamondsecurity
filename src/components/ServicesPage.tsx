@@ -35,9 +35,9 @@ const services = [
       'Alignment with individual financial objectives',
       'Local market expertise with forward-looking perspective',
     ],
-    accent: '#059669',
-    light: '#f0fdf4',
-    mid: '#d1fae5',
+    accent: '#0EA5E9',
+    light: '#f0f9ff',
+    mid: '#bae6fd',
   },
   {
     number: '03',
@@ -92,34 +92,63 @@ const faqs = [
   },
 ]
 
+const diamonds = [
+  { id: 1, size: 'w-3 h-3',     color: 'border-[#00D4FF]/40 border-2',  top: '10%',  left: '7%',  delay: '0s',   duration: '7s',  opacity: 0.5 },
+  { id: 2, size: 'w-5 h-5',     color: 'border-[#3B82F6]/30 border-2',  top: '40%',  left: '78%', delay: '1.5s', duration: '9s',  opacity: 0.4 },
+  { id: 3, size: 'w-2 h-2',     color: 'bg-[#00D4FF]/50',               top: '70%',  left: '12%', delay: '2s',   duration: '8s',  opacity: 0.6 },
+  { id: 4, size: 'w-4 h-4',     color: 'border-[#00D4FF]/25 border-2',  top: '60%',  left: '88%', delay: '0.8s', duration: '11s', opacity: 0.3 },
+  { id: 5, size: 'w-2.5 h-2.5', color: 'bg-[#3B82F6]/40',              top: '25%',  left: '55%', delay: '1s',   duration: '6s',  opacity: 0.5 },
+]
+
 export default function ServicesPage() {
   return (
     <>
       {/* Hero Banner */}
       <section
         className="py-28 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1a2744 50%, #0f2a44 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #020B2D 0%, #041444 50%, #020B2D 100%)' }}
       >
-        <div className="hero-dots absolute inset-0" />
+        <div className="hero-grid-bg absolute inset-0 opacity-30" />
+
+        {/* Glow orbs */}
+        <div
+          className="glow-orb glow-orb-1 absolute"
+          style={{ width: '450px', height: '450px', top: '-20%', right: '5%' }}
+        />
+        <div
+          className="glow-orb glow-orb-2 absolute"
+          style={{ width: '280px', height: '280px', bottom: '0%', left: '-5%' }}
+        />
+
+        {/* Floating diamonds */}
+        {diamonds.map((d) => (
+          <div
+            key={d.id}
+            className={`floating-diamond absolute ${d.size} ${d.color}`}
+            style={{
+              top: d.top, left: d.left,
+              animationDelay: d.delay, animationDuration: d.duration,
+              opacity: d.opacity,
+            }}
+          />
+        ))}
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-sm font-medium mb-6">
               <BarChart2 size={14} />
-              Licensed DSE Brokerage & Investment Services
+              Licensed DSE Brokerage &amp; Investment Services
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-tight">
               Three Core Services.<br />
-              <span className="text-emerald-400">One Trusted Partner.</span>
+              <span className="text-gradient-blue">One Trusted Partner.</span>
             </h1>
             <p className="text-blue-200 text-lg leading-relaxed mb-8 max-w-2xl">
               Diamond Global Securities is authorised to deliver three specialised financial services —
               each executed with the highest standards of precision, integrity, and client focus.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/25"
-              >
+              <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-lg">
                 Get Started Today
                 <ArrowUpRight size={16} />
               </Link>
@@ -139,14 +168,14 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-center">
             {[
-              { icon: Shield, value: 'CMSA Licensed', label: 'Fully Regulated' },
-              { icon: Briefcase, value: 'Dealer Licence', label: 'Securities Dealing' },
-              { icon: TrendingUp, value: 'Investment Adviser', label: 'Advisory Licence' },
-              { icon: BarChart2, value: 'Fund Manager', label: 'Fund Management Licence' },
+              { icon: Shield,    value: 'CMSA Licensed',    label: 'Fully Regulated' },
+              { icon: Briefcase, value: 'Dealer Licence',   label: 'Securities Dealing' },
+              { icon: TrendingUp,value: 'Investment Adviser',label: 'Advisory Licence' },
+              { icon: BarChart2, value: 'Fund Manager',     label: 'Fund Management Licence' },
             ].map(({ icon: Icon, value, label }) => (
               <div key={label} className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
-                  <Icon size={16} className="text-emerald-600" />
+                <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
+                  <Icon size={16} className="text-[#0EA5E9]" />
                 </div>
                 <div className="text-left">
                   <p className="text-sm font-bold text-gray-900 leading-tight">{value}</p>
@@ -177,7 +206,6 @@ export default function ServicesPage() {
                   className="relative rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group"
                   style={{ background: s.light }}
                 >
-                  {/* Decorative large number */}
                   <span
                     className="absolute top-4 right-8 text-[70px] md:text-[120px] font-black leading-none select-none pointer-events-none opacity-[0.06]"
                     style={{ color: s.accent }}
@@ -186,7 +214,6 @@ export default function ServicesPage() {
                   </span>
 
                   <div className="relative z-10 p-8 md:p-12 grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
-                    {/* Left: icon + title */}
                     <div className="md:col-span-2">
                       <div
                         className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-sm"
@@ -213,7 +240,6 @@ export default function ServicesPage() {
                       </Link>
                     </div>
 
-                    {/* Right: description + features */}
                     <div className="md:col-span-3">
                       <p className="text-gray-600 leading-relaxed text-[15px] mb-7">
                         {s.desc}
@@ -237,7 +263,6 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  {/* Bottom accent bar */}
                   <div
                     className="h-1 w-0 group-hover:w-full transition-all duration-700"
                     style={{ background: `linear-gradient(90deg, ${s.accent}, transparent)` }}
@@ -262,7 +287,7 @@ export default function ServicesPage() {
                 {i < process.length - 1 && (
                   <div className="hidden lg:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] h-0.5 bg-gray-200 z-0" />
                 )}
-                <div className="w-16 h-16 rounded-full text-white font-bold text-lg flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg" style={{ background: '#1a2744' }}>
+                <div className="w-16 h-16 rounded-full text-white font-bold text-lg flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg" style={{ background: 'linear-gradient(135deg, #1a56db, #0EA5E9)' }}>
                   {p.step}
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{p.title}</h3>
@@ -271,7 +296,7 @@ export default function ServicesPage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-all shadow-lg" style={{ background: '#1a2744' }}>
+            <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg shadow-lg">
               Open Your Account Now
               <ArrowUpRight size={16} />
             </Link>
@@ -289,7 +314,7 @@ export default function ServicesPage() {
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr style={{ background: '#1a2744' }}>
+                <tr style={{ background: 'linear-gradient(90deg, #020B2D, #041444)' }}>
                   <th className="text-left px-6 py-4 text-sm font-semibold text-white">Service</th>
                   <th className="text-left px-6 py-4 text-sm font-semibold text-white">Fee</th>
                   <th className="text-left px-6 py-4 text-sm font-semibold text-white">Notes</th>
@@ -299,7 +324,7 @@ export default function ServicesPage() {
                 {fees.map((row, i) => (
                   <tr key={row.service} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900">{row.service}</td>
-                    <td className="px-6 py-4 text-sm font-bold text-emerald-600">{row.fee}</td>
+                    <td className="px-6 py-4 text-sm font-bold text-[#0EA5E9]">{row.fee}</td>
                     <td className="px-6 py-4 text-sm text-gray-500">{row.note}</td>
                   </tr>
                 ))}
@@ -321,9 +346,9 @@ export default function ServicesPage() {
           </div>
           <div className="space-y-4">
             {faqs.map((faq) => (
-              <div key={faq.q} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+              <div key={faq.q} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-blue-100 transition-colors duration-300">
                 <h3 className="font-bold text-gray-900 mb-2 flex items-start gap-3">
-                  <span className="w-6 h-6 text-white rounded-full flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold" style={{ background: '#1a2744' }}>?</span>
+                  <span className="w-6 h-6 text-white rounded-full flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold" style={{ background: 'linear-gradient(135deg, #1a56db, #0EA5E9)' }}>?</span>
                   {faq.q}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed pl-9">{faq.a}</p>
@@ -335,13 +360,15 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section
-        className="py-20"
-        style={{ background: 'linear-gradient(135deg, #1a2744 0%, #0f2a44 100%)' }}
+        className="py-20 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #020B2D 0%, #041444 50%, #020B2D 100%)' }}
       >
-        <div className="max-w-4xl mx-auto px-4 text-center">
+        <div className="hero-grid-bg absolute inset-0 opacity-20" />
+        <div className="glow-orb glow-orb-1 absolute" style={{ width: '350px', height: '350px', top: '-20%', right: '5%', opacity: 0.5 }} />
+        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Zap size={20} className="text-emerald-400" />
-            <span className="text-emerald-400 text-sm font-semibold tracking-wide uppercase">Ready to invest?</span>
+            <Zap size={20} className="text-[#00D4FF]" />
+            <span className="text-[#00D4FF] text-sm font-semibold tracking-wide uppercase">Ready to invest?</span>
           </div>
           <h2 className="text-4xl font-bold text-white mb-4">Start Your Investment Journey Today</h2>
           <p className="text-blue-200 mb-8 max-w-xl mx-auto leading-relaxed">
@@ -349,7 +376,7 @@ export default function ServicesPage() {
             through brokerage, advisory, or fund management. First consultation is completely free.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="px-8 py-3 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/25">
+            <Link href="/contact" className="btn-blue px-8 py-3 font-semibold rounded-lg inline-flex items-center gap-2">
               Book Free Consultation
             </Link>
             <Link href="/about" className="px-8 py-3 border border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-colors">

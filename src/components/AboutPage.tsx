@@ -3,7 +3,7 @@ import Image from 'next/image'
 import {
   Shield, Users, TrendingUp, CheckCircle,
   MapPin, Phone, Mail, ArrowUpRight, Target, Eye,
-  Heart, Quote, Briefcase, PieChart, BadgeCheck,
+  Heart, Briefcase, PieChart, BadgeCheck,
   Lock, Handshake, ChevronRight
 } from 'lucide-react'
 
@@ -78,31 +78,57 @@ const whyUs = [
   },
 ]
 
+const diamonds = [
+  { id: 1, size: 'w-3 h-3',   color: 'border-[#00D4FF]/40 border-2',  top: '12%',  left: '8%',  delay: '0s',    duration: '7s',  opacity: 0.5 },
+  { id: 2, size: 'w-5 h-5',   color: 'border-[#3B82F6]/30 border-2',  top: '30%',  left: '75%', delay: '1.5s',  duration: '9s',  opacity: 0.4 },
+  { id: 3, size: 'w-2 h-2',   color: 'bg-[#00D4FF]/50',               top: '65%',  left: '15%', delay: '2s',    duration: '8s',  opacity: 0.6 },
+  { id: 4, size: 'w-4 h-4',   color: 'border-[#00D4FF]/25 border-2',  top: '55%',  left: '85%', delay: '0.8s',  duration: '11s', opacity: 0.3 },
+  { id: 5, size: 'w-6 h-6',   color: 'border-[#1D4ED8]/30 border-2',  top: '80%',  left: '60%', delay: '3s',    duration: '10s', opacity: 0.35 },
+  { id: 6, size: 'w-2.5 h-2.5', color: 'bg-[#3B82F6]/40',            top: '20%',  left: '50%', delay: '1s',    duration: '6s',  opacity: 0.5 },
+]
+
 export default function AboutPage() {
   return (
     <>
       {/* Hero */}
       <section
         className="pt-32 pb-24 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #0a1128 0%, #1a2744 55%, #0c2240 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #020B2D 0%, #041444 50%, #020B2D 100%)' }}
       >
-        <div className="hero-dots absolute inset-0 opacity-40" />
+        <div className="hero-grid-bg absolute inset-0 opacity-30" />
 
-        {/* Subtle decorative ring */}
+        {/* Glow orbs */}
         <div
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04] border-[60px] border-white"
-          style={{ transform: 'translate(40%, -50%)' }}
+          className="glow-orb glow-orb-1 absolute"
+          style={{ width: '450px', height: '450px', top: '-15%', right: '8%' }}
         />
+        <div
+          className="glow-orb glow-orb-2 absolute"
+          style={{ width: '300px', height: '300px', bottom: '5%', left: '-5%' }}
+        />
+
+        {/* Floating diamonds */}
+        {diamonds.map((d) => (
+          <div
+            key={d.id}
+            className={`floating-diamond absolute ${d.size} ${d.color}`}
+            style={{
+              top: d.top, left: d.left,
+              animationDelay: d.delay, animationDuration: d.duration,
+              opacity: d.opacity,
+            }}
+          />
+        ))}
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-xs font-semibold tracking-widest uppercase mb-8">
               <Shield size={12} />
               CMSA Licensed &amp; Regulated · DSE Dealing Member
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.6rem] font-bold text-white mb-6 leading-[1.15]">
               Tanzania's Authorised<br />
-              <span className="text-emerald-400">Capital Markets Partner</span>
+              <span className="text-gradient-blue">Capital Markets Partner</span>
             </h1>
             <p className="text-blue-200/90 text-lg leading-relaxed mb-10 max-w-2xl">
               Diamond Global Securities Limited is a licensed and regulated capital markets intermediary,
@@ -110,10 +136,7 @@ export default function AboutPage() {
               advisory, and fund management services on the Dar es Salaam Stock Exchange.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 text-sm"
-              >
+              <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-7 py-3 font-semibold rounded-lg text-sm">
                 Open an Account
                 <ArrowUpRight size={15} />
               </Link>
@@ -143,7 +166,7 @@ export default function AboutPage() {
               'Fund Manager Licence',
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#0EA5E9] shrink-0" />
                 <span className="text-xs text-gray-600 font-medium" dangerouslySetInnerHTML={{ __html: item }} />
               </div>
             ))}
@@ -156,7 +179,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <div>
-              <p className="text-emerald-600 text-xs font-bold uppercase tracking-[0.2em] mb-4">Who We Are</p>
+              <p className="text-[#0EA5E9] text-xs font-bold uppercase tracking-[0.2em] mb-4">Who We Are</p>
               <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-snug">
                 A Regulated Partner Built on Trust and Expertise
               </h2>
@@ -182,7 +205,7 @@ export default function AboutPage() {
                   'Committed to investor protection, market integrity, and professional standards',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3 text-sm text-gray-700">
-                    <CheckCircle size={15} className="text-emerald-500 mt-0.5 shrink-0" />
+                    <CheckCircle size={15} className="text-[#0EA5E9] mt-0.5 shrink-0" />
                     {item}
                   </div>
                 ))}
@@ -194,11 +217,11 @@ export default function AboutPage() {
               {values.map(({ icon: Icon, title, desc }) => (
                 <div
                   key={title}
-                  className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-emerald-100 hover:shadow-lg transition-all duration-300 group relative overflow-hidden"
+                  className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-100 hover:shadow-lg transition-all duration-300 group relative overflow-hidden"
                 >
-                  <div className="absolute top-0 left-0 w-full h-0.5 bg-gray-100 group-hover:bg-emerald-400 transition-colors duration-300" />
-                  <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-50 transition-colors duration-300">
-                    <Icon size={18} className="text-gray-500 group-hover:text-emerald-600 transition-colors duration-300" />
+                  <div className="absolute top-0 left-0 w-full h-0.5 bg-gray-100 group-hover:bg-[#0EA5E9] transition-colors duration-300" />
+                  <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-50 transition-colors duration-300">
+                    <Icon size={18} className="text-gray-500 group-hover:text-[#0EA5E9] transition-colors duration-300" />
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2 text-sm">{title}</h3>
                   <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
@@ -213,13 +236,12 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Section Header — styled like a regulatory panel */}
           <div
             className="rounded-2xl px-8 py-8 mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
-            style={{ background: 'linear-gradient(135deg, #1a2744 0%, #0f2a44 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #020B2D 0%, #0f2a44 100%)' }}
           >
             <div>
-              <p className="text-emerald-400 text-xs font-bold uppercase tracking-[0.2em] mb-2">Regulatory Status</p>
+              <p className="text-[#00D4FF] text-xs font-bold uppercase tracking-[0.2em] mb-2">Regulatory Status</p>
               <h2 className="text-2xl font-bold text-white">Our Authorisations</h2>
               <p className="text-blue-200/80 text-sm mt-2 max-w-xl leading-relaxed">
                 Diamond Global Securities Limited is authorised and regulated by the Capital Markets and Securities
@@ -227,7 +249,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="shrink-0 flex items-center gap-3">
-              <BadgeCheck size={40} className="text-emerald-400 opacity-80" />
+              <BadgeCheck size={40} className="text-[#00D4FF] opacity-80" />
             </div>
           </div>
 
@@ -236,12 +258,12 @@ export default function AboutPage() {
             {licences.map(({ icon: Icon, name, authority, desc }) => (
               <div
                 key={name}
-                className="rounded-2xl border border-gray-200 p-7 hover:border-emerald-200 hover:shadow-lg transition-all duration-300 group bg-white relative overflow-hidden"
+                className="rounded-2xl border border-gray-200 p-7 hover:border-blue-200 hover:shadow-lg transition-all duration-300 group bg-white relative overflow-hidden"
               >
-                <div className="absolute top-0 left-0 w-1 h-full bg-gray-100 group-hover:bg-emerald-400 transition-colors duration-300 rounded-l-2xl" />
+                <div className="absolute top-0 left-0 w-1 h-full bg-gray-100 group-hover:bg-[#0EA5E9] transition-colors duration-300 rounded-l-2xl" />
                 <div className="pl-3">
-                  <div className="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center mb-5 group-hover:bg-emerald-50 transition-colors duration-300">
-                    <Icon size={20} className="text-gray-500 group-hover:text-emerald-600 transition-colors duration-300" />
+                  <div className="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center mb-5 group-hover:bg-blue-50 transition-colors duration-300">
+                    <Icon size={20} className="text-gray-500 group-hover:text-[#0EA5E9] transition-colors duration-300" />
                   </div>
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.18em] mb-1">{authority}</p>
                   <h3 className="font-extrabold text-gray-900 text-base mb-3">{name}</h3>
@@ -257,23 +279,23 @@ export default function AboutPage() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-emerald-600 text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Purpose</p>
+            <p className="text-[#0EA5E9] text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Purpose</p>
             <h2 className="text-4xl font-bold text-gray-900">Mission &amp; Vision</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Mission */}
             <div
               className="rounded-3xl p-10 relative overflow-hidden"
-              style={{ background: 'linear-gradient(145deg, #1a2744 0%, #0c2240 100%)' }}
+              style={{ background: 'linear-gradient(145deg, #020B2D 0%, #041444 100%)' }}
             >
               <div
                 className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-[0.06]"
-                style={{ background: '#10b981' }}
+                style={{ background: '#00D4FF' }}
               />
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center mb-6">
-                <Target size={20} className="text-emerald-400" />
+              <div className="w-10 h-10 rounded-xl bg-[#00D4FF]/15 border border-[#00D4FF]/20 flex items-center justify-center mb-6">
+                <Target size={20} className="text-[#00D4FF]" />
               </div>
-              <p className="text-emerald-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Mission</p>
+              <p className="text-[#00D4FF] text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Mission</p>
               <h3 className="text-xl font-bold text-white mb-4">What We Set Out to Do</h3>
               <p className="text-blue-200/80 leading-relaxed text-[15px]">
                 To provide every Tanzanian investor with access to professional, regulated, and
@@ -283,7 +305,10 @@ export default function AboutPage() {
               </p>
             </div>
             {/* Vision */}
-            <div className="rounded-3xl p-10 relative overflow-hidden bg-emerald-500">
+            <div
+              className="rounded-3xl p-10 relative overflow-hidden"
+              style={{ background: 'linear-gradient(145deg, #1a56db 0%, #0EA5E9 100%)' }}
+            >
               <div
                 className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-[0.12]"
                 style={{ background: 'white' }}
@@ -293,7 +318,7 @@ export default function AboutPage() {
               </div>
               <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Vision</p>
               <h3 className="text-xl font-bold text-white mb-4">Where We Are Headed</h3>
-              <p className="text-emerald-50/90 leading-relaxed text-[15px]">
+              <p className="text-blue-50/90 leading-relaxed text-[15px]">
                 To be the most trusted and respected capital markets firm in Tanzania — recognised not
                 only for the quality of services we deliver, but for the integrity, transparency, and
                 genuine commitment with which we deliver them. We envision a financially literate Tanzania
@@ -308,9 +333,8 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
-            {/* Left — heading */}
             <div className="lg:col-span-1">
-              <p className="text-emerald-600 text-xs font-bold uppercase tracking-[0.2em] mb-4">Our Strengths</p>
+              <p className="text-[#0EA5E9] text-xs font-bold uppercase tracking-[0.2em] mb-4">Our Strengths</p>
               <h2 className="text-4xl font-bold text-gray-900 mb-5 leading-snug">
                 Why Invest with Diamond Global
               </h2>
@@ -318,28 +342,23 @@ export default function AboutPage() {
                 We are not simply a brokerage. We are a fully authorised, client-centred institution
                 with the licences, the expertise, and the commitment to serve your financial goals with precision.
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-lg hover:opacity-90 transition-all"
-                style={{ background: '#1a2744' }}
-              >
+              <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-lg">
                 Speak to Our Team
                 <ChevronRight size={15} />
               </Link>
             </div>
 
-            {/* Right — 4 items in 2x2 grid */}
             <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {whyUs.map(({ number, icon: Icon, title, desc }) => (
                 <div
                   key={number}
-                  className="rounded-2xl border border-gray-100 p-7 hover:border-gray-200 hover:shadow-lg transition-all duration-300 group"
+                  className="rounded-2xl border border-gray-100 p-7 hover:border-blue-100 hover:shadow-lg transition-all duration-300 group"
                 >
                   <div className="flex items-start justify-between mb-5">
-                    <div className="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center group-hover:bg-emerald-50 transition-colors duration-300">
-                      <Icon size={20} className="text-gray-400 group-hover:text-emerald-600 transition-colors duration-300" />
+                    <div className="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors duration-300">
+                      <Icon size={20} className="text-gray-400 group-hover:text-[#0EA5E9] transition-colors duration-300" />
                     </div>
-                    <span className="text-3xl font-black text-gray-100 group-hover:text-emerald-100 transition-colors duration-300 leading-none">
+                    <span className="text-3xl font-black text-gray-100 group-hover:text-blue-100 transition-colors duration-300 leading-none">
                       {number}
                     </span>
                   </div>
@@ -356,7 +375,7 @@ export default function AboutPage() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-blue-600 text-xs font-bold uppercase tracking-[0.2em] mb-3">Our People</p>
+            <p className="text-[#0EA5E9] text-xs font-bold uppercase tracking-[0.2em] mb-3">Our People</p>
             <h2 className="text-4xl font-bold text-gray-900">Leadership &amp; Team</h2>
             <p className="text-gray-400 mt-3 max-w-xl mx-auto text-[15px]">
               A team of licensed professionals dedicated to delivering disciplined, transparent, and client-centred financial services.
@@ -365,7 +384,6 @@ export default function AboutPage() {
 
           {/* CEO — full-width feature card */}
           <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-lg grid grid-cols-1 lg:grid-cols-5 mb-10">
-            {/* Photo */}
             <div className="lg:col-span-2 relative min-h-[280px] sm:min-h-[380px] lg:min-h-0">
               <Image
                 src="/ceo.jpeg"
@@ -384,7 +402,6 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Bio */}
             <div className="lg:col-span-3 p-9 lg:p-14 flex flex-col justify-center bg-white">
               <div className="w-8 h-0.5 mb-7" style={{ background: '#2563EB' }} />
               <p className="text-gray-700 leading-relaxed text-[15px] mb-5">
@@ -428,33 +445,17 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Staff grid — three cards */}
+          {/* Staff grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              {
-                src:  '/staff-selina.jpeg',
-                name: 'CPA(T) Selina Isaya Kong\'oa',
-                role: 'Finance Officer',
-                init: 'SK',
-              },
-              {
-                src:  '/staff-marylilian.png',
-                name: 'Ms. Marylilian Siara',
-                role: 'Dealing Officer',
-                init: 'MS',
-              },
-              {
-                src:  '/staff-imani.png',
-                name: 'Mr. Imani Amulike',
-                role: 'Compliance Officer',
-                init: 'IA',
-              },
+              { src: '/staff-selina.jpeg',    name: 'CPA(T) Selina Isaya Kong\'oa', role: 'Finance Officer',    init: 'SK' },
+              { src: '/staff-marylilian.png', name: 'Ms. Marylilian Siara',          role: 'Dealing Officer',    init: 'MS' },
+              { src: '/staff-imani.png',      name: 'Mr. Imani Amulike',             role: 'Compliance Officer', init: 'IA' },
             ].map(({ src, name, role, init }) => (
               <div
                 key={name}
                 className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden group hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                {/* Photo */}
                 <div className="relative h-64 w-full overflow-hidden">
                   <Image
                     src={src}
@@ -462,12 +463,10 @@ export default function AboutPage() {
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
-                  {/* Gradient overlay */}
                   <div
                     className="absolute inset-0"
                     style={{ background: 'linear-gradient(to top, rgba(2,11,45,0.75) 0%, transparent 55%)' }}
                   />
-                  {/* Role pill */}
                   <div className="absolute top-3 left-3">
                     <span
                       className="text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full"
@@ -478,7 +477,6 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                {/* Info */}
                 <div className="px-5 py-4 flex items-center gap-3">
                   <div
                     className="w-9 h-9 rounded-xl flex items-center justify-center text-white text-xs font-black shrink-0"
@@ -492,7 +490,6 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                {/* Bottom accent */}
                 <div className="h-[3px] w-0 group-hover:w-full transition-all duration-500" style={{ background: 'linear-gradient(90deg, #2563EB, #3B82F6)' }} />
               </div>
             ))}
@@ -504,14 +501,13 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-gray-100 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
-            {/* Info */}
             <div className="p-10 lg:p-14">
-              <p className="text-emerald-600 text-xs font-bold uppercase tracking-[0.2em] mb-4">Find Us</p>
+              <p className="text-[#0EA5E9] text-xs font-bold uppercase tracking-[0.2em] mb-4">Find Us</p>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Visit Our Office</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center shrink-0">
-                    <MapPin size={16} className="text-emerald-600" />
+                    <MapPin size={16} className="text-[#0EA5E9]" />
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-1">Address</p>
@@ -520,7 +516,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center shrink-0">
-                    <Phone size={16} className="text-emerald-600" />
+                    <Phone size={16} className="text-[#0EA5E9]" />
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-1">Phone</p>
@@ -529,7 +525,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center shrink-0">
-                    <Mail size={16} className="text-emerald-600" />
+                    <Mail size={16} className="text-[#0EA5E9]" />
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-1">Email</p>
@@ -538,7 +534,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="mt-9 flex gap-3">
-                <Link href="/contact" className="px-5 py-2.5 bg-emerald-500 text-white text-sm font-semibold rounded-lg hover:bg-emerald-400 transition-colors">
+                <Link href="/contact" className="btn-blue px-5 py-2.5 text-sm font-semibold rounded-lg inline-flex items-center">
                   Get in Touch
                 </Link>
                 <Link href="/services" className="px-5 py-2.5 border border-gray-200 text-sm font-medium rounded-lg hover:bg-gray-50 transition-colors text-gray-700">
@@ -547,12 +543,11 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Map placeholder */}
             <div
               className="min-h-[280px] flex flex-col items-center justify-center"
-              style={{ background: 'linear-gradient(145deg, #1a2744 0%, #0c2240 100%)' }}
+              style={{ background: 'linear-gradient(145deg, #020B2D 0%, #041444 100%)' }}
             >
-              <MapPin size={32} className="text-emerald-400 mb-3" />
+              <MapPin size={32} className="text-[#00D4FF] mb-3" />
               <p className="text-white font-semibold text-sm tracking-wide">Victoria</p>
               <p className="text-blue-300/70 text-xs mt-1 tracking-wide">Dar es Salaam, Tanzania</p>
             </div>
@@ -562,11 +557,13 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section
-        className="py-24"
-        style={{ background: 'linear-gradient(145deg, #0a1128 0%, #1a2744 60%, #0c2240 100%)' }}
+        className="py-24 relative overflow-hidden"
+        style={{ background: 'linear-gradient(145deg, #020B2D 0%, #041444 60%, #020B2D 100%)' }}
       >
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-7">
+        <div className="hero-grid-bg absolute inset-0 opacity-20" />
+        <div className="glow-orb glow-orb-1 absolute" style={{ width: '400px', height: '400px', top: '-30%', right: '10%', opacity: 0.5 }} />
+        <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-xs font-semibold tracking-widest uppercase mb-7">
             <Shield size={11} />
             CMSA Licensed · Professional · Client-Centred
           </div>
@@ -578,10 +575,7 @@ export default function AboutPage() {
             through to your first trade and beyond. Every engagement begins with listening to you.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/20 text-sm"
-            >
+            <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg text-sm">
               Open an Account
               <ArrowUpRight size={15} />
             </Link>
