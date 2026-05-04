@@ -2,54 +2,54 @@ import Link from 'next/link'
 import { Shield, TrendingUp, Briefcase, PieChart, ArrowRight, BadgeCheck } from 'lucide-react'
 
 const credentials = [
-  { icon: BadgeCheck, label: 'CMSA Licensed & Regulated', sub: 'Capital Markets & Securities Authority' },
-  { icon: TrendingUp, label: 'DSE Dealing Member', sub: 'Dar es Salaam Stock Exchange' },
-  { icon: Briefcase, label: 'Dealer Licence', sub: 'Securities Dealing & Brokerage' },
-  { icon: Shield, label: 'Investment Adviser & Fund Manager', sub: 'Advisory & Fund Management Licences' },
+  { icon: BadgeCheck,  label: 'CMSA Licensed & Regulated',      sub: 'Capital Markets & Securities Authority' },
+  { icon: TrendingUp,  label: 'DSE Dealing Member',             sub: 'Dar es Salaam Stock Exchange'           },
+  { icon: Briefcase,   label: 'Dealer Licence',                 sub: 'Securities Dealing & Brokerage'        },
+  { icon: Shield,      label: 'Investment Adviser & Fund Mgr',  sub: 'Advisory & Fund Management Licences'   },
 ]
 
 const services = [
   {
-    icon: Briefcase,
-    title: 'Brokerage / Dealing Services',
-    desc: 'Seamless execution of securities transactions on the DSE — precision, speed, and reliability with every trade.',
-    accent: '#2563eb',
-    bg: '#eff6ff',
-    iconBg: '#dbeafe',
+    icon:   Briefcase,
+    title:  'Brokerage / Dealing Services',
+    desc:   'Seamless execution of securities transactions on the DSE — precision, speed, and reliability with every trade.',
+    accent: '#2563EB',
+    glow:   'rgba(37,99,235,0.12)',
   },
   {
-    icon: TrendingUp,
-    title: 'Advisory Services',
-    desc: 'Tailored investment strategies and expert guidance grounded in deep market intelligence and rigorous analysis.',
-    accent: '#059669',
-    bg: '#f0fdf4',
-    iconBg: '#d1fae5',
+    icon:   TrendingUp,
+    title:  'Advisory Services',
+    desc:   'Tailored investment strategies and expert guidance grounded in deep market intelligence and rigorous analysis.',
+    accent: '#0EA5E9',
+    glow:   'rgba(14,165,233,0.12)',
   },
   {
-    icon: PieChart,
-    title: 'Fund Management',
-    desc: 'Disciplined, performance-driven fund management focused on long-term value creation and capital protection.',
-    accent: '#7c3aed',
-    bg: '#faf5ff',
-    iconBg: '#ede9fe',
+    icon:   PieChart,
+    title:  'Fund Management',
+    desc:   'Disciplined, performance-driven fund management focused on long-term value creation and capital protection.',
+    accent: '#6366F1',
+    glow:   'rgba(99,102,241,0.12)',
   },
 ]
 
 export default function ServicesSection() {
   return (
     <>
-      {/* Credentials */}
-      <section className="bg-white border-b border-gray-100 py-8">
+      {/* Credentials bar — dark, seamless from hero */}
+      <section className="py-10" style={{ background: '#0A1628' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:divide-x md:divide-gray-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 md:divide-x md:divide-white/10">
             {credentials.map(({ icon: Icon, label, sub }) => (
-              <div key={label} className="flex items-center gap-3 px-4 md:px-6 py-2">
-                <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
-                  <Icon size={17} className="text-emerald-600" />
+              <div key={label} className="credential-item flex items-center gap-3 px-4 md:px-6 py-3 rounded-xl">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                  style={{ background: 'rgba(37,99,235,0.15)' }}
+                >
+                  <Icon size={18} style={{ color: '#60A5FA' }} />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-gray-900 leading-tight">{label}</p>
-                  <p className="text-xs text-gray-400 mt-0.5 leading-tight">{sub}</p>
+                  <p className="text-sm font-bold text-white leading-tight">{label}</p>
+                  <p className="text-xs leading-tight mt-0.5" style={{ color: 'rgba(147,197,253,0.65)' }}>{sub}</p>
                 </div>
               </div>
             ))}
@@ -58,53 +58,63 @@ export default function ServicesSection() {
       </section>
 
       {/* Services */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-gray-500 text-lg max-w-xl mx-auto">
-              Three specialised, regulated services — each delivered with precision and integrity
+
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-5"
+              style={{ background: 'rgba(37,99,235,0.08)', color: '#2563EB' }}>
+              Licensed Services
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What We Offer</h2>
+            <p className="text-gray-400 text-lg max-w-xl mx-auto">
+              Three specialised, CMSA-regulated services — each delivered with precision and integrity
             </p>
           </div>
 
+          {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {services.map(({ icon: Icon, title, desc, accent, bg, iconBg }) => (
+            {services.map(({ icon: Icon, title, desc, accent, glow }) => (
               <div
                 key={title}
-                className="rounded-2xl border border-gray-100 p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
-                style={{ background: bg }}
+                className="service-card rounded-2xl border border-gray-100 bg-white p-8 group"
               >
+                {/* Top accent bar */}
                 <div
-                  className="w-13 h-13 w-12 h-12 rounded-2xl flex items-center justify-center mb-5 shadow-sm"
-                  style={{ background: iconBg }}
+                  className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: accent }}
+                />
+
+                {/* Icon */}
+                <div
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
+                  style={{ background: glow }}
                 >
                   <Icon size={22} style={{ color: accent }} />
                 </div>
+
                 <h3 className="font-extrabold text-gray-900 text-lg mb-3 leading-snug">{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">{desc}</p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-7">{desc}</p>
+
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-3"
                   style={{ color: accent }}
                 >
                   Learn more <ArrowRight size={13} />
                 </Link>
-                {/* bottom hover bar */}
-                <div
-                  className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500"
-                  style={{ background: accent }}
-                />
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          {/* CTA */}
+          <div className="text-center mt-12">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-lg text-white font-semibold hover:opacity-90 transition-all shadow-md"
-              style={{ background: '#1a2744' }}
+              className="btn-blue inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-white font-semibold text-sm"
             >
-              View All Services <ArrowRight size={15} />
+              Explore All Services <ArrowRight size={15} />
             </Link>
           </div>
         </div>
