@@ -1,7 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Newspaper, MessageSquare, FolderOpen, TrendingUp, TrendingDown, ArrowUpRight, Eye } from 'lucide-react'
+import Image from 'next/image'
+import { Newspaper, MessageSquare, FolderOpen, ArrowUpRight, Eye, ExternalLink } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
 type Inquiry = {
@@ -17,12 +18,6 @@ const statusColors: Record<string, string> = {
   closed: 'bg-gray-100 text-gray-500',
 }
 
-const marketSnapshot = [
-  { symbol: 'CRDB', price: '285', change: '+1.79%', up: true },
-  { symbol: 'NMB',  price: '3,200', change: '-1.54%', up: false },
-  { symbol: 'TCCL', price: '850', change: '+1.80%', up: true },
-  { symbol: 'TBL',  price: '9,500', change: '+1.60%', up: true },
-]
 
 export default function AdminOverview() {
   const [counts, setCounts]       = useState({ articles: 0, inquiries: 0, newInquiries: 0, documents: 0 })
@@ -143,37 +138,58 @@ export default function AdminOverview() {
               )}
             </div>
 
-            {/* Market Snapshot */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm">
-              <div className="p-6 border-b border-gray-50 flex items-center justify-between">
-                <h2 className="font-semibold text-gray-900">Market Snapshot</h2>
-                <Link href="/market"
-                  className="text-xs text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-1">
-                  Live <ArrowUpRight size={12} />
-                </Link>
-              </div>
-              <div className="p-4 space-y-3">
-                {marketSnapshot.map(s => (
-                  <div key={s.symbol}
-                    className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                    <div>
-                      <p className="text-sm font-bold text-gray-900">{s.symbol}</p>
-                      <p className="text-xs text-gray-400">TZS {s.price}</p>
+            {/* Market — DSE */}
+            <a
+              href="https://dse.co.tz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+              style={{ background: 'linear-gradient(145deg, #0f2a44 0%, #1a3a5c 60%, #0f2a44 100%)' }}
+            >
+              {/* Top accent */}
+              <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #2563EB, #3b82f6, #2563EB)' }} />
+
+              <div className="p-6 flex flex-col items-center text-center">
+                {/* DSE Logo */}
+                <div
+                  className="relative bg-white rounded-xl overflow-hidden mb-5 mt-1"
+                  style={{
+                    width: '140px',
+                    height: '78px',
+                    boxShadow: '0 0 24px 6px rgba(255,255,255,0.12), 0 4px 16px rgba(0,0,0,0.4)',
+                  }}
+                >
+                  <Image
+                    src="/dse-logo.png"
+                    alt="Dar es Salaam Stock Exchange"
+                    fill
+                    className="object-contain scale-[0.85]"
+                  />
+                </div>
+
+                <p className="text-white font-bold text-sm mb-1">Dar es Salaam Stock Exchange</p>
+                <p className="text-blue-300/70 text-xs mb-5">Official market data &amp; indices</p>
+
+                {/* Bullet points */}
+                <div className="w-full space-y-2 mb-5 text-left">
+                  {['Equity Market', 'Bond Market', 'DSEI Index', 'EAX Commodities'].map(item => (
+                    <div key={item} className="flex items-center gap-2.5 px-3 py-2 rounded-lg" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                      <div className="w-1.5 h-1.5 rounded-full bg-white/40 shrink-0" />
+                      <span className="text-white/80 text-xs">{item}</span>
                     </div>
-                    <div className={`flex items-center gap-1 text-xs font-semibold ${s.up ? 'text-emerald-600' : 'text-red-500'}`}>
-                      {s.up ? <TrendingUp size={13} /> : <TrendingDown size={13} />}
-                      {s.change}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <div
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-opacity group-hover:opacity-90"
+                  style={{ background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' }}
+                >
+                  <ExternalLink size={13} />
+                  Visit DSE Website
+                </div>
               </div>
-              <div className="px-6 pb-5">
-                <Link href="/market"
-                  className="w-full block text-center py-2.5 border border-gray-200 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors text-gray-600">
-                  View Full Market
-                </Link>
-              </div>
-            </div>
+            </a>
           </div>
 
           {/* Recent News */}
