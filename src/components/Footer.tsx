@@ -11,8 +11,8 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-3 mb-5 group w-fit">
               <div
-                className="shrink-0 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl group-hover:scale-[1.04] transition-all duration-200"
-                style={{ width: '64px', height: '64px' }}
+                className="shrink-0 bg-white rounded-2xl overflow-hidden group-hover:scale-[1.04] transition-all duration-200"
+                style={{ width: '64px', height: '64px', boxShadow: '0 0 18px 4px rgba(255,255,255,0.35), 0 4px 12px rgba(0,0,0,0.25)' }}
               >
                 <Image
                   src="/diamond-logo.png"

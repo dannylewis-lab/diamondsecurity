@@ -55,8 +55,8 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             <div
-              className="shrink-0 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl group-hover:scale-[1.04] transition-all duration-300"
-              style={{ width: '52px', height: '52px' }}
+              className="shrink-0 bg-white rounded-2xl overflow-hidden group-hover:scale-[1.04] transition-all duration-300"
+              style={{ width: '52px', height: '52px', boxShadow: '0 0 18px 4px rgba(255,255,255,0.35), 0 4px 12px rgba(0,0,0,0.25)' }}
             >
               <Image
                 src="/diamond-logo.png"

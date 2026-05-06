@@ -126,8 +126,8 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
     <div className="text-center mb-8">
       <div className="flex items-center justify-center gap-3 mb-3">
         <div
-          className="shrink-0 rounded-2xl overflow-hidden shadow-xl"
-          style={{ width: '76px', height: '76px' }}
+          className="shrink-0 bg-white rounded-2xl overflow-hidden"
+          style={{ width: '76px', height: '76px', boxShadow: '0 0 24px 6px rgba(255,255,255,0.3), 0 6px 20px rgba(0,0,0,0.35)' }}
         >
           <Image
             src="/diamond-logo.png"
@@ -333,8 +333,8 @@ function SidebarContent({
       <div className="px-5 py-5 border-b border-white/10">
         <Link href="/" className="flex items-center gap-3 group" onClick={onLinkClick}>
           <div
-            className="shrink-0 rounded-xl overflow-hidden shadow-md group-hover:scale-[1.04] transition-all duration-200"
-            style={{ width: '48px', height: '48px' }}
+            className="shrink-0 bg-white rounded-xl overflow-hidden group-hover:scale-[1.04] transition-all duration-200"
+            style={{ width: '48px', height: '48px', boxShadow: '0 0 16px 4px rgba(255,255,255,0.25), 0 4px 10px rgba(0,0,0,0.3)' }}
           >
             <Image
               src="/diamond-logo.png"
