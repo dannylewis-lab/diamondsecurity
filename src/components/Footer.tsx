@@ -10,12 +10,15 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-5 group w-fit">
-              <div className="shrink-0 bg-white rounded-xl p-2 shadow-lg border border-white/10 flex items-center justify-center h-14 w-14 sm:h-16 sm:w-16 group-hover:scale-105 group-hover:shadow-xl transition-all duration-200">
+              <div
+                className="shrink-0 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-[1.04] transition-all duration-200"
+                style={{ width: '60px', height: '60px', padding: '7px' }}
+              >
                 <Image
-                  src="/diamond-logo.svg"
+                  src="/diamond-logo.png"
                   alt="Diamond Global Securities Limited"
-                  width={160}
-                  height={160}
+                  width={80}
+                  height={80}
                   className="w-full h-full object-contain"
                 />
               </div>

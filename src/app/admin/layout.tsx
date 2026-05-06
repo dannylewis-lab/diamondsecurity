@@ -125,12 +125,16 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
   const logoBlock = (
     <div className="text-center mb-8">
       <div className="flex items-center justify-center gap-3 mb-3">
-        <div className="shrink-0 bg-white rounded-2xl p-2.5 shadow-xl flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20">
+        <div
+          className="shrink-0 bg-white rounded-2xl shadow-xl flex items-center justify-center"
+          style={{ width: '72px', height: '72px', padding: '8px' }}
+        >
           <Image
-            src="/diamond-logo.svg"
+            src="/diamond-logo.png"
             alt="Diamond Global Securities"
-            width={160} height={160}
+            width={100} height={100}
             className="w-full h-full object-contain"
+            priority
           />
         </div>
         <div className="text-left leading-tight">
@@ -328,11 +332,14 @@ function SidebarContent({
       {/* Logo */}
       <div className="px-5 py-5 border-b border-white/10">
         <Link href="/" className="flex items-center gap-3 group" onClick={onLinkClick}>
-          <div className="shrink-0 bg-white rounded-xl p-1.5 shadow-md flex items-center justify-center h-12 w-12 group-hover:scale-105 transition-all duration-200">
+          <div
+            className="shrink-0 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:scale-[1.04] transition-all duration-200"
+            style={{ width: '48px', height: '48px', padding: '5px' }}
+          >
             <Image
-              src="/diamond-logo.svg"
+              src="/diamond-logo.png"
               alt="Diamond Global Securities"
-              width={160} height={160}
+              width={80} height={80}
               className="w-full h-full object-contain"
             />
           </div>

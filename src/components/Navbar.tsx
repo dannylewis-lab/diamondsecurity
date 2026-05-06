@@ -53,20 +53,23 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-[70px]">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group flex-shrink-0">
-            <div className="shrink-0 bg-white rounded-xl p-1.5 sm:p-2 shadow-lg border border-white/10 flex items-center justify-center h-11 w-11 sm:h-13 sm:w-13 lg:h-14 lg:w-14 group-hover:scale-105 group-hover:shadow-xl transition-all duration-300"
-              style={{ minWidth: '44px', minHeight: '44px' }}>
+          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
+            <div
+              className="shrink-0 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-[1.04] transition-all duration-300"
+              style={{ width: '48px', height: '48px', padding: '5px' }}
+            >
               <Image
-                src="/diamond-logo.svg"
+                src="/diamond-logo.png"
                 alt="Diamond Global Securities Limited"
-                width={160}
-                height={160}
+                width={80}
+                height={80}
                 className="w-full h-full object-contain"
+                priority
               />
             </div>
             <div className="leading-tight">
-              <div className="font-extrabold text-white text-[13px] sm:text-[15px] lg:text-base tracking-wide">DIAMOND GLOBAL</div>
-              <div className="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em]" style={{ color: '#c8cc00' }}>
+              <div className="font-extrabold text-white text-[15px] sm:text-base lg:text-lg tracking-wide">DIAMOND GLOBAL</div>
+              <div className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em]" style={{ color: '#c8cc00' }}>
                 SECURITIES LIMITED
               </div>
             </div>
