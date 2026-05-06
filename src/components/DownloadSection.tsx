@@ -16,8 +16,8 @@ const typeColors: Record<string, { bg: string; text: string }> = {
   PDF:  { bg: 'bg-red-50',     text: 'text-red-500' },
   DOC:  { bg: 'bg-blue-50',    text: 'text-blue-500' },
   DOCX: { bg: 'bg-blue-50',    text: 'text-blue-500' },
-  XLSX: { bg: 'bg-emerald-50', text: 'text-emerald-500' },
-  XLS:  { bg: 'bg-emerald-50', text: 'text-emerald-500' },
+  XLSX: { bg: 'bg-emerald-50', text: 'text-blue-500' },
+  XLS:  { bg: 'bg-emerald-50', text: 'text-blue-500' },
 }
 
 export default function DownloadSection() {
@@ -57,7 +57,7 @@ export default function DownloadSection() {
 
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <svg className="animate-spin w-6 h-6 text-emerald-500" viewBox="0 0 24 24" fill="none">
+            <svg className="animate-spin w-6 h-6 text-blue-500" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
             </svg>
@@ -102,7 +102,7 @@ export default function DownloadSection() {
                         </div>
                         <Download
                           size={15}
-                          className="text-gray-400 group-hover:text-emerald-500 transition-colors shrink-0 ml-3"
+                          className="text-gray-400 group-hover:text-blue-500 transition-colors shrink-0 ml-3"
                         />
                       </a>
                     )

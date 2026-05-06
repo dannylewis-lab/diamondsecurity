@@ -62,7 +62,7 @@ export function HeroMarketWidget() {
                 className="rounded-xl py-3 px-2 text-center"
                 style={{ background: 'rgba(255,255,255,0.06)' }}
               >
-                <Icon size={16} className="text-emerald-400 mx-auto mb-1.5" />
+                <Icon size={16} className="text-white/70 mx-auto mb-1.5" />
                 <p className="text-white font-bold text-sm">{value}</p>
                 <p className="text-blue-300/70 text-[10px] mt-0.5">{label}</p>
               </div>
@@ -77,7 +77,7 @@ export function HeroMarketWidget() {
           {/* CTA Button */}
           <div
             className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 group-hover:opacity-90"
-            style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' }}
           >
             <span className="text-white">Visit DSE Website</span>
             <ArrowUpRight size={16} className="text-white" />
@@ -85,7 +85,7 @@ export function HeroMarketWidget() {
 
           {/* Footer note */}
           <div className="flex items-center justify-center gap-2 mt-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
             <p className="text-[11px] text-blue-300/60 font-medium tracking-wide">
               Diamond Global Securities · Licensed DSE Dealing Member
             </p>

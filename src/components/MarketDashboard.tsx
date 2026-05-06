@@ -16,7 +16,7 @@ export default function MarketDashboard() {
 
         {/* Section heading */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-semibold tracking-widest uppercase mb-5">
             <BarChart2 size={13} />
             Live Market Data
           </div>
@@ -73,7 +73,7 @@ export default function MarketDashboard() {
 
                 {/* CTA */}
                 <div className="flex items-center gap-3 w-fit py-3.5 px-7 rounded-xl font-semibold text-sm text-white transition-all duration-200 group-hover:opacity-90"
-                  style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)' }}
+                  style={{ background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' }}
                 >
                   <span>Visit DSE Website</span>
                   <ArrowUpRight size={16} />
@@ -91,7 +91,7 @@ export default function MarketDashboard() {
                 style={{ background: 'rgba(0,0,0,0.15)' }}
               >
                 <div className="flex items-center gap-2 mb-6">
-                  <TrendingUp size={15} className="text-emerald-400" />
+                  <TrendingUp size={15} className="text-white/60" />
                   <p className="text-blue-200 text-xs font-semibold uppercase tracking-widest">What you can find on DSE</p>
                 </div>
 
@@ -102,7 +102,7 @@ export default function MarketDashboard() {
                       className="flex items-center gap-4 p-4 rounded-xl transition-colors duration-200"
                       style={{ background: 'rgba(255,255,255,0.05)' }}
                     >
-                      <div className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+                      <div className="w-2 h-2 rounded-full bg-white/40 shrink-0" />
                       <div>
                         <p className="text-white font-semibold text-sm">{label}</p>
                         <p className="text-blue-300/70 text-xs mt-0.5">{desc}</p>
@@ -114,11 +114,11 @@ export default function MarketDashboard() {
                 {/* DSE partnership note */}
                 <div
                   className="rounded-xl p-4 flex items-start gap-3"
-                  style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)' }}
+                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
                 >
-                  <ShieldCheck size={16} className="text-emerald-400 shrink-0 mt-0.5" />
-                  <p className="text-emerald-300/80 text-xs leading-relaxed">
-                    Diamond Global Securities Limited is a licensed <strong className="text-emerald-300">DSE Dealing Member</strong>, authorised to trade on the Dar es Salaam Stock Exchange on behalf of investors.
+                  <ShieldCheck size={16} className="text-white/70 shrink-0 mt-0.5" />
+                  <p className="text-white/80 text-xs leading-relaxed">
+                    Diamond Global Securities Limited is a licensed <strong className="text-white">DSE Dealing Member</strong>, authorised to trade on the Dar es Salaam Stock Exchange on behalf of investors.
                   </p>
                 </div>
               </div>

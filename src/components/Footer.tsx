@@ -81,15 +81,15 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-300">Contact Us</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-blue-200">
-                <MapPin size={15} className="mt-0.5 shrink-0 text-emerald-400" />
+                <MapPin size={15} className="mt-0.5 shrink-0 text-blue-300" />
                 <span>Victoria<br/>Dar es Salaam, Tanzania</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-blue-200">
-                <Phone size={15} className="shrink-0 text-emerald-400" />
+                <Phone size={15} className="shrink-0 text-blue-300" />
                 +255 655 952 075
               </li>
               <li className="flex items-center gap-3 text-sm text-blue-200">
-                <Mail size={15} className="shrink-0 text-emerald-400" />
+                <Mail size={15} className="shrink-0 text-blue-300" />
                 info@diamondsecurities.co.tz
               </li>
             </ul>

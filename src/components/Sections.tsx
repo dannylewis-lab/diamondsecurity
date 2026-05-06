@@ -22,7 +22,7 @@ export function WhatsAppSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-5"
-                style={{ background: 'rgba(37,211,102,0.12)', color: '#4ade80' }}>
+                style={{ background: 'rgba(255,255,255,0.1)', color: '#ffffff' }}>
                 <MessageCircle size={14} />
                 WhatsApp Support
               </div>

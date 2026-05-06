@@ -16,7 +16,7 @@ const sentimentConfig = {
   bullish: {
     label: 'Positive Session',
     Icon: TrendingUp,
-    badge: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20',
+    badge: 'bg-blue-500/20 text-white border border-blue-500/20',
   },
   bearish: {
     label: 'Negative Session',
@@ -70,7 +70,7 @@ export default function LiveMarketOverview() {
     <section className="py-20 bg-white dark:bg-[#0a1628]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-semibold tracking-widest uppercase mb-5">
             <BarChart2 size={13} />
             DSE Market Insight
           </div>
@@ -102,7 +102,7 @@ export default function LiveMarketOverview() {
           <div className="p-8">
             {loading ? (
               <div className="flex items-center justify-center py-10">
-                <svg className="animate-spin w-6 h-6 text-emerald-500" viewBox="0 0 24 24" fill="none">
+                <svg className="animate-spin w-6 h-6 text-blue-500" viewBox="0 0 24 24" fill="none">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
                 </svg>
@@ -116,13 +116,13 @@ export default function LiveMarketOverview() {
                 {!report && (
                   <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
                     <div className="flex items-center gap-2 mb-5">
-                      <div className="w-1 h-5 bg-emerald-500 rounded-full" />
+                      <div className="w-1 h-5 bg-blue-500 rounded-full" />
                       <h4 className="font-bold text-gray-900 text-sm">Key Market Indicators</h4>
                     </div>
                     <ul className="space-y-3">
                       {staticPoints.map(point => (
                         <li key={point} className="flex items-start gap-3 text-sm text-gray-600">
-                          <CheckCircle size={14} className="text-emerald-500 mt-0.5 shrink-0" />
+                          <CheckCircle size={14} className="text-blue-500 mt-0.5 shrink-0" />
                           {point}
                         </li>
                       ))}
@@ -134,7 +134,7 @@ export default function LiveMarketOverview() {
                   <p className="text-xs text-gray-400">Source: Dar es Salaam Stock Exchange (DSE)</p>
                   <Link
                     href="/market"
-                    className="text-sm font-semibold text-emerald-600 hover:text-emerald-500 transition-colors flex items-center gap-1"
+                    className="text-sm font-semibold text-blue-600 hover:text-blue-500 transition-colors flex items-center gap-1"
                   >
                     View Live Data
                     <ChevronRight size={14} />
