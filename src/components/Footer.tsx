@@ -30,8 +30,13 @@ export default function Footer() {
               Your trusted partner in securities trading. Licensed by the Dar es Salaam Stock Exchange.
             </p>
             <div className="flex items-center gap-3">
-              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                <a key={i} href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-blue-400 hover:text-blue-400 transition-colors">
+              {[
+                { Icon: Facebook,  href: '#' },
+                { Icon: Twitter,   href: '#' },
+                { Icon: Linkedin,  href: '#' },
+                { Icon: Instagram, href: 'https://www.instagram.com/diamond_globalsecurities?igsh=d2Q0a2s5aWQyeXVr&utm_source=qr' },
+              ].map(({ Icon, href }, i) => (
+                <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-blue-400 hover:text-blue-400 transition-colors">
                   <Icon size={14} />
                 </a>
               ))}
