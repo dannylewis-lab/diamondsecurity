@@ -55,15 +55,15 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             <div
-              className="shrink-0 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-[1.04] transition-all duration-300"
-              style={{ width: '48px', height: '48px', padding: '5px' }}
+              className="shrink-0 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl group-hover:scale-[1.04] transition-all duration-300"
+              style={{ width: '52px', height: '52px' }}
             >
               <Image
                 src="/diamond-logo.png"
                 alt="Diamond Global Securities Limited"
-                width={80}
-                height={80}
-                className="w-full h-full object-contain"
+                width={52}
+                height={52}
+                className="w-full h-full object-cover"
                 priority
               />
             </div>

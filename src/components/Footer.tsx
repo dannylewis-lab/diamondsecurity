@@ -11,15 +11,15 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-3 mb-5 group w-fit">
               <div
-                className="shrink-0 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-[1.04] transition-all duration-200"
-                style={{ width: '60px', height: '60px', padding: '7px' }}
+                className="shrink-0 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl group-hover:scale-[1.04] transition-all duration-200"
+                style={{ width: '64px', height: '64px' }}
               >
                 <Image
                   src="/diamond-logo.png"
                   alt="Diamond Global Securities Limited"
-                  width={80}
-                  height={80}
-                  className="w-full h-full object-contain"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="leading-tight">

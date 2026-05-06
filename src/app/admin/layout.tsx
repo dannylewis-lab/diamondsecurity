@@ -126,14 +126,14 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
     <div className="text-center mb-8">
       <div className="flex items-center justify-center gap-3 mb-3">
         <div
-          className="shrink-0 bg-white rounded-2xl shadow-xl flex items-center justify-center"
-          style={{ width: '72px', height: '72px', padding: '8px' }}
+          className="shrink-0 rounded-2xl overflow-hidden shadow-xl"
+          style={{ width: '76px', height: '76px' }}
         >
           <Image
             src="/diamond-logo.png"
             alt="Diamond Global Securities"
-            width={100} height={100}
-            className="w-full h-full object-contain"
+            width={76} height={76}
+            className="w-full h-full object-cover"
             priority
           />
         </div>
@@ -333,14 +333,14 @@ function SidebarContent({
       <div className="px-5 py-5 border-b border-white/10">
         <Link href="/" className="flex items-center gap-3 group" onClick={onLinkClick}>
           <div
-            className="shrink-0 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:scale-[1.04] transition-all duration-200"
-            style={{ width: '48px', height: '48px', padding: '5px' }}
+            className="shrink-0 rounded-xl overflow-hidden shadow-md group-hover:scale-[1.04] transition-all duration-200"
+            style={{ width: '48px', height: '48px' }}
           >
             <Image
               src="/diamond-logo.png"
               alt="Diamond Global Securities"
-              width={80} height={80}
-              className="w-full h-full object-contain"
+              width={48} height={48}
+              className="w-full h-full object-cover"
             />
           </div>
           <div className="leading-tight">
