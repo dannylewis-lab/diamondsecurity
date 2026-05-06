@@ -10,14 +10,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-5 group w-fit">
-              <div className="shrink-0 group-hover:scale-105 transition-transform duration-200">
+              <div className="shrink-0 bg-white rounded-xl p-2 shadow-lg border border-white/10 flex items-center justify-center h-14 w-14 sm:h-16 sm:w-16 group-hover:scale-105 group-hover:shadow-xl transition-all duration-200">
                 <Image
                   src="/diamond-logo.svg"
                   alt="Diamond Global Securities Limited"
                   width={160}
                   height={160}
-                  className="h-14 w-auto object-contain"
-                  style={{ mixBlendMode: 'screen' }}
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="leading-tight">

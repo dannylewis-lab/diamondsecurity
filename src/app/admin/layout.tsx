@@ -125,13 +125,12 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
   const logoBlock = (
     <div className="text-center mb-8">
       <div className="flex items-center justify-center gap-3 mb-3">
-        <div className="relative h-14 w-14 shrink-0">
+        <div className="shrink-0 bg-white rounded-2xl p-2.5 shadow-xl flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20">
           <Image
             src="/diamond-logo.svg"
             alt="Diamond Global Securities"
             width={160} height={160}
-            className="h-14 w-auto object-contain"
-            style={{ mixBlendMode: 'screen' }}
+            className="w-full h-full object-contain"
           />
         </div>
         <div className="text-left leading-tight">
@@ -329,13 +328,12 @@ function SidebarContent({
       {/* Logo */}
       <div className="px-5 py-5 border-b border-white/10">
         <Link href="/" className="flex items-center gap-3 group" onClick={onLinkClick}>
-          <div className="relative h-11 w-11 shrink-0">
+          <div className="shrink-0 bg-white rounded-xl p-1.5 shadow-md flex items-center justify-center h-12 w-12 group-hover:scale-105 transition-all duration-200">
             <Image
               src="/diamond-logo.svg"
               alt="Diamond Global Securities"
               width={160} height={160}
-              className="h-11 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
-              style={{ mixBlendMode: 'screen' }}
+              className="w-full h-full object-contain"
             />
           </div>
           <div className="leading-tight">
