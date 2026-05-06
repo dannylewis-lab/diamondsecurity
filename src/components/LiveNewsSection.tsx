@@ -50,11 +50,11 @@ export default function LiveNewsSection() {
   }, [])
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 dark:bg-[#050e25]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-gray-900 mb-3">News &amp; Insights</h2>
-          <p className="text-gray-500">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">News &amp; Insights</h2>
+          <p className="text-gray-500 dark:text-blue-300">
             Stay informed with the latest market updates, articles, and official notices
           </p>
         </div>

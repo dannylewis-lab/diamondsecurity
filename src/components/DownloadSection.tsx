@@ -46,7 +46,7 @@ export default function DownloadSection() {
   const categories = Object.keys(grouped)
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-[#0a1628]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-gray-900 mb-3">Download Center</h2>

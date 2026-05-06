@@ -30,24 +30,29 @@ export default function Navbar() {
   }
 
   const navLinks = [
-    { label: 'Home',    href: '/'        },
-    { label: 'About',   href: '/about'   },
-    { label: 'Services',href: '/services'},
-    { label: 'Market',  href: '/market'  },
-    { label: 'News',    href: '/news'    },
+    { label: 'Home',     href: '/'         },
+    { label: 'About',    href: '/about'    },
+    { label: 'Services', href: '/services' },
+    { label: 'Market',   href: '/market'   },
+    { label: 'News',     href: '/news'     },
   ]
+
+  const navBg = dark
+    ? (scrolled ? 'rgba(2,11,45,0.97)' : 'rgba(5,14,37,0.92)')
+    : 'rgba(255,255,255,0.97)'
+
+  const navBorder = dark
+    ? (scrolled ? '1px solid rgba(37,99,235,0.15)' : 'none')
+    : '1px solid rgba(0,0,0,0.07)'
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
-        scrolled ? 'shadow-xl shadow-black/20' : 'shadow-none'
+        scrolled
+          ? dark ? 'shadow-xl shadow-black/20' : 'shadow-md shadow-black/5'
+          : 'shadow-none'
       }`}
-      style={{
-        background: scrolled
-          ? 'rgba(2, 11, 45, 0.97)'
-          : 'rgba(5, 14, 37, 0.92)',
-        borderBottom: scrolled ? '1px solid rgba(37,99,235,0.15)' : 'none',
-      }}
+      style={{ background: navBg, borderBottom: navBorder }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[70px]">
@@ -67,7 +72,9 @@ export default function Navbar() {
               />
             </div>
             <div className="leading-tight">
-              <div className="font-extrabold text-white text-[15px] sm:text-base lg:text-lg tracking-wide">DIAMOND GLOBAL</div>
+              <div className={`font-extrabold text-[15px] sm:text-base lg:text-lg tracking-wide transition-colors ${dark ? 'text-white' : 'text-gray-900'}`}>
+                DIAMOND GLOBAL
+              </div>
               <div className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em]" style={{ color: '#c8cc00' }}>
                 SECURITIES LIMITED
               </div>
@@ -80,10 +87,14 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-white/75 hover:text-white transition-colors duration-200 relative group/link"
+                className={`text-sm font-medium transition-colors duration-200 relative group/link ${
+                  dark
+                    ? 'text-white/75 hover:text-white'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-blue-400 group-hover/link:w-full transition-all duration-300 rounded-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-blue-500 group-hover/link:w-full transition-all duration-300 rounded-full" />
               </Link>
             ))}
           </div>
@@ -92,16 +103,24 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={toggleDark}
-              className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center hover:border-blue-400/40 hover:bg-blue-500/10 transition-all duration-200"
+              className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                dark
+                  ? 'border-white/15 hover:border-blue-400/40 hover:bg-blue-500/10'
+                  : 'border-gray-200 hover:border-blue-400 hover:bg-blue-50'
+              }`}
               aria-label="Toggle dark mode"
             >
               {dark
                 ? <Sun  size={15} className="text-yellow-400" />
-                : <Moon size={15} className="text-white/60" />}
+                : <Moon size={15} className="text-gray-500" />}
             </button>
             <Link
               href="/market"
-              className="px-4 py-2 text-sm font-medium border border-white/20 rounded-lg text-white/85 hover:bg-white/8 hover:border-blue-400/40 transition-all duration-200"
+              className={`px-4 py-2 text-sm font-medium border rounded-lg transition-all duration-200 ${
+                dark
+                  ? 'border-white/20 text-white/85 hover:bg-white/8 hover:border-blue-400/40'
+                  : 'border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-blue-500/50'
+              }`}
             >
               View Market
             </Link>
@@ -117,11 +136,18 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={toggleDark}
-              className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center"
+              className={`w-8 h-8 rounded-full border flex items-center justify-center ${
+                dark ? 'border-white/15' : 'border-gray-200'
+              }`}
             >
-              {dark ? <Sun size={14} className="text-yellow-400" /> : <Moon size={14} className="text-white/60" />}
+              {dark
+                ? <Sun  size={14} className="text-yellow-400" />
+                : <Moon size={14} className="text-gray-500" />}
             </button>
-            <button className="p-2 text-white/75 hover:text-white" onClick={() => setMobileOpen(!mobileOpen)}>
+            <button
+              className={`p-2 transition-colors ${dark ? 'text-white/75 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
@@ -131,24 +157,35 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div
-          className="md:hidden border-t border-white/10 px-4 py-4 space-y-1"
-          style={{ background: 'rgba(2, 11, 45, 0.98)' }}
+          className="md:hidden border-t px-4 py-4 space-y-1"
+          style={{
+            background: dark ? 'rgba(2,11,45,0.98)' : 'rgba(255,255,255,0.99)',
+            borderColor: dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)',
+          }}
         >
           {navLinks.map(item => (
             <Link
               key={item.label}
               href={item.href}
-              className="block text-sm font-medium text-white/75 py-2.5 px-3 rounded-lg hover:bg-blue-500/10 hover:text-white transition-all duration-200"
+              className={`block text-sm font-medium py-2.5 px-3 rounded-lg transition-all duration-200 ${
+                dark
+                  ? 'text-white/75 hover:bg-blue-500/10 hover:text-white'
+                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+              }`}
               onClick={() => setMobileOpen(false)}
             >
               {item.label}
             </Link>
           ))}
-          <div className="pt-3 flex flex-col gap-2 border-t border-white/10 mt-2">
+          <div className={`pt-3 flex flex-col gap-2 border-t mt-2 ${dark ? 'border-white/10' : 'border-gray-100'}`}>
             <Link
               href="/market"
               onClick={() => setMobileOpen(false)}
-              className="text-center py-2.5 border border-white/20 rounded-lg text-sm font-medium text-white/85 hover:bg-white/8 transition-all duration-200"
+              className={`text-center py-2.5 border rounded-lg text-sm font-medium transition-all duration-200 ${
+                dark
+                  ? 'border-white/20 text-white/85 hover:bg-white/8'
+                  : 'border-gray-200 text-gray-700 hover:bg-gray-50'
+              }`}
             >
               View Market
             </Link>

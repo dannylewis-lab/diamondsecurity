@@ -35,10 +35,10 @@ const services = [
 export default function ServicesSection() {
   return (
     <>
-      {/* Credentials bar — dark, seamless from hero */}
-      <section className="py-10" style={{ background: '#0A1628' }}>
+      {/* Credentials bar */}
+      <section className="py-10 theme-cred-bar">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 md:divide-x md:divide-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 md:divide-x md:divide-gray-200 dark:md:divide-white/10">
             {credentials.map(({ icon: Icon, label, sub }) => (
               <div key={label} className="credential-item flex items-center gap-3 px-4 md:px-6 py-3 rounded-xl">
                 <div
@@ -48,8 +48,8 @@ export default function ServicesSection() {
                   <Icon size={18} style={{ color: '#60A5FA' }} />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-white leading-tight">{label}</p>
-                  <p className="text-xs leading-tight mt-0.5" style={{ color: 'rgba(147,197,253,0.65)' }}>{sub}</p>
+                  <p className="text-sm font-bold text-gray-900 dark:text-white leading-tight">{label}</p>
+                  <p className="text-xs text-gray-500 dark:text-blue-300/65 leading-tight mt-0.5">{sub}</p>
                 </div>
               </div>
             ))}
@@ -58,7 +58,7 @@ export default function ServicesSection() {
       </section>
 
       {/* Services */}
-      <section id="services" className="py-24 bg-white">
+      <section id="services" className="py-24 bg-white dark:bg-[#050e25]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
@@ -67,8 +67,8 @@ export default function ServicesSection() {
               style={{ background: 'rgba(37,99,235,0.08)', color: '#2563EB' }}>
               Licensed Services
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What We Offer</h2>
-            <p className="text-gray-400 text-lg max-w-xl mx-auto">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What We Offer</h2>
+            <p className="text-gray-400 dark:text-blue-300 text-lg max-w-xl mx-auto">
               Three specialised, CMSA-regulated services — each delivered with precision and integrity
             </p>
           </div>
@@ -78,7 +78,7 @@ export default function ServicesSection() {
             {services.map(({ icon: Icon, title, desc, accent, glow }) => (
               <div
                 key={title}
-                className="service-card rounded-2xl border border-gray-100 bg-white p-8 group"
+                className="service-card rounded-2xl border border-gray-100 dark:border-white/10 bg-white dark:bg-white/5 p-8 group"
               >
                 {/* Top accent bar */}
                 <div
@@ -94,8 +94,8 @@ export default function ServicesSection() {
                   <Icon size={22} style={{ color: accent }} />
                 </div>
 
-                <h3 className="font-extrabold text-gray-900 text-lg mb-3 leading-snug">{title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-7">{desc}</p>
+                <h3 className="font-extrabold text-gray-900 dark:text-white text-lg mb-3 leading-snug">{title}</h3>
+                <p className="text-gray-400 dark:text-blue-300/70 text-sm leading-relaxed mb-7">{desc}</p>
 
                 <Link
                   href="/services"

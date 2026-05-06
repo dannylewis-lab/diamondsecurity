@@ -73,11 +73,11 @@ export function WhatsAppSection() {
 // Inquiry Form
 export function InquirySection() {
   return (
-    <section className="py-20 bg-white" id="contact">
+    <section className="py-20 bg-white dark:bg-[#050e25]" id="contact">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-3">Send Us an Inquiry</h2>
-          <p className="text-gray-500">Fill out the form below and our team will get back to you within 24 hours</p>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Send Us an Inquiry</h2>
+          <p className="text-gray-500 dark:text-blue-300">Fill out the form below and our team will get back to you within 24 hours</p>
         </div>
 
         <InquiryForm />

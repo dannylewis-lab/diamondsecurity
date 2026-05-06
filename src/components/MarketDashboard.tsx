@@ -11,17 +11,17 @@ const highlights = [
 
 export default function MarketDashboard() {
   return (
-    <section className="py-20 bg-gray-50" id="market">
+    <section className="py-20 bg-gray-50 dark:bg-[#050e25]" id="market">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section heading */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-50 text-emerald-600 text-xs font-semibold tracking-widest uppercase mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-5">
             <BarChart2 size={13} />
             Live Market Data
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-3">DSE Market Dashboard</h2>
-          <p className="text-gray-500 max-w-lg mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">DSE Market Dashboard</h2>
+          <p className="text-gray-500 dark:text-blue-300 max-w-lg mx-auto">
             Real-time market data from the official Dar es Salaam Stock Exchange
           </p>
         </div>

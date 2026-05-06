@@ -67,20 +67,20 @@ export default function LiveMarketOverview() {
   const { Icon: SentimentIcon } = cfg
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-[#0a1628]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-50 text-emerald-600 text-xs font-semibold tracking-widest uppercase mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-5">
             <BarChart2 size={13} />
             DSE Market Insight
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-3">Market Overview</h2>
-          <p className="text-gray-500 max-w-lg mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Market Overview</h2>
+          <p className="text-gray-500 dark:text-blue-300 max-w-lg mx-auto">
             Stay informed with our latest commentary on the Dar es Salaam Stock Exchange
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div className="bg-white dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm overflow-hidden">
           <div
             className="px-8 py-4 border-b border-gray-100 flex items-center justify-between"
             style={{ background: 'linear-gradient(135deg, #1a2744 0%, #0f2a44 100%)' }}

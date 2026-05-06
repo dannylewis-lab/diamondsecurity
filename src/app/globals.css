@@ -210,6 +210,10 @@ body {
 .badge-article { background: rgba(99,102,241,0.12); color: #6366f1; }
 .badge-notice  { background: rgba(245,158,11,0.12); color: #d97706; }
 
+/* ── Light/dark theme-aware utilities ──────────────────────────────────────── */
+.theme-cred-bar { background: #f1f5f9; }
+.dark .theme-cred-bar { background: #0a1628; }
+
 /* ── Admin sidebar ──────────────────────────────────────────────────────────── */
 .sidebar-item {
   display: flex; align-items: center; gap: 12px;
