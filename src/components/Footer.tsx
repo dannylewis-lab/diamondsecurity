@@ -12,7 +12,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-5 group w-fit">
               <div className="shrink-0 group-hover:scale-105 transition-transform duration-200">
                 <Image
-                  src="/logoo.jpeg"
+                  src="/diamond-logo.svg"
                   alt="Diamond Global Securities Limited"
                   width={160}
                   height={160}

@@ -56,7 +56,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             <div className="relative h-10 w-10 flex-shrink-0">
               <Image
-                src="/logoo.jpeg"
+                src="/diamond-logo.svg"
                 alt="Diamond Global Securities Limited"
                 width={160}
                 height={160}

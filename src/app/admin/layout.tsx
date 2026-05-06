@@ -127,7 +127,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
       <div className="flex items-center justify-center gap-3 mb-3">
         <div className="relative h-14 w-14 shrink-0">
           <Image
-            src="/logoo.jpeg"
+            src="/diamond-logo.svg"
             alt="Diamond Global Securities"
             width={160} height={160}
             className="h-14 w-auto object-contain"
@@ -331,7 +331,7 @@ function SidebarContent({
         <Link href="/" className="flex items-center gap-3 group" onClick={onLinkClick}>
           <div className="relative h-11 w-11 shrink-0">
             <Image
-              src="/logoo.jpeg"
+              src="/diamond-logo.svg"
               alt="Diamond Global Securities"
               width={160} height={160}
               className="h-11 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
