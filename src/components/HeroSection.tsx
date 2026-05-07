@@ -16,14 +16,14 @@ export default function HeroSection() {
       <div
         className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(17,51,245,0.05) 0%, transparent 65%)',
+          background: 'radial-gradient(circle, rgba(52,87,213,0.05) 0%, transparent 65%)',
           transform: 'translate(25%, -25%)',
         }}
       />
       <div
         className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(17,51,245,0.03) 0%, transparent 65%)',
+          background: 'radial-gradient(circle, rgba(52,87,213,0.03) 0%, transparent 65%)',
           transform: 'translate(-30%, 30%)',
         }}
       />
@@ -34,17 +34,17 @@ export default function HeroSection() {
           {/* Left: Text */}
           <div>
             <div
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#1133f5] border border-blue-200 mb-8"
-              style={{ background: 'rgba(17,51,245,0.06)' }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#3457d5] border border-blue-200 mb-8"
+              style={{ background: 'rgba(52,87,213,0.06)' }}
             >
               <Shield size={11} />
               CMSA Licensed &nbsp;·&nbsp; DSE Dealing Member
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-gray-900 leading-[1.12] mb-5">
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-[#1d1d1d] leading-[1.12] mb-5">
               Your Premier Gateway<br />
               to the{' '}
-              <span style={{ color: '#1133f5' }}>Dar es Salaam</span>
+              <span style={{ color: '#3457d5' }}>Dar es Salaam</span>
               <br />Stock Exchange
             </h1>
 
@@ -63,7 +63,7 @@ export default function HeroSection() {
               </Link>
               <Link
                 href="/market"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-gray-200 text-gray-700 font-medium rounded-xl hover:bg-gray-50 hover:border-blue-200 transition-all text-sm"
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-gray-200 text-gray-700 font-medium rounded-xl hover:bg-[#fafafa] hover:border-blue-200 transition-all text-sm"
               >
                 View Live Market <ChevronRight size={15} />
               </Link>
@@ -76,8 +76,8 @@ export default function HeroSection() {
                   key={label}
                   className={i > 0 ? 'pl-6 sm:pl-8 border-l border-gray-200' : ''}
                 >
-                  <p className="text-2xl font-bold text-gray-900">{value}</p>
-                  <p className="text-[10px] sm:text-xs font-semibold text-[#1133f5] uppercase tracking-wider mt-0.5">
+                  <p className="text-2xl font-bold text-[#1d1d1d]">{value}</p>
+                  <p className="text-[10px] sm:text-xs font-semibold text-[#3457d5] uppercase tracking-wider mt-0.5">
                     {label}
                   </p>
                   <p className="text-[10px] text-gray-400 mt-0.5 leading-tight hidden sm:block">{sub}</p>
@@ -100,8 +100,8 @@ export default function HeroSection() {
         <div
           className="w-[18px] h-[18px]"
           style={{
-            borderRight: '2px solid rgba(17,51,245,0.3)',
-            borderBottom: '2px solid rgba(17,51,245,0.3)',
+            borderRight: '2px solid rgba(52,87,213,0.3)',
+            borderBottom: '2px solid rgba(52,87,213,0.3)',
             transform: 'rotate(45deg)',
             animation: 'bounceDown 1.6s ease-in-out infinite',
           }}

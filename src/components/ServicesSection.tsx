@@ -13,22 +13,22 @@ const services = [
     icon:   Briefcase,
     title:  'Brokerage / Dealing Services',
     desc:   'Seamless execution of securities transactions on the DSE — precision, speed, and reliability with every trade.',
-    accent: '#1133f5',
-    glow:   'rgba(17,51,245,0.12)',
+    accent: '#3457d5',
+    glow:   'rgba(52,87,213,0.12)',
   },
   {
     icon:   TrendingUp,
     title:  'Advisory Services',
     desc:   'Tailored investment strategies and expert guidance grounded in deep market intelligence and rigorous analysis.',
-    accent: '#1133f5',
+    accent: '#3457d5',
     glow:   'rgba(14,165,233,0.12)',
   },
   {
     icon:   PieChart,
     title:  'Fund Management',
     desc:   'Disciplined, performance-driven fund management focused on long-term value creation and capital protection.',
-    accent: '#1133f5',
-    glow:   'rgba(17,51,245,0.12)',
+    accent: '#3457d5',
+    glow:   'rgba(52,87,213,0.12)',
   },
 ]
 
@@ -43,12 +43,12 @@ export default function ServicesSection() {
               <div key={label} className="credential-item flex items-center gap-3 px-4 md:px-6 py-3 rounded-xl">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                  style={{ background: 'rgba(17,51,245,0.15)' }}
+                  style={{ background: 'rgba(52,87,213,0.15)' }}
                 >
                   <Icon size={18} style={{ color: '#60A5FA' }} />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-gray-900 dark:text-white leading-tight">{label}</p>
+                  <p className="text-sm font-bold text-[#1d1d1d] dark:text-white leading-tight">{label}</p>
                   <p className="text-xs text-gray-500 dark:text-blue-300/65 leading-tight mt-0.5">{sub}</p>
                 </div>
               </div>
@@ -64,10 +64,10 @@ export default function ServicesSection() {
           {/* Header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-5"
-              style={{ background: 'rgba(17,51,245,0.08)', color: '#1133f5' }}>
+              style={{ background: 'rgba(52,87,213,0.08)', color: '#3457d5' }}>
               Licensed Services
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What We Offer</h2>
+            <h2 className="text-4xl font-bold text-[#1d1d1d] dark:text-white mb-4">What We Offer</h2>
             <p className="text-gray-400 dark:text-blue-300 text-lg max-w-xl mx-auto">
               Three specialised, CMSA-regulated services — each delivered with precision and integrity
             </p>
@@ -94,7 +94,7 @@ export default function ServicesSection() {
                   <Icon size={22} style={{ color: accent }} />
                 </div>
 
-                <h3 className="font-extrabold text-gray-900 dark:text-white text-lg mb-3 leading-snug">{title}</h3>
+                <h3 className="font-extrabold text-[#1d1d1d] dark:text-white text-lg mb-3 leading-snug">{title}</h3>
                 <p className="text-gray-400 dark:text-blue-300/70 text-sm leading-relaxed mb-7">{desc}</p>
 
                 <Link

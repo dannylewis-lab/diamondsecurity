@@ -8,9 +8,9 @@ export default function MarketPage() {
     <>
       <Navbar />
       <main className="pt-16">
-        <div className="bg-gray-50 py-12 border-b border-gray-200">
+        <div className="bg-[#fafafa] py-12 border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Market Data</h1>
+            <h1 className="text-4xl font-bold text-[#1d1d1d] mb-2">Market Data</h1>
             <p className="text-gray-500">Powered by the Dar es Salaam Stock Exchange (DSE)</p>
           </div>
         </div>

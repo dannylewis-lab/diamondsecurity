@@ -71,18 +71,18 @@ export default function InquiriesPage() {
     <div>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Inquiries</h1>
+          <h1 className="text-3xl font-bold text-[#1d1d1d]">Inquiries</h1>
           {newCount > 0 && (
             <p className="text-sm text-blue-600 font-medium mt-1">{newCount} new unread</p>
           )}
         </div>
         <div className="flex items-center gap-2">
           <button onClick={fetchInquiries}
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors font-medium text-gray-700">
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-200 rounded-lg hover:bg-[#fafafa] transition-colors font-medium text-gray-700">
             <RefreshCw size={14} /> Refresh
           </button>
           <button onClick={exportCSV}
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors font-medium text-gray-700">
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-200 rounded-lg hover:bg-[#fafafa] transition-colors font-medium text-gray-700">
             <Download size={14} /> Export CSV
           </button>
         </div>
@@ -124,9 +124,9 @@ export default function InquiriesPage() {
               </thead>
               <tbody>
                 {filtered.map(inq => (
-                  <tr key={inq.id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                  <tr key={inq.id} className="border-b border-gray-50 hover:bg-[#fafafa]/50 transition-colors">
                     <td className="px-6 py-4">
-                      <p className="text-sm font-medium text-gray-900">{inq.name}</p>
+                      <p className="text-sm font-medium text-[#1d1d1d]">{inq.name}</p>
                       <p className="text-xs text-gray-400">{inq.email}</p>
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600">{inq.type}</td>
@@ -163,7 +163,7 @@ export default function InquiriesPage() {
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
           <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
             <div className="flex items-center justify-between mb-5">
-              <h2 className="text-lg font-bold text-gray-900">Inquiry Details</h2>
+              <h2 className="text-lg font-bold text-[#1d1d1d]">Inquiry Details</h2>
               <button onClick={() => setSelected(null)} className="text-gray-400 hover:text-gray-600">
                 <X size={18} />
               </button>
@@ -174,12 +174,12 @@ export default function InquiriesPage() {
                 .map(([label, value]) => (
                   <div key={label} className="flex gap-4">
                     <span className="text-gray-400 w-16 shrink-0">{label}</span>
-                    <span className="text-gray-900 font-medium">{value}</span>
+                    <span className="text-[#1d1d1d] font-medium">{value}</span>
                   </div>
                 ))}
               <div>
                 <span className="text-gray-400 block mb-1">Message</span>
-                <p className="text-gray-700 bg-gray-50 rounded-lg p-3 leading-relaxed">{selected.message}</p>
+                <p className="text-gray-700 bg-[#fafafa] rounded-lg p-3 leading-relaxed">{selected.message}</p>
               </div>
               <div className="flex gap-3 pt-2">
                 {(['new', 'reviewed', 'closed'] as const).map(s => (

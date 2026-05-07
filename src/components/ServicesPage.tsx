@@ -88,16 +88,16 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <span
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#1133f5] border border-blue-200 mb-8"
-              style={{ background: 'rgba(17,51,245,0.06)' }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#3457d5] border border-blue-200 mb-8"
+              style={{ background: 'rgba(52,87,213,0.06)' }}
             >
               <BarChart2 size={11} />
               CMSA Licensed &nbsp;·&nbsp; DSE Dealing Member
             </span>
 
-            <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 leading-[1.1] tracking-tight mb-5">
+            <h1 className="text-5xl sm:text-6xl font-bold text-[#1d1d1d] leading-[1.1] tracking-tight mb-5">
               Three licensed<br />
-              <span style={{ color: '#1133f5' }}>financial services.</span>
+              <span style={{ color: '#3457d5' }}>financial services.</span>
             </h1>
 
             <p className="text-gray-500 text-lg leading-relaxed mb-9 max-w-lg">
@@ -114,7 +114,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/market"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-blue-200 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium border border-gray-200 text-gray-600 hover:bg-[#fafafa] hover:border-blue-200 transition-colors"
               >
                 View Market Data
               </Link>
@@ -136,12 +136,12 @@ export default function ServicesPage() {
               <div key={label} className="flex items-center gap-3 px-5 lg:px-8 py-5">
                 <div
                   className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-                  style={{ background: 'rgba(17,51,245,0.07)' }}
+                  style={{ background: 'rgba(52,87,213,0.07)' }}
                 >
-                  <Icon size={16} style={{ color: '#1133f5' }} />
+                  <Icon size={16} style={{ color: '#3457d5' }} />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-gray-900 leading-tight">{value}</p>
+                  <p className="text-sm font-semibold text-[#1d1d1d] leading-tight">{value}</p>
                   <p className="text-xs text-gray-400 mt-0.5">{label}</p>
                 </div>
               </div>
@@ -151,14 +151,14 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Services ──────────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-[#fafafa]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="mb-14">
-            <p className="text-xs font-semibold tracking-widest uppercase text-[#1133f5] mb-2">
+            <p className="text-xs font-semibold tracking-widest uppercase text-[#3457d5] mb-2">
               What We Offer
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Our Services</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1d]">Our Services</h2>
           </div>
 
           <div className="space-y-6">
@@ -179,7 +179,7 @@ export default function ServicesPage() {
                       <div>
                         <div
                           className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-                          style={{ background: 'rgba(17,51,245,0.25)' }}
+                          style={{ background: 'rgba(52,87,213,0.25)' }}
                         >
                           <Icon size={20} className="text-white" />
                         </div>
@@ -210,7 +210,7 @@ export default function ServicesPage() {
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                           {s.features.map((f) => (
                             <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
-                              <CheckCircle size={14} className="shrink-0 mt-0.5" style={{ color: '#1133f5' }} />
+                              <CheckCircle size={14} className="shrink-0 mt-0.5" style={{ color: '#3457d5' }} />
                               {f}
                             </li>
                           ))}
@@ -230,10 +230,10 @@ export default function ServicesPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="mb-14">
-            <p className="text-xs font-semibold tracking-widest uppercase text-[#1133f5] mb-2">
+            <p className="text-xs font-semibold tracking-widest uppercase text-[#3457d5] mb-2">
               Simple Process
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">How to Get Started</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1d]">How to Get Started</h2>
             <p className="text-gray-400 mt-2 text-base">Four straightforward steps to begin investing</p>
           </div>
 
@@ -241,15 +241,15 @@ export default function ServicesPage() {
             {steps.map((p, i) => (
               <div
                 key={p.step}
-                className="relative bg-gray-50 rounded-2xl border border-gray-100 p-6 hover:border-blue-200 hover:bg-white hover:shadow-md transition-all duration-200"
+                className="relative bg-[#fafafa] rounded-2xl border border-gray-100 p-6 hover:border-blue-200 hover:bg-white hover:shadow-md transition-all duration-200"
               >
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center text-white text-sm font-bold mb-5"
-                  style={{ background: '#1133f5' }}
+                  style={{ background: '#3457d5' }}
                 >
                   {p.step}
                 </div>
-                <h3 className="font-semibold text-gray-900 text-base mb-2">{p.title}</h3>
+                <h3 className="font-semibold text-[#1d1d1d] text-base mb-2">{p.title}</h3>
                 <p className="text-sm text-gray-400 leading-relaxed">{p.desc}</p>
 
                 {i < steps.length - 1 && (
@@ -273,12 +273,12 @@ export default function ServicesPage() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-[#fafafa]">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="mb-12">
-            <p className="text-xs font-semibold tracking-widest uppercase text-[#1133f5] mb-2">FAQs</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Common Questions</h2>
+            <p className="text-xs font-semibold tracking-widest uppercase text-[#3457d5] mb-2">FAQs</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1d]">Common Questions</h2>
           </div>
 
           <div className="space-y-2">
@@ -293,12 +293,12 @@ export default function ServicesPage() {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
                 >
-                  <span className="font-medium text-gray-900 text-sm leading-snug">{faq.q}</span>
+                  <span className="font-medium text-[#1d1d1d] text-sm leading-snug">{faq.q}</span>
                   <ChevronDown
                     size={16}
                     className="shrink-0 transition-transform duration-200"
                     style={{
-                      color: openFaq === i ? '#1133f5' : '#9ca3af',
+                      color: openFaq === i ? '#3457d5' : '#9ca3af',
                       transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0deg)',
                     }}
                   />
@@ -319,15 +319,15 @@ export default function ServicesPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50 border-t border-gray-100">
+      <section className="py-24 bg-[#fafafa] border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
 
             <div className="max-w-xl">
-              <p className="text-xs font-semibold tracking-widest uppercase text-[#1133f5] mb-4">
+              <p className="text-xs font-semibold tracking-widest uppercase text-[#3457d5] mb-4">
                 Ready to invest?
               </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-snug">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1d] mb-4 leading-snug">
                 Start your investment journey today
               </h2>
               <p className="text-gray-500 leading-relaxed text-base">

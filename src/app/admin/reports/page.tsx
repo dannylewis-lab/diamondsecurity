@@ -100,7 +100,7 @@ export default function AIReports() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Market Reports</h1>
+        <h1 className="text-3xl font-bold text-[#1d1d1d]">Market Reports</h1>
         <button
           onClick={openNew}
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-colors"
@@ -126,7 +126,7 @@ export default function AIReports() {
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-3 mb-1 flex-wrap">
-                    <h2 className="text-base font-bold text-gray-900">{report.title}</h2>
+                    <h2 className="text-base font-bold text-[#1d1d1d]">{report.title}</h2>
                     <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold capitalize ${sentimentStyle[report.sentiment]}`}>
                       {report.sentiment}
                     </span>
@@ -153,7 +153,7 @@ export default function AIReports() {
               <div className="flex items-center gap-3 mt-5">
                 <button
                   onClick={() => openEdit(report)}
-                  className="px-4 py-2 text-xs font-semibold border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-gray-700"
+                  className="px-4 py-2 text-xs font-semibold border border-gray-200 rounded-lg hover:bg-[#fafafa] transition-colors text-gray-700"
                 >
                   Edit
                 </button>
@@ -184,7 +184,7 @@ export default function AIReports() {
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
           <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-lg">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">{editTarget ? 'Edit Report' : 'New Market Report'}</h2>
+              <h2 className="text-xl font-bold text-[#1d1d1d]">{editTarget ? 'Edit Report' : 'New Market Report'}</h2>
               <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-gray-600">
                 <X size={18} />
               </button>
@@ -197,7 +197,7 @@ export default function AIReports() {
                   value={form.title}
                   onChange={e => setForm(p => ({ ...p, title: e.target.value }))}
                   placeholder="e.g. Daily Market Summary â€” 28 Apr 2026"
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20"
+                  className="w-full px-4 py-2.5 bg-[#fafafa] border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20"
                 />
               </div>
 
@@ -228,7 +228,7 @@ export default function AIReports() {
                   onChange={e => setForm(p => ({ ...p, summary: e.target.value }))}
                   rows={5}
                   placeholder="Write a market summary that will appear on the homepage Market Overview section..."
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 resize-none"
+                  className="w-full px-4 py-2.5 bg-[#fafafa] border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 resize-none"
                 />
               </div>
 
@@ -251,7 +251,7 @@ export default function AIReports() {
                 </button>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="flex-1 py-2.5 border border-gray-200 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors"
+                  className="flex-1 py-2.5 border border-gray-200 text-sm font-medium rounded-xl hover:bg-[#fafafa] transition-colors"
                 >
                   Cancel
                 </button>

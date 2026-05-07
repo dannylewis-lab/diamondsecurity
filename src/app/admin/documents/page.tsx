@@ -123,7 +123,7 @@ export default function DocumentsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Document Management</h1>
+        <h1 className="text-3xl font-bold text-[#1d1d1d]">Document Management</h1>
         <button
           onClick={() => { setShowModal(true); setUploadError('') }}
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-colors"
@@ -156,13 +156,13 @@ export default function DocumentsPage() {
               </thead>
               <tbody>
                 {docs.map(doc => (
-                  <tr key={doc.id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                  <tr key={doc.id} className="border-b border-gray-50 hover:bg-[#fafafa]/50 transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center shrink-0">
                           <FileText size={14} className="text-gray-500" />
                         </div>
-                        <span className="text-sm font-medium text-gray-900">{doc.name}</span>
+                        <span className="text-sm font-medium text-[#1d1d1d]">{doc.name}</span>
                       </div>
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600">{doc.category}</td>
@@ -199,7 +199,7 @@ export default function DocumentsPage() {
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
           <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">Upload Document</h2>
+              <h2 className="text-xl font-bold text-[#1d1d1d]">Upload Document</h2>
               <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-gray-600">
                 <X size={18} />
               </button>
@@ -231,7 +231,7 @@ export default function DocumentsPage() {
                   value={uploadForm.name}
                   onChange={e => setUploadForm(p => ({ ...p, name: e.target.value }))}
                   placeholder="e.g. Individual Account Opening Form"
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20" />
+                  className="w-full px-4 py-2.5 bg-[#fafafa] border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20" />
               </div>
 
               <div>
@@ -239,7 +239,7 @@ export default function DocumentsPage() {
                 <select
                   value={uploadForm.category}
                   onChange={e => setUploadForm(p => ({ ...p, category: e.target.value }))}
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20">
+                  className="w-full px-4 py-2.5 bg-[#fafafa] border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20">
                   {categories.map(c => <option key={c}>{c}</option>)}
                 </select>
               </div>
@@ -259,7 +259,7 @@ export default function DocumentsPage() {
                   ) : 'Upload'}
                 </button>
                 <button onClick={() => setShowModal(false)}
-                  className="flex-1 py-2.5 border border-gray-200 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">
+                  className="flex-1 py-2.5 border border-gray-200 text-sm font-medium rounded-xl hover:bg-[#fafafa] transition-colors">
                   Cancel
                 </button>
               </div>

@@ -49,7 +49,7 @@ export default function DownloadSection() {
     <section className="py-20 bg-white dark:bg-[#0a1628]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-gray-900 mb-3">Download Center</h2>
+          <h2 className="text-4xl font-bold text-[#1d1d1d] mb-3">Download Center</h2>
           <p className="text-gray-500">
             Access all necessary forms and documents to get started with Diamond Global Securities
           </p>
@@ -64,7 +64,7 @@ export default function DownloadSection() {
           </div>
         ) : categories.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 text-center">
-            <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center mb-4">
+            <div className="w-14 h-14 bg-[#fafafa] rounded-2xl flex items-center justify-center mb-4">
               <FolderOpen size={24} className="text-gray-300" />
             </div>
             <p className="text-gray-400 text-sm">No documents available yet.</p>
@@ -73,26 +73,26 @@ export default function DownloadSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map(category => (
               <div key={category} className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-md transition-shadow">
-                <h3 className="font-bold text-gray-900 mb-5 text-sm uppercase tracking-wider text-gray-500">
+                <h3 className="font-bold text-[#1d1d1d] mb-5 text-sm uppercase tracking-wider text-gray-500">
                   {category}
                 </h3>
                 <div className="space-y-3">
                   {grouped[category].map(doc => {
-                    const style = typeColors[doc.type] ?? { bg: 'bg-gray-50', text: 'text-gray-500' }
+                    const style = typeColors[doc.type] ?? { bg: 'bg-[#fafafa]', text: 'text-gray-500' }
                     return (
                       <a
                         key={doc.id}
                         href={doc.public_url ?? '#'}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-between bg-gray-50 rounded-xl p-3.5 hover:bg-blue-50 hover:border-blue-100 border border-transparent transition-all duration-200 group"
+                        className="flex items-center justify-between bg-[#fafafa] rounded-xl p-3.5 hover:bg-blue-50 hover:border-blue-100 border border-transparent transition-all duration-200 group"
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           <div className={`w-9 h-9 ${style.bg} rounded-lg flex items-center justify-center shrink-0`}>
                             <FileText size={15} className={style.text} />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-sm font-medium text-gray-900 leading-tight truncate">
+                            <p className="text-sm font-medium text-[#1d1d1d] leading-tight truncate">
                               {doc.name}
                             </p>
                             <p className="text-xs text-gray-400 mt-0.5">

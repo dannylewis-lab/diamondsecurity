@@ -119,7 +119,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
   }
 
   const cardStripe = (
-    <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #1133f5, #1133f5)' }} />
+    <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #3457d5, #3457d5)' }} />
   )
 
   const logoBlock = (
@@ -166,9 +166,9 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
     </>
   )
 
-  const inputClass = "w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-colors"
+  const inputClass = "w-full px-4 py-3 bg-[#fafafa] border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-colors"
   const btnClass   = "w-full py-3.5 text-white font-semibold rounded-xl transition-all text-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:opacity-90 shadow-lg"
-  const btnStyle   = { background: 'linear-gradient(135deg, #1133f5 0%, #0d28c9 100%)' }
+  const btnStyle   = { background: 'linear-gradient(135deg, #3457d5 0%, #2a46c0 100%)' }
 
   const outerWrap = (children: React.ReactNode) => (
     <div
@@ -200,7 +200,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
         <div className="w-11 h-11 rounded-2xl bg-blue-50 flex items-center justify-center mb-4">
           <Mail size={20} className="text-blue-500" />
         </div>
-        <h2 className="text-xl font-bold text-gray-900 mb-1">Forgot password?</h2>
+        <h2 className="text-xl font-bold text-[#1d1d1d] mb-1">Forgot password?</h2>
         <p className="text-sm text-gray-400 mb-6">Enter your email and we'll send a reset link.</p>
         <div className="space-y-4">
           <div>
@@ -229,7 +229,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
         <div className="w-11 h-11 rounded-2xl bg-blue-50 flex items-center justify-center mb-4">
           <KeyRound size={20} className="text-blue-500" />
         </div>
-        <h2 className="text-xl font-bold text-gray-900 mb-1">Set new password</h2>
+        <h2 className="text-xl font-bold text-[#1d1d1d] mb-1">Set new password</h2>
         <p className="text-sm text-gray-400 mb-6">Choose a strong password for your admin account.</p>
         <div className="space-y-4">
           <div>
@@ -261,7 +261,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
       {cardStripe}
       <div className="p-6 sm:p-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-1">Sign in</h2>
+        <h2 className="text-xl font-bold text-[#1d1d1d] mb-1">Sign in</h2>
         <p className="text-sm text-gray-400 mb-6">Enter your credentials to access the dashboard</p>
         <div className="space-y-4">
           <div>
@@ -382,7 +382,7 @@ function SidebarContent({
                   ? 'text-white shadow-lg'
                   : 'text-white/50 hover:bg-white/10 hover:text-white/90'
               }`}
-              style={isActive ? { background: 'linear-gradient(135deg, #1133f5, #1133f5)' } : {}}
+              style={isActive ? { background: 'linear-gradient(135deg, #3457d5, #3457d5)' } : {}}
             >
               <Icon size={15} className={isActive ? 'text-white' : 'text-white/40 group-hover:text-white/70'} />
               <span className="flex-1">{label}</span>

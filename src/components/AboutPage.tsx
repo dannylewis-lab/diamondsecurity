@@ -85,20 +85,20 @@ export default function AboutPage() {
       <section className="pt-32 pb-16 bg-white border-b border-gray-100 relative overflow-hidden">
         <div
           className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(17,51,245,0.04) 0%, transparent 65%)', transform: 'translate(20%, -20%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(52,87,213,0.04) 0%, transparent 65%)', transform: 'translate(20%, -20%)' }}
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
             <div
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#1133f5] border border-blue-200 mb-8"
-              style={{ background: 'rgba(17,51,245,0.06)' }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#3457d5] border border-blue-200 mb-8"
+              style={{ background: 'rgba(52,87,213,0.06)' }}
             >
               <Shield size={11} />
               CMSA Licensed &amp; Regulated · DSE Dealing Member
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.6rem] font-bold text-gray-900 mb-6 leading-[1.15]">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.6rem] font-bold text-[#1d1d1d] mb-6 leading-[1.15]">
               Tanzania&apos;s Authorised<br />
-              <span style={{ color: '#1133f5' }}>Capital Markets Partner</span>
+              <span style={{ color: '#3457d5' }}>Capital Markets Partner</span>
             </h1>
             <p className="text-gray-500 text-lg leading-relaxed mb-10 max-w-2xl">
               Diamond Global Securities Limited is a licensed and regulated capital markets intermediary,
@@ -112,7 +112,7 @@ export default function AboutPage() {
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 px-7 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-blue-200 transition-all text-sm"
+                className="inline-flex items-center gap-2 px-7 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-[#fafafa] hover:border-blue-200 transition-all text-sm"
               >
                 Our Services
                 <ChevronRight size={15} />
@@ -136,7 +136,7 @@ export default function AboutPage() {
               'Fund Manager Licence',
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#1133f5] shrink-0" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#3457d5] shrink-0" />
                 <span className="text-xs text-gray-600 font-medium" dangerouslySetInnerHTML={{ __html: item }} />
               </div>
             ))}
@@ -145,12 +145,12 @@ export default function AboutPage() {
       </section>
 
       {/* Who We Are */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <div>
-              <p className="text-[#1133f5] text-xs font-bold uppercase tracking-[0.2em] mb-4">Who We Are</p>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-snug">
+              <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-4">Who We Are</p>
+              <h2 className="text-4xl font-bold text-[#1d1d1d] mb-6 leading-snug">
                 A Regulated Partner Built on Trust and Expertise
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5 text-[15px]">
@@ -175,7 +175,7 @@ export default function AboutPage() {
                   'Committed to investor protection, market integrity, and professional standards',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3 text-sm text-gray-700">
-                    <CheckCircle size={15} className="text-[#1133f5] mt-0.5 shrink-0" />
+                    <CheckCircle size={15} className="text-[#3457d5] mt-0.5 shrink-0" />
                     {item}
                   </div>
                 ))}
@@ -189,11 +189,11 @@ export default function AboutPage() {
                   key={title}
                   className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-100 hover:shadow-lg transition-all duration-300 group relative overflow-hidden"
                 >
-                  <div className="absolute top-0 left-0 w-full h-0.5 bg-gray-100 group-hover:bg-[#1133f5] transition-colors duration-300" />
-                  <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-50 transition-colors duration-300">
-                    <Icon size={18} className="text-gray-500 group-hover:text-[#1133f5] transition-colors duration-300" />
+                  <div className="absolute top-0 left-0 w-full h-0.5 bg-gray-100 group-hover:bg-[#3457d5] transition-colors duration-300" />
+                  <div className="w-10 h-10 bg-[#fafafa] rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-50 transition-colors duration-300">
+                    <Icon size={18} className="text-gray-500 group-hover:text-[#3457d5] transition-colors duration-300" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2 text-sm">{title}</h3>
+                  <h3 className="font-bold text-[#1d1d1d] mb-2 text-sm">{title}</h3>
                   <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
                 </div>
               ))}
@@ -206,17 +206,17 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="rounded-2xl px-8 py-8 mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-gray-50 border border-gray-200">
+          <div className="rounded-2xl px-8 py-8 mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-[#fafafa] border border-gray-200">
             <div>
-              <p className="text-[#1133f5] text-xs font-bold uppercase tracking-[0.2em] mb-2">Regulatory Status</p>
-              <h2 className="text-2xl font-bold text-gray-900">Our Authorisations</h2>
+              <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-2">Regulatory Status</p>
+              <h2 className="text-2xl font-bold text-[#1d1d1d]">Our Authorisations</h2>
               <p className="text-gray-500 text-sm mt-2 max-w-xl leading-relaxed">
                 Diamond Global Securities Limited is authorised and regulated by the Capital Markets and Securities
                 Authority (CMSA) of Tanzania and is a licensed dealing member of the Dar es Salaam Stock Exchange (DSE).
               </p>
             </div>
             <div className="shrink-0 flex items-center gap-3">
-              <BadgeCheck size={40} style={{ color: '#1133f5' }} className="opacity-80" />
+              <BadgeCheck size={40} style={{ color: '#3457d5' }} className="opacity-80" />
             </div>
           </div>
 
@@ -227,13 +227,13 @@ export default function AboutPage() {
                 key={name}
                 className="rounded-2xl border border-gray-200 p-7 hover:border-blue-200 hover:shadow-lg transition-all duration-300 group bg-white relative overflow-hidden"
               >
-                <div className="absolute top-0 left-0 w-1 h-full bg-gray-100 group-hover:bg-[#1133f5] transition-colors duration-300 rounded-l-2xl" />
+                <div className="absolute top-0 left-0 w-1 h-full bg-gray-100 group-hover:bg-[#3457d5] transition-colors duration-300 rounded-l-2xl" />
                 <div className="pl-3">
-                  <div className="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center mb-5 group-hover:bg-blue-50 transition-colors duration-300">
-                    <Icon size={20} className="text-gray-500 group-hover:text-[#1133f5] transition-colors duration-300" />
+                  <div className="w-11 h-11 rounded-xl bg-[#fafafa] flex items-center justify-center mb-5 group-hover:bg-blue-50 transition-colors duration-300">
+                    <Icon size={20} className="text-gray-500 group-hover:text-[#3457d5] transition-colors duration-300" />
                   </div>
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.18em] mb-1">{authority}</p>
-                  <h3 className="font-extrabold text-gray-900 text-base mb-3">{name}</h3>
+                  <h3 className="font-extrabold text-[#1d1d1d] text-base mb-3">{name}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                 </div>
               </div>
@@ -243,22 +243,22 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-[#1133f5] text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Purpose</p>
-            <h2 className="text-4xl font-bold text-gray-900">Mission &amp; Vision</h2>
+            <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Purpose</p>
+            <h2 className="text-4xl font-bold text-[#1d1d1d]">Mission &amp; Vision</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Mission */}
             <div className="rounded-3xl p-10 bg-white border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-1 h-full bg-[#1133f5] rounded-l-3xl" />
+              <div className="absolute top-0 left-0 w-1 h-full bg-[#3457d5] rounded-l-3xl" />
               <div className="pl-3">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-6">
-                  <Target size={20} className="text-[#1133f5]" />
+                  <Target size={20} className="text-[#3457d5]" />
                 </div>
-                <p className="text-[#1133f5] text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Mission</p>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">What We Set Out to Do</h3>
+                <p className="text-[#3457d5] text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Mission</p>
+                <h3 className="text-xl font-bold text-[#1d1d1d] mb-4">What We Set Out to Do</h3>
                 <p className="text-gray-600 leading-relaxed text-[15px]">
                   To provide every Tanzanian investor with access to professional, regulated, and
                   expert-driven capital markets services — empowering individuals, institutions, and
@@ -269,13 +269,13 @@ export default function AboutPage() {
             </div>
             {/* Vision */}
             <div className="rounded-3xl p-10 bg-white border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-1 h-full bg-[#1133f5] rounded-l-3xl" />
+              <div className="absolute top-0 left-0 w-1 h-full bg-[#3457d5] rounded-l-3xl" />
               <div className="pl-3">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-6">
-                  <Eye size={20} className="text-[#1133f5]" />
+                  <Eye size={20} className="text-[#3457d5]" />
                 </div>
-                <p className="text-[#1133f5] text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Vision</p>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Where We Are Headed</h3>
+                <p className="text-[#3457d5] text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Vision</p>
+                <h3 className="text-xl font-bold text-[#1d1d1d] mb-4">Where We Are Headed</h3>
                 <p className="text-gray-600 leading-relaxed text-[15px]">
                   To be the most trusted and respected capital markets firm in Tanzania — recognised not
                   only for the quality of services we deliver, but for the integrity, transparency, and
@@ -293,8 +293,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
             <div className="lg:col-span-1">
-              <p className="text-[#1133f5] text-xs font-bold uppercase tracking-[0.2em] mb-4">Our Strengths</p>
-              <h2 className="text-4xl font-bold text-gray-900 mb-5 leading-snug">
+              <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-4">Our Strengths</p>
+              <h2 className="text-4xl font-bold text-[#1d1d1d] mb-5 leading-snug">
                 Why Invest with Diamond Global
               </h2>
               <p className="text-gray-500 text-[15px] leading-relaxed mb-8">
@@ -314,14 +314,14 @@ export default function AboutPage() {
                   className="rounded-2xl border border-gray-100 p-7 hover:border-blue-100 hover:shadow-lg transition-all duration-300 group"
                 >
                   <div className="flex items-start justify-between mb-5">
-                    <div className="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors duration-300">
-                      <Icon size={20} className="text-gray-400 group-hover:text-[#1133f5] transition-colors duration-300" />
+                    <div className="w-11 h-11 rounded-xl bg-[#fafafa] flex items-center justify-center group-hover:bg-blue-50 transition-colors duration-300">
+                      <Icon size={20} className="text-gray-400 group-hover:text-[#3457d5] transition-colors duration-300" />
                     </div>
                     <span className="text-3xl font-black text-gray-100 group-hover:text-blue-100 transition-colors duration-300 leading-none">
                       {number}
                     </span>
                   </div>
-                  <h3 className="font-bold text-gray-900 text-[15px] mb-2 leading-snug">{title}</h3>
+                  <h3 className="font-bold text-[#1d1d1d] text-[15px] mb-2 leading-snug">{title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                 </div>
               ))}
@@ -331,11 +331,11 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-[#fafafa]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-[#1133f5] text-xs font-bold uppercase tracking-[0.2em] mb-3">Our People</p>
-            <h2 className="text-4xl font-bold text-gray-900">Leadership &amp; Team</h2>
+            <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-3">Our People</p>
+            <h2 className="text-4xl font-bold text-[#1d1d1d]">Leadership &amp; Team</h2>
             <p className="text-gray-400 mt-3 max-w-xl mx-auto text-[15px]">
               A team of licensed professionals dedicated to delivering disciplined, transparent, and client-centred financial services.
             </p>
@@ -362,7 +362,7 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:col-span-3 p-9 lg:p-14 flex flex-col justify-center bg-white">
-              <div className="w-8 h-0.5 mb-7" style={{ background: '#1133f5' }} />
+              <div className="w-8 h-0.5 mb-7" style={{ background: '#3457d5' }} />
               <p className="text-gray-700 leading-relaxed text-[15px] mb-5">
                 Mr. Beatus Mlingi is a distinguished capital markets professional with extensive experience
                 at the heart of Tanzania's securities industry. His deep expertise in investment operations,
@@ -388,16 +388,16 @@ export default function AboutPage() {
                   'Commitment to institutional excellence',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5 text-sm text-gray-600">
-                    <CheckCircle size={14} className="mt-0.5 shrink-0" style={{ color: '#1133f5' }} />
+                    <CheckCircle size={14} className="mt-0.5 shrink-0" style={{ color: '#3457d5' }} />
                     {item}
                   </div>
                 ))}
               </div>
 
               <div className="pt-6 border-t border-gray-100 flex items-center gap-3">
-                <div className="w-1 h-7 rounded-full" style={{ background: '#1133f5' }} />
+                <div className="w-1 h-7 rounded-full" style={{ background: '#3457d5' }} />
                 <div>
-                  <p className="text-xs font-bold text-gray-900 tracking-wide">Diamond Global Securities Limited</p>
+                  <p className="text-xs font-bold text-[#1d1d1d] tracking-wide">Diamond Global Securities Limited</p>
                   <p className="text-xs text-gray-400">Victoria, Dar es Salaam, Tanzania</p>
                 </div>
               </div>
@@ -429,7 +429,7 @@ export default function AboutPage() {
                   <div className="absolute top-3 left-3">
                     <span
                       className="text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full"
-                      style={{ background: 'rgba(17,51,245,0.85)', color: '#fff' }}
+                      style={{ background: 'rgba(52,87,213,0.85)', color: '#fff' }}
                     >
                       {role}
                     </span>
@@ -439,17 +439,17 @@ export default function AboutPage() {
                 <div className="px-5 py-4 flex items-center gap-3">
                   <div
                     className="w-9 h-9 rounded-xl flex items-center justify-center text-white text-xs font-black shrink-0"
-                    style={{ background: 'linear-gradient(135deg, #1133f5, #0d28c9)' }}
+                    style={{ background: 'linear-gradient(135deg, #3457d5, #2a46c0)' }}
                   >
                     {init}
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-sm leading-tight">{name}</p>
+                    <p className="font-bold text-[#1d1d1d] text-sm leading-tight">{name}</p>
                     <p className="text-xs text-blue-600 font-semibold mt-0.5">{role}</p>
                   </div>
                 </div>
 
-                <div className="h-[3px] w-0 group-hover:w-full transition-all duration-500" style={{ background: 'linear-gradient(90deg, #1133f5, #1133f5)' }} />
+                <div className="h-[3px] w-0 group-hover:w-full transition-all duration-500" style={{ background: 'linear-gradient(90deg, #3457d5, #3457d5)' }} />
               </div>
             ))}
           </div>
@@ -461,33 +461,33 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-gray-100 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
             <div className="p-10 lg:p-14">
-              <p className="text-[#1133f5] text-xs font-bold uppercase tracking-[0.2em] mb-4">Find Us</p>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Visit Our Office</h2>
+              <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-4">Find Us</p>
+              <h2 className="text-3xl font-bold text-[#1d1d1d] mb-8">Visit Our Office</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center shrink-0">
-                    <MapPin size={16} className="text-[#1133f5]" />
+                  <div className="w-10 h-10 rounded-full bg-[#fafafa] border border-gray-100 flex items-center justify-center shrink-0">
+                    <MapPin size={16} className="text-[#3457d5]" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-1">Address</p>
+                    <p className="text-xs font-bold text-[#1d1d1d] uppercase tracking-wider mb-1">Address</p>
                     <p className="text-gray-500 text-sm">Victoria, Dar es Salaam, Tanzania</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center shrink-0">
-                    <Phone size={16} className="text-[#1133f5]" />
+                  <div className="w-10 h-10 rounded-full bg-[#fafafa] border border-gray-100 flex items-center justify-center shrink-0">
+                    <Phone size={16} className="text-[#3457d5]" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-1">Phone</p>
+                    <p className="text-xs font-bold text-[#1d1d1d] uppercase tracking-wider mb-1">Phone</p>
                     <p className="text-gray-500 text-sm">+255 655 952 075</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center shrink-0">
-                    <Mail size={16} className="text-[#1133f5]" />
+                  <div className="w-10 h-10 rounded-full bg-[#fafafa] border border-gray-100 flex items-center justify-center shrink-0">
+                    <Mail size={16} className="text-[#3457d5]" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-1">Email</p>
+                    <p className="text-xs font-bold text-[#1d1d1d] uppercase tracking-wider mb-1">Email</p>
                     <p className="text-gray-500 text-sm">info@diamondsecurities.co.tz</p>
                   </div>
                 </div>
@@ -496,17 +496,17 @@ export default function AboutPage() {
                 <Link href="/contact" className="btn-blue px-5 py-2.5 text-sm font-semibold rounded-lg inline-flex items-center">
                   Get in Touch
                 </Link>
-                <Link href="/services" className="px-5 py-2.5 border border-gray-200 text-sm font-medium rounded-lg hover:bg-gray-50 transition-colors text-gray-700">
+                <Link href="/services" className="px-5 py-2.5 border border-gray-200 text-sm font-medium rounded-lg hover:bg-[#fafafa] transition-colors text-gray-700">
                   View Services
                 </Link>
               </div>
             </div>
 
-            <div className="min-h-[280px] flex flex-col items-center justify-center bg-gray-50 border-t lg:border-t-0 lg:border-l border-gray-100">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ background: 'rgba(17,51,245,0.08)' }}>
-                <MapPin size={28} className="text-[#1133f5]" />
+            <div className="min-h-[280px] flex flex-col items-center justify-center bg-[#fafafa] border-t lg:border-t-0 lg:border-l border-gray-100">
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ background: 'rgba(52,87,213,0.08)' }}>
+                <MapPin size={28} className="text-[#3457d5]" />
               </div>
-              <p className="text-gray-900 font-semibold text-sm tracking-wide">Victoria</p>
+              <p className="text-[#1d1d1d] font-semibold text-sm tracking-wide">Victoria</p>
               <p className="text-gray-400 text-xs mt-1 tracking-wide">Dar es Salaam, Tanzania</p>
             </div>
           </div>
@@ -517,13 +517,13 @@ export default function AboutPage() {
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#1133f5] border border-blue-200 mb-7"
-            style={{ background: 'rgba(17,51,245,0.06)' }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#3457d5] border border-blue-200 mb-7"
+            style={{ background: 'rgba(52,87,213,0.06)' }}
           >
             <Shield size={11} />
             CMSA Licensed · Professional · Client-Centred
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-5 leading-snug">
+          <h2 className="text-4xl font-bold text-[#1d1d1d] mb-5 leading-snug">
             Begin Your Investment Journey<br />with a Partner You Can Trust
           </h2>
           <p className="text-gray-500 mb-9 max-w-xl mx-auto leading-relaxed text-[15px]">
@@ -537,7 +537,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/market"
-              className="inline-flex items-center gap-2 px-8 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-blue-200 transition-colors text-sm"
+              className="inline-flex items-center gap-2 px-8 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-[#fafafa] hover:border-blue-200 transition-colors text-sm"
             >
               View Live Market
               <ChevronRight size={15} />

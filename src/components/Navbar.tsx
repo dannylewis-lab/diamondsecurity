@@ -42,7 +42,7 @@ export default function Navbar() {
     : 'rgba(255,255,255,0.97)'
 
   const navBorder = dark
-    ? (scrolled ? '1px solid rgba(17,51,245,0.15)' : 'none')
+    ? (scrolled ? '1px solid rgba(52,87,213,0.15)' : 'none')
     : '1px solid rgba(0,0,0,0.07)'
 
   return (
@@ -72,10 +72,10 @@ export default function Navbar() {
               />
             </div>
             <div className="leading-tight">
-              <div className={`font-extrabold text-[15px] sm:text-base lg:text-lg tracking-wide transition-colors ${dark ? 'text-white' : 'text-gray-900'}`}>
+              <div className={`font-extrabold text-[15px] sm:text-base lg:text-lg tracking-wide transition-colors ${dark ? 'text-white' : 'text-[#1d1d1d]'}`}>
                 DIAMOND GLOBAL
               </div>
-              <div className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em]" style={{ color: '#ffffff' }}>
+              <div className={`text-[10px] sm:text-[11px] font-bold tracking-[0.22em] ${dark ? 'text-blue-300' : 'text-[#3457d5]'}`}>
                 SECURITIES LIMITED
               </div>
             </div>
@@ -90,11 +90,11 @@ export default function Navbar() {
                 className={`text-sm font-medium transition-colors duration-200 relative group/link ${
                   dark
                     ? 'text-white/75 hover:text-white'
-                    : 'text-gray-600 hover:text-gray-900'
+                    : 'text-gray-600 hover:text-[#1d1d1d]'
                 }`}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-blue-500 group-hover/link:w-full transition-all duration-300 rounded-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#3457d5] group-hover/link:w-full transition-all duration-300 rounded-full" />
               </Link>
             ))}
           </div>
@@ -119,7 +119,7 @@ export default function Navbar() {
               className={`px-4 py-2 text-sm font-medium border rounded-lg transition-all duration-200 ${
                 dark
                   ? 'border-white/20 text-white/85 hover:bg-white/8 hover:border-blue-400/40'
-                  : 'border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-blue-500/50'
+                  : 'border-gray-200 text-gray-700 hover:bg-[#fafafa] hover:border-blue-500/50'
               }`}
             >
               View Market
@@ -145,7 +145,7 @@ export default function Navbar() {
                 : <Moon size={14} className="text-gray-500" />}
             </button>
             <button
-              className={`p-2 transition-colors ${dark ? 'text-white/75 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
+              className={`p-2 transition-colors ${dark ? 'text-white/75 hover:text-white' : 'text-gray-600 hover:text-[#1d1d1d]'}`}
               onClick={() => setMobileOpen(!mobileOpen)}
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -170,7 +170,7 @@ export default function Navbar() {
               className={`block text-sm font-medium py-2.5 px-3 rounded-lg transition-all duration-200 ${
                 dark
                   ? 'text-white/75 hover:bg-blue-500/10 hover:text-white'
-                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                  : 'text-gray-600 hover:bg-gray-100 hover:text-[#1d1d1d]'
               }`}
               onClick={() => setMobileOpen(false)}
             >
@@ -184,7 +184,7 @@ export default function Navbar() {
               className={`text-center py-2.5 border rounded-lg text-sm font-medium transition-all duration-200 ${
                 dark
                   ? 'border-white/20 text-white/85 hover:bg-white/8'
-                  : 'border-gray-200 text-gray-700 hover:bg-gray-50'
+                  : 'border-gray-200 text-gray-700 hover:bg-[#fafafa]'
               }`}
             >
               View Market

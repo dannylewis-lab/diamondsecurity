@@ -59,11 +59,11 @@ export default function AdminOverview() {
     <div>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard Overview</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#1d1d1d]">Dashboard Overview</h1>
           <p className="text-gray-400 text-sm mt-1">Welcome back — here's what's happening today</p>
         </div>
         <Link href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors font-medium text-gray-700 self-start sm:self-auto shrink-0">
+          className="inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-200 rounded-lg hover:bg-[#fafafa] transition-colors font-medium text-gray-700 self-start sm:self-auto shrink-0">
           <ArrowUpRight size={14} /> View Site
         </Link>
       </div>
@@ -85,7 +85,7 @@ export default function AdminOverview() {
                 <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
                   <Icon size={20} className="text-blue-600" />
                 </div>
-                <p className="text-3xl font-bold text-gray-900 mb-0.5">{value}</p>
+                <p className="text-3xl font-bold text-[#1d1d1d] mb-0.5">{value}</p>
                 <p className="text-sm text-gray-500 mb-1">{label}</p>
                 <p className={`text-xs font-medium ${label === 'Inquiries' && counts.newInquiries > 0 ? 'text-blue-600' : 'text-gray-400'}`}>
                   {change}
@@ -98,7 +98,7 @@ export default function AdminOverview() {
             {/* Recent Inquiries */}
             <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm">
               <div className="p-6 border-b border-gray-50 flex items-center justify-between">
-                <h2 className="font-semibold text-gray-900">Recent Inquiries</h2>
+                <h2 className="font-semibold text-[#1d1d1d]">Recent Inquiries</h2>
                 <Link href="/admin/inquiries"
                   className="text-xs text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
                   View All <ArrowUpRight size={12} />
@@ -119,8 +119,8 @@ export default function AdminOverview() {
                     </thead>
                     <tbody>
                       {recentInq.map(inq => (
-                        <tr key={inq.id} className="border-b border-gray-50 hover:bg-gray-50/50">
-                          <td className="px-6 py-4 text-sm font-medium text-gray-900">{inq.name}</td>
+                        <tr key={inq.id} className="border-b border-gray-50 hover:bg-[#fafafa]/50">
+                          <td className="px-6 py-4 text-sm font-medium text-[#1d1d1d]">{inq.name}</td>
                           <td className="px-6 py-4 text-sm text-gray-600">{inq.type}</td>
                           <td className="px-6 py-4 text-sm text-gray-500">
                             {new Date(inq.created_at).toLocaleDateString()}
@@ -147,7 +147,7 @@ export default function AdminOverview() {
               style={{ background: 'linear-gradient(145deg, #0f2a44 0%, #1a3a5c 60%, #0f2a44 100%)' }}
             >
               {/* Top accent */}
-              <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #1133f5, #1133f5, #1133f5)' }} />
+              <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #3457d5, #3457d5, #3457d5)' }} />
 
               <div className="p-6 flex flex-col items-center text-center">
                 {/* DSE Logo */}
@@ -183,7 +183,7 @@ export default function AdminOverview() {
                 {/* CTA */}
                 <div
                   className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-opacity group-hover:opacity-90"
-                  style={{ background: 'linear-gradient(135deg, #1133f5 0%, #0d28c9 100%)' }}
+                  style={{ background: 'linear-gradient(135deg, #3457d5 0%, #2a46c0 100%)' }}
                 >
                   <ExternalLink size={13} />
                   Visit DSE Website
@@ -195,7 +195,7 @@ export default function AdminOverview() {
           {/* Recent News */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm">
             <div className="p-6 border-b border-gray-50 flex items-center justify-between">
-              <h2 className="font-semibold text-gray-900">Recent News</h2>
+              <h2 className="font-semibold text-[#1d1d1d]">Recent News</h2>
               <Link href="/admin/news"
                 className="text-xs text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
                 Manage <ArrowUpRight size={12} />
@@ -207,9 +207,9 @@ export default function AdminOverview() {
               <div className="divide-y divide-gray-50">
                 {recentNews.map(n => (
                   <div key={n.id}
-                    className="px-6 py-4 flex items-center justify-between hover:bg-gray-50/50 transition-colors">
+                    className="px-6 py-4 flex items-center justify-between hover:bg-[#fafafa]/50 transition-colors">
                     <div>
-                      <p className="text-sm font-medium text-gray-900">{n.title}</p>
+                      <p className="text-sm font-medium text-[#1d1d1d]">{n.title}</p>
                       <p className="text-xs text-gray-400 mt-0.5">
                         {new Date(n.created_at).toLocaleDateString()} · {n.category} ·{' '}
                         <span className={n.published ? 'text-blue-600' : 'text-gray-400'}>

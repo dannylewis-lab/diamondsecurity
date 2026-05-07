@@ -13,7 +13,7 @@ export function HeroMarketWidget() {
       <div className="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl hover:border-blue-200 transition-all duration-300 overflow-hidden">
 
         {/* Top accent bar */}
-        <div className="h-1" style={{ background: '#1133f5' }} />
+        <div className="h-1" style={{ background: '#3457d5' }} />
 
         <div className="p-7 lg:p-8">
 
@@ -39,7 +39,7 @@ export function HeroMarketWidget() {
 
           {/* Title */}
           <div className="text-center mb-6">
-            <p className="text-gray-900 font-bold text-lg tracking-tight mb-1">
+            <p className="text-[#1d1d1d] font-bold text-lg tracking-tight mb-1">
               Dar es Salaam Stock Exchange
             </p>
             <p className="text-gray-400 text-sm">Official Market Authority — Tanzania</p>
@@ -54,10 +54,10 @@ export function HeroMarketWidget() {
             ].map(({ Icon, label, value }) => (
               <div
                 key={label}
-                className="rounded-xl py-3 px-2 text-center bg-gray-50 border border-gray-100"
+                className="rounded-xl py-3 px-2 text-center bg-[#fafafa] border border-gray-100"
               >
                 <Icon size={15} className="mx-auto mb-1.5 text-gray-400" />
-                <p className="text-gray-900 font-bold text-sm">{value}</p>
+                <p className="text-[#1d1d1d] font-bold text-sm">{value}</p>
                 <p className="text-gray-400 text-[10px] mt-0.5">{label}</p>
               </div>
             ))}
@@ -72,7 +72,7 @@ export function HeroMarketWidget() {
           {/* CTA Button */}
           <div
             className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm text-white transition-opacity duration-200 group-hover:opacity-90"
-            style={{ background: '#1133f5' }}
+            style={{ background: '#3457d5' }}
           >
             Visit DSE Website
             <ArrowUpRight size={15} />

@@ -4,13 +4,13 @@ import { Mail, Phone, MapPin, ExternalLink, Shield, BarChart2 } from 'lucide-rea
 export default function SettingsPage() {
   return (
     <div>
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">Settings</h1>
+      <h1 className="text-3xl font-bold text-[#1d1d1d] mb-2">Settings</h1>
       <p className="text-sm text-gray-400 mb-8">Company configuration and system information</p>
 
       <div className="space-y-6 max-w-2xl">
         {/* Company Info */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-          <h2 className="font-semibold text-gray-900 mb-5">Company Information</h2>
+          <h2 className="font-semibold text-[#1d1d1d] mb-5">Company Information</h2>
           <div className="space-y-3">
             {[
               { icon: Shield, label: 'Company', value: 'Diamond Global Securities Limited' },
@@ -20,12 +20,12 @@ export default function SettingsPage() {
               { icon: MapPin, label: 'Location', value: 'Dar es Salaam, Tanzania' },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-center gap-4 py-2.5 border-b border-gray-50 last:border-0">
-                <div className="w-8 h-8 bg-gray-50 rounded-lg flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 bg-[#fafafa] rounded-lg flex items-center justify-center shrink-0">
                   <Icon size={14} className="text-gray-400" />
                 </div>
                 <div className="flex-1">
                   <p className="text-xs text-gray-400">{label}</p>
-                  <p className="text-sm font-medium text-gray-900">{value}</p>
+                  <p className="text-sm font-medium text-[#1d1d1d]">{value}</p>
                 </div>
               </div>
             ))}
@@ -35,7 +35,7 @@ export default function SettingsPage() {
         {/* Market Data */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="font-semibold text-gray-900">Market Data</h2>
+            <h2 className="font-semibold text-[#1d1d1d]">Market Data</h2>
             <span className="text-xs px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full font-medium border border-blue-100">
               Mockup â€” API integration pending
             </span>
@@ -47,12 +47,12 @@ export default function SettingsPage() {
               { icon: BarChart2, label: 'Historical Data', value: '180-day rolling window' },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-center gap-4 py-2.5 border-b border-gray-50 last:border-0">
-                <div className="w-8 h-8 bg-gray-50 rounded-lg flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 bg-[#fafafa] rounded-lg flex items-center justify-center shrink-0">
                   <Icon size={14} className="text-gray-400" />
                 </div>
                 <div className="flex-1">
                   <p className="text-xs text-gray-400">{label}</p>
-                  <p className="text-sm font-medium text-gray-900">{value}</p>
+                  <p className="text-sm font-medium text-[#1d1d1d]">{value}</p>
                 </div>
               </div>
             ))}
@@ -69,7 +69,7 @@ export default function SettingsPage() {
 
         {/* Supabase */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-          <h2 className="font-semibold text-gray-900 mb-4">Backend â€” Supabase</h2>
+          <h2 className="font-semibold text-[#1d1d1d] mb-4">Backend â€” Supabase</h2>
           <div className="space-y-2 text-sm text-gray-600">
             {['News articles & publishing', 'Document storage & downloads', 'Inquiry collection', 'Market reports', 'Admin authentication'].map(item => (
               <div key={item} className="flex items-center gap-2">

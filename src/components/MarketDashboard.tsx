@@ -11,7 +11,7 @@ const highlights = [
 
 export default function MarketDashboard() {
   return (
-    <section className="py-20 bg-gray-50" id="market">
+    <section className="py-20 bg-[#fafafa]" id="market">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section heading */}
@@ -20,7 +20,7 @@ export default function MarketDashboard() {
             <BarChart2 size={13} />
             Live Market Data
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-3">DSE Market Dashboard</h2>
+          <h2 className="text-4xl font-bold text-[#1d1d1d] mb-3">DSE Market Dashboard</h2>
           <p className="text-gray-500 max-w-lg mx-auto">
             Real-time market data from the official Dar es Salaam Stock Exchange
           </p>
@@ -35,7 +35,7 @@ export default function MarketDashboard() {
         >
           <div className="relative rounded-3xl overflow-hidden border border-gray-200 bg-white shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-blue-200 group-hover:-translate-y-1">
             {/* Top accent */}
-            <div className="h-1 w-full" style={{ background: '#1133f5' }} />
+            <div className="h-1 w-full" style={{ background: '#3457d5' }} />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
@@ -56,7 +56,7 @@ export default function MarketDashboard() {
                   </div>
                 </div>
 
-                <h3 className="text-gray-900 font-bold text-2xl mb-2 leading-tight">
+                <h3 className="text-[#1d1d1d] font-bold text-2xl mb-2 leading-tight">
                   Dar es Salaam<br />Stock Exchange
                 </h3>
                 <p className="text-gray-500 text-sm mb-6 leading-relaxed">
@@ -65,7 +65,7 @@ export default function MarketDashboard() {
 
                 <div
                   className="flex items-center gap-3 w-fit py-3.5 px-7 rounded-xl font-semibold text-sm text-white transition-opacity duration-200 group-hover:opacity-90"
-                  style={{ background: '#1133f5' }}
+                  style={{ background: '#3457d5' }}
                 >
                   <span>Visit DSE Website</span>
                   <ArrowUpRight size={16} />
@@ -78,7 +78,7 @@ export default function MarketDashboard() {
               </div>
 
               {/* Right: Market highlights */}
-              <div className="p-10 lg:p-14 flex flex-col justify-center bg-gray-50">
+              <div className="p-10 lg:p-14 flex flex-col justify-center bg-[#fafafa]">
                 <div className="flex items-center gap-2 mb-6">
                   <TrendingUp size={15} className="text-gray-400" />
                   <p className="text-gray-500 text-xs font-semibold uppercase tracking-widest">What you can find on DSE</p>
@@ -90,9 +90,9 @@ export default function MarketDashboard() {
                       key={label}
                       className="flex items-center gap-4 p-4 rounded-xl bg-white border border-gray-100 group-hover:border-blue-100 transition-colors duration-200"
                     >
-                      <div className="w-2 h-2 rounded-full shrink-0" style={{ background: '#1133f5' }} />
+                      <div className="w-2 h-2 rounded-full shrink-0" style={{ background: '#3457d5' }} />
                       <div>
-                        <p className="text-gray-900 font-semibold text-sm">{label}</p>
+                        <p className="text-[#1d1d1d] font-semibold text-sm">{label}</p>
                         <p className="text-gray-400 text-xs mt-0.5">{desc}</p>
                       </div>
                     </div>
@@ -100,9 +100,9 @@ export default function MarketDashboard() {
                 </div>
 
                 <div className="rounded-xl p-4 flex items-start gap-3 bg-white border border-gray-100">
-                  <ShieldCheck size={16} className="text-[#1133f5] shrink-0 mt-0.5" />
+                  <ShieldCheck size={16} className="text-[#3457d5] shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-xs leading-relaxed">
-                    Diamond Global Securities Limited is a licensed <strong className="text-gray-900">DSE Dealing Member</strong>, authorised to trade on the Dar es Salaam Stock Exchange on behalf of investors.
+                    Diamond Global Securities Limited is a licensed <strong className="text-[#1d1d1d]">DSE Dealing Member</strong>, authorised to trade on the Dar es Salaam Stock Exchange on behalf of investors.
                   </p>
                 </div>
               </div>

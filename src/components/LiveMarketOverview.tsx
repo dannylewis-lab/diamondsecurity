@@ -70,22 +70,22 @@ export default function LiveMarketOverview() {
             <BarChart2 size={13} />
             DSE Market Insight
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">Market Overview</h2>
+          <h2 className="text-4xl font-bold text-[#1d1d1d] dark:text-white mb-3">Market Overview</h2>
           <p className="text-gray-500 dark:text-blue-300 max-w-lg mx-auto">
             Stay informed with our latest commentary on the Dar es Salaam Stock Exchange
           </p>
         </div>
 
         <div className="bg-white dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm overflow-hidden">
-          <div className="px-8 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50">
+          <div className="px-8 py-4 border-b border-gray-100 flex items-center justify-between bg-[#fafafa]">
             <div>
-              <p className="text-gray-900 font-bold text-base">
+              <p className="text-[#1d1d1d] font-bold text-base">
                 {loading ? 'DSE Market Summary' : (report?.title ?? 'DSE Market Summary')}
               </p>
               <p className="text-gray-400 text-xs mt-0.5">Dar es Salaam Stock Exchange</p>
             </div>
             {!loading && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-[#1133f5] border border-blue-100">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-[#3457d5] border border-blue-100">
                 <SentimentIcon size={11} />
                 {cfg.label}
               </span>
@@ -107,10 +107,10 @@ export default function LiveMarketOverview() {
                 </p>
 
                 {!report && (
-                  <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                  <div className="bg-[#fafafa] rounded-xl p-6 border border-gray-100">
                     <div className="flex items-center gap-2 mb-5">
                       <div className="w-1 h-5 bg-blue-500 rounded-full" />
-                      <h4 className="font-bold text-gray-900 text-sm">Key Market Indicators</h4>
+                      <h4 className="font-bold text-[#1d1d1d] text-sm">Key Market Indicators</h4>
                     </div>
                     <ul className="space-y-3">
                       {staticPoints.map(point => (

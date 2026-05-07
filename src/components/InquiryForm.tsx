@@ -51,7 +51,7 @@ export default function InquiryForm() {
         <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-5">
           <CheckCircle size={32} className="text-blue-600" />
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Inquiry Sent!</h3>
+        <h3 className="text-xl font-bold text-[#1d1d1d] mb-2">Inquiry Sent!</h3>
         <p className="text-gray-500 text-sm mb-6">
           Thank you, <strong>{form.name}</strong>! Our team will get back to you at{' '}
           <strong>{form.email}</strong> within 24 hours.
@@ -70,7 +70,7 @@ export default function InquiryForm() {
   }
 
   const field = (id: keyof typeof form) =>
-    `w-full px-4 py-3 bg-gray-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-400 transition-colors ${
+    `w-full px-4 py-3 bg-[#fafafa] border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-400 transition-colors ${
       errors[id] ? 'border-red-400 bg-red-50' : 'border-gray-200'
     }`
 

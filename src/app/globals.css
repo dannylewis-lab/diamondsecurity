@@ -3,13 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --blue-deep:    #020B2D;
-  --blue-dark:    #050E25;
-  --blue-mid:     #0A1628;
-  --blue-primary: #1133f5;
-  --blue-light:   #1133f5;
-  --blue-sky:     #60A5FA;
-  --gold:         #ffffff;
+  --blue-primary: #3457d5;
+  --blue-light:   #3457d5;
+  --blue-sky:     #6b8de3;
   --navy-900:     #0f172a;
   --navy-800:     #1a2744;
 }
@@ -21,143 +17,61 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
-}
-
-/* -- Legacy dot pattern (used on About, Contact, News, Services, Admin pages) - */
-.hero-dots {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-color: #fafafa;
+  color: #1d1d1d;
 }
 
 /* -- Market table row hover ---------------------------------------------------- */
 .stock-row:hover {
-  background: rgba(17, 51, 245, 0.04);
+  background: rgba(52,87,213,0.04);
   transition: background 0.2s ease;
 }
 
 /* -- Hero grid overlay ------------------------------------------------------- */
 .hero-grid-bg {
   background-image:
-    linear-gradient(rgba(17, 51, 245, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 51, 245, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(52,87,213,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52,87,213,0.05) 1px, transparent 1px);
   background-size: 48px 48px;
-}
-
-/* -- Floating diamonds -------------------------------------------------------- */
-.floating-diamond {
-  position: absolute;
-  transform: rotate(45deg);
-  background: linear-gradient(135deg, rgba(17,51,245,0.14), rgba(96,165,250,0.06));
-  border: 1px solid rgba(17,51,245,0.15);
-  border-radius: 4px;
-  pointer-events: none;
-  animation: floatDiamond linear infinite;
-}
-
-@keyframes floatDiamond {
-  0%   { transform: rotate(45deg) translateY(0px)   scale(1);    }
-  33%  { transform: rotate(51deg) translateY(-14px)  scale(1.03); }
-  66%  { transform: rotate(42deg) translateY(-6px)   scale(0.97); }
-  100% { transform: rotate(45deg) translateY(0px)   scale(1);    }
-}
-
-/* -- Glowing orbs ------------------------------------------------------------- */
-.glow-orb {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: glowPulse 7s ease-in-out infinite;
-}
-
-.glow-orb-1 {
-  width: 700px; height: 700px;
-  top: -200px; right: -150px;
-  background: radial-gradient(circle, rgba(17,51,245,0.2) 0%, rgba(17,51,245,0.05) 50%, transparent 70%);
-}
-
-.glow-orb-2 {
-  width: 500px; height: 500px;
-  bottom: -150px; left: -120px;
-  background: radial-gradient(circle, rgba(17,51,245,0.15) 0%, transparent 70%);
-  animation-delay: -3.5s;
-}
-
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.6; transform: scale(1);    }
-  50%       { opacity: 1;   transform: scale(1.08); }
-}
-
-/* -- Gradient text ------------------------------------------------------------ */
-.text-gradient-blue {
-  background: linear-gradient(135deg, #60A5FA 0%, #1133f5 50%, #60A5FA 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmerText 3.5s linear infinite;
-}
-
-@keyframes shimmerText {
-  0%   { background-position: 0% center;    }
-  100% { background-position: 200% center; }
-}
-
-/* -- Hero entrance animations ------------------------------------------------- */
-.hero-text-enter {
-  animation: slideInLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.hero-widget-enter {
-  animation: slideInRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
-}
-
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(40px); }
-  to   { opacity: 1; transform: translateX(0); }
 }
 
 /* -- Primary CTA button ------------------------------------------------------- */
 .btn-blue {
-  background: linear-gradient(135deg, #1133f5 0%, #0d28c9 100%);
-  box-shadow: 0 4px 20px rgba(17,51,245,0.35);
+  background: #3457d5;
+  box-shadow: 0 4px 20px rgba(52,87,213,0.3);
   transition: all 0.22s ease;
 }
 .btn-blue:hover {
-  background: linear-gradient(135deg, #1133f5 0%, #1133f5 100%);
-  box-shadow: 0 6px 28px rgba(17,51,245,0.5);
+  background: #2a46c0;
+  box-shadow: 0 6px 28px rgba(52,87,213,0.45);
   transform: translateY(-1px);
 }
 
 /* -- Scroll chevron ----------------------------------------------------------- */
 .scroll-chevron {
   width: 18px; height: 18px;
-  border-right: 2px solid rgba(255,255,255,0.45);
-  border-bottom: 2px solid rgba(255,255,255,0.45);
+  border-right: 2px solid rgba(52,87,213,0.45);
+  border-bottom: 2px solid rgba(52,87,213,0.45);
   transform: rotate(45deg);
   animation: bounceDown 1.6s ease-in-out infinite;
 }
 @keyframes bounceDown {
-  0%, 100% { transform: rotate(45deg) translateY(0);   opacity: 0.35; }
+  0%, 100% { transform: rotate(45deg) translateY(0);   opacity: 0.4; }
   50%       { transform: rotate(45deg) translateY(7px); opacity: 0.85; }
 }
 
 /* -- Glass cards -------------------------------------------------------------- */
 .glass-card {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255,255,255,0.07);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
 }
 
 .glass-card-blue {
-  background: rgba(17, 51, 245, 0.08);
+  background: rgba(52,87,213,0.08);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(17, 51, 245, 0.2);
+  border: 1px solid rgba(52,87,213,0.2);
   border-radius: 20px;
 }
 
@@ -172,43 +86,43 @@ body {
 /* -- Live pulse dot ----------------------------------------------------------- */
 .pulse-dot {
   width: 8px; height: 8px;
-  background: #1133f5;
+  background: #3457d5;
   border-radius: 50%;
   display: inline-block;
   animation: pulseDot 2s ease-in-out infinite;
 }
 @keyframes pulseDot {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0   rgba(17,51,245,0.4); }
-  50%       { opacity: 0.7; box-shadow: 0 0 0 6px rgba(17,51,245,0);   }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0   rgba(52,87,213,0.4); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 6px rgba(52,87,213,0); }
 }
 
 /* -- Fixed floating buttons --------------------------------------------------- */
 .scroll-top {
   position: fixed; bottom: 80px; right: 24px;
   width: 44px; height: 44px;
-  background: #1a2744; border-radius: 50%;
+  background: #1d1d1d; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; z-index: 50;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   transition: all 0.2s;
 }
-.scroll-top:hover { background: #1133f5; box-shadow: 0 4px 16px rgba(17,51,245,0.4); }
+.scroll-top:hover { background: #3457d5; box-shadow: 0 4px 16px rgba(52,87,213,0.4); }
 
 .whatsapp-btn {
   position: fixed; bottom: 24px; right: 24px;
   width: 52px; height: 52px;
-  background: #1133f5; border-radius: 50%;
+  background: #3457d5; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; z-index: 50;
-  box-shadow: 0 4px 16px rgba(17,51,245,0.4);
+  box-shadow: 0 4px 16px rgba(52,87,213,0.4);
   transition: all 0.2s;
 }
-.whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(17,51,245,0.5); }
+.whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(52,87,213,0.5); }
 
 /* -- News badges -------------------------------------------------------------- */
-.badge-market  { background: rgba(17,51,245,0.12);  color: #1133f5; }
-.badge-article { background: rgba(17,51,245,0.12); color: #1133f5; }
-.badge-notice  { background: rgba(17,51,245,0.12); color: #1133f5; }
+.badge-market  { background: rgba(52,87,213,0.1); color: #3457d5; }
+.badge-article { background: rgba(52,87,213,0.1); color: #3457d5; }
+.badge-notice  { background: rgba(52,87,213,0.1); color: #3457d5; }
 
 /* -- Light/dark theme-aware utilities ---------------------------------------- */
 .theme-cred-bar { background: #f1f5f9; }
@@ -223,7 +137,7 @@ body {
   cursor: pointer; transition: all 0.15s; text-decoration: none;
 }
 .sidebar-item:hover  { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.85); }
-.sidebar-item.active { background: #1133f5; color: #fff; }
+.sidebar-item.active { background: #3457d5; color: #fff; }
 
 /* -- Service card hover ------------------------------------------------------- */
 .service-card {
@@ -233,12 +147,25 @@ body {
 }
 .service-card:hover {
   transform: translateY(-7px);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.12);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.1);
 }
 
 /* -- Credential item ----------------------------------------------------------- */
 .credential-item { transition: background 0.2s; }
-.credential-item:hover { background: rgba(17,51,245,0.07); border-radius: 12px; }
+.credential-item:hover { background: rgba(52,87,213,0.06); border-radius: 12px; }
 
 /* -- Chart tooltip ------------------------------------------------------------ */
-.recharts-tooltip-wrapper { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+.recharts-tooltip-wrapper { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08)); }
+
+/* -- Hero entrance animations ------------------------------------------------- */
+.hero-text-enter  { animation: slideInLeft  0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.hero-widget-enter { animation: slideInRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }
+
+@keyframes slideInLeft  {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}

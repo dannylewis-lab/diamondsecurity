@@ -135,10 +135,10 @@ export default function NewsManagement() {
   return (
     <div>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">News Management</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#1d1d1d]">News Management</h1>
         <button onClick={openCreate}
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-colors self-start sm:self-auto shrink-0"
-          style={{ background: 'linear-gradient(135deg, #1133f5, #1133f5)' }}>
+          style={{ background: 'linear-gradient(135deg, #3457d5, #3457d5)' }}>
           <Plus size={16} /> New Article
         </button>
       </div>
@@ -167,7 +167,7 @@ export default function NewsManagement() {
               </thead>
               <tbody>
                 {articles.map(article => (
-                  <tr key={article.id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                  <tr key={article.id} className="border-b border-gray-50 hover:bg-[#fafafa]/50 transition-colors">
                     <td className="px-6 py-4 text-sm text-gray-800 font-medium max-w-xs">
                       <p className="truncate">{article.title}</p>
                       {article.image_url && (
@@ -219,7 +219,7 @@ export default function NewsManagement() {
         <div className="fixed inset-0 bg-black/40 flex items-start justify-center z-50 p-4 overflow-y-auto">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl my-8">
             <div className="flex items-center justify-between px-8 py-5 border-b border-gray-100">
-              <h2 className="text-xl font-bold text-gray-900">
+              <h2 className="text-xl font-bold text-[#1d1d1d]">
                 {editing ? 'Edit Article' : 'New Article'}
               </h2>
               <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-gray-600">
@@ -253,7 +253,7 @@ export default function NewsManagement() {
                 <input value={form.title}
                   onChange={e => setForm(p => ({ ...p, title: e.target.value }))}
                   placeholder="Article title..."
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20" />
+                  className="w-full px-4 py-2.5 bg-[#fafafa] border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20" />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
@@ -261,7 +261,7 @@ export default function NewsManagement() {
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">Category</label>
                   <select value={form.category}
                     onChange={e => setForm(p => ({ ...p, category: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20">
+                    className="w-full px-4 py-2.5 bg-[#fafafa] border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20">
                     <option>Market Update</option>
                     <option>Article</option>
                     <option>Notice</option>
@@ -287,7 +287,7 @@ export default function NewsManagement() {
                 <textarea rows={2} value={form.excerpt}
                   onChange={e => setForm(p => ({ ...p, excerpt: e.target.value }))}
                   placeholder="Short description shown in article cards..."
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 resize-none" />
+                  className="w-full px-4 py-2.5 bg-[#fafafa] border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 resize-none" />
               </div>
 
               <div>
@@ -295,7 +295,7 @@ export default function NewsManagement() {
                 <textarea rows={8} value={form.content}
                   onChange={e => setForm(p => ({ ...p, content: e.target.value }))}
                   placeholder="Full article body..."
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 resize-y" />
+                  className="w-full px-4 py-2.5 bg-[#fafafa] border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 resize-y" />
               </div>
 
               {saveError && (
@@ -313,7 +313,7 @@ export default function NewsManagement() {
                   ) : editing ? 'Save Changes' : 'Create Article'}
                 </button>
                 <button onClick={() => setShowModal(false)}
-                  className="flex-1 py-2.5 border border-gray-200 text-sm font-medium rounded-xl hover:bg-gray-50 transition-colors">
+                  className="flex-1 py-2.5 border border-gray-200 text-sm font-medium rounded-xl hover:bg-[#fafafa] transition-colors">
                   Cancel
                 </button>
               </div>

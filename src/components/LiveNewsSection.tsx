@@ -50,10 +50,10 @@ export default function LiveNewsSection() {
   }, [])
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-[#050e25]">
+    <section className="py-20 bg-[#fafafa] dark:bg-[#050e25]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">News &amp; Insights</h2>
+          <h2 className="text-4xl font-bold text-[#1d1d1d] dark:text-white mb-3">News &amp; Insights</h2>
           <p className="text-gray-500 dark:text-blue-300">
             Stay informed with the latest market updates, articles, and official notices
           </p>
@@ -109,7 +109,7 @@ export default function LiveNewsSection() {
                       </svg>
                       {formatDate(article.created_at)}
                     </div>
-                    <h3 className="font-bold text-gray-900 dark:text-white mb-2 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                    <h3 className="font-bold text-[#1d1d1d] dark:text-white mb-2 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                       {article.title}
                     </h3>
                     {article.excerpt && (
