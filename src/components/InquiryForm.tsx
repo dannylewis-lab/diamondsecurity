@@ -48,8 +48,8 @@ export default function InquiryForm() {
   if (submitted) {
     return (
       <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-10 text-center">
-        <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-5">
-          <CheckCircle size={32} className="text-emerald-500" />
+        <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-5">
+          <CheckCircle size={32} className="text-blue-600" />
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">Inquiry Sent!</h3>
         <p className="text-gray-500 text-sm mb-6">
@@ -61,7 +61,7 @@ export default function InquiryForm() {
             setSubmitted(false)
             setForm({ name: '', email: '', phone: '', type: '', message: '' })
           }}
-          className="px-6 py-2.5 bg-emerald-500 text-white text-sm font-semibold rounded-lg hover:bg-emerald-600 transition-colors"
+          className="px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition-colors"
         >
           Send Another Inquiry
         </button>
@@ -70,7 +70,7 @@ export default function InquiryForm() {
   }
 
   const field = (id: keyof typeof form) =>
-    `w-full px-4 py-3 bg-gray-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-colors ${
+    `w-full px-4 py-3 bg-gray-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-400 transition-colors ${
       errors[id] ? 'border-red-400 bg-red-50' : 'border-gray-200'
     }`
 
@@ -130,7 +130,7 @@ export default function InquiryForm() {
       <button
         onClick={handleSubmit}
         disabled={loading}
-        className="w-full mt-5 py-3.5 bg-emerald-500 text-white font-semibold rounded-xl hover:bg-emerald-600 transition-colors text-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="w-full mt-5 py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-600 transition-colors text-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
         {loading ? (
           <>

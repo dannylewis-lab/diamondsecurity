@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import { useState, useEffect, useRef } from 'react'
 import { Eye, Pencil, Trash2, Plus, X, Upload, Globe, EyeOff } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
@@ -15,9 +15,9 @@ type Article = {
 }
 
 const categoryColors: Record<string, string> = {
-  'Market Update': 'bg-emerald-100 text-emerald-700',
+  'Market Update': 'bg-blue-100 text-blue-700',
   'Article':       'bg-blue-100 text-blue-700',
-  'Notice':        'bg-amber-100 text-amber-700',
+  'Notice':        'bg-blue-100 text-blue-700',
 }
 
 const emptyForm = { title: '', excerpt: '', content: '', category: 'Article', published: false }
@@ -146,7 +146,7 @@ export default function NewsManagement() {
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <svg className="animate-spin w-6 h-6 text-emerald-500" viewBox="0 0 24 24" fill="none">
+            <svg className="animate-spin w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
             </svg>
@@ -181,7 +181,7 @@ export default function NewsManagement() {
                     </td>
                     <td className="px-6 py-4">
                       <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
-                        article.published ? 'bg-emerald-100 text-emerald-700' : 'bg-gray-100 text-gray-500'
+                        article.published ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-500'
                       }`}>
                         {article.published ? 'Published' : 'Draft'}
                       </span>
@@ -192,7 +192,7 @@ export default function NewsManagement() {
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
                         <button onClick={() => togglePublish(article)}
-                          className={`transition-colors ${article.published ? 'text-emerald-500 hover:text-gray-400' : 'text-gray-400 hover:text-emerald-500'}`}
+                          className={`transition-colors ${article.published ? 'text-blue-600 hover:text-gray-400' : 'text-gray-400 hover:text-blue-600'}`}
                           title={article.published ? 'Unpublish' : 'Publish'}>
                           {article.published ? <EyeOff size={16} /> : <Globe size={16} />}
                         </button>
@@ -233,7 +233,7 @@ export default function NewsManagement() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">Cover Image</label>
                 <div
                   onClick={() => fileRef.current?.click()}
-                  className="border-2 border-dashed border-gray-200 rounded-xl overflow-hidden cursor-pointer hover:border-emerald-400 transition-colors"
+                  className="border-2 border-dashed border-gray-200 rounded-xl overflow-hidden cursor-pointer hover:border-blue-400 transition-colors"
                 >
                   {imagePreview ? (
                     <img src={imagePreview} alt="Preview" className="w-full h-48 object-cover" />
@@ -253,7 +253,7 @@ export default function NewsManagement() {
                 <input value={form.title}
                   onChange={e => setForm(p => ({ ...p, title: e.target.value }))}
                   placeholder="Article title..."
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20" />
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20" />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
@@ -261,7 +261,7 @@ export default function NewsManagement() {
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">Category</label>
                   <select value={form.category}
                     onChange={e => setForm(p => ({ ...p, category: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20">
+                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20">
                     <option>Market Update</option>
                     <option>Article</option>
                     <option>Notice</option>
@@ -271,7 +271,7 @@ export default function NewsManagement() {
                   <label className="flex items-center gap-3 cursor-pointer">
                     <div
                       onClick={() => setForm(p => ({ ...p, published: !p.published }))}
-                      className={`w-11 h-6 rounded-full relative transition-colors ${form.published ? 'bg-emerald-500' : 'bg-gray-200'}`}
+                      className={`w-11 h-6 rounded-full relative transition-colors ${form.published ? 'bg-blue-600' : 'bg-gray-200'}`}
                     >
                       <div className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${form.published ? 'translate-x-6' : 'translate-x-1'}`} />
                     </div>
@@ -287,7 +287,7 @@ export default function NewsManagement() {
                 <textarea rows={2} value={form.excerpt}
                   onChange={e => setForm(p => ({ ...p, excerpt: e.target.value }))}
                   placeholder="Short description shown in article cards..."
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 resize-none" />
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 resize-none" />
               </div>
 
               <div>
@@ -295,7 +295,7 @@ export default function NewsManagement() {
                 <textarea rows={8} value={form.content}
                   onChange={e => setForm(p => ({ ...p, content: e.target.value }))}
                   placeholder="Full article body..."
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 resize-y" />
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 resize-y" />
               </div>
 
               {saveError && (
@@ -304,7 +304,7 @@ export default function NewsManagement() {
 
               <div className="flex items-center gap-3 pt-2">
                 <button onClick={handleSave} disabled={saving}
-                  className="flex-1 py-2.5 bg-emerald-500 text-white text-sm font-semibold rounded-xl hover:bg-emerald-600 transition-colors disabled:opacity-70 flex items-center justify-center gap-2">
+                  className="flex-1 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-600 transition-colors disabled:opacity-70 flex items-center justify-center gap-2">
                   {saving ? (
                     <><svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />

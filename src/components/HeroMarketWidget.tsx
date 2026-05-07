@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import Image from 'next/image'
 import { ExternalLink, TrendingUp, BarChart2, ArrowUpRight } from 'lucide-react'
 
@@ -18,7 +18,7 @@ export function HeroMarketWidget() {
         }}
       >
         {/* Top accent bar */}
-        <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #10b981, #1133f5, #10b981)' }} />
+        <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #1133f5, #1133f5, #1133f5)' }} />
 
         <div className="p-8 lg:p-10">
 
@@ -47,7 +47,7 @@ export function HeroMarketWidget() {
             <p className="text-white font-bold text-xl tracking-tight mb-1">
               Dar es Salaam Stock Exchange
             </p>
-            <p className="text-blue-300 text-sm">Official Market Authority — Tanzania</p>
+            <p className="text-blue-300 text-sm">Official Market Authority � Tanzania</p>
           </div>
 
           {/* Stats row */}
@@ -71,7 +71,7 @@ export function HeroMarketWidget() {
 
           {/* Message */}
           <p className="text-center text-blue-200/70 text-sm leading-relaxed mb-7 px-2">
-            For live stock prices, indices, and real‑time market data, visit the official Dar es Salaam Stock Exchange website.
+            For live stock prices, indices, and real-time market data, visit the official Dar es Salaam Stock Exchange website.
           </p>
 
           {/* CTA Button */}
@@ -87,7 +87,7 @@ export function HeroMarketWidget() {
           <div className="flex items-center justify-center gap-2 mt-5">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
             <p className="text-[11px] text-blue-300/60 font-medium tracking-wide">
-              Diamond Global Securities · Licensed DSE Dealing Member
+              Diamond Global Securities � Licensed DSE Dealing Member
             </p>
           </div>
 

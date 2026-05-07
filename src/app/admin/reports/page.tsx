@@ -13,7 +13,7 @@ type Report = {
 }
 
 const sentimentStyle: Record<string, string> = {
-  bullish: 'bg-emerald-50 text-emerald-600 border border-emerald-200',
+  bullish: 'bg-blue-50 text-blue-600 border border-blue-200',
   bearish: 'bg-red-50 text-red-600 border border-red-200',
   neutral: 'bg-gray-100 text-gray-600 border border-gray-200',
 }
@@ -112,7 +112,7 @@ export default function AIReports() {
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <svg className="animate-spin w-6 h-6 text-emerald-500" viewBox="0 0 24 24" fill="none">
+          <svg className="animate-spin w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
           </svg>
@@ -131,7 +131,7 @@ export default function AIReports() {
                       {report.sentiment}
                     </span>
                     {report.published ? (
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600 border border-emerald-200">
+                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-600 border border-blue-200">
                         Published
                       </span>
                     ) : (
@@ -145,8 +145,8 @@ export default function AIReports() {
                     <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">{report.summary}</p>
                   )}
                 </div>
-                <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center shrink-0">
-                  <Sparkles size={15} className="text-purple-500" />
+                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center shrink-0">
+                  <Sparkles size={15} className="text-blue-500" />
                 </div>
               </div>
 
@@ -161,8 +161,8 @@ export default function AIReports() {
                   onClick={() => togglePublish(report)}
                   className={`inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-lg transition-colors ${
                     report.published
-                      ? 'border border-amber-200 text-amber-600 hover:bg-amber-50'
-                      : 'border border-emerald-200 text-emerald-600 hover:bg-emerald-50'
+                      ? 'border border-blue-200 text-blue-600 hover:bg-blue-50'
+                      : 'border border-blue-200 text-blue-600 hover:bg-blue-50'
                   }`}
                 >
                   {report.published ? <><EyeOff size={13} /> Unpublish</> : <><Eye size={13} /> Publish</>}
@@ -197,7 +197,7 @@ export default function AIReports() {
                   value={form.title}
                   onChange={e => setForm(p => ({ ...p, title: e.target.value }))}
                   placeholder="e.g. Daily Market Summary — 28 Apr 2026"
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20"
                 />
               </div>
 
@@ -228,7 +228,7 @@ export default function AIReports() {
                   onChange={e => setForm(p => ({ ...p, summary: e.target.value }))}
                   rows={5}
                   placeholder="Write a market summary that will appear on the homepage Market Overview section..."
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 resize-none"
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 resize-none"
                 />
               </div>
 
@@ -240,7 +240,7 @@ export default function AIReports() {
                 <button
                   onClick={handleSave}
                   disabled={saving}
-                  className="flex-1 py-2.5 bg-emerald-500 text-white text-sm font-semibold rounded-xl hover:bg-emerald-600 transition-colors disabled:opacity-70 flex items-center justify-center gap-2"
+                  className="flex-1 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-600 transition-colors disabled:opacity-70 flex items-center justify-center gap-2"
                 >
                   {saving ? (
                     <><svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">

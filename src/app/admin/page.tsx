@@ -1,4 +1,4 @@
-ï»¿'use client'
+'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -13,7 +13,7 @@ type Article = {
 }
 
 const statusColors: Record<string, string> = {
-  new: 'bg-emerald-100 text-emerald-700',
+  new: 'bg-blue-100 text-blue-700',
   reviewed: 'bg-blue-100 text-blue-700',
   closed: 'bg-gray-100 text-gray-500',
 }
@@ -60,7 +60,7 @@ export default function AdminOverview() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard Overview</h1>
-          <p className="text-gray-400 text-sm mt-1">Welcome back â€” here's what's happening today</p>
+          <p className="text-gray-400 text-sm mt-1">Welcome back — here's what's happening today</p>
         </div>
         <Link href="/"
           className="inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors font-medium text-gray-700 self-start sm:self-auto shrink-0">
@@ -70,7 +70,7 @@ export default function AdminOverview() {
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <svg className="animate-spin w-8 h-8 text-emerald-500" viewBox="0 0 24 24" fill="none">
+          <svg className="animate-spin w-8 h-8 text-blue-600" viewBox="0 0 24 24" fill="none">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
           </svg>
@@ -82,12 +82,12 @@ export default function AdminOverview() {
             {overviewCards.map(({ icon: Icon, label, value, change, href }) => (
               <Link key={label} href={href}
                 className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 group">
-                <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
-                  <Icon size={20} className="text-emerald-500" />
+                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+                  <Icon size={20} className="text-blue-600" />
                 </div>
                 <p className="text-3xl font-bold text-gray-900 mb-0.5">{value}</p>
                 <p className="text-sm text-gray-500 mb-1">{label}</p>
-                <p className={`text-xs font-medium ${label === 'Inquiries' && counts.newInquiries > 0 ? 'text-emerald-600' : 'text-gray-400'}`}>
+                <p className={`text-xs font-medium ${label === 'Inquiries' && counts.newInquiries > 0 ? 'text-blue-600' : 'text-gray-400'}`}>
                   {change}
                 </p>
               </Link>
@@ -100,7 +100,7 @@ export default function AdminOverview() {
               <div className="p-6 border-b border-gray-50 flex items-center justify-between">
                 <h2 className="font-semibold text-gray-900">Recent Inquiries</h2>
                 <Link href="/admin/inquiries"
-                  className="text-xs text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-1">
+                  className="text-xs text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
                   View All <ArrowUpRight size={12} />
                 </Link>
               </div>
@@ -138,7 +138,7 @@ export default function AdminOverview() {
               )}
             </div>
 
-            {/* Market â€” DSE */}
+            {/* Market — DSE */}
             <a
               href="https://dse.co.tz/"
               target="_blank"
@@ -197,7 +197,7 @@ export default function AdminOverview() {
             <div className="p-6 border-b border-gray-50 flex items-center justify-between">
               <h2 className="font-semibold text-gray-900">Recent News</h2>
               <Link href="/admin/news"
-                className="text-xs text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-1">
+                className="text-xs text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
                 Manage <ArrowUpRight size={12} />
               </Link>
             </div>
@@ -211,8 +211,8 @@ export default function AdminOverview() {
                     <div>
                       <p className="text-sm font-medium text-gray-900">{n.title}</p>
                       <p className="text-xs text-gray-400 mt-0.5">
-                        {new Date(n.created_at).toLocaleDateString()} Â· {n.category} Â·{' '}
-                        <span className={n.published ? 'text-emerald-600' : 'text-gray-400'}>
+                        {new Date(n.created_at).toLocaleDateString()} · {n.category} ·{' '}
+                        <span className={n.published ? 'text-blue-600' : 'text-gray-400'}>
                           {n.published ? 'Published' : 'Draft'}
                         </span>
                       </p>

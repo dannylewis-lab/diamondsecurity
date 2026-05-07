@@ -1,13 +1,13 @@
-ï»¿import { MessageCircle, Clock, Users, Zap } from 'lucide-react'
+import { MessageCircle, Clock, Users, Zap } from 'lucide-react'
 import InquiryForm from '@/components/InquiryForm'
 
-// Market Insight Section â€” live from Supabase
+// Market Insight Section — live from Supabase
 export { default as AIInsightsSection } from '@/components/LiveMarketOverview'
 
-// News Section â€” live from Supabase
+// News Section — live from Supabase
 export { default as NewsSection } from '@/components/LiveNewsSection'
 
-// Download Center â€” live from Supabase
+// Download Center — live from Supabase
 export { default as DownloadSection } from '@/components/DownloadSection'
 
 // WhatsApp Section
@@ -36,7 +36,7 @@ export function WhatsAppSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl transition-all duration-200 hover:opacity-90 hover:shadow-lg"
-                style={{ background: '#25d366', boxShadow: '0 4px 16px rgba(37,211,102,0.3)' }}
+                style={{ background: '#1133f5', boxShadow: '0 4px 16px rgba(17,51,245,0.3)' }}
               >
                 <MessageCircle size={16} />
                 Chat with us on WhatsApp

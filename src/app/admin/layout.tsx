@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -28,7 +28,7 @@ function Spinner() {
   )
 }
 
-/* ─── Login Screen ─────────────────────────────────────────────────────────── */
+/* --- Login Screen ----------------------------------------------------------- */
 type View = 'login' | 'forgot' | 'reset'
 
 function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
@@ -139,7 +139,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
         </div>
         <div className="text-left leading-tight">
           <div className="font-extrabold text-white text-lg tracking-wide">DIAMOND GLOBAL</div>
-          <div className="text-xs font-bold tracking-[0.22em]" style={{ color: '#c8cc00' }}>SECURITIES LIMITED</div>
+          <div className="text-xs font-bold tracking-[0.22em]" style={{ color: '#ffffff' }}>SECURITIES LIMITED</div>
         </div>
       </div>
       <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs text-blue-300 font-medium tracking-wide mt-1">
@@ -159,7 +159,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
       )}
       {success && (
         <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-3 text-sm text-blue-700 flex items-start gap-2">
-          <span className="w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+          <span className="w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs shrink-0 mt-0.5">?</span>
           {success}
         </div>
       )}
@@ -184,7 +184,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
         {logoBlock}
         {children}
         <p className="text-center text-xs text-blue-400/60 mt-5">
-          © {new Date().getFullYear()} Diamond Global Securities Limited · CMSA Licensed
+          � {new Date().getFullYear()} Diamond Global Securities Limited � CMSA Licensed
         </p>
       </div>
     </div>
@@ -287,7 +287,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
                 type={showPass ? 'text' : 'password'} value={password}
                 onChange={e => { setPassword(e.target.value); clear() }}
                 onKeyDown={e => e.key === 'Enter' && handleLogin()}
-                placeholder="••••••••••"
+                placeholder="����������"
                 className={`${inputClass} pr-11`}
               />
               <button type="button" onClick={() => setShowPass(!showPass)}
@@ -306,19 +306,19 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
             {loading
               ? <><Spinner /> Signing in...</>
               : lockout > 0
-                ? `Locked · wait ${lockout}s`
+                ? `Locked � wait ${lockout}s`
                 : <>Sign In <ChevronRight size={15} /></>}
           </button>
         </div>
         <p className="text-center text-xs text-gray-400 mt-6">
-          <Link href="/" className="hover:text-blue-500 transition-colors">← Back to main site</Link>
+          <Link href="/" className="hover:text-blue-500 transition-colors">? Back to main site</Link>
         </p>
       </div>
     </div>
   )
 }
 
-/* ─── Sidebar Content ──────────────────────────────────────────────────────── */
+/* --- Sidebar Content -------------------------------------------------------- */
 function SidebarContent({
   user, pathname, onLinkClick, onLogout,
 }: {
@@ -345,7 +345,7 @@ function SidebarContent({
           </div>
           <div className="leading-tight">
             <div className="font-extrabold text-white text-[13px] tracking-wide leading-tight">DIAMOND GLOBAL</div>
-            <div className="text-[9px] font-bold tracking-[0.2em] leading-tight" style={{ color: '#c8cc00' }}>SECURITIES LIMITED</div>
+            <div className="text-[9px] font-bold tracking-[0.2em] leading-tight" style={{ color: '#ffffff' }}>SECURITIES LIMITED</div>
           </div>
         </Link>
         <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/15 border border-blue-500/20 text-[10px] text-blue-400 font-semibold tracking-widest uppercase">
@@ -418,7 +418,7 @@ function SidebarContent({
   )
 }
 
-/* ─── Admin Shell ──────────────────────────────────────────────────────────── */
+/* --- Admin Shell ------------------------------------------------------------ */
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const [user, setUser]             = useState<any>(null)
@@ -467,7 +467,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <div className="flex min-h-screen bg-[#f1f5f9]">
 
-      {/* ── Mobile backdrop ── */}
+      {/* -- Mobile backdrop -- */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/60 z-30 md:hidden"
@@ -475,7 +475,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         />
       )}
 
-      {/* ── Sidebar ── */}
+      {/* -- Sidebar -- */}
       <aside
         className={`fixed left-0 top-0 bottom-0 z-40 flex flex-col w-64 transition-transform duration-300 ease-in-out ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
@@ -498,13 +498,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         />
       </aside>
 
-      {/* ── Main area ── */}
+      {/* -- Main area -- */}
       <div className="flex-1 md:ml-64 flex flex-col min-h-screen">
 
         {/* Top bar */}
         <header className="sticky top-0 z-30 bg-white border-b border-gray-200 px-4 sm:px-6 py-3 flex items-center gap-3 shadow-sm">
 
-          {/* Hamburger — mobile only */}
+          {/* Hamburger � mobile only */}
           <button
             className="md:hidden p-1.5 -ml-1 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors shrink-0"
             onClick={() => setSidebarOpen(true)}
@@ -545,7 +545,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Footer */}
         <footer className="border-t border-gray-200 bg-white px-4 py-3">
           <p className="text-xs text-gray-400 text-center">
-            Diamond Global Securities Limited · Admin Portal · CMSA Licensed
+            Diamond Global Securities Limited � Admin Portal � CMSA Licensed
           </p>
         </footer>
       </div>

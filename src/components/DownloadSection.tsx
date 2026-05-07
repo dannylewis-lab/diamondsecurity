@@ -16,8 +16,8 @@ const typeColors: Record<string, { bg: string; text: string }> = {
   PDF:  { bg: 'bg-red-50',     text: 'text-red-500' },
   DOC:  { bg: 'bg-blue-50',    text: 'text-blue-500' },
   DOCX: { bg: 'bg-blue-50',    text: 'text-blue-500' },
-  XLSX: { bg: 'bg-emerald-50', text: 'text-blue-500' },
-  XLS:  { bg: 'bg-emerald-50', text: 'text-blue-500' },
+  XLSX: { bg: 'bg-blue-50', text: 'text-blue-500' },
+  XLS:  { bg: 'bg-blue-50', text: 'text-blue-500' },
 }
 
 export default function DownloadSection() {
@@ -85,7 +85,7 @@ export default function DownloadSection() {
                         href={doc.public_url ?? '#'}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-between bg-gray-50 rounded-xl p-3.5 hover:bg-emerald-50 hover:border-emerald-100 border border-transparent transition-all duration-200 group"
+                        className="flex items-center justify-between bg-gray-50 rounded-xl p-3.5 hover:bg-blue-50 hover:border-blue-100 border border-transparent transition-all duration-200 group"
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           <div className={`w-9 h-9 ${style.bg} rounded-lg flex items-center justify-center shrink-0`}>

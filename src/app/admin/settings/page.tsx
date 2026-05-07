@@ -36,7 +36,7 @@ export default function SettingsPage() {
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
           <div className="flex items-center justify-between mb-5">
             <h2 className="font-semibold text-gray-900">Market Data</h2>
-            <span className="text-xs px-2.5 py-1 bg-amber-50 text-amber-600 rounded-full font-medium border border-amber-100">
+            <span className="text-xs px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full font-medium border border-blue-100">
               Mockup — API integration pending
             </span>
           </div>
@@ -61,7 +61,7 @@ export default function SettingsPage() {
             href="https://data.dse.co.tz"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1.5 text-xs text-emerald-600 font-medium hover:text-emerald-500 transition-colors"
+            className="mt-4 inline-flex items-center gap-1.5 text-xs text-blue-600 font-medium hover:text-blue-600 transition-colors"
           >
             <ExternalLink size={11} /> DSE API documentation
           </a>
@@ -73,13 +73,13 @@ export default function SettingsPage() {
           <div className="space-y-2 text-sm text-gray-600">
             {['News articles & publishing', 'Document storage & downloads', 'Inquiry collection', 'Market reports', 'Admin authentication'].map(item => (
               <div key={item} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
                 {item}
               </div>
             ))}
           </div>
-          <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-xs text-emerald-600 font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs text-blue-600 font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
             Connected
           </div>
         </div>

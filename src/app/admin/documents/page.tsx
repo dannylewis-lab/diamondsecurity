@@ -18,8 +18,8 @@ const typeColors: Record<string, string> = {
   PDF:  'bg-red-100 text-red-600',
   DOC:  'bg-blue-100 text-blue-600',
   DOCX: 'bg-blue-100 text-blue-600',
-  XLSX: 'bg-emerald-100 text-emerald-600',
-  XLS:  'bg-emerald-100 text-emerald-600',
+  XLSX: 'bg-blue-100 text-blue-600',
+  XLS:  'bg-blue-100 text-blue-600',
 }
 
 const categories = ['Account Opening', 'KYC', 'Corporate', 'Fee Schedule', 'Other']
@@ -135,7 +135,7 @@ export default function DocumentsPage() {
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <svg className="animate-spin w-6 h-6 text-emerald-500" viewBox="0 0 24 24" fill="none">
+            <svg className="animate-spin w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
             </svg>
@@ -210,10 +210,10 @@ export default function DocumentsPage() {
               <div
                 onClick={() => fileRef.current?.click()}
                 className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${
-                  uploadFile ? 'border-emerald-400 bg-emerald-50' : 'border-gray-200 hover:border-emerald-400'
+                  uploadFile ? 'border-blue-400 bg-blue-50' : 'border-gray-200 hover:border-blue-400'
                 }`}
               >
-                <Upload size={24} className={`mx-auto mb-2 ${uploadFile ? 'text-emerald-500' : 'text-gray-400'}`} />
+                <Upload size={24} className={`mx-auto mb-2 ${uploadFile ? 'text-blue-600' : 'text-gray-400'}`} />
                 <p className="text-sm text-gray-600">
                   {uploadFile ? uploadFile.name : 'Click to select a file'}
                 </p>
@@ -231,7 +231,7 @@ export default function DocumentsPage() {
                   value={uploadForm.name}
                   onChange={e => setUploadForm(p => ({ ...p, name: e.target.value }))}
                   placeholder="e.g. Individual Account Opening Form"
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20" />
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20" />
               </div>
 
               <div>
@@ -239,7 +239,7 @@ export default function DocumentsPage() {
                 <select
                   value={uploadForm.category}
                   onChange={e => setUploadForm(p => ({ ...p, category: e.target.value }))}
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20">
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20">
                   {categories.map(c => <option key={c}>{c}</option>)}
                 </select>
               </div>
@@ -250,7 +250,7 @@ export default function DocumentsPage() {
 
               <div className="flex items-center gap-3">
                 <button onClick={handleUpload} disabled={uploading}
-                  className="flex-1 py-2.5 bg-emerald-500 text-white text-sm font-semibold rounded-xl hover:bg-emerald-600 transition-colors disabled:opacity-70 flex items-center justify-center gap-2">
+                  className="flex-1 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-600 transition-colors disabled:opacity-70 flex items-center justify-center gap-2">
                   {uploading ? (
                     <><svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />

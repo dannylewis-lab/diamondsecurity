@@ -1,4 +1,4 @@
-ï»¿import Link from 'next/link'
+import Link from 'next/link'
 import Image from 'next/image'
 import {
   Shield, Users, TrendingUp, CheckCircle,
@@ -21,7 +21,7 @@ const values = [
   {
     icon: Eye,
     title: 'Transparency',
-    desc: 'We communicate clearly and honestly about fees, risks, and market conditions â€” so our clients can always make informed decisions.',
+    desc: 'We communicate clearly and honestly about fees, risks, and market conditions — so our clients can always make informed decisions.',
   },
   {
     icon: Heart,
@@ -62,19 +62,19 @@ const whyUs = [
     number: '02',
     icon: Users,
     title: 'Direct Market Access via the DSE',
-    desc: 'As a licensed DSE Dealing Member, we provide clients with direct, regulated access to Tanzania\'s securities exchange â€” with the speed, precision, and reliability that markets demand.',
+    desc: 'As a licensed DSE Dealing Member, we provide clients with direct, regulated access to Tanzania\'s securities exchange — with the speed, precision, and reliability that markets demand.',
   },
   {
     number: '03',
     icon: Handshake,
     title: 'Strategies Built Around You',
-    desc: 'We do not apply generic templates. Every client engagement begins with understanding your goals, risk appetite, and investment horizon â€” then building a plan specifically for you.',
+    desc: 'We do not apply generic templates. Every client engagement begins with understanding your goals, risk appetite, and investment horizon — then building a plan specifically for you.',
   },
   {
     number: '04',
     icon: Lock,
     title: 'Transparent by Design',
-    desc: 'Clear fee schedules, straightforward reporting, and honest market guidance. We believe transparency is not a feature â€” it is a fundamental obligation to every client we serve.',
+    desc: 'Clear fee schedules, straightforward reporting, and honest market guidance. We believe transparency is not a feature — it is a fundamental obligation to every client we serve.',
   },
 ]
 
@@ -124,7 +124,7 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-xs font-semibold tracking-widest uppercase mb-8">
               <Shield size={12} />
-              CMSA Licensed &amp; Regulated Â· DSE Dealing Member
+              CMSA Licensed &amp; Regulated · DSE Dealing Member
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.6rem] font-bold text-white mb-6 leading-[1.15]">
               Tanzania's Authorised<br />
@@ -186,12 +186,12 @@ export default function AboutPage() {
               <p className="text-gray-600 leading-relaxed mb-5 text-[15px]">
                 Diamond Global Securities Limited is a registered and licensed capital markets intermediary
                 in Tanzania, authorised by the Capital Markets and Securities Authority (CMSA). We hold
-                specific licences to provide dealing, investment advisory, and fund management services â€”
+                specific licences to provide dealing, investment advisory, and fund management services —
                 the three core disciplines of professional securities practice on the Dar es Salaam Stock Exchange.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8 text-[15px]">
-                We are built on a clear conviction: that every Tanzanian investor â€” individual, institutional,
-                or corporate â€” deserves access to professional, regulated, and genuinely client-focused
+                We are built on a clear conviction: that every Tanzanian investor — individual, institutional,
+                or corporate — deserves access to professional, regulated, and genuinely client-focused
                 capital markets services. Our team operates at all times within the strict regulatory
                 framework established by the CMSA, placing investor protection and market integrity at the
                 centre of everything we do.
@@ -299,7 +299,7 @@ export default function AboutPage() {
               <h3 className="text-xl font-bold text-white mb-4">What We Set Out to Do</h3>
               <p className="text-blue-200/80 leading-relaxed text-[15px]">
                 To provide every Tanzanian investor with access to professional, regulated, and
-                expert-driven capital markets services â€” empowering individuals, institutions, and
+                expert-driven capital markets services — empowering individuals, institutions, and
                 corporations to grow and protect their wealth through the Dar es Salaam Stock Exchange
                 with clarity, confidence, and integrity.
               </p>
@@ -319,7 +319,7 @@ export default function AboutPage() {
               <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Vision</p>
               <h3 className="text-xl font-bold text-white mb-4">Where We Are Headed</h3>
               <p className="text-blue-50/90 leading-relaxed text-[15px]">
-                To be the most trusted and respected capital markets firm in Tanzania â€” recognised not
+                To be the most trusted and respected capital markets firm in Tanzania — recognised not
                 only for the quality of services we deliver, but for the integrity, transparency, and
                 genuine commitment with which we deliver them. We envision a financially literate Tanzania
                 where every investor participates confidently in the nation's economic growth.
@@ -382,12 +382,12 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* CEO â€” full-width feature card */}
+          {/* CEO — full-width feature card */}
           <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-lg grid grid-cols-1 lg:grid-cols-5 mb-10">
             <div className="lg:col-span-2 relative min-h-[280px] sm:min-h-[380px] lg:min-h-0">
               <Image
                 src="/ceo.jpeg"
-                alt="Mr. Beatus Mlingi â€” Chief Executive Officer, Diamond Global Securities Limited"
+                alt="Mr. Beatus Mlingi — Chief Executive Officer, Diamond Global Securities Limited"
                 fill
                 className="object-cover object-top"
               />
@@ -396,7 +396,7 @@ export default function AboutPage() {
                 style={{ background: 'linear-gradient(to top, rgba(2,11,45,0.97) 0%, rgba(2,11,45,0.3) 70%, transparent 100%)' }}
               >
                 <p className="text-white font-extrabold text-xl tracking-tight">Mr. Beatus Mlingi</p>
-                <p className="text-xs font-bold tracking-[0.18em] uppercase mt-1.5" style={{ color: '#c8cc00' }}>
+                <p className="text-xs font-bold tracking-[0.18em] uppercase mt-1.5" style={{ color: '#ffffff' }}>
                   Chief Executive Officer
                 </p>
               </div>
@@ -412,8 +412,8 @@ export default function AboutPage() {
               </p>
               <p className="text-gray-700 leading-relaxed text-[15px] mb-9">
                 As Chief Executive Officer of Diamond Global Securities Limited, Mr. Mlingi provides
-                strategic direction across all three licenced business lines â€” dealing, advisory, and
-                fund management â€” with an unwavering focus on client outcomes, regulatory compliance,
+                strategic direction across all three licenced business lines — dealing, advisory, and
+                fund management — with an unwavering focus on client outcomes, regulatory compliance,
                 and institutional excellence. He is a committed advocate for the development and
                 deepening of Tanzania's capital markets and for expanding investor participation
                 on the Dar es Salaam Stock Exchange.
@@ -459,7 +459,7 @@ export default function AboutPage() {
                 <div className="relative h-64 w-full overflow-hidden">
                   <Image
                     src={src}
-                    alt={`${name} â€” ${role}, Diamond Global Securities`}
+                    alt={`${name} — ${role}, Diamond Global Securities`}
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
@@ -565,13 +565,13 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-xs font-semibold tracking-widest uppercase mb-7">
             <Shield size={11} />
-            CMSA Licensed Â· Professional Â· Client-Centred
+            CMSA Licensed · Professional · Client-Centred
           </div>
           <h2 className="text-4xl font-bold text-white mb-5 leading-snug">
             Begin Your Investment Journey<br />with a Partner You Can Trust
           </h2>
           <p className="text-blue-200/80 mb-9 max-w-xl mx-auto leading-relaxed text-[15px]">
-            Our team of licenced professionals is ready to guide you â€” from your first inquiry
+            Our team of licenced professionals is ready to guide you — from your first inquiry
             through to your first trade and beyond. Every engagement begins with listening to you.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

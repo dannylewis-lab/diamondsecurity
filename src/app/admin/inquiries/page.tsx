@@ -15,7 +15,7 @@ type Inquiry = {
 }
 
 const statusColors: Record<string, string> = {
-  new: 'bg-emerald-100 text-emerald-700',
+  new: 'bg-blue-100 text-blue-700',
   reviewed: 'bg-blue-100 text-blue-700',
   closed: 'bg-gray-100 text-gray-500',
 }
@@ -73,7 +73,7 @@ export default function InquiriesPage() {
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Inquiries</h1>
           {newCount > 0 && (
-            <p className="text-sm text-emerald-600 font-medium mt-1">{newCount} new unread</p>
+            <p className="text-sm text-blue-600 font-medium mt-1">{newCount} new unread</p>
           )}
         </div>
         <div className="flex items-center gap-2">
@@ -103,7 +103,7 @@ export default function InquiriesPage() {
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-16">
-            <svg className="animate-spin w-6 h-6 text-emerald-500" viewBox="0 0 24 24" fill="none">
+            <svg className="animate-spin w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
             </svg>

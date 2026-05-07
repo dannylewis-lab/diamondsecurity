@@ -20,9 +20,9 @@ const categoryClass: Record<string, string> = {
 }
 
 const categoryGradient: Record<string, string> = {
-  'Market Update': 'from-emerald-800 to-emerald-600',
+  'Market Update': 'from-blue-800 to-blue-600',
   'Article':       'from-blue-800 to-blue-600',
-  'Notice':        'from-amber-700 to-amber-500',
+  'Notice':        'from-blue-700 to-blue-500',
 }
 
 function formatDate(iso: string) {

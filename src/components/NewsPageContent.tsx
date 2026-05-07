@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import { useState, useEffect } from 'react'
 import { Newspaper } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
@@ -23,7 +23,7 @@ const categoryClass: Record<string, string> = {
 const categoryGradient: Record<string, string> = {
   'Market Update': 'from-blue-800 to-blue-600',
   'Article': 'from-sky-700 to-sky-500',
-  'Notice': 'from-amber-700 to-amber-500',
+  'Notice': 'from-blue-700 to-blue-500',
 }
 
 function formatDate(iso: string) {

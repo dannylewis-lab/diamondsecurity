@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
@@ -75,7 +75,7 @@ export default function Navbar() {
               <div className={`font-extrabold text-[15px] sm:text-base lg:text-lg tracking-wide transition-colors ${dark ? 'text-white' : 'text-gray-900'}`}>
                 DIAMOND GLOBAL
               </div>
-              <div className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em]" style={{ color: '#c8cc00' }}>
+              <div className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em]" style={{ color: '#ffffff' }}>
                 SECURITIES LIMITED
               </div>
             </div>
@@ -111,7 +111,7 @@ export default function Navbar() {
               aria-label="Toggle dark mode"
             >
               {dark
-                ? <Sun  size={15} className="text-yellow-400" />
+                ? <Sun  size={15} className="text-white" />
                 : <Moon size={15} className="text-gray-500" />}
             </button>
             <Link
@@ -141,7 +141,7 @@ export default function Navbar() {
               }`}
             >
               {dark
-                ? <Sun  size={14} className="text-yellow-400" />
+                ? <Sun  size={14} className="text-white" />
                 : <Moon size={14} className="text-gray-500" />}
             </button>
             <button

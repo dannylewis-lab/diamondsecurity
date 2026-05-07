@@ -23,7 +23,7 @@ export default function Footer() {
               </div>
               <div className="leading-tight">
                 <div className="font-black text-white text-base tracking-tight">DIAMOND GLOBAL</div>
-                <div className="text-sm font-bold tracking-widest" style={{ color: '#c8cc00' }}>SECURITIES LIMITED</div>
+                <div className="text-sm font-bold tracking-widest" style={{ color: '#ffffff' }}>SECURITIES LIMITED</div>
               </div>
             </Link>
             <p className="text-sm text-blue-200 leading-relaxed mb-5">

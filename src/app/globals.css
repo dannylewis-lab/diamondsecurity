@@ -1,4 +1,4 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -9,7 +9,7 @@
   --blue-primary: #1133f5;
   --blue-light:   #1133f5;
   --blue-sky:     #60A5FA;
-  --gold:         #c8cc00;
+  --gold:         #ffffff;
   --navy-900:     #0f172a;
   --navy-800:     #1a2744;
 }
@@ -23,19 +23,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Legacy dot pattern (used on About, Contact, News, Services, Admin pages) ─ */
+/* -- Legacy dot pattern (used on About, Contact, News, Services, Admin pages) - */
 .hero-dots {
   background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* ── Market table row hover ──────────────────────────────────────────────────── */
+/* -- Market table row hover ---------------------------------------------------- */
 .stock-row:hover {
   background: rgba(17, 51, 245, 0.04);
   transition: background 0.2s ease;
 }
 
-/* ── Hero grid overlay ─────────────────────────────────────────────────────── */
+/* -- Hero grid overlay ------------------------------------------------------- */
 .hero-grid-bg {
   background-image:
     linear-gradient(rgba(17, 51, 245, 0.05) 1px, transparent 1px),
@@ -43,7 +43,7 @@ body {
   background-size: 48px 48px;
 }
 
-/* ── Floating diamonds ──────────────────────────────────────────────────────── */
+/* -- Floating diamonds -------------------------------------------------------- */
 .floating-diamond {
   position: absolute;
   transform: rotate(45deg);
@@ -61,7 +61,7 @@ body {
   100% { transform: rotate(45deg) translateY(0px)   scale(1);    }
 }
 
-/* ── Glowing orbs ───────────────────────────────────────────────────────────── */
+/* -- Glowing orbs ------------------------------------------------------------- */
 .glow-orb {
   position: absolute;
   border-radius: 50%;
@@ -78,7 +78,7 @@ body {
 .glow-orb-2 {
   width: 500px; height: 500px;
   bottom: -150px; left: -120px;
-  background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(17,51,245,0.15) 0%, transparent 70%);
   animation-delay: -3.5s;
 }
 
@@ -87,9 +87,9 @@ body {
   50%       { opacity: 1;   transform: scale(1.08); }
 }
 
-/* ── Gradient text ──────────────────────────────────────────────────────────── */
+/* -- Gradient text ------------------------------------------------------------ */
 .text-gradient-blue {
-  background: linear-gradient(135deg, #60A5FA 0%, #1133f5 50%, #818CF8 100%);
+  background: linear-gradient(135deg, #60A5FA 0%, #1133f5 50%, #60A5FA 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -102,7 +102,7 @@ body {
   100% { background-position: 200% center; }
 }
 
-/* ── Hero entrance animations ───────────────────────────────────────────────── */
+/* -- Hero entrance animations ------------------------------------------------- */
 .hero-text-enter {
   animation: slideInLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
@@ -121,7 +121,7 @@ body {
   to   { opacity: 1; transform: translateX(0); }
 }
 
-/* ── Primary CTA button ─────────────────────────────────────────────────────── */
+/* -- Primary CTA button ------------------------------------------------------- */
 .btn-blue {
   background: linear-gradient(135deg, #1133f5 0%, #0d28c9 100%);
   box-shadow: 0 4px 20px rgba(17,51,245,0.35);
@@ -133,7 +133,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* ── Scroll chevron ─────────────────────────────────────────────────────────── */
+/* -- Scroll chevron ----------------------------------------------------------- */
 .scroll-chevron {
   width: 18px; height: 18px;
   border-right: 2px solid rgba(255,255,255,0.45);
@@ -146,7 +146,7 @@ body {
   50%       { transform: rotate(45deg) translateY(7px); opacity: 0.85; }
 }
 
-/* ── Glass cards ────────────────────────────────────────────────────────────── */
+/* -- Glass cards -------------------------------------------------------------- */
 .glass-card {
   background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(12px);
@@ -161,7 +161,7 @@ body {
   border-radius: 20px;
 }
 
-/* ── Ticker ─────────────────────────────────────────────────────────────────── */
+/* -- Ticker ------------------------------------------------------------------- */
 .ticker-wrap    { overflow: hidden; white-space: nowrap; }
 .ticker-content { display: inline-block; animation: ticker 40s linear infinite; }
 @keyframes ticker {
@@ -169,7 +169,7 @@ body {
   100% { transform: translateX(-100%); }
 }
 
-/* ── Live pulse dot ─────────────────────────────────────────────────────────── */
+/* -- Live pulse dot ----------------------------------------------------------- */
 .pulse-dot {
   width: 8px; height: 8px;
   background: #1133f5;
@@ -182,7 +182,7 @@ body {
   50%       { opacity: 0.7; box-shadow: 0 0 0 6px rgba(17,51,245,0);   }
 }
 
-/* ── Fixed floating buttons ─────────────────────────────────────────────────── */
+/* -- Fixed floating buttons --------------------------------------------------- */
 .scroll-top {
   position: fixed; bottom: 80px; right: 24px;
   width: 44px; height: 44px;
@@ -197,24 +197,24 @@ body {
 .whatsapp-btn {
   position: fixed; bottom: 24px; right: 24px;
   width: 52px; height: 52px;
-  background: #25d366; border-radius: 50%;
+  background: #1133f5; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; z-index: 50;
-  box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+  box-shadow: 0 4px 16px rgba(17,51,245,0.4);
   transition: all 0.2s;
 }
-.whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
+.whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(17,51,245,0.5); }
 
-/* ── News badges ────────────────────────────────────────────────────────────── */
+/* -- News badges -------------------------------------------------------------- */
 .badge-market  { background: rgba(17,51,245,0.12);  color: #1133f5; }
-.badge-article { background: rgba(99,102,241,0.12); color: #6366f1; }
-.badge-notice  { background: rgba(245,158,11,0.12); color: #d97706; }
+.badge-article { background: rgba(17,51,245,0.12); color: #1133f5; }
+.badge-notice  { background: rgba(17,51,245,0.12); color: #1133f5; }
 
-/* ── Light/dark theme-aware utilities ──────────────────────────────────────── */
+/* -- Light/dark theme-aware utilities ---------------------------------------- */
 .theme-cred-bar { background: #f1f5f9; }
 .dark .theme-cred-bar { background: #0a1628; }
 
-/* ── Admin sidebar ──────────────────────────────────────────────────────────── */
+/* -- Admin sidebar ------------------------------------------------------------ */
 .sidebar-item {
   display: flex; align-items: center; gap: 12px;
   padding: 10px 12px; border-radius: 8px;
@@ -225,7 +225,7 @@ body {
 .sidebar-item:hover  { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.85); }
 .sidebar-item.active { background: #1133f5; color: #fff; }
 
-/* ── Service card hover ─────────────────────────────────────────────────────── */
+/* -- Service card hover ------------------------------------------------------- */
 .service-card {
   position: relative;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -236,9 +236,9 @@ body {
   box-shadow: 0 24px 60px rgba(0,0,0,0.12);
 }
 
-/* ── Credential item ─────────────────────────────────────────────────────────── */
+/* -- Credential item ----------------------------------------------------------- */
 .credential-item { transition: background 0.2s; }
 .credential-item:hover { background: rgba(17,51,245,0.07); border-radius: 12px; }
 
-/* ── Chart tooltip ──────────────────────────────────────────────────────────── */
+/* -- Chart tooltip ------------------------------------------------------------ */
 .recharts-tooltip-wrapper { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
