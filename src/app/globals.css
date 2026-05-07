@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -6,8 +6,8 @@
   --blue-deep:    #020B2D;
   --blue-dark:    #050E25;
   --blue-mid:     #0A1628;
-  --blue-primary: #2563EB;
-  --blue-light:   #3B82F6;
+  --blue-primary: #1133f5;
+  --blue-light:   #1133f5;
   --blue-sky:     #60A5FA;
   --gold:         #c8cc00;
   --navy-900:     #0f172a;
@@ -31,15 +31,15 @@ body {
 
 /* ── Market table row hover ──────────────────────────────────────────────────── */
 .stock-row:hover {
-  background: rgba(37, 99, 235, 0.04);
+  background: rgba(17, 51, 245, 0.04);
   transition: background 0.2s ease;
 }
 
 /* ── Hero grid overlay ─────────────────────────────────────────────────────── */
 .hero-grid-bg {
   background-image:
-    linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(17, 51, 245, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 51, 245, 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
@@ -47,8 +47,8 @@ body {
 .floating-diamond {
   position: absolute;
   transform: rotate(45deg);
-  background: linear-gradient(135deg, rgba(37,99,235,0.14), rgba(96,165,250,0.06));
-  border: 1px solid rgba(59,130,246,0.15);
+  background: linear-gradient(135deg, rgba(17,51,245,0.14), rgba(96,165,250,0.06));
+  border: 1px solid rgba(17,51,245,0.15);
   border-radius: 4px;
   pointer-events: none;
   animation: floatDiamond linear infinite;
@@ -72,7 +72,7 @@ body {
 .glow-orb-1 {
   width: 700px; height: 700px;
   top: -200px; right: -150px;
-  background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, rgba(37,99,235,0.05) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(17,51,245,0.2) 0%, rgba(17,51,245,0.05) 50%, transparent 70%);
 }
 
 .glow-orb-2 {
@@ -89,7 +89,7 @@ body {
 
 /* ── Gradient text ──────────────────────────────────────────────────────────── */
 .text-gradient-blue {
-  background: linear-gradient(135deg, #60A5FA 0%, #2563EB 50%, #818CF8 100%);
+  background: linear-gradient(135deg, #60A5FA 0%, #1133f5 50%, #818CF8 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -123,13 +123,13 @@ body {
 
 /* ── Primary CTA button ─────────────────────────────────────────────────────── */
 .btn-blue {
-  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-  box-shadow: 0 4px 20px rgba(37,99,235,0.35);
+  background: linear-gradient(135deg, #1133f5 0%, #0d28c9 100%);
+  box-shadow: 0 4px 20px rgba(17,51,245,0.35);
   transition: all 0.22s ease;
 }
 .btn-blue:hover {
-  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-  box-shadow: 0 6px 28px rgba(37,99,235,0.5);
+  background: linear-gradient(135deg, #1133f5 0%, #1133f5 100%);
+  box-shadow: 0 6px 28px rgba(17,51,245,0.5);
   transform: translateY(-1px);
 }
 
@@ -155,9 +155,9 @@ body {
 }
 
 .glass-card-blue {
-  background: rgba(37, 99, 235, 0.08);
+  background: rgba(17, 51, 245, 0.08);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(17, 51, 245, 0.2);
   border-radius: 20px;
 }
 
@@ -172,14 +172,14 @@ body {
 /* ── Live pulse dot ─────────────────────────────────────────────────────────── */
 .pulse-dot {
   width: 8px; height: 8px;
-  background: #3B82F6;
+  background: #1133f5;
   border-radius: 50%;
   display: inline-block;
   animation: pulseDot 2s ease-in-out infinite;
 }
 @keyframes pulseDot {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0   rgba(59,130,246,0.4); }
-  50%       { opacity: 0.7; box-shadow: 0 0 0 6px rgba(59,130,246,0);   }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0   rgba(17,51,245,0.4); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 6px rgba(17,51,245,0);   }
 }
 
 /* ── Fixed floating buttons ─────────────────────────────────────────────────── */
@@ -192,7 +192,7 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   transition: all 0.2s;
 }
-.scroll-top:hover { background: #2563EB; box-shadow: 0 4px 16px rgba(37,99,235,0.4); }
+.scroll-top:hover { background: #1133f5; box-shadow: 0 4px 16px rgba(17,51,245,0.4); }
 
 .whatsapp-btn {
   position: fixed; bottom: 24px; right: 24px;
@@ -206,7 +206,7 @@ body {
 .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
 
 /* ── News badges ────────────────────────────────────────────────────────────── */
-.badge-market  { background: rgba(37,99,235,0.12);  color: #2563eb; }
+.badge-market  { background: rgba(17,51,245,0.12);  color: #1133f5; }
 .badge-article { background: rgba(99,102,241,0.12); color: #6366f1; }
 .badge-notice  { background: rgba(245,158,11,0.12); color: #d97706; }
 
@@ -223,7 +223,7 @@ body {
   cursor: pointer; transition: all 0.15s; text-decoration: none;
 }
 .sidebar-item:hover  { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.85); }
-.sidebar-item.active { background: #2563EB; color: #fff; }
+.sidebar-item.active { background: #1133f5; color: #fff; }
 
 /* ── Service card hover ─────────────────────────────────────────────────────── */
 .service-card {
@@ -238,7 +238,7 @@ body {
 
 /* ── Credential item ─────────────────────────────────────────────────────────── */
 .credential-item { transition: background 0.2s; }
-.credential-item:hover { background: rgba(37,99,235,0.07); border-radius: 12px; }
+.credential-item:hover { background: rgba(17,51,245,0.07); border-radius: 12px; }
 
 /* ── Chart tooltip ──────────────────────────────────────────────────────────── */
 .recharts-tooltip-wrapper { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }

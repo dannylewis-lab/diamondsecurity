@@ -1,4 +1,4 @@
-import { MessageCircle, Clock, Users, Zap } from 'lucide-react'
+﻿import { MessageCircle, Clock, Users, Zap } from 'lucide-react'
 import InquiryForm from '@/components/InquiryForm'
 
 // Market Insight Section — live from Supabase
@@ -52,7 +52,7 @@ export function WhatsAppSection() {
                 <div key={title} className="flex items-center gap-4">
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                    style={{ background: 'rgba(37,99,235,0.18)' }}
+                    style={{ background: 'rgba(17,51,245,0.18)' }}
                   >
                     <Icon size={18} style={{ color: '#60A5FA' }} />
                   </div>

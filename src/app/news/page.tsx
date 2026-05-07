@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar'
+﻿import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import NewsPageContent from '@/components/NewsPageContent'
@@ -6,9 +6,9 @@ import { Newspaper } from 'lucide-react'
 
 const diamonds = [
   { id: 1, size: 'w-3 h-3',     color: 'border-[#00D4FF]/40 border-2',  top: '15%', left: '6%',  delay: '0s',   duration: '7s',  opacity: 0.5 },
-  { id: 2, size: 'w-4 h-4',     color: 'border-[#3B82F6]/30 border-2',  top: '55%', left: '80%', delay: '1.5s', duration: '9s',  opacity: 0.4 },
+  { id: 2, size: 'w-4 h-4',     color: 'border-[#1133f5]/30 border-2',  top: '55%', left: '80%', delay: '1.5s', duration: '9s',  opacity: 0.4 },
   { id: 3, size: 'w-2 h-2',     color: 'bg-[#00D4FF]/50',               top: '75%', left: '20%', delay: '2s',   duration: '8s',  opacity: 0.6 },
-  { id: 4, size: 'w-2.5 h-2.5', color: 'bg-[#3B82F6]/40',              top: '30%', left: '60%', delay: '1s',   duration: '6s',  opacity: 0.5 },
+  { id: 4, size: 'w-2.5 h-2.5', color: 'bg-[#1133f5]/40',              top: '30%', left: '60%', delay: '1s',   duration: '6s',  opacity: 0.5 },
 ]
 
 export default function NewsPage() {

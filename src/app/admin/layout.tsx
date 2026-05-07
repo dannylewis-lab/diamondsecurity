@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -119,7 +119,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
   }
 
   const cardStripe = (
-    <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #2563EB, #3B82F6)' }} />
+    <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #1133f5, #1133f5)' }} />
   )
 
   const logoBlock = (
@@ -168,7 +168,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
 
   const inputClass = "w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-colors"
   const btnClass   = "w-full py-3.5 text-white font-semibold rounded-xl transition-all text-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:opacity-90 shadow-lg"
-  const btnStyle   = { background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' }
+  const btnStyle   = { background: 'linear-gradient(135deg, #1133f5 0%, #0d28c9 100%)' }
 
   const outerWrap = (children: React.ReactNode) => (
     <div
@@ -382,7 +382,7 @@ function SidebarContent({
                   ? 'text-white shadow-lg'
                   : 'text-white/50 hover:bg-white/10 hover:text-white/90'
               }`}
-              style={isActive ? { background: 'linear-gradient(135deg, #1a56db, #0EA5E9)' } : {}}
+              style={isActive ? { background: 'linear-gradient(135deg, #1133f5, #1133f5)' } : {}}
             >
               <Icon size={15} className={isActive ? 'text-white' : 'text-white/40 group-hover:text-white/70'} />
               <span className="flex-1">{label}</span>

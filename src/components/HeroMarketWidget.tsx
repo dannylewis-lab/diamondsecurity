@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Image from 'next/image'
 import { ExternalLink, TrendingUp, BarChart2, ArrowUpRight } from 'lucide-react'
 
@@ -18,7 +18,7 @@ export function HeroMarketWidget() {
         }}
       >
         {/* Top accent bar */}
-        <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #10b981, #3b82f6, #10b981)' }} />
+        <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #10b981, #1133f5, #10b981)' }} />
 
         <div className="p-8 lg:p-10">
 
@@ -77,7 +77,7 @@ export function HeroMarketWidget() {
           {/* CTA Button */}
           <div
             className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 group-hover:opacity-90"
-            style={{ background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #1133f5 0%, #0d28c9 100%)' }}
           >
             <span className="text-white">Visit DSE Website</span>
             <ArrowUpRight size={16} className="text-white" />

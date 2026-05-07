@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import { Shield, TrendingUp, Briefcase, PieChart, ArrowRight, BadgeCheck } from 'lucide-react'
 
 const credentials = [
@@ -13,14 +13,14 @@ const services = [
     icon:   Briefcase,
     title:  'Brokerage / Dealing Services',
     desc:   'Seamless execution of securities transactions on the DSE — precision, speed, and reliability with every trade.',
-    accent: '#2563EB',
-    glow:   'rgba(37,99,235,0.12)',
+    accent: '#1133f5',
+    glow:   'rgba(17,51,245,0.12)',
   },
   {
     icon:   TrendingUp,
     title:  'Advisory Services',
     desc:   'Tailored investment strategies and expert guidance grounded in deep market intelligence and rigorous analysis.',
-    accent: '#0EA5E9',
+    accent: '#1133f5',
     glow:   'rgba(14,165,233,0.12)',
   },
   {
@@ -43,7 +43,7 @@ export default function ServicesSection() {
               <div key={label} className="credential-item flex items-center gap-3 px-4 md:px-6 py-3 rounded-xl">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                  style={{ background: 'rgba(37,99,235,0.15)' }}
+                  style={{ background: 'rgba(17,51,245,0.15)' }}
                 >
                   <Icon size={18} style={{ color: '#60A5FA' }} />
                 </div>
@@ -64,7 +64,7 @@ export default function ServicesSection() {
           {/* Header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-5"
-              style={{ background: 'rgba(37,99,235,0.08)', color: '#2563EB' }}>
+              style={{ background: 'rgba(17,51,245,0.08)', color: '#1133f5' }}>
               Licensed Services
             </div>
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What We Offer</h2>

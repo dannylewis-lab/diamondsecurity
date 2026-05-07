@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import {
   ArrowUpRight, CheckCircle, TrendingUp, Shield,
   BarChart2, Briefcase, PieChart, Zap, ArrowRight
@@ -18,7 +18,7 @@ const services = [
       'Precision, speed, and reliability on every transaction',
       'Dedicated dealer support for every client',
     ],
-    accent: '#2563eb',
+    accent: '#1133f5',
     light: '#eff6ff',
     mid: '#dbeafe',
   },
@@ -35,7 +35,7 @@ const services = [
       'Alignment with individual financial objectives',
       'Local market expertise with forward-looking perspective',
     ],
-    accent: '#0EA5E9',
+    accent: '#1133f5',
     light: '#f0f9ff',
     mid: '#bae6fd',
   },
@@ -87,10 +87,10 @@ const faqs = [
 
 const diamonds = [
   { id: 1, size: 'w-3 h-3',     color: 'border-[#00D4FF]/40 border-2',  top: '10%',  left: '7%',  delay: '0s',   duration: '7s',  opacity: 0.5 },
-  { id: 2, size: 'w-5 h-5',     color: 'border-[#3B82F6]/30 border-2',  top: '40%',  left: '78%', delay: '1.5s', duration: '9s',  opacity: 0.4 },
+  { id: 2, size: 'w-5 h-5',     color: 'border-[#1133f5]/30 border-2',  top: '40%',  left: '78%', delay: '1.5s', duration: '9s',  opacity: 0.4 },
   { id: 3, size: 'w-2 h-2',     color: 'bg-[#00D4FF]/50',               top: '70%',  left: '12%', delay: '2s',   duration: '8s',  opacity: 0.6 },
   { id: 4, size: 'w-4 h-4',     color: 'border-[#00D4FF]/25 border-2',  top: '60%',  left: '88%', delay: '0.8s', duration: '11s', opacity: 0.3 },
-  { id: 5, size: 'w-2.5 h-2.5', color: 'bg-[#3B82F6]/40',              top: '25%',  left: '55%', delay: '1s',   duration: '6s',  opacity: 0.5 },
+  { id: 5, size: 'w-2.5 h-2.5', color: 'bg-[#1133f5]/40',              top: '25%',  left: '55%', delay: '1s',   duration: '6s',  opacity: 0.5 },
 ]
 
 export default function ServicesPage() {
@@ -168,7 +168,7 @@ export default function ServicesPage() {
             ].map(({ icon: Icon, value, label }) => (
               <div key={label} className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                  <Icon size={16} className="text-[#0EA5E9]" />
+                  <Icon size={16} className="text-[#1133f5]" />
                 </div>
                 <div className="text-left">
                   <p className="text-sm font-bold text-gray-900 leading-tight">{value}</p>
@@ -280,7 +280,7 @@ export default function ServicesPage() {
                 {i < process.length - 1 && (
                   <div className="hidden lg:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] h-0.5 bg-gray-200 z-0" />
                 )}
-                <div className="w-16 h-16 rounded-full text-white font-bold text-lg flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg" style={{ background: 'linear-gradient(135deg, #1a56db, #0EA5E9)' }}>
+                <div className="w-16 h-16 rounded-full text-white font-bold text-lg flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg" style={{ background: 'linear-gradient(135deg, #1133f5, #1133f5)' }}>
                   {p.step}
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{p.title}</h3>
@@ -308,7 +308,7 @@ export default function ServicesPage() {
             {faqs.map((faq) => (
               <div key={faq.q} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-blue-100 transition-colors duration-300">
                 <h3 className="font-bold text-gray-900 mb-2 flex items-start gap-3">
-                  <span className="w-6 h-6 text-white rounded-full flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold" style={{ background: 'linear-gradient(135deg, #1a56db, #0EA5E9)' }}>?</span>
+                  <span className="w-6 h-6 text-white rounded-full flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold" style={{ background: 'linear-gradient(135deg, #1133f5, #1133f5)' }}>?</span>
                   {faq.q}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed pl-9">{faq.a}</p>

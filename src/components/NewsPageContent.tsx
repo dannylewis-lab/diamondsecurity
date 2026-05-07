@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { Newspaper } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
@@ -62,7 +62,7 @@ export default function NewsPageContent() {
   if (loading) {
     return (
       <section className="py-16 bg-gray-50 min-h-screen flex items-center justify-center">
-        <svg className="animate-spin w-8 h-8 text-[#0EA5E9]" viewBox="0 0 24 24" fill="none">
+        <svg className="animate-spin w-8 h-8 text-[#1133f5]" viewBox="0 0 24 24" fill="none">
           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
         </svg>
@@ -82,8 +82,8 @@ export default function NewsPageContent() {
               onClick={() => { setActive(cat); setVisible(6) }}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                 active === cat
-                  ? 'bg-[#0EA5E9] text-white shadow-sm shadow-[#0EA5E9]/30'
-                  : 'bg-white border border-gray-200 text-gray-600 hover:border-[#0EA5E9] hover:text-[#0EA5E9]'
+                  ? 'bg-[#1133f5] text-white shadow-sm shadow-[#1133f5]/30'
+                  : 'bg-white border border-gray-200 text-gray-600 hover:border-[#1133f5] hover:text-[#1133f5]'
               }`}
             >
               {cat}
@@ -128,7 +128,7 @@ export default function NewsPageContent() {
                   </div>
                   <div className="p-8 flex flex-col justify-center">
                     <p className="text-xs text-gray-400 mb-3">{formatDate(featured.created_at)}</p>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-3 leading-snug group-hover:text-[#0EA5E9] transition-colors">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-3 leading-snug group-hover:text-[#1133f5] transition-colors">
                       {featured.title}
                     </h2>
                     {featured.excerpt && (
@@ -164,7 +164,7 @@ export default function NewsPageContent() {
                   </div>
                   <div className="p-5">
                     <p className="text-xs text-gray-400 mb-2">{formatDate(article.created_at)}</p>
-                    <h3 className="font-bold text-gray-900 mb-2 leading-snug group-hover:text-[#0EA5E9] transition-colors line-clamp-2">
+                    <h3 className="font-bold text-gray-900 mb-2 leading-snug group-hover:text-[#1133f5] transition-colors line-clamp-2">
                       {article.title}
                     </h3>
                     {article.excerpt && (

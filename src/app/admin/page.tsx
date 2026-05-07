@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -147,7 +147,7 @@ export default function AdminOverview() {
               style={{ background: 'linear-gradient(145deg, #0f2a44 0%, #1a3a5c 60%, #0f2a44 100%)' }}
             >
               {/* Top accent */}
-              <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #2563EB, #3b82f6, #2563EB)' }} />
+              <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #1133f5, #1133f5, #1133f5)' }} />
 
               <div className="p-6 flex flex-col items-center text-center">
                 {/* DSE Logo */}
@@ -183,7 +183,7 @@ export default function AdminOverview() {
                 {/* CTA */}
                 <div
                   className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-opacity group-hover:opacity-90"
-                  style={{ background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' }}
+                  style={{ background: 'linear-gradient(135deg, #1133f5 0%, #0d28c9 100%)' }}
                 >
                   <ExternalLink size={13} />
                   Visit DSE Website

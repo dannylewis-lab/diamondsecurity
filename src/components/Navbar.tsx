@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
@@ -42,7 +42,7 @@ export default function Navbar() {
     : 'rgba(255,255,255,0.97)'
 
   const navBorder = dark
-    ? (scrolled ? '1px solid rgba(37,99,235,0.15)' : 'none')
+    ? (scrolled ? '1px solid rgba(17,51,245,0.15)' : 'none')
     : '1px solid rgba(0,0,0,0.07)'
 
   return (

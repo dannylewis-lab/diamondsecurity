@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Image from 'next/image'
 import { ExternalLink, BarChart2, TrendingUp, ArrowUpRight, ShieldCheck } from 'lucide-react'
 
@@ -38,7 +38,7 @@ export default function MarketDashboard() {
             style={{ background: 'linear-gradient(145deg, #0f2a44 0%, #1a3a5c 50%, #0f2a44 100%)' }}
           >
             {/* Top accent */}
-            <div className="h-1.5 w-full" style={{ background: 'linear-gradient(90deg, #10b981, #3b82f6, #10b981)' }} />
+            <div className="h-1.5 w-full" style={{ background: 'linear-gradient(90deg, #10b981, #1133f5, #10b981)' }} />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
@@ -73,7 +73,7 @@ export default function MarketDashboard() {
 
                 {/* CTA */}
                 <div className="flex items-center gap-3 w-fit py-3.5 px-7 rounded-xl font-semibold text-sm text-white transition-all duration-200 group-hover:opacity-90"
-                  style={{ background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' }}
+                  style={{ background: 'linear-gradient(135deg, #1133f5 0%, #0d28c9 100%)' }}
                 >
                   <span>Visit DSE Website</span>
                   <ArrowUpRight size={16} />
