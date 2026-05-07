@@ -1,7 +1,10 @@
+'use client'
+import { useState } from 'react'
 import Link from 'next/link'
 import {
   ArrowUpRight, CheckCircle, TrendingUp, Shield,
-  BarChart2, Briefcase, PieChart, Zap, ArrowRight
+  BarChart2, Briefcase, PieChart, Zap, ArrowRight,
+  ChevronDown, BadgeCheck,
 } from 'lucide-react'
 
 const services = [
@@ -10,7 +13,7 @@ const services = [
     icon: Briefcase,
     title: 'Brokerage / Dealing Services',
     tagline: 'Seamless securities execution on the DSE',
-    desc: 'We provide seamless execution of securities transactions on the Dar es Salaam Stock Exchange (DSE), delivering precision, speed, and reliability. Our brokerage services encompass trade execution, Central Depository System (CDS) account facilitation, and efficient settlement processes—ensuring our clients experience a secure and streamlined investment journey.',
+    desc: 'We provide seamless execution of securities transactions on the Dar es Salaam Stock Exchange (DSE), delivering precision, speed, and reliability. Our brokerage services encompass trade execution, Central Depository System (CDS) account facilitation, and efficient settlement processes — ensuring our clients experience a secure and streamlined investment journey.',
     features: [
       'Trade execution on the Dar es Salaam Stock Exchange',
       'Central Depository System (CDS) account facilitation',
@@ -18,9 +21,6 @@ const services = [
       'Precision, speed, and reliability on every transaction',
       'Dedicated dealer support for every client',
     ],
-    accent: '#1133f5',
-    light: '#eff6ff',
-    mid: '#dbeafe',
   },
   {
     number: '02',
@@ -33,18 +33,15 @@ const services = [
       'Deep market intelligence and rigorous analysis',
       'Insightful research and expert guidance',
       'Alignment with individual financial objectives',
-      'Local market expertise with forward-looking perspective',
+      'Local market expertise with a forward-looking perspective',
     ],
-    accent: '#1133f5',
-    light: '#f0f9ff',
-    mid: '#bae6fd',
   },
   {
     number: '03',
     icon: PieChart,
     title: 'Fund Management',
     tagline: 'Disciplined management focused on long-term value',
-    desc: 'We deliver disciplined and performance-driven fund management solutions, focused on long-term value creation. Through strategic asset allocation, active portfolio management, and continuous risk assessment, we optimize returns while safeguarding capital. Our approach is built on transparency, accountability, and a commitment to excellence.',
+    desc: 'We deliver disciplined and performance-driven fund management solutions, focused on long-term value creation. Through strategic asset allocation, active portfolio management, and continuous risk assessment, we optimise returns while safeguarding capital. Our approach is built on transparency, accountability, and a commitment to excellence.',
     features: [
       'Strategic asset allocation for optimised returns',
       'Active portfolio management and monitoring',
@@ -52,19 +49,15 @@ const services = [
       'Long-term value creation philosophy',
       'Full transparency, accountability, and reporting',
     ],
-    accent: '#7c3aed',
-    light: '#faf5ff',
-    mid: '#ede9fe',
   },
 ]
 
-const process = [
-  { step: '01', title: 'Open Your Account', desc: 'Complete our simple form or visit our office. Account opening takes less than 24 hours.' },
-  { step: '02', title: 'Fund Your Account', desc: 'Transfer funds via mobile money, bank transfer, or cash deposit to your trading account.' },
-  { step: '03', title: 'Meet Your Advisor', desc: 'Schedule a free consultation with one of our certified investment advisors to plan your strategy.' },
-  { step: '04', title: 'Start Investing', desc: 'Place your first trade on the DSE or let our fund managers handle your portfolio.' },
+const steps = [
+  { step: '01', title: 'Open Your Account',  desc: 'Complete our simple form or visit our office. Account opening takes less than 24 hours.' },
+  { step: '02', title: 'Fund Your Account',   desc: 'Transfer funds via mobile money, bank transfer, or cash deposit to your trading account.' },
+  { step: '03', title: 'Meet Your Advisor',   desc: 'Schedule a free consultation with one of our certified investment advisors to plan your strategy.' },
+  { step: '04', title: 'Start Investing',     desc: 'Place your first trade on the DSE or let our fund managers handle your portfolio.' },
 ]
-
 
 const faqs = [
   {
@@ -85,70 +78,60 @@ const faqs = [
   },
 ]
 
-const diamonds = [
-  { id: 1, size: 'w-3 h-3',     color: 'border-[#00D4FF]/40 border-2',  top: '10%',  left: '7%',  delay: '0s',   duration: '7s',  opacity: 0.5 },
-  { id: 2, size: 'w-5 h-5',     color: 'border-[#1133f5]/30 border-2',  top: '40%',  left: '78%', delay: '1.5s', duration: '9s',  opacity: 0.4 },
-  { id: 3, size: 'w-2 h-2',     color: 'bg-[#00D4FF]/50',               top: '70%',  left: '12%', delay: '2s',   duration: '8s',  opacity: 0.6 },
-  { id: 4, size: 'w-4 h-4',     color: 'border-[#00D4FF]/25 border-2',  top: '60%',  left: '88%', delay: '0.8s', duration: '11s', opacity: 0.3 },
-  { id: 5, size: 'w-2.5 h-2.5', color: 'bg-[#1133f5]/40',              top: '25%',  left: '55%', delay: '1s',   duration: '6s',  opacity: 0.5 },
-]
-
 export default function ServicesPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+
   return (
     <>
-      {/* Hero Banner */}
+      {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section
-        className="py-28 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #020B2D 0%, #041444 50%, #020B2D 100%)' }}
+        className="relative overflow-hidden pt-36 pb-28"
+        style={{ background: 'linear-gradient(135deg, #020B2D 0%, #041444 55%, #020B2D 100%)' }}
       >
-        <div className="hero-grid-bg absolute inset-0 opacity-30" />
+        <div className="hero-grid-bg absolute inset-0 opacity-25" />
 
         {/* Glow orbs */}
         <div
-          className="glow-orb glow-orb-1 absolute"
-          style={{ width: '450px', height: '450px', top: '-20%', right: '5%' }}
+          className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(17,51,245,0.18) 0%, transparent 65%)',
+            transform: 'translate(35%, -35%)',
+          }}
         />
         <div
-          className="glow-orb glow-orb-2 absolute"
-          style={{ width: '280px', height: '280px', bottom: '0%', left: '-5%' }}
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(17,51,245,0.12) 0%, transparent 65%)',
+            transform: 'translate(-35%, 35%)',
+          }}
         />
-
-        {/* Floating diamonds */}
-        {diamonds.map((d) => (
-          <div
-            key={d.id}
-            className={`floating-diamond absolute ${d.size} ${d.color}`}
-            style={{
-              top: d.top, left: d.left,
-              animationDelay: d.delay, animationDuration: d.duration,
-              opacity: d.opacity,
-            }}
-          />
-        ))}
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-sm font-medium mb-6">
-              <BarChart2 size={14} />
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 text-blue-300 text-xs font-semibold tracking-widest uppercase mb-8"
+              style={{ background: 'rgba(255,255,255,0.05)' }}>
+              <BarChart2 size={12} />
               Licensed DSE Brokerage &amp; Investment Services
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-tight">
-              Three Core Services.<br />
-              <span className="text-gradient-blue">One Trusted Partner.</span>
+
+            <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-black text-white leading-[1.05] tracking-tight mb-6">
+              Three Core<br />
+              <span className="text-gradient-blue">Services.</span>
             </h1>
-            <p className="text-blue-200 text-lg leading-relaxed mb-8 max-w-2xl">
-              Diamond Global Securities is authorised to deliver three specialised financial services —
-              each executed with the highest standards of precision, integrity, and client focus.
+
+            <p className="text-blue-200/75 text-lg sm:text-xl leading-relaxed mb-10 max-w-xl">
+              CMSA-licensed and DSE-regulated financial services — each built on precision,
+              integrity, and deep market expertise.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-lg">
-                Get Started Today
-                <ArrowUpRight size={16} />
+
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact"
+                className="btn-blue inline-flex items-center gap-2 px-7 py-3.5 font-semibold rounded-xl text-white text-sm">
+                Get Started Today <ArrowUpRight size={15} />
               </Link>
-              <Link
-                href="/market"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-all"
-              >
+              <Link href="/market"
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white/80 font-medium rounded-xl hover:bg-white/8 transition-all text-sm">
                 View Live Market
               </Link>
             </div>
@@ -156,23 +139,24 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Credentials Strip */}
-      <section className="bg-white py-8 border-b border-gray-100">
+      {/* ── Credentials Strip ─────────────────────────────────────────────── */}
+      <section className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
             {[
-              { icon: Shield,    value: 'CMSA Licensed',    label: 'Fully Regulated' },
-              { icon: Briefcase, value: 'Dealer Licence',   label: 'Securities Dealing' },
-              { icon: TrendingUp,value: 'Investment Adviser',label: 'Advisory Licence' },
-              { icon: BarChart2, value: 'Fund Manager',     label: 'Fund Management Licence' },
+              { icon: BadgeCheck, value: 'CMSA Licensed',       label: 'Capital Markets Authority' },
+              { icon: Briefcase,  value: 'Dealer Licence',      label: 'Securities Dealing' },
+              { icon: TrendingUp, value: 'Investment Adviser',  label: 'Advisory Licence' },
+              { icon: PieChart,   value: 'Fund Manager',        label: 'Fund Management Licence' },
             ].map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                  <Icon size={16} className="text-[#1133f5]" />
+              <div key={label} className="flex items-center gap-3 px-5 lg:px-8 py-5">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+                  style={{ background: 'rgba(17,51,245,0.08)' }}>
+                  <Icon size={16} style={{ color: '#1133f5' }} />
                 </div>
-                <div className="text-left">
+                <div>
                   <p className="text-sm font-bold text-gray-900 leading-tight">{value}</p>
-                  <p className="text-xs text-gray-400">{label}</p>
+                  <p className="text-xs text-gray-400 mt-0.5">{label}</p>
                 </div>
               </div>
             ))}
@@ -180,86 +164,91 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services — large premium cards */}
-      <section className="py-24 bg-gray-50">
+      {/* ── Services ──────────────────────────────────────────────────────── */}
+      <section className="py-24" style={{ background: '#f8fafc' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-3">Our Services</h2>
-            <p className="text-gray-500 text-lg max-w-xl mx-auto">
-              Authorised, regulated, and built around your financial success
+            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: '#1133f5' }}>
+              What We Offer
             </p>
+            <h2 className="text-4xl sm:text-5xl font-black text-gray-900">Our Services</h2>
           </div>
 
-          <div className="space-y-10">
+          <div className="space-y-5">
             {services.map((s) => {
               const Icon = s.icon
               return (
                 <div
                   key={s.title}
-                  className="relative rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group"
-                  style={{ background: s.light }}
+                  className="group bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl hover:border-blue-100 transition-all duration-500"
                 >
-                  <span
-                    className="absolute top-4 right-8 text-[70px] md:text-[120px] font-black leading-none select-none pointer-events-none opacity-[0.06]"
-                    style={{ color: s.accent }}
-                  >
-                    {s.number}
-                  </span>
+                  {/* Top accent stripe */}
+                  <div className="h-[3px]" style={{ background: 'linear-gradient(90deg, #1133f5 0%, rgba(17,51,245,0.15) 100%)' }} />
 
-                  <div className="relative z-10 p-8 md:p-12 grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
-                    <div className="md:col-span-2">
-                      <div
-                        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-sm"
-                        style={{ background: s.mid }}
-                      >
-                        <Icon size={26} style={{ color: s.accent }} />
+                  <div className="grid grid-cols-1 lg:grid-cols-[360px_1fr]">
+
+                    {/* Left — dark navy panel */}
+                    <div
+                      className="relative p-8 lg:p-10 flex flex-col justify-between overflow-hidden"
+                      style={{ background: 'linear-gradient(160deg, #020B2D 0%, #0f2051 100%)' }}
+                    >
+                      {/* Watermark number */}
+                      <span className="absolute -bottom-2 -right-2 text-[110px] font-black leading-none select-none pointer-events-none"
+                        style={{ color: 'rgba(255,255,255,0.04)' }}>
+                        {s.number}
+                      </span>
+
+                      {/* Subtle grid */}
+                      <div className="hero-grid-bg absolute inset-0 opacity-20" />
+
+                      <div className="relative z-10">
+                        <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6"
+                          style={{ background: 'rgba(17,51,245,0.3)', border: '1px solid rgba(17,51,245,0.5)' }}>
+                          <Icon size={22} className="text-white" />
+                        </div>
+                        <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-blue-400/60 mb-2">
+                          Service {s.number}
+                        </p>
+                        <h3 className="text-2xl font-black text-white leading-snug mb-3">
+                          {s.title}
+                        </h3>
+                        <p className="text-blue-300/60 text-sm leading-relaxed">{s.tagline}</p>
                       </div>
-                      <div
-                        className="text-xs font-bold tracking-[0.2em] uppercase mb-2"
-                        style={{ color: s.accent }}
-                      >
-                        Service {s.number}
-                      </div>
-                      <h3 className="text-2xl font-extrabold text-gray-900 leading-snug mb-2">
-                        {s.title}
-                      </h3>
-                      <p className="text-sm font-medium text-gray-500 mb-6">{s.tagline}</p>
+
                       <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 shadow-md"
-                        style={{ background: s.accent }}
+                        className="relative z-10 mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white w-fit transition-all duration-200 hover:opacity-90"
+                        style={{ background: 'rgba(17,51,245,0.5)', border: '1px solid rgba(17,51,245,0.6)' }}
                       >
                         Enquire Now <ArrowRight size={14} />
                       </Link>
                     </div>
 
-                    <div className="md:col-span-3">
-                      <p className="text-gray-600 leading-relaxed text-[15px] mb-7">
-                        {s.desc}
-                      </p>
-                      <div
-                        className="h-px mb-7 opacity-30"
-                        style={{ background: s.accent }}
-                      />
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {s.features.map((f) => (
-                          <li key={f} className="flex items-start gap-2.5 text-sm text-gray-700">
-                            <CheckCircle
-                              size={15}
-                              className="shrink-0 mt-0.5"
-                              style={{ color: s.accent }}
-                            />
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
+                    {/* Right — white content panel */}
+                    <div className="p-8 lg:p-10 flex flex-col justify-between">
+                      <p className="text-gray-500 leading-relaxed text-[15px] mb-8">{s.desc}</p>
+
+                      <div>
+                        <div className="border-t border-gray-100 pt-6 mb-5">
+                          <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-gray-400 mb-4">
+                            What&apos;s Included
+                          </p>
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {s.features.map((f) => (
+                              <li key={f} className="flex items-start gap-2.5 text-sm text-gray-700">
+                                <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                                  style={{ background: 'rgba(17,51,245,0.08)' }}>
+                                  <CheckCircle size={11} style={{ color: '#1133f5' }} />
+                                </div>
+                                {f}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
-                  <div
-                    className="h-1 w-0 group-hover:w-full transition-all duration-700"
-                    style={{ background: `linear-gradient(90deg, ${s.accent}, transparent)` }}
-                  />
                 </div>
               )
             })}
@@ -267,81 +256,151 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20 bg-white">
+      {/* ── How It Works ──────────────────────────────────────────────────── */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold text-gray-900 mb-3">How to Get Started</h2>
-            <p className="text-gray-500">Begin your investment journey in 4 simple steps</p>
+          <div className="text-center mb-16">
+            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: '#1133f5' }}>
+              Simple Process
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-black text-gray-900">How to Get Started</h2>
+            <p className="text-gray-400 mt-3 max-w-md mx-auto">Begin your investment journey in four straightforward steps</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((p, i) => (
-              <div key={p.step} className="relative text-center">
-                {i < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] h-0.5 bg-gray-200 z-0" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {steps.map((p, i) => (
+              <div key={p.step} className="relative group">
+                {/* Connector line */}
+                {i < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-7 left-[calc(50%+28px)] right-[-10%] h-px z-0"
+                    style={{ background: 'linear-gradient(90deg, rgba(17,51,245,0.4), rgba(17,51,245,0.05))' }} />
                 )}
-                <div className="w-16 h-16 rounded-full text-white font-bold text-lg flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg" style={{ background: 'linear-gradient(135deg, #1133f5, #1133f5)' }}>
-                  {p.step}
+
+                <div className="relative z-10 bg-white rounded-2xl border border-gray-100 p-6 hover:border-blue-100 hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1">
+                  {/* Step number circle */}
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-black text-lg mb-5 shadow-lg"
+                    style={{ background: 'linear-gradient(135deg, #1133f5 0%, #0d28c9 100%)' }}
+                  >
+                    {p.step}
+                  </div>
+                  <h3 className="font-bold text-gray-900 text-base mb-2">{p.title}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{p.desc}</p>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">{p.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg shadow-lg">
-              Open Your Account Now
-              <ArrowUpRight size={16} />
+
+          <div className="text-center mt-14">
+            <Link href="/contact"
+              className="btn-blue inline-flex items-center gap-2 px-9 py-4 font-semibold rounded-xl text-white shadow-xl">
+              Open Your Account Now <ArrowUpRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 bg-white">
+      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
+      <section className="py-24" style={{ background: '#f8fafc' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-3">Frequently Asked Questions</h2>
-            <p className="text-gray-500">Common questions about our services</p>
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: '#1133f5' }}>
+              FAQs
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-black text-gray-900">Common Questions</h2>
           </div>
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <div key={faq.q} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-blue-100 transition-colors duration-300">
-                <h3 className="font-bold text-gray-900 mb-2 flex items-start gap-3">
-                  <span className="w-6 h-6 text-white rounded-full flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold" style={{ background: 'linear-gradient(135deg, #1133f5, #1133f5)' }}>?</span>
-                  {faq.q}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed pl-9">{faq.a}</p>
+
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                className={`bg-white rounded-2xl border overflow-hidden transition-all duration-200 ${
+                  openFaq === i ? 'border-blue-200 shadow-md' : 'border-gray-100 hover:border-blue-100'
+                }`}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left group"
+                >
+                  <span className="font-semibold text-gray-900 text-sm sm:text-[15px] leading-snug">
+                    {faq.q}
+                  </span>
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                      openFaq === i ? 'rotate-180' : ''
+                    }`}
+                    style={{
+                      background: openFaq === i ? 'rgba(17,51,245,0.1)' : 'rgba(0,0,0,0.04)',
+                    }}
+                  >
+                    <ChevronDown size={15} style={{ color: openFaq === i ? '#1133f5' : '#9ca3af' }} />
+                  </div>
+                </button>
+
+                <div className={`overflow-hidden transition-all duration-300 ${openFaq === i ? 'max-h-48' : 'max-h-0'}`}>
+                  <div className="px-6 pb-6 border-t border-gray-50">
+                    <p className="text-gray-500 text-sm leading-relaxed pt-4">{faq.a}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CTA ───────────────────────────────────────────────────────────── */}
       <section
-        className="py-20 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #020B2D 0%, #041444 50%, #020B2D 100%)' }}
+        className="py-28 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #020B2D 0%, #041444 55%, #020B2D 100%)' }}
       >
         <div className="hero-grid-bg absolute inset-0 opacity-20" />
-        <div className="glow-orb glow-orb-1 absolute" style={{ width: '350px', height: '350px', top: '-20%', right: '5%', opacity: 0.5 }} />
+        <div
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(17,51,245,0.18) 0%, transparent 65%)',
+            transform: 'translate(35%, -35%)',
+          }}
+        />
+
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Zap size={20} className="text-[#00D4FF]" />
-            <span className="text-[#00D4FF] text-sm font-semibold tracking-wide uppercase">Ready to invest?</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 text-blue-300 text-xs font-semibold tracking-widest uppercase mb-8"
+            style={{ background: 'rgba(255,255,255,0.05)' }}>
+            <Zap size={12} />
+            Ready to invest?
           </div>
-          <h2 className="text-4xl font-bold text-white mb-4">Start Your Investment Journey Today</h2>
-          <p className="text-blue-200 mb-8 max-w-xl mx-auto leading-relaxed">
-            Our team of certified professionals is ready to help you achieve your financial goals
-            through brokerage, advisory, or fund management. First consultation is completely free.
+
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-5 leading-tight">
+            Start Your Investment<br />Journey Today
+          </h2>
+
+          <p className="text-blue-200/65 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+            Our certified professionals are ready to guide you through brokerage, advisory, or fund management.
+            First consultation is completely free.
           </p>
+
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="btn-blue px-8 py-3 font-semibold rounded-lg inline-flex items-center gap-2">
-              Book Free Consultation
+            <Link href="/contact"
+              className="btn-blue px-9 py-4 font-semibold rounded-xl inline-flex items-center gap-2 text-white shadow-2xl">
+              Book Free Consultation <ArrowUpRight size={16} />
             </Link>
-            <Link href="/about" className="px-8 py-3 border border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-colors">
+            <Link href="/about"
+              className="px-9 py-4 border border-white/20 text-white/80 font-medium rounded-xl hover:bg-white/8 transition-colors">
               Learn About Us
             </Link>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap justify-center gap-6 mt-14">
+            {[
+              { icon: Shield,    label: 'CMSA Regulated' },
+              { icon: BadgeCheck,label: 'DSE Dealing Member' },
+              { icon: Briefcase, label: 'Licensed Broker' },
+            ].map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-2.5 text-blue-300/60 text-sm">
+                <Icon size={14} />
+                <span>{label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
