@@ -3,25 +3,25 @@ import Image from 'next/image'
 import { ExternalLink, BarChart2, TrendingUp, ArrowUpRight, ShieldCheck } from 'lucide-react'
 
 const highlights = [
-  { label: 'Equity Market',      desc: 'Shares of listed companies'         },
-  { label: 'Bond Market',        desc: 'Government & corporate bonds'        },
-  { label: 'DSEI Index',         desc: 'Dar es Salaam Stock Exchange Index'  },
-  { label: 'EAX',                desc: 'East African Exchange commodities'   },
+  { label: 'Equity Market', desc: 'Shares of listed companies'        },
+  { label: 'Bond Market',   desc: 'Government & corporate bonds'       },
+  { label: 'DSEI Index',    desc: 'Dar es Salaam Stock Exchange Index' },
+  { label: 'EAX',           desc: 'East African Exchange commodities'  },
 ]
 
 export default function MarketDashboard() {
   return (
-    <section className="py-20 bg-gray-50 dark:bg-[#050e25]" id="market">
+    <section className="py-20 bg-gray-50" id="market">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section heading */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-semibold tracking-widest uppercase mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-50 text-blue-600 text-xs font-semibold tracking-widest uppercase mb-5">
             <BarChart2 size={13} />
             Live Market Data
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">DSE Market Dashboard</h2>
-          <p className="text-gray-500 dark:text-blue-300 max-w-lg mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 mb-3">DSE Market Dashboard</h2>
+          <p className="text-gray-500 max-w-lg mx-auto">
             Real-time market data from the official Dar es Salaam Stock Exchange
           </p>
         </div>
@@ -33,26 +33,18 @@ export default function MarketDashboard() {
           rel="noopener noreferrer"
           className="block group"
         >
-          <div
-            className="relative rounded-3xl overflow-hidden shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1"
-            style={{ background: 'linear-gradient(145deg, #0f2a44 0%, #1a3a5c 50%, #0f2a44 100%)' }}
-          >
+          <div className="relative rounded-3xl overflow-hidden border border-gray-200 bg-white shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:border-blue-200 group-hover:-translate-y-1">
             {/* Top accent */}
-            <div className="h-1.5 w-full" style={{ background: 'linear-gradient(90deg, #1133f5, #1133f5, #1133f5)' }} />
+            <div className="h-1 w-full" style={{ background: '#1133f5' }} />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
               {/* Left: DSE branding */}
-              <div className="p-10 lg:p-14 flex flex-col justify-center">
-                {/* Logo */}
+              <div className="p-10 lg:p-14 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-gray-100">
                 <div className="mb-8">
                   <div
-                    className="relative bg-white rounded-2xl overflow-hidden"
-                    style={{
-                      width: '200px',
-                      height: '110px',
-                      boxShadow: '0 0 40px 8px rgba(255,255,255,0.12), 0 8px 24px rgba(0,0,0,0.4)',
-                    }}
+                    className="relative bg-white rounded-2xl overflow-hidden border border-gray-100"
+                    style={{ width: '200px', height: '110px', boxShadow: '0 4px 20px rgba(0,0,0,0.08)' }}
                   >
                     <Image
                       src="/dse-logo.png"
@@ -64,61 +56,53 @@ export default function MarketDashboard() {
                   </div>
                 </div>
 
-                <h3 className="text-white font-bold text-2xl mb-2 leading-tight">
+                <h3 className="text-gray-900 font-bold text-2xl mb-2 leading-tight">
                   Dar es Salaam<br />Stock Exchange
                 </h3>
-                <p className="text-blue-300 text-sm mb-6 leading-relaxed">
-                  Tanzania's official securities exchange, providing real-time market data, stock listings, indices, and investment information.
+                <p className="text-gray-500 text-sm mb-6 leading-relaxed">
+                  Tanzania&apos;s official securities exchange, providing real-time market data, stock listings, indices, and investment information.
                 </p>
 
-                {/* CTA */}
-                <div className="flex items-center gap-3 w-fit py-3.5 px-7 rounded-xl font-semibold text-sm text-white transition-all duration-200 group-hover:opacity-90"
-                  style={{ background: 'linear-gradient(135deg, #1133f5 0%, #0d28c9 100%)' }}
+                <div
+                  className="flex items-center gap-3 w-fit py-3.5 px-7 rounded-xl font-semibold text-sm text-white transition-opacity duration-200 group-hover:opacity-90"
+                  style={{ background: '#1133f5' }}
                 >
                   <span>Visit DSE Website</span>
                   <ArrowUpRight size={16} />
                 </div>
 
-                <p className="text-blue-300/50 text-xs mt-5 flex items-center gap-1.5">
+                <p className="text-gray-400 text-xs mt-5 flex items-center gap-1.5">
                   <ExternalLink size={11} />
                   dse.co.tz — Official exchange website
                 </p>
               </div>
 
               {/* Right: Market highlights */}
-              <div
-                className="p-10 lg:p-14 flex flex-col justify-center"
-                style={{ background: 'rgba(0,0,0,0.15)' }}
-              >
+              <div className="p-10 lg:p-14 flex flex-col justify-center bg-gray-50">
                 <div className="flex items-center gap-2 mb-6">
-                  <TrendingUp size={15} className="text-white/60" />
-                  <p className="text-blue-200 text-xs font-semibold uppercase tracking-widest">What you can find on DSE</p>
+                  <TrendingUp size={15} className="text-gray-400" />
+                  <p className="text-gray-500 text-xs font-semibold uppercase tracking-widest">What you can find on DSE</p>
                 </div>
 
                 <div className="space-y-3 mb-8">
                   {highlights.map(({ label, desc }) => (
                     <div
                       key={label}
-                      className="flex items-center gap-4 p-4 rounded-xl transition-colors duration-200"
-                      style={{ background: 'rgba(255,255,255,0.05)' }}
+                      className="flex items-center gap-4 p-4 rounded-xl bg-white border border-gray-100 group-hover:border-blue-100 transition-colors duration-200"
                     >
-                      <div className="w-2 h-2 rounded-full bg-white/40 shrink-0" />
+                      <div className="w-2 h-2 rounded-full shrink-0" style={{ background: '#1133f5' }} />
                       <div>
-                        <p className="text-white font-semibold text-sm">{label}</p>
-                        <p className="text-blue-300/70 text-xs mt-0.5">{desc}</p>
+                        <p className="text-gray-900 font-semibold text-sm">{label}</p>
+                        <p className="text-gray-400 text-xs mt-0.5">{desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* DSE partnership note */}
-                <div
-                  className="rounded-xl p-4 flex items-start gap-3"
-                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
-                >
-                  <ShieldCheck size={16} className="text-white/70 shrink-0 mt-0.5" />
-                  <p className="text-white/80 text-xs leading-relaxed">
-                    Diamond Global Securities Limited is a licensed <strong className="text-white">DSE Dealing Member</strong>, authorised to trade on the Dar es Salaam Stock Exchange on behalf of investors.
+                <div className="rounded-xl p-4 flex items-start gap-3 bg-white border border-gray-100">
+                  <ShieldCheck size={16} className="text-[#1133f5] shrink-0 mt-0.5" />
+                  <p className="text-gray-600 text-xs leading-relaxed">
+                    Diamond Global Securities Limited is a licensed <strong className="text-gray-900">DSE Dealing Member</strong>, authorised to trade on the Dar es Salaam Stock Exchange on behalf of investors.
                   </p>
                 </div>
               </div>

@@ -78,59 +78,29 @@ const whyUs = [
   },
 ]
 
-const diamonds = [
-  { id: 1, size: 'w-3 h-3',   color: 'border-[#00D4FF]/40 border-2',  top: '12%',  left: '8%',  delay: '0s',    duration: '7s',  opacity: 0.5 },
-  { id: 2, size: 'w-5 h-5',   color: 'border-[#1133f5]/30 border-2',  top: '30%',  left: '75%', delay: '1.5s',  duration: '9s',  opacity: 0.4 },
-  { id: 3, size: 'w-2 h-2',   color: 'bg-[#00D4FF]/50',               top: '65%',  left: '15%', delay: '2s',    duration: '8s',  opacity: 0.6 },
-  { id: 4, size: 'w-4 h-4',   color: 'border-[#00D4FF]/25 border-2',  top: '55%',  left: '85%', delay: '0.8s',  duration: '11s', opacity: 0.3 },
-  { id: 5, size: 'w-6 h-6',   color: 'border-[#0d28c9]/30 border-2',  top: '80%',  left: '60%', delay: '3s',    duration: '10s', opacity: 0.35 },
-  { id: 6, size: 'w-2.5 h-2.5', color: 'bg-[#1133f5]/40',            top: '20%',  left: '50%', delay: '1s',    duration: '6s',  opacity: 0.5 },
-]
-
 export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="pt-32 pb-24 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #020B2D 0%, #041444 50%, #020B2D 100%)' }}
-      >
-        <div className="hero-grid-bg absolute inset-0 opacity-30" />
-
-        {/* Glow orbs */}
+      <section className="pt-32 pb-16 bg-white border-b border-gray-100 relative overflow-hidden">
         <div
-          className="glow-orb glow-orb-1 absolute"
-          style={{ width: '450px', height: '450px', top: '-15%', right: '8%' }}
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(17,51,245,0.04) 0%, transparent 65%)', transform: 'translate(20%, -20%)' }}
         />
-        <div
-          className="glow-orb glow-orb-2 absolute"
-          style={{ width: '300px', height: '300px', bottom: '5%', left: '-5%' }}
-        />
-
-        {/* Floating diamonds */}
-        {diamonds.map((d) => (
-          <div
-            key={d.id}
-            className={`floating-diamond absolute ${d.size} ${d.color}`}
-            style={{
-              top: d.top, left: d.left,
-              animationDelay: d.delay, animationDuration: d.duration,
-              opacity: d.opacity,
-            }}
-          />
-        ))}
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-xs font-semibold tracking-widest uppercase mb-8">
-              <Shield size={12} />
+            <div
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#1133f5] border border-blue-200 mb-8"
+              style={{ background: 'rgba(17,51,245,0.06)' }}
+            >
+              <Shield size={11} />
               CMSA Licensed &amp; Regulated · DSE Dealing Member
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.6rem] font-bold text-white mb-6 leading-[1.15]">
-              Tanzania's Authorised<br />
-              <span className="text-gradient-blue">Capital Markets Partner</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.6rem] font-bold text-gray-900 mb-6 leading-[1.15]">
+              Tanzania&apos;s Authorised<br />
+              <span style={{ color: '#1133f5' }}>Capital Markets Partner</span>
             </h1>
-            <p className="text-blue-200/90 text-lg leading-relaxed mb-10 max-w-2xl">
+            <p className="text-gray-500 text-lg leading-relaxed mb-10 max-w-2xl">
               Diamond Global Securities Limited is a licensed and regulated capital markets intermediary,
               authorised by the Capital Markets and Securities Authority (CMSA) to provide dealing,
               advisory, and fund management services on the Dar es Salaam Stock Exchange.
@@ -142,7 +112,7 @@ export default function AboutPage() {
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 px-7 py-3 border border-white/25 text-white/90 font-medium rounded-lg hover:bg-white/10 transition-all text-sm"
+                className="inline-flex items-center gap-2 px-7 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-blue-200 transition-all text-sm"
               >
                 Our Services
                 <ChevronRight size={15} />
@@ -236,20 +206,17 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div
-            className="rounded-2xl px-8 py-8 mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
-            style={{ background: 'linear-gradient(135deg, #020B2D 0%, #0f2a44 100%)' }}
-          >
+          <div className="rounded-2xl px-8 py-8 mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-gray-50 border border-gray-200">
             <div>
-              <p className="text-[#00D4FF] text-xs font-bold uppercase tracking-[0.2em] mb-2">Regulatory Status</p>
-              <h2 className="text-2xl font-bold text-white">Our Authorisations</h2>
-              <p className="text-blue-200/80 text-sm mt-2 max-w-xl leading-relaxed">
+              <p className="text-[#1133f5] text-xs font-bold uppercase tracking-[0.2em] mb-2">Regulatory Status</p>
+              <h2 className="text-2xl font-bold text-gray-900">Our Authorisations</h2>
+              <p className="text-gray-500 text-sm mt-2 max-w-xl leading-relaxed">
                 Diamond Global Securities Limited is authorised and regulated by the Capital Markets and Securities
                 Authority (CMSA) of Tanzania and is a licensed dealing member of the Dar es Salaam Stock Exchange (DSE).
               </p>
             </div>
             <div className="shrink-0 flex items-center gap-3">
-              <BadgeCheck size={40} className="text-[#00D4FF] opacity-80" />
+              <BadgeCheck size={40} style={{ color: '#1133f5' }} className="opacity-80" />
             </div>
           </div>
 
@@ -284,46 +251,38 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Mission */}
-            <div
-              className="rounded-3xl p-10 relative overflow-hidden"
-              style={{ background: 'linear-gradient(145deg, #020B2D 0%, #041444 100%)' }}
-            >
-              <div
-                className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-[0.06]"
-                style={{ background: '#00D4FF' }}
-              />
-              <div className="w-10 h-10 rounded-xl bg-[#00D4FF]/15 border border-[#00D4FF]/20 flex items-center justify-center mb-6">
-                <Target size={20} className="text-[#00D4FF]" />
+            <div className="rounded-3xl p-10 bg-white border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-[#1133f5] rounded-l-3xl" />
+              <div className="pl-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-6">
+                  <Target size={20} className="text-[#1133f5]" />
+                </div>
+                <p className="text-[#1133f5] text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Mission</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">What We Set Out to Do</h3>
+                <p className="text-gray-600 leading-relaxed text-[15px]">
+                  To provide every Tanzanian investor with access to professional, regulated, and
+                  expert-driven capital markets services — empowering individuals, institutions, and
+                  corporations to grow and protect their wealth through the Dar es Salaam Stock Exchange
+                  with clarity, confidence, and integrity.
+                </p>
               </div>
-              <p className="text-[#00D4FF] text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Mission</p>
-              <h3 className="text-xl font-bold text-white mb-4">What We Set Out to Do</h3>
-              <p className="text-blue-200/80 leading-relaxed text-[15px]">
-                To provide every Tanzanian investor with access to professional, regulated, and
-                expert-driven capital markets services — empowering individuals, institutions, and
-                corporations to grow and protect their wealth through the Dar es Salaam Stock Exchange
-                with clarity, confidence, and integrity.
-              </p>
             </div>
             {/* Vision */}
-            <div
-              className="rounded-3xl p-10 relative overflow-hidden"
-              style={{ background: 'linear-gradient(145deg, #1133f5 0%, #1133f5 100%)' }}
-            >
-              <div
-                className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full opacity-[0.12]"
-                style={{ background: 'white' }}
-              />
-              <div className="w-10 h-10 rounded-xl bg-white/20 border border-white/20 flex items-center justify-center mb-6">
-                <Eye size={20} className="text-white" />
+            <div className="rounded-3xl p-10 bg-white border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-[#1133f5] rounded-l-3xl" />
+              <div className="pl-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-6">
+                  <Eye size={20} className="text-[#1133f5]" />
+                </div>
+                <p className="text-[#1133f5] text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Vision</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Where We Are Headed</h3>
+                <p className="text-gray-600 leading-relaxed text-[15px]">
+                  To be the most trusted and respected capital markets firm in Tanzania — recognised not
+                  only for the quality of services we deliver, but for the integrity, transparency, and
+                  genuine commitment with which we deliver them. We envision a financially literate Tanzania
+                  where every investor participates confidently in the nation&apos;s economic growth.
+                </p>
               </div>
-              <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Vision</p>
-              <h3 className="text-xl font-bold text-white mb-4">Where We Are Headed</h3>
-              <p className="text-blue-50/90 leading-relaxed text-[15px]">
-                To be the most trusted and respected capital markets firm in Tanzania — recognised not
-                only for the quality of services we deliver, but for the integrity, transparency, and
-                genuine commitment with which we deliver them. We envision a financially literate Tanzania
-                where every investor participates confidently in the nation's economic growth.
-              </p>
             </div>
           </div>
         </div>
@@ -543,34 +502,31 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div
-              className="min-h-[280px] flex flex-col items-center justify-center"
-              style={{ background: 'linear-gradient(145deg, #020B2D 0%, #041444 100%)' }}
-            >
-              <MapPin size={32} className="text-[#00D4FF] mb-3" />
-              <p className="text-white font-semibold text-sm tracking-wide">Victoria</p>
-              <p className="text-blue-300/70 text-xs mt-1 tracking-wide">Dar es Salaam, Tanzania</p>
+            <div className="min-h-[280px] flex flex-col items-center justify-center bg-gray-50 border-t lg:border-t-0 lg:border-l border-gray-100">
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ background: 'rgba(17,51,245,0.08)' }}>
+                <MapPin size={28} className="text-[#1133f5]" />
+              </div>
+              <p className="text-gray-900 font-semibold text-sm tracking-wide">Victoria</p>
+              <p className="text-gray-400 text-xs mt-1 tracking-wide">Dar es Salaam, Tanzania</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section
-        className="py-24 relative overflow-hidden"
-        style={{ background: 'linear-gradient(145deg, #020B2D 0%, #041444 60%, #020B2D 100%)' }}
-      >
-        <div className="hero-grid-bg absolute inset-0 opacity-20" />
-        <div className="glow-orb glow-orb-1 absolute" style={{ width: '400px', height: '400px', top: '-30%', right: '10%', opacity: 0.5 }} />
-        <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-xs font-semibold tracking-widest uppercase mb-7">
+      <section className="py-24 bg-white border-t border-gray-100">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#1133f5] border border-blue-200 mb-7"
+            style={{ background: 'rgba(17,51,245,0.06)' }}
+          >
             <Shield size={11} />
             CMSA Licensed · Professional · Client-Centred
           </div>
-          <h2 className="text-4xl font-bold text-white mb-5 leading-snug">
+          <h2 className="text-4xl font-bold text-gray-900 mb-5 leading-snug">
             Begin Your Investment Journey<br />with a Partner You Can Trust
           </h2>
-          <p className="text-blue-200/80 mb-9 max-w-xl mx-auto leading-relaxed text-[15px]">
+          <p className="text-gray-500 mb-9 max-w-xl mx-auto leading-relaxed text-[15px]">
             Our team of licenced professionals is ready to guide you — from your first inquiry
             through to your first trade and beyond. Every engagement begins with listening to you.
           </p>
@@ -581,7 +537,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/market"
-              className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white/90 font-medium rounded-lg hover:bg-white/10 transition-colors text-sm"
+              className="inline-flex items-center gap-2 px-8 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-50 hover:border-blue-200 transition-colors text-sm"
             >
               View Live Market
               <ChevronRight size={15} />
