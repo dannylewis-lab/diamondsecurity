@@ -1,4 +1,4 @@
-﻿import Link from 'next/link'
+ï»¿import Link from 'next/link'
 import {
   ArrowUpRight, CheckCircle, TrendingUp, Shield,
   BarChart2, Briefcase, PieChart, Zap, ArrowRight
@@ -10,7 +10,7 @@ const services = [
     icon: Briefcase,
     title: 'Brokerage / Dealing Services',
     tagline: 'Seamless securities execution on the DSE',
-    desc: 'We provide seamless execution of securities transactions on the Dar es Salaam Stock Exchange (DSE), delivering precision, speed, and reliability. Our brokerage services encompass trade execution, Central Depository System (CDS) account facilitation, and efficient settlement processes—ensuring our clients experience a secure and streamlined investment journey.',
+    desc: 'We provide seamless execution of securities transactions on the Dar es Salaam Stock Exchange (DSE), delivering precision, speed, and reliability. Our brokerage services encompass trade execution, Central Depository System (CDS) account facilitation, and efficient settlement processesâ€”ensuring our clients experience a secure and streamlined investment journey.',
     features: [
       'Trade execution on the Dar es Salaam Stock Exchange',
       'Central Depository System (CDS) account facilitation',
@@ -69,7 +69,7 @@ const process = [
 const faqs = [
   {
     q: 'How long does it take to open a trading account?',
-    a: 'Account opening typically takes 24–48 hours once all required documents are submitted. You will need a valid ID, proof of address, and a tax identification number (TIN).',
+    a: 'Account opening typically takes 24â€“48 hours once all required documents are submitted. You will need a valid ID, proof of address, and a tax identification number (TIN).',
   },
   {
     q: 'What is the minimum investment amount?',
@@ -137,7 +137,7 @@ export default function ServicesPage() {
               <span className="text-gradient-blue">One Trusted Partner.</span>
             </h1>
             <p className="text-blue-200 text-lg leading-relaxed mb-8 max-w-2xl">
-              Diamond Global Securities is authorised to deliver three specialised financial services —
+              Diamond Global Securities is authorised to deliver three specialised financial services â€”
               each executed with the highest standards of precision, integrity, and client focus.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -180,7 +180,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services — large premium cards */}
+      {/* Services â€” large premium cards */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

@@ -81,7 +81,7 @@ export default function MarketDashboard() {
 
                 <p className="text-blue-300/50 text-xs mt-5 flex items-center gap-1.5">
                   <ExternalLink size={11} />
-                  dse.co.tz — Official exchange website
+                  dse.co.tz â€” Official exchange website
                 </p>
               </div>
 

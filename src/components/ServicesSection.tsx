@@ -12,7 +12,7 @@ const services = [
   {
     icon:   Briefcase,
     title:  'Brokerage / Dealing Services',
-    desc:   'Seamless execution of securities transactions on the DSE — precision, speed, and reliability with every trade.',
+    desc:   'Seamless execution of securities transactions on the DSE â€” precision, speed, and reliability with every trade.',
     accent: '#1133f5',
     glow:   'rgba(17,51,245,0.12)',
   },
@@ -69,7 +69,7 @@ export default function ServicesSection() {
             </div>
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What We Offer</h2>
             <p className="text-gray-400 dark:text-blue-300 text-lg max-w-xl mx-auto">
-              Three specialised, CMSA-regulated services — each delivered with precision and integrity
+              Three specialised, CMSA-regulated services â€” each delivered with precision and integrity
             </p>
           </div>
 

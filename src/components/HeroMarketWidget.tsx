@@ -47,7 +47,7 @@ export function HeroMarketWidget() {
             <p className="text-white font-bold text-xl tracking-tight mb-1">
               Dar es Salaam Stock Exchange
             </p>
-            <p className="text-blue-300 text-sm">Official Market Authority — Tanzania</p>
+            <p className="text-blue-300 text-sm">Official Market Authority â€” Tanzania</p>
           </div>
 
           {/* Stats row */}
@@ -87,7 +87,7 @@ export function HeroMarketWidget() {
           <div className="flex items-center justify-center gap-2 mt-5">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
             <p className="text-[11px] text-blue-300/60 font-medium tracking-wide">
-              Diamond Global Securities · Licensed DSE Dealing Member
+              Diamond Global Securities Â· Licensed DSE Dealing Member
             </p>
           </div>
 

@@ -1,13 +1,13 @@
 import { MessageCircle, Clock, Users, Zap } from 'lucide-react'
 import InquiryForm from '@/components/InquiryForm'
 
-// Market Insight Section — live from Supabase
+// Market Insight Section â€” live from Supabase
 export { default as AIInsightsSection } from '@/components/LiveMarketOverview'
 
-// News Section — live from Supabase
+// News Section â€” live from Supabase
 export { default as NewsSection } from '@/components/LiveNewsSection'
 
-// Download Center — live from Supabase
+// Download Center â€” live from Supabase
 export { default as DownloadSection } from '@/components/DownloadSection'
 
 // WhatsApp Section

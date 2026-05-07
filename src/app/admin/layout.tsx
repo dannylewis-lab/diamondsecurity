@@ -184,7 +184,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
         {logoBlock}
         {children}
         <p className="text-center text-xs text-blue-400/60 mt-5">
-          © {new Date().getFullYear()} Diamond Global Securities Limited · CMSA Licensed
+          Â© {new Date().getFullYear()} Diamond Global Securities Limited Â· CMSA Licensed
         </p>
       </div>
     </div>
@@ -287,7 +287,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
                 type={showPass ? 'text' : 'password'} value={password}
                 onChange={e => { setPassword(e.target.value); clear() }}
                 onKeyDown={e => e.key === 'Enter' && handleLogin()}
-                placeholder="••••••••••"
+                placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                 className={`${inputClass} pr-11`}
               />
               <button type="button" onClick={() => setShowPass(!showPass)}
@@ -306,7 +306,7 @@ function LoginScreen({ onLogin }: { onLogin: (user: any) => void }) {
             {loading
               ? <><Spinner /> Signing in...</>
               : lockout > 0
-                ? `Locked · wait ${lockout}s`
+                ? `Locked Â· wait ${lockout}s`
                 : <>Sign In <ChevronRight size={15} /></>}
           </button>
         </div>
@@ -504,7 +504,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Top bar */}
         <header className="sticky top-0 z-30 bg-white border-b border-gray-200 px-4 sm:px-6 py-3 flex items-center gap-3 shadow-sm">
 
-          {/* Hamburger — mobile only */}
+          {/* Hamburger â€” mobile only */}
           <button
             className="md:hidden p-1.5 -ml-1 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors shrink-0"
             onClick={() => setSidebarOpen(true)}
@@ -545,7 +545,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Footer */}
         <footer className="border-t border-gray-200 bg-white px-4 py-3">
           <p className="text-xs text-gray-400 text-center">
-            Diamond Global Securities Limited · Admin Portal · CMSA Licensed
+            Diamond Global Securities Limited Â· Admin Portal Â· CMSA Licensed
           </p>
         </footer>
       </div>

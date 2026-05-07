@@ -9,7 +9,7 @@ const contactCards = [
     icon: Phone,
     title: 'Call Us',
     lines: ['+255 655 952 075'],
-    sub: 'Mon–Fri, 8am–5pm EAT',
+    sub: 'Monâ€“Fri, 8amâ€“5pm EAT',
     color: 'bg-blue-50',
     iconColor: 'text-blue-600',
   },
@@ -25,14 +25,14 @@ const contactCards = [
     icon: MapPin,
     title: 'Visit Us',
     lines: ['Victoria', 'Dar es Salaam, Tanzania'],
-    sub: 'Mon–Fri, 8am–5pm EAT',
+    sub: 'Monâ€“Fri, 8amâ€“5pm EAT',
     color: 'bg-blue-50',
     iconColor: 'text-blue-600',
   },
   {
     icon: Clock,
     title: 'Working Hours',
-    lines: ['Monday – Friday: 8:00 AM – 5:00 PM', 'Saturday: 9:00 AM – 1:00 PM'],
+    lines: ['Monday â€“ Friday: 8:00 AM â€“ 5:00 PM', 'Saturday: 9:00 AM â€“ 1:00 PM'],
     sub: 'Closed on Sundays & Public Holidays',
     color: 'bg-blue-50',
     iconColor: 'text-blue-600',
@@ -52,7 +52,7 @@ export default function ContactPage() {
           <div className="hero-dots absolute inset-0" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <h1 className="text-4xl font-bold text-white mb-2">Contact Us</h1>
-            <p className="text-blue-200">Get in touch with our team — we're here to help</p>
+            <p className="text-blue-200">Get in touch with our team â€” we're here to help</p>
           </div>
         </div>
 

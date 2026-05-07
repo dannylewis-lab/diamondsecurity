@@ -125,7 +125,7 @@ export default function LiveNewsSection() {
                 href="/news"
                 className="px-6 py-2.5 border border-gray-300 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors text-gray-700"
               >
-                View All News →
+                View All News â†’
               </Link>
             </div>
           </>

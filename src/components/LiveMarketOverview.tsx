@@ -32,7 +32,7 @@ const sentimentConfig = {
 
 const staticPoints = [
   'Banking sector equities remained the most actively traded on the DSE',
-  'Market breadth positive — advancers outnumbered decliners',
+  'Market breadth positive â€” advancers outnumbered decliners',
   'Investor participation remained steady across equity and bond markets',
   'The DSE All-Share Index reflects continued growth in listed securities',
 ]
@@ -41,7 +41,7 @@ const staticSummary =
   "The Dar es Salaam Stock Exchange continued to attract investor interest, with banking stocks " +
   "remaining among the most actively traded securities. CRDB and TCCL led activity among listed " +
   "equities, reflecting sustained confidence in Tanzania's financial sector. Market breadth remained " +
-  "positive, with advancers outnumbering decliners — a sign of broad-based participation across the exchange."
+  "positive, with advancers outnumbering decliners â€” a sign of broad-based participation across the exchange."
 
 export default function LiveMarketOverview() {
   const [report, setReport] = useState<Report | null>(null)

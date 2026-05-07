@@ -60,7 +60,7 @@ export default function AdminOverview() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard Overview</h1>
-          <p className="text-gray-400 text-sm mt-1">Welcome back — here's what's happening today</p>
+          <p className="text-gray-400 text-sm mt-1">Welcome back â€” here's what's happening today</p>
         </div>
         <Link href="/"
           className="inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors font-medium text-gray-700 self-start sm:self-auto shrink-0">
@@ -138,7 +138,7 @@ export default function AdminOverview() {
               )}
             </div>
 
-            {/* Market — DSE */}
+            {/* Market â€” DSE */}
             <a
               href="https://dse.co.tz/"
               target="_blank"
@@ -211,7 +211,7 @@ export default function AdminOverview() {
                     <div>
                       <p className="text-sm font-medium text-gray-900">{n.title}</p>
                       <p className="text-xs text-gray-400 mt-0.5">
-                        {new Date(n.created_at).toLocaleDateString()} · {n.category} ·{' '}
+                        {new Date(n.created_at).toLocaleDateString()} Â· {n.category} Â·{' '}
                         <span className={n.published ? 'text-blue-600' : 'text-gray-400'}>
                           {n.published ? 'Published' : 'Draft'}
                         </span>

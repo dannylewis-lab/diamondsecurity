@@ -196,7 +196,7 @@ export default function AIReports() {
                 <input
                   value={form.title}
                   onChange={e => setForm(p => ({ ...p, title: e.target.value }))}
-                  placeholder="e.g. Daily Market Summary — 28 Apr 2026"
+                  placeholder="e.g. Daily Market Summary â€” 28 Apr 2026"
                   className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20"
                 />
               </div>

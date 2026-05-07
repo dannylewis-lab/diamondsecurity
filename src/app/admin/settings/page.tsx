@@ -14,7 +14,7 @@ export default function SettingsPage() {
           <div className="space-y-3">
             {[
               { icon: Shield, label: 'Company', value: 'Diamond Global Securities Limited' },
-              { icon: Shield, label: 'Licence', value: 'CMSA Licensed — DSE Dealing Member' },
+              { icon: Shield, label: 'Licence', value: 'CMSA Licensed â€” DSE Dealing Member' },
               { icon: Phone, label: 'Phone', value: '+255 655 952 075' },
               { icon: Mail, label: 'Email', value: 'info@diamondsecurities.co.tz' },
               { icon: MapPin, label: 'Location', value: 'Dar es Salaam, Tanzania' },
@@ -37,7 +37,7 @@ export default function SettingsPage() {
           <div className="flex items-center justify-between mb-5">
             <h2 className="font-semibold text-gray-900">Market Data</h2>
             <span className="text-xs px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full font-medium border border-blue-100">
-              Mockup — API integration pending
+              Mockup â€” API integration pending
             </span>
           </div>
           <div className="space-y-3">
@@ -69,7 +69,7 @@ export default function SettingsPage() {
 
         {/* Supabase */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-          <h2 className="font-semibold text-gray-900 mb-4">Backend — Supabase</h2>
+          <h2 className="font-semibold text-gray-900 mb-4">Backend â€” Supabase</h2>
           <div className="space-y-2 text-sm text-gray-600">
             {['News articles & publishing', 'Document storage & downloads', 'Inquiry collection', 'Market reports', 'Admin authentication'].map(item => (
               <div key={item} className="flex items-center gap-2">

@@ -97,7 +97,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-blue-300">© 2026 Diamond Global Securities. All rights reserved.</p>
+          <p className="text-sm text-blue-300">Â© 2026 Diamond Global Securities. All rights reserved.</p>
           <div className="flex items-center gap-6">
             {['Privacy Policy', 'Terms of Service', 'Disclaimer'].map(l => (
               <a key={l} href="#" className="text-xs text-blue-300 hover:text-white transition-colors">{l}</a>

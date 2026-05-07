@@ -69,7 +69,7 @@ export default function DocumentsPage() {
     setUploadError('')
 
     const ext = (uploadFile.name.split('.').pop() ?? '').toLowerCase()
-    // Sanitise file name — remove spaces and special chars so Supabase accepts it
+    // Sanitise file name â€” remove spaces and special chars so Supabase accepts it
     const safeName = uploadFile.name
       .replace(/\s+/g, '_')
       .replace(/[^a-zA-Z0-9._-]/g, '')
@@ -99,7 +99,7 @@ export default function DocumentsPage() {
     })
 
     if (dbError) {
-      // Storage succeeded but DB failed — clean up the orphaned file
+      // Storage succeeded but DB failed â€” clean up the orphaned file
       await supabase.storage.from('documents').remove([storagePath])
       setUploadError(`Database error: ${dbError.message}`)
       setUploading(false)
@@ -171,7 +171,7 @@ export default function DocumentsPage() {
                         {doc.type}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-500">{doc.size ?? '—'}</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">{doc.size ?? 'â€”'}</td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
                         {doc.public_url && (

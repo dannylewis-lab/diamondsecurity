@@ -14,7 +14,7 @@ const diamonds = [
 ]
 
 const stats = [
-  { value: '3',    label: 'CMSA Licences',  sub: 'Dealer · Adviser · Fund Manager' },
+  { value: '3',    label: 'CMSA Licences',  sub: 'Dealer Â· Adviser Â· Fund Manager' },
   { value: 'DSE',  label: 'Exchange Member', sub: 'Dar es Salaam Stock Exchange'    },
   { value: 'CMSA', label: 'Regulator',       sub: 'Capital Markets Authority'       },
 ]
@@ -51,7 +51,7 @@ export default function HeroSection() {
           <div className="hero-text-enter">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-semibold tracking-widest uppercase mb-8">
               <Shield size={12} />
-              CMSA Licensed · DSE Dealing Member
+              CMSA Licensed Â· DSE Dealing Member
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[3.2rem] font-bold text-white leading-[1.15] mb-6">

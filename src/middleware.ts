@@ -27,7 +27,7 @@ export async function middleware(request: NextRequest) {
 
   // Server-side admin route protection:
   // /admin sub-routes (news, inquiries, etc.) require an authenticated session.
-  // /admin itself is allowed through — it shows the login form when unauthenticated.
+  // /admin itself is allowed through â€” it shows the login form when unauthenticated.
   const { pathname } = request.nextUrl
   if (pathname.startsWith('/admin/') && !user) {
     const loginUrl = request.nextUrl.clone()
