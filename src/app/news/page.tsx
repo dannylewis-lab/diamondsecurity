@@ -1,4 +1,4 @@
-ï»¿import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import NewsPageContent from '@/components/NewsPageContent'
