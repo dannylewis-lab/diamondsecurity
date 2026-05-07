@@ -1,33 +1,37 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
-import { InquirySection, WhatsAppSection } from '@/components/Sections'
+import { InquirySection } from '@/components/Sections'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 
-const contactCards = [
+const contactInfo = [
   {
     icon: Phone,
-    title: 'Call Us',
-    lines: ['+255 655 952 075'],
-    sub: 'Mon–Fri, 8am–5pm EAT',
+    label: 'Phone',
+    value: '+255 655 952 075',
+    sub: 'Mon–Fri, 8 am – 5 pm EAT',
+    href: 'tel:+255655952075',
   },
   {
     icon: Mail,
-    title: 'Email Us',
-    lines: ['info@diamondsecurities.co.tz'],
+    label: 'Email',
+    value: 'info@diamondsecurities.co.tz',
     sub: 'We reply within 24 hours',
+    href: 'mailto:info@diamondsecurities.co.tz',
   },
   {
     icon: MapPin,
-    title: 'Visit Us',
-    lines: ['Victoria', 'Dar es Salaam, Tanzania'],
-    sub: 'Mon–Fri, 8am–5pm EAT',
+    label: 'Office',
+    value: 'Victoria, Dar es Salaam',
+    sub: 'Tanzania',
+    href: undefined,
   },
   {
     icon: Clock,
-    title: 'Working Hours',
-    lines: ['Monday – Friday: 8:00 AM – 5:00 PM', 'Saturday: 9:00 AM – 1:00 PM'],
-    sub: 'Closed on Sundays & Public Holidays',
+    label: 'Hours',
+    value: 'Mon – Fri: 8 am – 5 pm',
+    sub: 'Sat: 9 am – 1 pm',
+    href: undefined,
   },
 ]
 
@@ -36,46 +40,51 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main className="pt-16">
-        {/* Header */}
-        <div className="py-16 bg-white border-b border-gray-100 relative overflow-hidden">
-          <div
-            className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(52,87,213,0.04) 0%, transparent 65%)', transform: 'translate(20%, -20%)' }}
-          />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#3457d5] border border-blue-200 mb-5"
-              style={{ background: 'rgba(52,87,213,0.06)' }}
-            >
-              <Mail size={11} />
-              Get in Touch
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#1d1d1d] mb-3">Contact Us</h1>
-            <p className="text-gray-500 text-lg max-w-xl">
-              Get in touch with our team — we&apos;re here to help
-            </p>
-          </div>
-        </div>
 
-        {/* Contact Cards */}
-        <section className="py-14 bg-white">
+        {/* Hero */}
+        <section className="pt-20 pb-16 bg-white border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {contactCards.map(({ icon: Icon, title, lines, sub }) => (
-                <div key={title} className="bg-blue-50 rounded-2xl p-6 border border-gray-100">
-                  <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm">
-                    <Icon size={18} className="text-blue-600" />
-                  </div>
-                  <h3 className="font-bold text-[#1d1d1d] mb-2">{title}</h3>
-                  {lines.map(l => <p key={l} className="text-sm text-gray-700 font-medium">{l}</p>)}
-                  <p className="text-xs text-gray-500 mt-2">{sub}</p>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-6 h-px bg-[#3457d5]" />
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
+                Get in Touch
+              </span>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+              <div className="lg:col-span-6">
+                <h1 className="font-display text-4xl sm:text-5xl text-[#0a0a0a] leading-[1.1] mb-4">
+                  Let&apos;s start a<br />
+                  <span className="italic text-[#3457d5]">conversation.</span>
+                </h1>
+                <p className="text-gray-500 text-lg leading-relaxed max-w-lg">
+                  Whether you&apos;re ready to open an account or just have questions,
+                  our team is ready to help.
+                </p>
+              </div>
+
+              {/* Contact info grid */}
+              <div className="lg:col-span-6">
+                <div className="grid grid-cols-2 gap-px bg-gray-200">
+                  {contactInfo.map(({ icon: Icon, label, value, sub, href }) => (
+                    <div key={label} className="bg-white p-6 hover:bg-[#fafafa] transition-colors">
+                      <Icon size={15} className="text-[#3457d5] mb-3" />
+                      <p className="text-[10px] font-semibold tracking-[0.16em] uppercase text-gray-400 mb-1">{label}</p>
+                      {href ? (
+                        <a href={href} className="text-sm font-semibold text-[#0a0a0a] hover:text-[#3457d5] transition-colors block leading-snug">
+                          {value}
+                        </a>
+                      ) : (
+                        <p className="text-sm font-semibold text-[#0a0a0a] leading-snug">{value}</p>
+                      )}
+                      <p className="text-xs text-gray-400 mt-1">{sub}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <WhatsAppSection />
         <InquirySection />
       </main>
       <Footer />

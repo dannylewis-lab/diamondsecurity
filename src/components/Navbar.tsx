@@ -30,11 +30,13 @@ export default function Navbar() {
   }
 
   const navLinks = [
-    { label: 'Home',     href: '/'         },
-    { label: 'About',    href: '/about'    },
-    { label: 'Services', href: '/services' },
-    { label: 'Market',   href: '/market'   },
-    { label: 'News',     href: '/news'     },
+    { label: 'Home',      href: '/'           },
+    { label: 'About',     href: '/about'      },
+    { label: 'Services',  href: '/services'   },
+    { label: 'Market',    href: '/market'     },
+    { label: 'News',      href: '/news'       },
+    { label: 'Downloads', href: '/downloads'  },
+    { label: 'Admin',     href: '/admin'      },
   ]
 
   const navBg = dark

@@ -1,5 +1,4 @@
 'use client'
-import Image from 'next/image'
 import { ExternalLink, BarChart2, TrendingUp, ArrowUpRight, ShieldCheck } from 'lucide-react'
 
 const highlights = [
@@ -41,18 +40,20 @@ export default function MarketDashboard() {
 
               {/* Left: DSE branding */}
               <div className="p-10 lg:p-14 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-gray-100">
-                <div className="mb-8">
-                  <div
-                    className="relative bg-white rounded-2xl overflow-hidden border border-gray-100"
-                    style={{ width: '200px', height: '110px', boxShadow: '0 4px 20px rgba(0,0,0,0.08)' }}
-                  >
-                    <Image
-                      src="/dse-logo.png"
-                      alt="Dar es Salaam Stock Exchange"
-                      fill
-                      className="object-contain scale-[0.85]"
-                      priority
-                    />
+                {/* Logos: CMSA + DSE */}
+                <div className="flex items-end gap-4 mb-8">
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm" style={{ width: '100px', height: '56px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <img src="/cmsa-logo.jpg" alt="CMSA Tanzania" className="max-h-full max-w-full object-contain" />
+                    </div>
+                    <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Regulator</span>
+                  </div>
+                  <div className="w-px h-12 bg-gray-200 mb-5" />
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm" style={{ width: '100px', height: '56px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <img src="/dse-logo.png" alt="Dar es Salaam Stock Exchange" className="max-h-full max-w-full object-contain scale-[0.85]" />
+                    </div>
+                    <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Exchange</span>
                   </div>
                 </div>
 

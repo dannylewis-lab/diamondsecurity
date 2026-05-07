@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { CheckCircle } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
 export default function InquiryForm() {
@@ -47,62 +47,70 @@ export default function InquiryForm() {
 
   if (submitted) {
     return (
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-10 text-center">
-        <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-5">
-          <CheckCircle size={32} className="text-blue-600" />
+      <div className="bg-white border border-gray-200 rounded-2xl p-10">
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-6 h-px bg-[#3457d5]" />
+          <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">Received</span>
         </div>
-        <h3 className="text-xl font-bold text-[#1d1d1d] mb-2">Inquiry Sent!</h3>
-        <p className="text-gray-500 text-sm mb-6">
-          Thank you, <strong>{form.name}</strong>! Our team will get back to you at{' '}
-          <strong>{form.email}</strong> within 24 hours.
+        <h3 className="font-display text-3xl text-[#0a0a0a] mb-3">
+          Thank you, <span className="italic text-[#3457d5]">{form.name}.</span>
+        </h3>
+        <p className="text-gray-500 text-[15px] leading-relaxed mb-7">
+          We&apos;ll get back to you at <strong className="text-[#0a0a0a]">{form.email}</strong> within 24 hours.
         </p>
         <button
           onClick={() => {
             setSubmitted(false)
             setForm({ name: '', email: '', phone: '', type: '', message: '' })
           }}
-          className="px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition-colors"
+          className="btn-blue inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white"
         >
-          Send Another Inquiry
+          Send Another Inquiry <ArrowUpRight size={13} />
         </button>
       </div>
     )
   }
 
-  const field = (id: keyof typeof form) =>
-    `w-full px-4 py-3 bg-[#fafafa] border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-400 transition-colors ${
-      errors[id] ? 'border-red-400 bg-red-50' : 'border-gray-200'
+  const fieldCls = (id: keyof typeof form) =>
+    `w-full px-4 py-3 bg-white border text-sm text-[#0a0a0a] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3457d5]/15 focus:border-[#3457d5] transition-colors rounded-lg ${
+      errors[id] ? 'border-red-300 bg-red-50' : 'border-gray-200 hover:border-gray-300'
     }`
 
+  const Label = ({ children }: { children: React.ReactNode }) => (
+    <label className="block text-xs font-semibold tracking-wide text-gray-500 uppercase mb-2">
+      {children}
+    </label>
+  )
+
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
+    <div className="bg-white border border-gray-200 rounded-2xl p-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+          <Label>Full Name</Label>
           <input type="text" placeholder="John Doe" value={form.name}
             onChange={e => { setForm({ ...form, name: e.target.value }); setErrors({ ...errors, name: '' }) }}
-            className={field('name')} />
+            className={fieldCls('name')} />
           {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+          <Label>Email Address</Label>
           <input type="email" placeholder="john@example.com" value={form.email}
             onChange={e => { setForm({ ...form, email: e.target.value }); setErrors({ ...errors, email: '' }) }}
-            className={field('email')} />
+            className={fieldCls('email')} />
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+          <Label>Phone Number</Label>
           <input type="tel" placeholder="+255 712 345 678" value={form.phone}
             onChange={e => { setForm({ ...form, phone: e.target.value }); setErrors({ ...errors, phone: '' }) }}
-            className={field('phone')} />
+            className={fieldCls('phone')} />
           {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Inquiry Type *</label>
+          <Label>Inquiry Type</Label>
           <select value={form.type}
             onChange={e => { setForm({ ...form, type: e.target.value }); setErrors({ ...errors, type: '' }) }}
-            className={field('type')}>
+            className={fieldCls('type')}>
             <option value="">Select type</option>
             <option>Account Opening</option>
             <option>Investment Advisory</option>
@@ -113,16 +121,17 @@ export default function InquiryForm() {
           {errors.type && <p className="text-red-500 text-xs mt-1">{errors.type}</p>}
         </div>
       </div>
+
       <div className="mt-5">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-        <textarea rows={4} placeholder="Tell us how we can help you..." value={form.message}
+        <Label>Message</Label>
+        <textarea rows={4} placeholder="Tell us how we can help you…" value={form.message}
           onChange={e => { setForm({ ...form, message: e.target.value }); setErrors({ ...errors, message: '' }) }}
-          className={`${field('message')} resize-none`} />
+          className={`${fieldCls('message')} resize-none`} />
         {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
       </div>
 
       {serverError && (
-        <div className="mt-4 bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm text-red-600">
+        <div className="mt-4 border border-red-200 bg-red-50 rounded-lg px-4 py-3 text-sm text-red-600">
           {serverError}
         </div>
       )}
@@ -130,7 +139,7 @@ export default function InquiryForm() {
       <button
         onClick={handleSubmit}
         disabled={loading}
-        className="w-full mt-5 py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-600 transition-colors text-sm disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="btn-blue mt-5 w-full flex items-center justify-center gap-2 py-3.5 rounded-lg text-sm font-semibold text-white disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {loading ? (
           <>
@@ -138,9 +147,11 @@ export default function InquiryForm() {
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
             </svg>
-            Sending...
+            Sending…
           </>
-        ) : 'Send Inquiry'}
+        ) : (
+          <>Send Inquiry <ArrowUpRight size={14} /></>
+        )}
       </button>
     </div>
   )

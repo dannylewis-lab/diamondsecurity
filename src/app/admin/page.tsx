@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Newspaper, MessageSquare, FolderOpen, ArrowUpRight, Eye, ExternalLink } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
@@ -150,21 +149,21 @@ export default function AdminOverview() {
               <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #3457d5, #3457d5, #3457d5)' }} />
 
               <div className="p-6 flex flex-col items-center text-center">
-                {/* DSE Logo */}
-                <div
-                  className="relative bg-white rounded-xl overflow-hidden mb-5 mt-1"
-                  style={{
-                    width: '140px',
-                    height: '78px',
-                    boxShadow: '0 0 24px 6px rgba(255,255,255,0.12), 0 4px 16px rgba(0,0,0,0.4)',
-                  }}
-                >
-                  <Image
-                    src="/dse-logo.png"
-                    alt="Dar es Salaam Stock Exchange"
-                    fill
-                    className="object-contain scale-[0.85]"
-                  />
+                {/* Logos: CMSA + DSE */}
+                <div className="flex items-end gap-3 mb-5 mt-1">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <div className="bg-white rounded-xl border border-white/20 p-2.5 shadow-sm" style={{ width: '72px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <img src="/cmsa-logo.jpg" alt="CMSA Tanzania" className="max-h-full max-w-full object-contain" />
+                    </div>
+                    <span className="text-[9px] font-semibold text-blue-300/70 uppercase tracking-wider">Regulator</span>
+                  </div>
+                  <div className="w-px h-10 bg-white/15 mb-4" />
+                  <div className="flex flex-col items-center gap-1.5">
+                    <div className="bg-white rounded-xl border border-white/20 p-2.5 shadow-sm" style={{ width: '72px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <img src="/dse-logo.png" alt="Dar es Salaam Stock Exchange" className="max-h-full max-w-full object-contain scale-[0.85]" />
+                    </div>
+                    <span className="text-[9px] font-semibold text-blue-300/70 uppercase tracking-wider">Exchange</span>
+                  </div>
                 </div>
 
                 <p className="text-white font-bold text-sm mb-1">Dar es Salaam Stock Exchange</p>

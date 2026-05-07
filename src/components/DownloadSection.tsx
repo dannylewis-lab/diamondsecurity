@@ -46,14 +46,8 @@ export default function DownloadSection() {
   const categories = Object.keys(grouped)
 
   return (
-    <section className="py-20 bg-white dark:bg-[#0a1628]">
+    <section className="py-16 bg-white dark:bg-[#0a1628]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-[#1d1d1d] mb-3">Download Center</h2>
-          <p className="text-gray-500">
-            Access all necessary forms and documents to get started with Diamond Global Securities
-          </p>
-        </div>
 
         {loading ? (
           <div className="flex items-center justify-center py-16">

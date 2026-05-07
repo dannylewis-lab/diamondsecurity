@@ -15,10 +15,24 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   color: #1d1d1d;
+}
+
+/* -- Display / serif headings --------------------------------------------- */
+.font-display { font-family: var(--font-display), Georgia, serif; }
+
+/* -- Scroll-triggered fade-up --------------------------------------------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* -- Market table row hover ---------------------------------------------------- */
@@ -111,13 +125,13 @@ body {
 .whatsapp-btn {
   position: fixed; bottom: 24px; right: 24px;
   width: 52px; height: 52px;
-  background: #3457d5; border-radius: 50%;
+  background: #25D366; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; z-index: 50;
-  box-shadow: 0 4px 16px rgba(52,87,213,0.4);
+  box-shadow: 0 4px 16px rgba(37,211,102,0.45);
   transition: all 0.2s;
 }
-.whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(52,87,213,0.5); }
+.whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37,211,102,0.6); }
 
 /* -- News badges -------------------------------------------------------------- */
 .badge-market  { background: rgba(52,87,213,0.1); color: #3457d5; }

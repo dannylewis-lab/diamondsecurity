@@ -7,6 +7,9 @@ import {
   Lock, Handshake, ChevronRight
 } from 'lucide-react'
 
+const ABOUT_HERO_IMG = 'https://images.unsplash.com/photo-1560472355-536de3962603?w=900&q=80&auto=format&fit=crop&crop=top'
+const ABOUT_TEAM_IMG  = 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80&auto=format&fit=crop'
+
 const values = [
   {
     icon: Shield,
@@ -82,62 +85,102 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-white border-b border-gray-100 relative overflow-hidden">
-        <div
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(52,87,213,0.04) 0%, transparent 65%)', transform: 'translate(20%, -20%)' }}
-        />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <div
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#3457d5] border border-blue-200 mb-8"
-              style={{ background: 'rgba(52,87,213,0.06)' }}
-            >
-              <Shield size={11} />
-              CMSA Licensed &amp; Regulated · DSE Dealing Member
+      <section className="pt-28 pb-0 bg-white border-b border-gray-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+
+            {/* Text */}
+            <div className="lg:col-span-6 pb-16">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-6 h-px bg-[#3457d5]" />
+                <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
+                  CMSA Licensed & Regulated · DSE Dealing Member
+                </span>
+              </div>
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-[3.6rem] text-[#0a0a0a] mb-6 leading-[1.1]">
+                Tanzania&apos;s Authorised<br />
+                <span className="italic text-[#3457d5]">Capital Markets Partner</span>
+              </h1>
+              <p className="text-gray-500 text-lg leading-relaxed mb-10 max-w-xl">
+                Diamond Global Securities Limited is a licensed and regulated capital markets intermediary,
+                authorised by the CMSA to provide dealing, advisory, and fund management services
+                on the Dar es Salaam Stock Exchange.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-7 py-3 font-semibold rounded-lg text-sm text-white">
+                  Open an Account <ArrowUpRight size={15} />
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2 px-7 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-[#fafafa] hover:border-blue-200 transition-all text-sm"
+                >
+                  Our Services <ChevronRight size={15} />
+                </Link>
+              </div>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.6rem] font-bold text-[#1d1d1d] mb-6 leading-[1.15]">
-              Tanzania&apos;s Authorised<br />
-              <span style={{ color: '#3457d5' }}>Capital Markets Partner</span>
-            </h1>
-            <p className="text-gray-500 text-lg leading-relaxed mb-10 max-w-2xl">
-              Diamond Global Securities Limited is a licensed and regulated capital markets intermediary,
-              authorised by the Capital Markets and Securities Authority (CMSA) to provide dealing,
-              advisory, and fund management services on the Dar es Salaam Stock Exchange.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-7 py-3 font-semibold rounded-lg text-sm">
-                Open an Account
-                <ArrowUpRight size={15} />
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 px-7 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-[#fafafa] hover:border-blue-200 transition-all text-sm"
+
+            {/* Hero image */}
+            <div className="lg:col-span-6 relative h-[480px] lg:h-[560px] overflow-hidden rounded-t-2xl">
+              <Image
+                src={ABOUT_HERO_IMG}
+                alt="Diamond Global Securities professional financial advisor"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
+              {/* Floating badge */}
+              <div
+                className="absolute bottom-6 left-6 px-4 py-3 rounded-xl backdrop-blur-sm"
+                style={{ background: 'rgba(2,11,45,0.85)', border: '1px solid rgba(52,87,213,0.3)' }}
               >
-                Our Services
-                <ChevronRight size={15} />
-              </Link>
+                <p className="text-white text-xs font-semibold">CMSA Licensed · DSE Dealing Member</p>
+                <p className="text-white/50 text-[10px] mt-0.5">Capital Markets & Securities Authority</p>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* Regulatory Status Bar */}
       <section className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-            <span className="text-xs text-gray-400 font-semibold uppercase tracking-widest shrink-0">Authorised &amp; Regulated</span>
-            <div className="h-4 w-px bg-gray-200 hidden sm:block" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+
+            {/* CMSA Logo */}
+            <div className="flex items-center gap-2.5 shrink-0">
+              <img
+                src="/cmsa-logo.jpg"
+                alt="Capital Markets & Securities Authority"
+                className="h-8 w-auto object-contain"
+              />
+              <span className="text-xs font-semibold text-gray-500 hidden sm:block">CMSA Tanzania</span>
+            </div>
+
+            <div className="h-5 w-px bg-gray-200 hidden sm:block" />
+
+            {/* DSE Logo */}
+            <div className="flex items-center gap-2.5 shrink-0">
+              <img
+                src="/dse-logo.png"
+                alt="Dar es Salaam Stock Exchange"
+                className="h-7 w-auto object-contain"
+              />
+              <span className="text-xs font-semibold text-gray-500 hidden sm:block">DSE Member</span>
+            </div>
+
+            <div className="h-5 w-px bg-gray-200 hidden sm:block" />
+
             {[
-              'Capital Markets &amp; Securities Authority (CMSA)',
-              'Licensed DSE Dealing Member',
               'Dealer Licence',
               'Investment Adviser Licence',
               'Fund Manager Licence',
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#3457d5] shrink-0" />
-                <span className="text-xs text-gray-600 font-medium" dangerouslySetInnerHTML={{ __html: item }} />
+                <span className="text-xs text-gray-500 font-medium">{item}</span>
               </div>
             ))}
           </div>
@@ -206,17 +249,46 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="rounded-2xl px-8 py-8 mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-[#fafafa] border border-gray-200">
+          <div className="rounded-2xl px-8 py-8 mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 bg-[#fafafa] border border-gray-200">
             <div>
-              <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-2">Regulatory Status</p>
-              <h2 className="text-2xl font-bold text-[#1d1d1d]">Our Authorisations</h2>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-6 h-px bg-[#3457d5]" />
+                <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
+                  Regulatory Status
+                </span>
+              </div>
+              <h2 className="font-display text-2xl text-[#0a0a0a] mb-2">Our Authorisations</h2>
               <p className="text-gray-500 text-sm mt-2 max-w-xl leading-relaxed">
                 Diamond Global Securities Limited is authorised and regulated by the Capital Markets and Securities
                 Authority (CMSA) of Tanzania and is a licensed dealing member of the Dar es Salaam Stock Exchange (DSE).
               </p>
             </div>
-            <div className="shrink-0 flex items-center gap-3">
-              <BadgeCheck size={40} style={{ color: '#3457d5' }} className="opacity-80" />
+
+            {/* Logos side by side */}
+            <div className="shrink-0 flex items-center gap-6">
+              <div className="flex flex-col items-center gap-2">
+                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm" style={{ width: '100px', height: '56px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img
+                    src="/cmsa-logo.jpg"
+                    alt="CMSA Tanzania"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Regulator</span>
+              </div>
+
+              <div className="w-px h-12 bg-gray-200" />
+
+              <div className="flex flex-col items-center gap-2">
+                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm" style={{ width: '100px', height: '56px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img
+                    src="/dse-logo.png"
+                    alt="Dar es Salaam Stock Exchange"
+                    className="max-h-full max-w-full object-contain scale-[0.85]"
+                  />
+                </div>
+                <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Exchange</span>
+              </div>
             </div>
           </div>
 
@@ -516,15 +588,15 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <div
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#3457d5] border border-blue-200 mb-7"
-            style={{ background: 'rgba(52,87,213,0.06)' }}
-          >
-            <Shield size={11} />
-            CMSA Licensed · Professional · Client-Centred
+          <div className="flex items-center justify-center gap-3 mb-7">
+            <div className="w-6 h-px bg-[#3457d5]" />
+            <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
+              CMSA Licensed · Professional · Client-Centred
+            </span>
+            <div className="w-6 h-px bg-[#3457d5]" />
           </div>
-          <h2 className="text-4xl font-bold text-[#1d1d1d] mb-5 leading-snug">
-            Begin Your Investment Journey<br />with a Partner You Can Trust
+          <h2 className="font-display text-4xl text-[#1d1d1d] mb-5 leading-[1.1]">
+            Begin Your Investment Journey<br /><span className="italic">with a Partner You Can Trust</span>
           </h2>
           <p className="text-gray-500 mb-9 max-w-xl mx-auto leading-relaxed text-[15px]">
             Our team of licenced professionals is ready to guide you — from your first inquiry

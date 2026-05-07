@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Shield, ArrowUpRight, ChevronRight } from 'lucide-react'
+import { ArrowUpRight, ChevronRight } from 'lucide-react'
 import { HeroMarketWidget } from './HeroMarketWidget'
 
 const stats = [
@@ -33,18 +33,17 @@ export default function HeroSection() {
 
           {/* Left: Text */}
           <div>
-            <div
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#3457d5] border border-blue-200 mb-8"
-              style={{ background: 'rgba(52,87,213,0.06)' }}
-            >
-              <Shield size={11} />
-              CMSA Licensed &nbsp;·&nbsp; DSE Dealing Member
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-6 h-px bg-[#3457d5]" />
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
+                CMSA Licensed · DSE Dealing Member
+              </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-[#1d1d1d] leading-[1.12] mb-5">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] text-[#1d1d1d] leading-[1.1] mb-5">
               Your Premier Gateway<br />
               to the{' '}
-              <span style={{ color: '#3457d5' }}>Dar es Salaam</span>
+              <span className="italic" style={{ color: '#3457d5' }}>Dar es Salaam</span>
               <br />Stock Exchange
             </h1>
 

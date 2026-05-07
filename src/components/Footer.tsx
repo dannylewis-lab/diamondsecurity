@@ -1,18 +1,41 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
+import { MapPin, Phone, Mail, Instagram, Linkedin, Twitter, Facebook } from 'lucide-react'
+
+const navLinks = [
+  { label: 'About Us',       href: '/about'    },
+  { label: 'Services',       href: '/services' },
+  { label: 'Market Data',    href: '/market'   },
+  { label: 'News & Insights',href: '/news'     },
+  { label: 'Contact Us',     href: '/contact'  },
+]
+
+const serviceLinks = [
+  { label: 'Brokerage & Dealing',  href: '/services' },
+  { label: 'Investment Advisory',  href: '/services' },
+  { label: 'Fund Management',      href: '/services' },
+]
+
+const socials = [
+  { Icon: Facebook,  href: '#',                label: 'Facebook'  },
+  { Icon: Twitter,   href: '#',                label: 'Twitter'   },
+  { Icon: Linkedin,  href: '#',                label: 'LinkedIn'  },
+  { Icon: Instagram, href: 'https://www.instagram.com/diamond_globalsecurities?igsh=d2Q0a2s5aWQyeXVr&utm_source=qr', label: 'Instagram' },
+]
 
 export default function Footer() {
   return (
-    <footer style={{background:'#1a2744'}} className="text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* Brand */}
-          <div>
-            <Link href="/" className="flex items-center gap-3 mb-5 group w-fit">
+    <footer style={{ background: '#020B2D' }} className="text-white">
+
+      {/* ── Brand statement ───────────────────────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+
+          <div className="lg:col-span-7">
+            <Link href="/" className="flex items-center gap-3 mb-7 w-fit group">
               <div
-                className="relative shrink-0 bg-white rounded-2xl overflow-hidden"
-                style={{ width: '64px', height: '64px', boxShadow: '0 0 18px 4px rgba(255,255,255,0.35), 0 4px 12px rgba(0,0,0,0.25)' }}
+                className="relative shrink-0 bg-white rounded-xl overflow-hidden"
+                style={{ width: '44px', height: '44px', boxShadow: '0 0 14px 3px rgba(255,255,255,0.25)' }}
               >
                 <Image
                   src="/diamond-logo.png"
@@ -22,89 +45,125 @@ export default function Footer() {
                 />
               </div>
               <div className="leading-tight">
-                <div className="font-black text-white text-base tracking-tight">DIAMOND GLOBAL</div>
-                <div className="text-sm font-bold tracking-widest" style={{ color: '#ffffff' }}>SECURITIES LIMITED</div>
+                <div className="font-bold text-white text-sm tracking-wide">DIAMOND GLOBAL</div>
+                <div className="text-[10px] font-semibold tracking-[0.22em] text-white/50">SECURITIES LIMITED</div>
               </div>
             </Link>
-            <p className="text-sm text-blue-200 leading-relaxed mb-5">
-              Your trusted partner in securities trading. Licensed by the Dar es Salaam Stock Exchange.
+
+            <p className="font-display text-3xl sm:text-4xl text-white leading-[1.15] mb-4">
+              Your partner in Tanzania&apos;s<br />
+              <span className="italic text-white/60">capital markets.</span>
             </p>
-            <div className="flex items-center gap-3">
-              {[
-                { Icon: Facebook,  href: '#' },
-                { Icon: Twitter,   href: '#' },
-                { Icon: Linkedin,  href: '#' },
-                { Icon: Instagram, href: 'https://www.instagram.com/diamond_globalsecurities?igsh=d2Q0a2s5aWQyeXVr&utm_source=qr' },
-              ].map(({ Icon, href }, i) => (
-                <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-blue-400 hover:text-blue-400 transition-colors">
-                  <Icon size={14} />
+            <p className="text-white/40 text-sm leading-relaxed max-w-sm">
+              A CMSA-licensed and DSE Dealing Member firm delivering professional
+              brokerage, advisory, and fund management services.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5 flex flex-col gap-5">
+            <div className="flex flex-col gap-2.5">
+              <div className="flex items-start gap-3 text-sm text-white/50">
+                <MapPin size={14} className="mt-0.5 shrink-0 text-white/30" />
+                <span>Victoria, Dar es Salaam, Tanzania</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-white/50">
+                <Phone size={14} className="shrink-0 text-white/30" />
+                <a href="tel:+255655952075" className="hover:text-white transition-colors">+255 655 952 075</a>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-white/50">
+                <Mail size={14} className="shrink-0 text-white/30" />
+                <a href="mailto:info@diamondsecurities.co.tz" className="hover:text-white transition-colors">
+                  info@diamondsecurities.co.tz
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2.5 pt-1">
+              {socials.map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center text-white/40 hover:border-[#3457d5]/60 hover:text-white hover:bg-[#3457d5]/10 transition-all"
+                >
+                  <Icon size={13} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
+        </div>
+      </div>
+
+      {/* ── Links grid ────────────────────────────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-300">Quick Links</h4>
-            <ul className="space-y-2.5">
-              {[
-                { label: 'About Us', href: '/about' },
-                { label: 'Services', href: '/services' },
-                { label: 'Market Data', href: '/market' },
-                { label: 'News & Insights', href: '/news' },
-                { label: 'Contact Us', href: '/contact' },
-                { label: 'Admin Login', href: '/admin' },
-              ].map(link => (
-                <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-blue-200 hover:text-white transition-colors">
-                    {link.label}
+            <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-white/30 mb-5">Navigate</p>
+            <ul className="space-y-3">
+              {navLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="text-sm text-white/50 hover:text-white transition-colors">
+                    {label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-300">Our Services</h4>
-            <ul className="space-y-2.5">
-              {['Brokerage Services', 'Investment Advisory', 'Portfolio Management', 'Market Research'].map(s => (
-                <li key={s}>
-                  <Link href="/services" className="text-sm text-blue-200 hover:text-white transition-colors">{s}</Link>
+            <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-white/30 mb-5">Services</p>
+            <ul className="space-y-3">
+              {serviceLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="text-sm text-white/50 hover:text-white transition-colors">
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-300">Contact Us</h4>
+            <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-white/30 mb-5">Regulatory</p>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-sm text-blue-200">
-                <MapPin size={15} className="mt-0.5 shrink-0 text-blue-300" />
-                <span>Victoria<br/>Dar es Salaam, Tanzania</span>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-blue-200">
-                <Phone size={15} className="shrink-0 text-blue-300" />
-                +255 655 952 075
-              </li>
-              <li className="flex items-center gap-3 text-sm text-blue-200">
-                <Mail size={15} className="shrink-0 text-blue-300" />
-                info@diamondsecurities.co.tz
-              </li>
+              {[
+                'CMSA Licensed & Regulated',
+                'DSE Dealing Member',
+                'Dealer Licence',
+                'Investment Adviser Licence',
+                'Fund Manager Licence',
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#3457d5] shrink-0" />
+                  <span className="text-sm text-white/50">{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
-        </div>
 
-        <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-blue-300">© 2026 Diamond Global Securities. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            {['Privacy Policy', 'Terms of Service', 'Disclaimer'].map(l => (
-              <a key={l} href="#" className="text-xs text-blue-300 hover:text-white transition-colors">{l}</a>
+        </div>
+      </div>
+
+      {/* ── Bottom bar ────────────────────────────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/25">
+            © 2026 Diamond Global Securities Limited. All rights reserved.
+          </p>
+          <div className="flex items-center gap-5">
+            {['Privacy Policy', 'Terms of Service', 'Disclaimer'].map((l) => (
+              <a key={l} href="#" className="text-xs text-white/25 hover:text-white/60 transition-colors">
+                {l}
+              </a>
             ))}
           </div>
         </div>
       </div>
+
     </footer>
   )
 }
