@@ -32,16 +32,16 @@ const sentimentConfig = {
 
 const staticPoints = [
   'Banking sector equities remained the most actively traded on the DSE',
-  'Market breadth positive â€” advancers outnumbered decliners',
+  'Market breadth positive — advancers outnumbered decliners',
   'Investor participation remained steady across equity and bond markets',
   'The DSE All-Share Index reflects continued growth in listed securities',
 ]
 
 const staticSummary =
-  "The Dar es Salaam Stock Exchange continued to attract investor interest, with banking stocks " +
-  "remaining among the most actively traded securities. CRDB and TCCL led activity among listed " +
-  "equities, reflecting sustained confidence in Tanzania's financial sector. Market breadth remained " +
-  "positive, with advancers outnumbering decliners â€” a sign of broad-based participation across the exchange."
+  “The Dar es Salaam Stock Exchange continued to attract investor interest, with banking stocks “ +
+  “remaining among the most actively traded securities. CRDB and TCCL led activity among listed “ +
+  “equities, reflecting sustained confidence in Tanzania's financial sector. Market breadth remained “ +
+  “positive, with advancers outnumbering decliners — a sign of broad-based participation across the exchange.”
 
 export default function LiveMarketOverview() {
   const [report, setReport] = useState<Report | null>(null)
@@ -81,18 +81,15 @@ export default function LiveMarketOverview() {
         </div>
 
         <div className="bg-white dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm overflow-hidden">
-          <div
-            className="px-8 py-4 border-b border-gray-100 flex items-center justify-between"
-            style={{ background: 'linear-gradient(135deg, #1a2744 0%, #0f2a44 100%)' }}
-          >
+          <div className="px-8 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50">
             <div>
-              <p className="text-white font-bold text-base">
+              <p className="text-gray-900 font-bold text-base">
                 {loading ? 'DSE Market Summary' : (report?.title ?? 'DSE Market Summary')}
               </p>
-              <p className="text-blue-300 text-xs mt-0.5">Dar es Salaam Stock Exchange</p>
+              <p className="text-gray-400 text-xs mt-0.5">Dar es Salaam Stock Exchange</p>
             </div>
             {!loading && (
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold ${cfg.badge}`}>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-[#1133f5] border border-blue-100">
                 <SentimentIcon size={11} />
                 {cfg.label}
               </span>

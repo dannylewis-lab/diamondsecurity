@@ -84,26 +84,23 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section
-        className="pt-32 pb-24"
-        style={{ background: 'linear-gradient(160deg, #020B2D 0%, #0d1f5c 100%)' }}
-      >
+      <section className="pt-32 pb-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <span
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-blue-300 border border-blue-500/25 mb-8"
-              style={{ background: 'rgba(17,51,245,0.1)' }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#1133f5] border border-blue-200 mb-8"
+              style={{ background: 'rgba(17,51,245,0.06)' }}
             >
               <BarChart2 size={11} />
               CMSA Licensed &nbsp;·&nbsp; DSE Dealing Member
             </span>
 
-            <h1 className="text-5xl sm:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-5">
+            <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 leading-[1.1] tracking-tight mb-5">
               Three licensed<br />
-              <span style={{ color: '#60A5FA' }}>financial services.</span>
+              <span style={{ color: '#1133f5' }}>financial services.</span>
             </h1>
 
-            <p className="text-slate-400 text-lg leading-relaxed mb-9 max-w-lg">
+            <p className="text-gray-500 text-lg leading-relaxed mb-9 max-w-lg">
               Diamond Global Securities delivers brokerage, advisory, and fund management — each
               regulated, each built around your financial success.
             </p>
@@ -117,8 +114,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/market"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium border text-slate-300 hover:bg-white/5 transition-colors"
-                style={{ borderColor: 'rgba(255,255,255,0.15)' }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-blue-200 transition-colors"
               >
                 View Market Data
               </Link>
@@ -323,21 +319,18 @@ export default function ServicesPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section
-        className="py-24"
-        style={{ background: 'linear-gradient(160deg, #020B2D 0%, #0d1f5c 100%)' }}
-      >
+      <section className="py-24 bg-gray-50 border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
 
             <div className="max-w-xl">
-              <p className="text-xs font-semibold tracking-widest uppercase text-blue-400 mb-4">
+              <p className="text-xs font-semibold tracking-widest uppercase text-[#1133f5] mb-4">
                 Ready to invest?
               </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-snug">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-snug">
                 Start your investment journey today
               </h2>
-              <p className="text-slate-400 leading-relaxed text-base">
+              <p className="text-gray-500 leading-relaxed text-base">
                 Our certified professionals are ready to guide you through brokerage, advisory,
                 or fund management. First consultation is completely free.
               </p>
@@ -352,8 +345,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg text-sm font-medium border text-slate-300 hover:bg-white/5 transition-colors whitespace-nowrap"
-                style={{ borderColor: 'rgba(255,255,255,0.15)' }}
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg text-sm font-medium border border-gray-200 text-gray-600 hover:bg-white hover:border-blue-200 transition-colors whitespace-nowrap"
               >
                 Learn About Us
               </Link>
@@ -364,7 +356,7 @@ export default function ServicesPage() {
                   { icon: BadgeCheck, label: 'DSE Member' },
                   { icon: Zap,        label: 'Licensed Broker' },
                 ].map(({ icon: Icon, label }) => (
-                  <div key={label} className="flex items-center gap-1.5 text-slate-500 text-xs">
+                  <div key={label} className="flex items-center gap-1.5 text-gray-400 text-xs">
                     <Icon size={12} />
                     <span>{label}</span>
                   </div>
