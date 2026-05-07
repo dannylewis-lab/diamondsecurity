@@ -2,9 +2,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import {
-  ArrowUpRight, CheckCircle, TrendingUp, Shield,
+  ArrowUpRight, CheckCircle, TrendingUp,
   BarChart2, Briefcase, PieChart, Zap, ArrowRight,
-  ChevronDown, BadgeCheck,
+  ChevronDown, BadgeCheck, Shield,
 } from 'lucide-react'
 
 const services = [
@@ -27,7 +27,7 @@ const services = [
     icon: TrendingUp,
     title: 'Advisory Services',
     tagline: 'Insight-driven guidance tailored to your goals',
-    desc: 'Our advisory practice is grounded in deep market intelligence and rigorous analysis. We offer tailored investment strategies, insightful research, and expert guidance designed to align with each client\'s financial objectives. By combining local market expertise with a forward-looking perspective, we empower clients to make confident, well-informed investment decisions.',
+    desc: "Our advisory practice is grounded in deep market intelligence and rigorous analysis. We offer tailored investment strategies, insightful research, and expert guidance designed to align with each client's financial objectives. By combining local market expertise with a forward-looking perspective, we empower clients to make confident, well-informed investment decisions.",
     features: [
       'Tailored investment strategies for each client',
       'Deep market intelligence and rigorous analysis',
@@ -55,7 +55,7 @@ const services = [
 const steps = [
   { step: '01', title: 'Open Your Account',  desc: 'Complete our simple form or visit our office. Account opening takes less than 24 hours.' },
   { step: '02', title: 'Fund Your Account',   desc: 'Transfer funds via mobile money, bank transfer, or cash deposit to your trading account.' },
-  { step: '03', title: 'Meet Your Advisor',   desc: 'Schedule a free consultation with one of our certified investment advisors to plan your strategy.' },
+  { step: '03', title: 'Meet Your Advisor',   desc: 'Schedule a free consultation with one of our certified investment advisors.' },
   { step: '04', title: 'Start Investing',     desc: 'Place your first trade on the DSE or let our fund managers handle your portfolio.' },
 ]
 
@@ -83,79 +83,69 @@ export default function ServicesPage() {
 
   return (
     <>
-      {/* ── Hero ──────────────────────────────────────────────────────────── */}
+      {/* ── Hero ──────────────────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden pt-36 pb-28"
-        style={{ background: 'linear-gradient(135deg, #020B2D 0%, #041444 55%, #020B2D 100%)' }}
+        className="pt-32 pb-24"
+        style={{ background: 'linear-gradient(160deg, #020B2D 0%, #0d1f5c 100%)' }}
       >
-        <div className="hero-grid-bg absolute inset-0 opacity-25" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <span
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-blue-300 border border-blue-500/25 mb-8"
+              style={{ background: 'rgba(17,51,245,0.1)' }}
+            >
+              <BarChart2 size={11} />
+              CMSA Licensed &nbsp;·&nbsp; DSE Dealing Member
+            </span>
 
-        {/* Glow orbs */}
-        <div
-          className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(17,51,245,0.18) 0%, transparent 65%)',
-            transform: 'translate(35%, -35%)',
-          }}
-        />
-        <div
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(17,51,245,0.12) 0%, transparent 65%)',
-            transform: 'translate(-35%, 35%)',
-          }}
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 text-blue-300 text-xs font-semibold tracking-widest uppercase mb-8"
-              style={{ background: 'rgba(255,255,255,0.05)' }}>
-              <BarChart2 size={12} />
-              Licensed DSE Brokerage &amp; Investment Services
-            </div>
-
-            <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-black text-white leading-[1.05] tracking-tight mb-6">
-              Three Core<br />
-              <span className="text-gradient-blue">Services.</span>
+            <h1 className="text-5xl sm:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-5">
+              Three licensed<br />
+              <span style={{ color: '#60A5FA' }}>financial services.</span>
             </h1>
 
-            <p className="text-blue-200/75 text-lg sm:text-xl leading-relaxed mb-10 max-w-xl">
-              CMSA-licensed and DSE-regulated financial services — each built on precision,
-              integrity, and deep market expertise.
+            <p className="text-slate-400 text-lg leading-relaxed mb-9 max-w-lg">
+              Diamond Global Securities delivers brokerage, advisory, and fund management — each
+              regulated, each built around your financial success.
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <Link href="/contact"
-                className="btn-blue inline-flex items-center gap-2 px-7 py-3.5 font-semibold rounded-xl text-white text-sm">
-                Get Started Today <ArrowUpRight size={15} />
+              <Link
+                href="/contact"
+                className="btn-blue inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white"
+              >
+                Get Started <ArrowUpRight size={15} />
               </Link>
-              <Link href="/market"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white/80 font-medium rounded-xl hover:bg-white/8 transition-all text-sm">
-                View Live Market
+              <Link
+                href="/market"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium border text-slate-300 hover:bg-white/5 transition-colors"
+                style={{ borderColor: 'rgba(255,255,255,0.15)' }}
+              >
+                View Market Data
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Credentials Strip ─────────────────────────────────────────────── */}
+      {/* ── Credentials Strip ─────────────────────────────────────────── */}
       <section className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
+          <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x md:divide-gray-100">
             {[
-              { icon: BadgeCheck, value: 'CMSA Licensed',       label: 'Capital Markets Authority' },
-              { icon: Briefcase,  value: 'Dealer Licence',      label: 'Securities Dealing' },
-              { icon: TrendingUp, value: 'Investment Adviser',  label: 'Advisory Licence' },
-              { icon: PieChart,   value: 'Fund Manager',        label: 'Fund Management Licence' },
+              { icon: BadgeCheck, value: 'CMSA Licensed',      label: 'Capital Markets Authority' },
+              { icon: Briefcase,  value: 'Dealer Licence',     label: 'Securities Dealing' },
+              { icon: TrendingUp, value: 'Investment Adviser', label: 'Advisory Licence' },
+              { icon: PieChart,   value: 'Fund Manager',       label: 'Fund Management Licence' },
             ].map(({ icon: Icon, value, label }) => (
               <div key={label} className="flex items-center gap-3 px-5 lg:px-8 py-5">
-                <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-                  style={{ background: 'rgba(17,51,245,0.08)' }}>
+                <div
+                  className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+                  style={{ background: 'rgba(17,51,245,0.07)' }}
+                >
                   <Icon size={16} style={{ color: '#1133f5' }} />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-gray-900 leading-tight">{value}</p>
+                  <p className="text-sm font-semibold text-gray-900 leading-tight">{value}</p>
                   <p className="text-xs text-gray-400 mt-0.5">{label}</p>
                 </div>
               </div>
@@ -164,88 +154,71 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── Services ──────────────────────────────────────────────────────── */}
-      <section className="py-24" style={{ background: '#f8fafc' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── Services ──────────────────────────────────────────────────── */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center mb-16">
-            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: '#1133f5' }}>
+          <div className="mb-14">
+            <p className="text-xs font-semibold tracking-widest uppercase text-[#1133f5] mb-2">
               What We Offer
             </p>
-            <h2 className="text-4xl sm:text-5xl font-black text-gray-900">Our Services</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Our Services</h2>
           </div>
 
-          <div className="space-y-5">
+          <div className="space-y-6">
             {services.map((s) => {
               const Icon = s.icon
               return (
                 <div
                   key={s.title}
-                  className="group bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl hover:border-blue-100 transition-all duration-500"
+                  className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300"
                 >
-                  {/* Top accent stripe */}
-                  <div className="h-[3px]" style={{ background: 'linear-gradient(90deg, #1133f5 0%, rgba(17,51,245,0.15) 100%)' }} />
+                  <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr]">
 
-                  <div className="grid grid-cols-1 lg:grid-cols-[360px_1fr]">
-
-                    {/* Left — dark navy panel */}
+                    {/* Left panel */}
                     <div
-                      className="relative p-8 lg:p-10 flex flex-col justify-between overflow-hidden"
-                      style={{ background: 'linear-gradient(160deg, #020B2D 0%, #0f2051 100%)' }}
+                      className="p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-100"
+                      style={{ background: '#020B2D' }}
                     >
-                      {/* Watermark number */}
-                      <span className="absolute -bottom-2 -right-2 text-[110px] font-black leading-none select-none pointer-events-none"
-                        style={{ color: 'rgba(255,255,255,0.04)' }}>
-                        {s.number}
-                      </span>
-
-                      {/* Subtle grid */}
-                      <div className="hero-grid-bg absolute inset-0 opacity-20" />
-
-                      <div className="relative z-10">
-                        <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6"
-                          style={{ background: 'rgba(17,51,245,0.3)', border: '1px solid rgba(17,51,245,0.5)' }}>
-                          <Icon size={22} className="text-white" />
+                      <div>
+                        <div
+                          className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+                          style={{ background: 'rgba(17,51,245,0.25)' }}
+                        >
+                          <Icon size={20} className="text-white" />
                         </div>
-                        <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-blue-400/60 mb-2">
+                        <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-blue-500/70 mb-2">
                           Service {s.number}
                         </p>
-                        <h3 className="text-2xl font-black text-white leading-snug mb-3">
+                        <h3 className="text-xl font-bold text-white leading-snug mb-2">
                           {s.title}
                         </h3>
-                        <p className="text-blue-300/60 text-sm leading-relaxed">{s.tagline}</p>
+                        <p className="text-sm text-slate-400 leading-relaxed">{s.tagline}</p>
                       </div>
 
                       <Link
                         href="/contact"
-                        className="relative z-10 mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white w-fit transition-all duration-200 hover:opacity-90"
-                        style={{ background: 'rgba(17,51,245,0.5)', border: '1px solid rgba(17,51,245,0.6)' }}
+                        className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400 hover:text-white transition-colors"
                       >
-                        Enquire Now <ArrowRight size={14} />
+                        Enquire Now <ArrowRight size={13} />
                       </Link>
                     </div>
 
-                    {/* Right — white content panel */}
-                    <div className="p-8 lg:p-10 flex flex-col justify-between">
-                      <p className="text-gray-500 leading-relaxed text-[15px] mb-8">{s.desc}</p>
-
-                      <div>
-                        <div className="border-t border-gray-100 pt-6 mb-5">
-                          <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-gray-400 mb-4">
-                            What&apos;s Included
-                          </p>
-                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            {s.features.map((f) => (
-                              <li key={f} className="flex items-start gap-2.5 text-sm text-gray-700">
-                                <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                                  style={{ background: 'rgba(17,51,245,0.08)' }}>
-                                  <CheckCircle size={11} style={{ color: '#1133f5' }} />
-                                </div>
-                                {f}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                    {/* Right panel */}
+                    <div className="p-8">
+                      <p className="text-gray-500 text-[15px] leading-relaxed mb-7">{s.desc}</p>
+                      <div className="border-t border-gray-100 pt-6">
+                        <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-gray-400 mb-4">
+                          What&apos;s Included
+                        </p>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                          {s.features.map((f) => (
+                            <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
+                              <CheckCircle size={14} className="shrink-0 mt-0.5" style={{ color: '#1133f5' }} />
+                              {f}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -256,89 +229,90 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── How It Works ──────────────────────────────────────────────────── */}
+      {/* ── How It Works ──────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: '#1133f5' }}>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="mb-14">
+            <p className="text-xs font-semibold tracking-widest uppercase text-[#1133f5] mb-2">
               Simple Process
             </p>
-            <h2 className="text-4xl sm:text-5xl font-black text-gray-900">How to Get Started</h2>
-            <p className="text-gray-400 mt-3 max-w-md mx-auto">Begin your investment journey in four straightforward steps</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">How to Get Started</h2>
+            <p className="text-gray-400 mt-2 text-base">Four straightforward steps to begin investing</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {steps.map((p, i) => (
-              <div key={p.step} className="relative group">
-                {/* Connector line */}
-                {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-7 left-[calc(50%+28px)] right-[-10%] h-px z-0"
-                    style={{ background: 'linear-gradient(90deg, rgba(17,51,245,0.4), rgba(17,51,245,0.05))' }} />
-                )}
-
-                <div className="relative z-10 bg-white rounded-2xl border border-gray-100 p-6 hover:border-blue-100 hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1">
-                  {/* Step number circle */}
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-black text-lg mb-5 shadow-lg"
-                    style={{ background: 'linear-gradient(135deg, #1133f5 0%, #0d28c9 100%)' }}
-                  >
-                    {p.step}
-                  </div>
-                  <h3 className="font-bold text-gray-900 text-base mb-2">{p.title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">{p.desc}</p>
+              <div
+                key={p.step}
+                className="relative bg-gray-50 rounded-2xl border border-gray-100 p-6 hover:border-blue-200 hover:bg-white hover:shadow-md transition-all duration-200"
+              >
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center text-white text-sm font-bold mb-5"
+                  style={{ background: '#1133f5' }}
+                >
+                  {p.step}
                 </div>
+                <h3 className="font-semibold text-gray-900 text-base mb-2">{p.title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">{p.desc}</p>
+
+                {i < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-11 -right-3 z-10">
+                    <div className="w-6 h-[1px] bg-gray-300" />
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-14">
-            <Link href="/contact"
-              className="btn-blue inline-flex items-center gap-2 px-9 py-4 font-semibold rounded-xl text-white shadow-xl">
-              Open Your Account Now <ArrowUpRight size={16} />
+          <div className="mt-12">
+            <Link
+              href="/contact"
+              className="btn-blue inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-white text-sm"
+            >
+              Open Your Account Now <ArrowUpRight size={15} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
-      <section className="py-24" style={{ background: '#f8fafc' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: '#1133f5' }}>
-              FAQs
-            </p>
-            <h2 className="text-4xl sm:text-5xl font-black text-gray-900">Common Questions</h2>
+      {/* ── FAQ ───────────────────────────────────────────────────────── */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="mb-12">
+            <p className="text-xs font-semibold tracking-widest uppercase text-[#1133f5] mb-2">FAQs</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Common Questions</h2>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2">
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`bg-white rounded-2xl border overflow-hidden transition-all duration-200 ${
-                  openFaq === i ? 'border-blue-200 shadow-md' : 'border-gray-100 hover:border-blue-100'
+                className={`bg-white rounded-xl border overflow-hidden transition-colors duration-200 ${
+                  openFaq === i ? 'border-blue-200' : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left group"
+                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
                 >
-                  <span className="font-semibold text-gray-900 text-sm sm:text-[15px] leading-snug">
-                    {faq.q}
-                  </span>
-                  <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
-                      openFaq === i ? 'rotate-180' : ''
-                    }`}
+                  <span className="font-medium text-gray-900 text-sm leading-snug">{faq.q}</span>
+                  <ChevronDown
+                    size={16}
+                    className="shrink-0 transition-transform duration-200"
                     style={{
-                      background: openFaq === i ? 'rgba(17,51,245,0.1)' : 'rgba(0,0,0,0.04)',
+                      color: openFaq === i ? '#1133f5' : '#9ca3af',
+                      transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0deg)',
                     }}
-                  >
-                    <ChevronDown size={15} style={{ color: openFaq === i ? '#1133f5' : '#9ca3af' }} />
-                  </div>
+                  />
                 </button>
 
-                <div className={`overflow-hidden transition-all duration-300 ${openFaq === i ? 'max-h-48' : 'max-h-0'}`}>
-                  <div className="px-6 pb-6 border-t border-gray-50">
+                <div
+                  className="overflow-hidden transition-all duration-300"
+                  style={{ maxHeight: openFaq === i ? '200px' : '0px' }}
+                >
+                  <div className="px-5 pb-5 border-t border-gray-100">
                     <p className="text-gray-500 text-sm leading-relaxed pt-4">{faq.a}</p>
                   </div>
                 </div>
@@ -348,59 +322,55 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────────────────────── */}
+      {/* ── CTA ───────────────────────────────────────────────────────── */}
       <section
-        className="py-28 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #020B2D 0%, #041444 55%, #020B2D 100%)' }}
+        className="py-24"
+        style={{ background: 'linear-gradient(160deg, #020B2D 0%, #0d1f5c 100%)' }}
       >
-        <div className="hero-grid-bg absolute inset-0 opacity-20" />
-        <div
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(17,51,245,0.18) 0%, transparent 65%)',
-            transform: 'translate(35%, -35%)',
-          }}
-        />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
 
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 text-blue-300 text-xs font-semibold tracking-widest uppercase mb-8"
-            style={{ background: 'rgba(255,255,255,0.05)' }}>
-            <Zap size={12} />
-            Ready to invest?
-          </div>
+            <div className="max-w-xl">
+              <p className="text-xs font-semibold tracking-widest uppercase text-blue-400 mb-4">
+                Ready to invest?
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-snug">
+                Start your investment journey today
+              </h2>
+              <p className="text-slate-400 leading-relaxed text-base">
+                Our certified professionals are ready to guide you through brokerage, advisory,
+                or fund management. First consultation is completely free.
+              </p>
+            </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-5 leading-tight">
-            Start Your Investment<br />Journey Today
-          </h2>
+            <div className="flex flex-col gap-3 shrink-0">
+              <Link
+                href="/contact"
+                className="btn-blue inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-semibold text-white text-sm whitespace-nowrap"
+              >
+                Book Free Consultation <ArrowUpRight size={15} />
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg text-sm font-medium border text-slate-300 hover:bg-white/5 transition-colors whitespace-nowrap"
+                style={{ borderColor: 'rgba(255,255,255,0.15)' }}
+              >
+                Learn About Us
+              </Link>
 
-          <p className="text-blue-200/65 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-            Our certified professionals are ready to guide you through brokerage, advisory, or fund management.
-            First consultation is completely free.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact"
-              className="btn-blue px-9 py-4 font-semibold rounded-xl inline-flex items-center gap-2 text-white shadow-2xl">
-              Book Free Consultation <ArrowUpRight size={16} />
-            </Link>
-            <Link href="/about"
-              className="px-9 py-4 border border-white/20 text-white/80 font-medium rounded-xl hover:bg-white/8 transition-colors">
-              Learn About Us
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-6 mt-14">
-            {[
-              { icon: Shield,    label: 'CMSA Regulated' },
-              { icon: BadgeCheck,label: 'DSE Dealing Member' },
-              { icon: Briefcase, label: 'Licensed Broker' },
-            ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2.5 text-blue-300/60 text-sm">
-                <Icon size={14} />
-                <span>{label}</span>
+              <div className="flex items-center justify-center gap-5 pt-2">
+                {[
+                  { icon: Shield,     label: 'CMSA Regulated' },
+                  { icon: BadgeCheck, label: 'DSE Member' },
+                  { icon: Zap,        label: 'Licensed Broker' },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-1.5 text-slate-500 text-xs">
+                    <Icon size={12} />
+                    <span>{label}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
