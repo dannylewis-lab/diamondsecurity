@@ -1,16 +1,14 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
 import { Newspaper, X, Calendar, ArrowUpRight, ChevronRight } from 'lucide-react'
-import { createClient } from '@/lib/supabase/client'
-
 type Article = {
   id: string
   title: string
   excerpt: string | null
   content: string | null
   category: string
-  image_url: string | null
-  created_at: string
+  imageUrl: string | null
+  createdAt: string
 }
 
 const categories = ['All', 'Market Update', 'Article', 'Notice']
@@ -71,9 +69,9 @@ function ArticleDrawer({ article, onClose }: { article: Article; onClose: () => 
       >
         {/* Image */}
         <div className="relative w-full flex-shrink-0" style={{ height: '280px' }}>
-          {article.image_url ? (
+          {article.imageUrl ? (
             <img
-              src={article.image_url}
+              src={article.imageUrl}
               alt={article.title}
               className="w-full h-full object-cover"
             />
@@ -100,7 +98,7 @@ function ArticleDrawer({ article, onClose }: { article: Article; onClose: () => 
             <CategoryBadge category={article.category} />
             <div className="flex items-center gap-1.5 text-gray-400 text-xs">
               <Calendar size={11} />
-              {formatDate(article.created_at)}
+              {formatDate(article.createdAt)}
             </div>
           </div>
 
@@ -131,7 +129,7 @@ function ArticleDrawer({ article, onClose }: { article: Article; onClose: () => 
         {/* Footer */}
         <div className="px-8 py-5 border-t border-gray-100 bg-[#fafafa]">
           <p className="text-xs text-gray-400">
-            Published by Diamond Global Securities Limited · {formatDate(article.created_at)}
+            Published by Diamond Global Securities Limited · {formatDate(article.createdAt)}
           </p>
         </div>
       </div>
@@ -148,16 +146,10 @@ export default function NewsPageContent() {
   const [open, setOpen]         = useState<Article | null>(null)
 
   useEffect(() => {
-    const supabase = createClient()
-    supabase
-      .from('news_articles')
-      .select('id, title, excerpt, content, category, image_url, created_at')
-      .eq('published', true)
-      .order('created_at', { ascending: false })
-      .then(({ data }) => {
-        if (data) setArticles(data)
-        setLoading(false)
-      })
+    fetch('/api/news')
+      .then(r => r.json())
+      .then(setArticles)
+      .finally(() => setLoading(false))
   }, [])
 
   const closeDrawer = useCallback(() => setOpen(null), [])
@@ -224,9 +216,9 @@ export default function NewsPageContent() {
                   <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Image */}
                     <div className="relative overflow-hidden" style={{ minHeight: '320px' }}>
-                      {featured.image_url ? (
+                      {featured.imageUrl ? (
                         <img
-                          src={featured.image_url}
+                          src={featured.imageUrl}
                           alt={featured.title}
                           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         />
@@ -249,7 +241,7 @@ export default function NewsPageContent() {
                         <CategoryBadge category={featured.category} />
                         <span className="flex items-center gap-1.5 text-xs text-gray-400">
                           <Calendar size={11} />
-                          {formatDate(featured.created_at)}
+                          {formatDate(featured.createdAt)}
                         </span>
                       </div>
                       <h2 className="font-display text-2xl sm:text-3xl text-[#0a0a0a] leading-[1.2] mb-4 group-hover:text-[#3457d5] transition-colors">
@@ -278,9 +270,9 @@ export default function NewsPageContent() {
                   >
                     {/* Image */}
                     <div className="relative overflow-hidden flex-shrink-0" style={{ height: '220px' }}>
-                      {article.image_url ? (
+                      {article.imageUrl ? (
                         <img
-                          src={article.image_url}
+                          src={article.imageUrl}
                           alt={article.title}
                           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         />
@@ -299,7 +291,7 @@ export default function NewsPageContent() {
                     <div className="p-6 flex flex-col flex-1">
                       <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-3">
                         <Calendar size={11} />
-                        {formatDate(article.created_at)}
+                        {formatDate(article.createdAt)}
                       </div>
                       <h3 className="font-display text-lg text-[#0a0a0a] leading-snug mb-3 group-hover:text-[#3457d5] transition-colors line-clamp-2 flex-1">
                         {article.title}

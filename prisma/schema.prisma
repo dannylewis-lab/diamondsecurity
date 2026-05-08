@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Inquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  type      String
+  message   String   @db.Text
+  status    String   @default("new")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("inquiries")
+}
+
+model NewsArticle {
+  id        String   @id @default(cuid())
+  title     String
+  excerpt   String   @db.Text
+  content   String   @db.LongText
+  category  String
+  imageUrl  String?  @map("image_url")
+  published Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt      @map("updated_at")
+
+  @@map("news_articles")
+}
+
+model Document {
+  id          String   @id @default(cuid())
+  name        String
+  category    String
+  type        String
+  size        String?
+  storagePath String   @map("storage_path")
+  publicUrl   String   @map("public_url")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("documents")
+}
+
+model MarketReport {
+  id        String   @id @default(cuid())
+  title     String
+  summary   String   @db.Text
+  sentiment String
+  published Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt      @map("updated_at")
+
+  @@map("market_reports")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String   @default("Administrator")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("admins")
+}

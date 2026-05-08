@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
-import { createClient } from '@/lib/supabase/client'
 
 export default function InquiryForm() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', type: '', message: '' })
@@ -27,17 +26,16 @@ export default function InquiryForm() {
     if (Object.keys(e).length > 0) { setErrors(e); return }
     setLoading(true)
 
-    const supabase = createClient()
-    const { error } = await supabase.from('inquiries').insert({
-      name: form.name.trim(),
-      email: form.email.trim(),
-      phone: form.phone.trim(),
-      type: form.type,
-      message: form.message.trim(),
-      status: 'new',
+    const res = await fetch('/api/inquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name.trim(), email: form.email.trim(),
+        phone: form.phone.trim(), type: form.type, message: form.message.trim(),
+      }),
     })
 
-    if (error) {
+    if (!res.ok) {
       setServerError('Failed to send inquiry. Please try again or contact us directly.')
     } else {
       setSubmitted(true)

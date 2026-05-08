@@ -2,14 +2,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { BarChart2, TrendingUp, TrendingDown, Minus, CheckCircle, ChevronRight } from 'lucide-react'
-import { createClient } from '@/lib/supabase/client'
-
 type Report = {
   id: string
   title: string
   summary: string | null
   sentiment: 'bullish' | 'bearish' | 'neutral'
-  created_at: string
+  createdAt: string
 }
 
 const sentimentConfig = {
@@ -44,17 +42,10 @@ export default function LiveMarketOverview() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const supabase = createClient()
-    supabase
-      .from('market_reports')
-      .select('id, title, summary, sentiment, created_at')
-      .eq('published', true)
-      .order('created_at', { ascending: false })
-      .limit(1)
-      .then(({ data }) => {
-        if (data && data.length > 0) setReport(data[0])
-        setLoading(false)
-      })
+    fetch('/api/reports?limit=1')
+      .then(r => r.json())
+      .then((data: Report[]) => { if (data.length > 0) setReport(data[0]) })
+      .finally(() => setLoading(false))
   }, [])
 
   const cfg = report

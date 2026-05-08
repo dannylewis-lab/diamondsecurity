@@ -1,15 +1,13 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { FileText, Download, FolderOpen } from 'lucide-react'
-import { createClient } from '@/lib/supabase/client'
-
 type Doc = {
   id: string
   name: string
   category: string
   type: string
   size: string | null
-  public_url: string | null
+  publicUrl: string | null
 }
 
 const typeColors: Record<string, { bg: string; text: string }> = {
@@ -25,15 +23,10 @@ export default function DownloadSection() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const supabase = createClient()
-    supabase
-      .from('documents')
-      .select('id, name, category, type, size, public_url')
-      .order('created_at', { ascending: false })
-      .then(({ data }) => {
-        if (data) setDocs(data)
-        setLoading(false)
-      })
+    fetch('/api/documents')
+      .then(r => r.json())
+      .then(setDocs)
+      .finally(() => setLoading(false))
   }, [])
 
   // Group documents by category
@@ -76,7 +69,7 @@ export default function DownloadSection() {
                     return (
                       <a
                         key={doc.id}
-                        href={doc.public_url ?? '#'}
+                        href={doc.publicUrl ?? '#'}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-between bg-[#fafafa] rounded-xl p-3.5 hover:bg-blue-50 hover:border-blue-100 border border-transparent transition-all duration-200 group"

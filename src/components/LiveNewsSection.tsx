@@ -2,15 +2,13 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight, Calendar, Newspaper } from 'lucide-react'
-import { createClient } from '@/lib/supabase/client'
-
 type Article = {
   id: string
   title: string
   excerpt: string | null
   category: string
-  image_url: string | null
-  created_at: string
+  imageUrl: string | null
+  createdAt: string
 }
 
 const categoryStyle: Record<string, { bg: string; text: string }> = {
@@ -36,17 +34,10 @@ export default function LiveNewsSection() {
   const [loading, setLoading]   = useState(true)
 
   useEffect(() => {
-    const supabase = createClient()
-    supabase
-      .from('news_articles')
-      .select('id, title, excerpt, category, image_url, created_at')
-      .eq('published', true)
-      .order('created_at', { ascending: false })
-      .limit(3)
-      .then(({ data }) => {
-        if (data) setArticles(data)
-        setLoading(false)
-      })
+    fetch('/api/news?limit=3')
+      .then(r => r.json())
+      .then(setArticles)
+      .finally(() => setLoading(false))
   }, [])
 
   return (
@@ -98,9 +89,9 @@ export default function LiveNewsSection() {
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden" style={{ height: i === 0 ? '240px' : '200px' }}>
-                    {article.image_url ? (
+                    {article.imageUrl ? (
                       <img
-                        src={article.image_url}
+                        src={article.imageUrl}
                         alt={article.title}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
@@ -124,7 +115,7 @@ export default function LiveNewsSection() {
                   <div className="p-5">
                     <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-3">
                       <Calendar size={11} />
-                      {formatDate(article.created_at)}
+                      {formatDate(article.createdAt)}
                     </div>
                     <h3 className="font-display text-lg text-[#0a0a0a] dark:text-white leading-snug group-hover:text-[#3457d5] dark:group-hover:text-blue-400 transition-colors line-clamp-2 mb-2">
                       {article.title}
