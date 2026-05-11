@@ -1,4 +1,3 @@
-'use client'
 import { ArrowUpRight, ShieldCheck } from 'lucide-react'
 
 export function HeroMarketWidget() {

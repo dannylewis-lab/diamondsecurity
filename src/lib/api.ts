@@ -20,7 +20,6 @@ export interface LivePrice {
   high: number
   low: number
   volume: number
-  [key: string]: any
 }
 
 export interface HistoricalPrice {
@@ -31,7 +30,6 @@ export interface HistoricalPrice {
   low: number
   close: number
   volume: number
-  [key: string]: any
 }
 
 export interface MarketIndex {
@@ -76,9 +74,7 @@ export async function getMarketStatus(): Promise<MarketStatus> {
       closed: data.closed || data.is_closed,
       timestamp: new Date().toISOString()
     }
-  } catch (error) {
-    console.error('Market status error:', error)
-    // Fallback: assume market is open during business hours (Mon-Fri, 9:30-16:00)
+  } catch {
     const now = new Date()
     const day = now.getDay()
     const hour = now.getHours()
@@ -102,8 +98,7 @@ export async function getLiveMarketPrices(): Promise<LivePrice[]> {
     
     // Handle different response formats
     return Array.isArray(data) ? data : data.data || data.prices || []
-  } catch (error) {
-    console.error('Live prices error:', error)
+  } catch {
     return []
   }
 }
@@ -129,8 +124,7 @@ export async function getHistoricalPrices(
     
     // Handle different response formats
     return Array.isArray(data) ? data : data.data || data.prices || []
-  } catch (error) {
-    console.error(`Historical prices error for ${securityCode}:`, error)
+  } catch {
     return []
   }
 }
@@ -144,11 +138,10 @@ export async function getLiveSecurityPrices(securityCodes: string[]): Promise<Li
     const allPrices = await getLiveMarketPrices()
     return allPrices.filter(price => 
       securityCodes.some(code => 
-        code.toUpperCase() === (price.security_code || price.code || '').toUpperCase()
+        code.toUpperCase() === (price.security_code || '').toUpperCase()
       )
     )
-  } catch (error) {
-    console.error('Security prices error:', error)
+  } catch {
     return []
   }
 }
@@ -179,8 +172,7 @@ export async function getMarketIndices(): Promise<MarketIndex[]> {
         daily_change: item.daily_change || item.change,
         daily_change_percent: item.daily_change_percent || item.pctChange
       })) as MarketIndex[]
-  } catch (error) {
-    console.error('Market indices error:', error)
+  } catch {
     return []
   }
 }
@@ -195,8 +187,7 @@ export async function getTopGainers(limit: number = 5): Promise<LivePrice[]> {
       .filter(p => p.daily_change_percent !== undefined)
       .sort((a, b) => (b.daily_change_percent || 0) - (a.daily_change_percent || 0))
       .slice(0, limit)
-  } catch (error) {
-    console.error('Top gainers error:', error)
+  } catch {
     return []
   }
 }
@@ -211,8 +202,7 @@ export async function getTopLosers(limit: number = 5): Promise<LivePrice[]> {
       .filter(p => p.daily_change_percent !== undefined)
       .sort((a, b) => (a.daily_change_percent || 0) - (b.daily_change_percent || 0))
       .slice(0, limit)
-  } catch (error) {
-    console.error('Top losers error:', error)
+  } catch {
     return []
   }
 }
@@ -236,8 +226,7 @@ export async function getMarketSummary() {
       topLosers,
       timestamp: new Date().toISOString()
     }
-  } catch (error) {
-    console.error('Market summary error:', error)
+  } catch {
     return {
       marketStatus: { closed: false, timestamp: new Date().toISOString() },
       livePrices: [],

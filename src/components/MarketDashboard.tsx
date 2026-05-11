@@ -1,4 +1,3 @@
-'use client'
 import { ExternalLink, BarChart2, TrendingUp, ArrowUpRight, ShieldCheck } from 'lucide-react'
 
 const highlights = [

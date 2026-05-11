@@ -55,12 +55,12 @@ export function getEndpoint(
   param2?: string | number,
   param3?: string | number
 ): string {
-  const endpoint = apiConfig.endpoints[endpointKey] as any
+  const endpoint = apiConfig.endpoints[endpointKey]
   if (typeof endpoint === 'function') {
-    const params = [param1, param2, param3].filter(p => p !== undefined)
-    return endpoint(...params)
+    const params = [param1, param2, param3].filter((p): p is string | number => p !== undefined)
+    return (endpoint as (...args: (string | number)[]) => string)(...params)
   }
-  return endpoint as string
+  return String(endpoint)
 }
 
 /**
@@ -74,8 +74,7 @@ export async function initializeAPI(): Promise<boolean> {
       method: 'GET',
     })
     return response.ok
-  } catch (error) {
-    console.warn('DSE API initialization check failed, will use fallback data:', error)
+  } catch {
     return false
   }
 }

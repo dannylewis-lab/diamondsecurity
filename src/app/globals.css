@@ -171,6 +171,34 @@ body {
 /* -- Chart tooltip ------------------------------------------------------------ */
 .recharts-tooltip-wrapper { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08)); }
 
+/* -- Glow orbs (ServicesPage hero) ------------------------------------------- */
+.glow-orb {
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.glow-orb-1 { background: radial-gradient(circle, rgba(52,87,213,0.35) 0%, transparent 70%); }
+.glow-orb-2 { background: radial-gradient(circle, rgba(0,212,255,0.2)  0%, transparent 70%); }
+
+/* -- Floating diamond shapes -------------------------------------------------- */
+.floating-diamond {
+  transform: rotate(45deg);
+  animation: floatDiamond 8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes floatDiamond {
+  0%, 100% { transform: rotate(45deg) translateY(0px);   }
+  50%       { transform: rotate(45deg) translateY(-12px); }
+}
+
+/* -- Blue gradient text ------------------------------------------------------- */
+.text-gradient-blue {
+  background: linear-gradient(90deg, #60a5fa, #00D4FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* -- Hero entrance animations ------------------------------------------------- */
 .hero-text-enter  { animation: slideInLeft  0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 .hero-widget-enter { animation: slideInRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }

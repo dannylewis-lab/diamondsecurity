@@ -28,3 +28,9 @@ Thumbs.db
 next-env.d.ts
 
 /src/generated/prisma
+
+# Uploaded files
+/public/uploads/
+
+# Build archives
+*.zip

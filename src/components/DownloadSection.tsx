@@ -83,7 +83,7 @@ export default function DownloadSection() {
                               {doc.name}
                             </p>
                             <p className="text-xs text-gray-400 mt-0.5">
-                              {doc.type}{doc.size ? ` Â· ${doc.size}` : ''}
+                              {doc.type}{doc.size ? ` · ${doc.size}` : ''}
                             </p>
                           </div>
                         </div>
