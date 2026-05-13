@@ -11,8 +11,13 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: 'Diamond Securities - Licensed DSE Broker',
+  title: 'Diamond Global Securities - Licensed DSE Broker',
   description: 'Your trusted partner in navigating the Dar es Salaam Stock Exchange. Professional brokerage services, intelligent insights, and personalized investment solutions.',
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
 }
 
 export default function RootLayout({
