@@ -124,7 +124,7 @@ export default function Navbar() {
                   : 'border-gray-200 text-gray-700 hover:bg-[#fafafa] hover:border-blue-500/50'
               }`}
             >
-              View Market
+              Live Market
             </Link>
             <Link
               href="/open-account"
@@ -189,7 +189,7 @@ export default function Navbar() {
                   : 'border-gray-200 text-gray-700 hover:bg-[#fafafa]'
               }`}
             >
-              View Market
+              Live Market
             </Link>
             <Link
               href="/open-account"

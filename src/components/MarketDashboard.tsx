@@ -1,5 +1,6 @@
 import { ExternalLink, BarChart2, TrendingUp, ArrowUpRight, ShieldCheck } from 'lucide-react'
 import { TodaysMarketTrend } from './TodaysMarketTrend'
+import LiveMarketTable from './LiveMarketTable'
 
 const highlights = [
   { label: 'Equity Market', desc: 'Shares of listed companies'        },
@@ -17,15 +18,20 @@ export default function MarketDashboard() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-50 text-blue-600 text-xs font-semibold tracking-widest uppercase mb-5">
             <BarChart2 size={13} />
-            Market Resources
+            Live Market Data
           </div>
           <h2 className="text-4xl font-bold text-[#1d1d1d] mb-3">DSE Market Dashboard</h2>
           <p className="text-gray-500 max-w-lg mx-auto">
-            Official market data, stock listings, and indices from the Dar es Salaam Stock Exchange
+            Live prices and daily trend commentary from the Dar es Salaam Stock Exchange
           </p>
         </div>
 
-        {/* Today's trend — admin-published, since live tick data isn't wired in */}
+        {/* Live prices, straight from DSE */}
+        <div className="mb-6">
+          <LiveMarketTable />
+        </div>
+
+        {/* Today's trend — admin commentary alongside the live numbers */}
         <div className="mb-6">
           <TodaysMarketTrend />
         </div>

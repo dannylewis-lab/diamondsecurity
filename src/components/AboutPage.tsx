@@ -605,7 +605,7 @@ export default function AboutPage() {
               href="/market"
               className="inline-flex items-center gap-2 px-8 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-[#fafafa] hover:border-blue-200 transition-colors text-sm"
             >
-              View Market
+              View Live Market
               <ChevronRight size={15} />
             </Link>
           </div>

@@ -6,7 +6,7 @@ import MarketDashboard from '@/components/MarketDashboard'
 
 export const metadata: Metadata = {
   title: 'Market Data - Diamond Global Securities',
-  description: 'Dar es Salaam Stock Exchange (DSE) market data, indices, and official exchange resources from Diamond Global Securities.',
+  description: 'Live Dar es Salaam Stock Exchange (DSE) share prices, daily gainers and losers, and market trend commentary from Diamond Global Securities.',
 }
 
 export default function MarketPage() {

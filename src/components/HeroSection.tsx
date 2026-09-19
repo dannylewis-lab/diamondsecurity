@@ -64,7 +64,7 @@ export default function HeroSection() {
                 href="/market"
                 className="inline-flex items-center gap-2 px-7 py-3.5 border border-gray-200 text-gray-700 font-medium rounded-xl hover:bg-[#fafafa] hover:border-blue-200 transition-all text-sm"
               >
-                View Market <ChevronRight size={15} />
+                View Live Market <ChevronRight size={15} />
               </Link>
             </div>
 
