@@ -61,7 +61,7 @@ export default function SettingsPage() {
             {[
               { icon: Shield,  label: 'Company',  value: 'Diamond Global Securities Limited' },
               { icon: Shield,  label: 'Licence',  value: 'CMSA Licensed - DSE Dealing Member' },
-              { icon: Phone,   label: 'Phone',    value: '+255 655 952 075' },
+              { icon: Phone,   label: 'Phone',    value: '+255 791 228 239' },
               { icon: Mail,    label: 'Email',    value: 'info@diamondsecurities.co.tz' },
               { icon: MapPin,  label: 'Location', value: 'Dar es Salaam, Tanzania' },
             ].map(({ icon: Icon, label, value }) => (

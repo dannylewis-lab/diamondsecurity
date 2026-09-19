@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { requireAdminSession } from '@/lib/auth'
 
-const ALLOWED_TYPES   = ['General Enquiry', 'Investment', 'Account Opening', 'Market Data', 'Other']
+const ALLOWED_TYPES   = ['Account Opening', 'Investment Advisory', 'Brokerage Services', 'Fund Management', 'General Inquiry']
 const ALLOWED_STATUSES = ['new', 'read', 'replied', 'closed']
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
@@ -32,7 +32,11 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { name, email, phone, type, message } = body
+    const { name, email, phone, type, message, website } = body
+
+    // Honeypot: real users never fill this hidden field — pretend success, skip the write
+    if (typeof website === 'string' && website.trim().length > 0)
+      return Response.json({ id: 'ok', name, email, phone, type, message, status: 'new', createdAt: new Date().toISOString() }, { status: 201 })
 
     if (!name || !email || !type || !message)
       return Response.json({ error: 'Missing required fields' }, { status: 400 })

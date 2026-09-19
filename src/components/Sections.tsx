@@ -32,7 +32,7 @@ export function WhatsAppSection() {
             </p>
           </div>
           <a
-            href="https://wa.me/255655952075"
+            href="https://wa.me/255791228239"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-white font-semibold text-sm whitespace-nowrap shrink-0 transition-all hover:-translate-y-0.5"

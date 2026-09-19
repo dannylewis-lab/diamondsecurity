@@ -4,6 +4,7 @@ import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import { InquirySection } from '@/components/Sections'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { OFFICE_MAPS_URL } from '@/lib/location'
 
 export const metadata: Metadata = {
   title: 'Contact Us - Diamond Global Securities',
@@ -14,9 +15,9 @@ const contactInfo = [
   {
     icon: Phone,
     label: 'Phone',
-    value: '+255 655 952 075',
+    value: '+255 791 228 239',
     sub: 'Mon–Fri, 8 am – 5 pm EAT',
-    href: 'tel:+255655952075',
+    href: 'tel:+255791228239',
   },
   {
     icon: Mail,
@@ -30,7 +31,7 @@ const contactInfo = [
     label: 'Office',
     value: 'Victoria, Dar es Salaam',
     sub: 'Tanzania',
-    href: undefined,
+    href: OFFICE_MAPS_URL,
   },
   {
     icon: Clock,
@@ -76,7 +77,11 @@ export default function ContactPage() {
                       <Icon size={15} className="text-[#3457d5] mb-3" />
                       <p className="text-[10px] font-semibold tracking-[0.16em] uppercase text-gray-400 mb-1">{label}</p>
                       {href ? (
-                        <a href={href} className="text-sm font-semibold text-[#0a0a0a] hover:text-[#3457d5] transition-colors block leading-snug">
+                        <a
+                          href={href}
+                          {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                          className="text-sm font-semibold text-[#0a0a0a] hover:text-[#3457d5] transition-colors block leading-snug"
+                        >
                           {value}
                         </a>
                       ) : (

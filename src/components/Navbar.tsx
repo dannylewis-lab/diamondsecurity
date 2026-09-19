@@ -36,7 +36,6 @@ export default function Navbar() {
     { label: 'Market',    href: '/market'     },
     { label: 'News',      href: '/news'       },
     { label: 'Downloads', href: '/downloads'  },
-    { label: 'Admin',     href: '/admin'      },
   ]
 
   const navBg = dark
@@ -127,7 +126,7 @@ export default function Navbar() {
               View Market
             </Link>
             <Link
-              href="/contact"
+              href="/open-account"
               className="btn-blue px-5 py-2 text-sm font-semibold text-white rounded-lg"
             >
               Open Account
@@ -192,7 +191,7 @@ export default function Navbar() {
               View Market
             </Link>
             <Link
-              href="/contact"
+              href="/open-account"
               onClick={() => setMobileOpen(false)}
               className="btn-blue text-center py-2.5 text-white rounded-lg text-sm font-semibold"
             >

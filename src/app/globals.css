@@ -133,6 +133,26 @@ body {
 }
 .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37,211,102,0.6); }
 
+.call-btn {
+  position: fixed; bottom: 24px; right: 88px;
+  width: 52px; height: 52px;
+  background: #3457d5; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 50;
+  box-shadow: 0 4px 16px rgba(52,87,213,0.45);
+  transition: all 0.2s;
+}
+.call-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(52,87,213,0.6); }
+
+/* -- Legal page prose ---------------------------------------------------------- */
+.prose-legal h2 { font-size: 1.25rem; font-weight: 700; color: #1d1d1d; margin-top: 2.25rem; margin-bottom: 0.75rem; }
+.prose-legal h2:first-child { margin-top: 0; }
+.prose-legal p { color: #4b5563; line-height: 1.75; margin-bottom: 1rem; font-size: 0.9375rem; }
+.prose-legal ul { color: #4b5563; line-height: 1.75; margin-bottom: 1rem; padding-left: 1.25rem; list-style: disc; font-size: 0.9375rem; }
+.prose-legal li { margin-bottom: 0.375rem; }
+.prose-legal strong { color: #1d1d1d; font-weight: 600; }
+.prose-legal a { color: #3457d5; text-decoration: underline; }
+
 /* -- News badges -------------------------------------------------------------- */
 .badge-market  { background: rgba(52,87,213,0.1); color: #3457d5; }
 .badge-article { background: rgba(52,87,213,0.1); color: #3457d5; }

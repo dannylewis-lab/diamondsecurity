@@ -2,12 +2,19 @@
 import { useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 
-export default function InquiryForm() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', type: '', message: '' })
+type Props = {
+  /** Pre-select and lock the inquiry type (e.g. the Open an Account page). */
+  lockedType?: string
+}
+
+export default function InquiryForm({ lockedType }: Props) {
+  const [form, setForm] = useState({ name: '', email: '', phone: '', type: lockedType ?? '', message: '' })
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [serverError, setServerError] = useState('')
+  const [consent, setConsent] = useState(false)
+  const [website, setWebsite] = useState('') // honeypot — real users never fill this in
 
   const validate = () => {
     const e: Record<string, string> = {}
@@ -17,6 +24,7 @@ export default function InquiryForm() {
     if (!form.phone.trim()) e.phone = 'Phone number is required'
     if (!form.type) e.type = 'Please select an inquiry type'
     if (!form.message.trim()) e.message = 'Message is required'
+    if (!consent) e.consent = 'Please agree to the Privacy Policy to continue'
     return e
   }
 
@@ -32,6 +40,7 @@ export default function InquiryForm() {
       body: JSON.stringify({
         name: form.name.trim(), email: form.email.trim(),
         phone: form.phone.trim(), type: form.type, message: form.message.trim(),
+        website, // honeypot field — server silently ignores real submissions where this is set
       }),
     })
 
@@ -59,7 +68,8 @@ export default function InquiryForm() {
         <button
           onClick={() => {
             setSubmitted(false)
-            setForm({ name: '', email: '', phone: '', type: '', message: '' })
+            setForm({ name: '', email: '', phone: '', type: lockedType ?? '', message: '' })
+            setConsent(false)
           }}
           className="btn-blue inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white"
         >
@@ -106,9 +116,9 @@ export default function InquiryForm() {
         </div>
         <div>
           <Label>Inquiry Type</Label>
-          <select value={form.type}
+          <select value={form.type} disabled={!!lockedType}
             onChange={e => { setForm({ ...form, type: e.target.value }); setErrors({ ...errors, type: '' }) }}
-            className={fieldCls('type')}>
+            className={`${fieldCls('type')} ${lockedType ? 'opacity-70 cursor-not-allowed' : ''}`}>
             <option value="">Select type</option>
             <option>Account Opening</option>
             <option>Investment Advisory</option>
@@ -127,6 +137,27 @@ export default function InquiryForm() {
           className={`${fieldCls('message')} resize-none`} />
         {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
       </div>
+
+      {/* Honeypot — hidden from real users, bots tend to fill every field */}
+      <div className="absolute left-[-9999px]" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off"
+          value={website} onChange={e => setWebsite(e.target.value)} />
+      </div>
+
+      <div className="mt-5 flex items-start gap-2.5">
+        <input
+          id="consent" type="checkbox" checked={consent}
+          onChange={e => { setConsent(e.target.checked); setErrors({ ...errors, consent: '' }) }}
+          className="mt-0.5 w-4 h-4 shrink-0 rounded border-gray-300 text-[#3457d5] focus:ring-[#3457d5]/30"
+        />
+        <label htmlFor="consent" className="text-xs text-gray-500 leading-relaxed">
+          I agree to the{' '}
+          <a href="/privacy" target="_blank" className="text-[#3457d5] hover:underline">Privacy Policy</a>
+          {' '}and consent to Diamond Global Securities processing my information to respond to this inquiry.
+        </label>
+      </div>
+      {errors.consent && <p className="text-red-500 text-xs mt-1">{errors.consent}</p>}
 
       {serverError && (
         <div className="mt-4 border border-red-200 bg-red-50 rounded-lg px-4 py-3 text-sm text-red-600">

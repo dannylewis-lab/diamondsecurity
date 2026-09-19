@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { ArrowUp } from 'lucide-react'
+import { ArrowUp, Phone } from 'lucide-react'
 
 export default function FloatingButtons() {
   const [show, setShow] = useState(false)
@@ -24,9 +24,18 @@ export default function FloatingButtons() {
         </button>
       )}
 
+      {/* Call */}
+      <a
+        href="tel:+255791228239"
+        className="call-btn"
+        aria-label="Call Diamond Global Securities"
+      >
+        <Phone size={22} color="white" fill="white" />
+      </a>
+
       {/* WhatsApp */}
       <a
-        href="https://wa.me/255655952075"
+        href="https://wa.me/255791228239"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-btn"

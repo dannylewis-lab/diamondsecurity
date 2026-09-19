@@ -16,11 +16,11 @@ export default function MarketDashboard() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-50 text-blue-600 text-xs font-semibold tracking-widest uppercase mb-5">
             <BarChart2 size={13} />
-            Live Market Data
+            Market Resources
           </div>
           <h2 className="text-4xl font-bold text-[#1d1d1d] mb-3">DSE Market Dashboard</h2>
           <p className="text-gray-500 max-w-lg mx-auto">
-            Real-time market data from the official Dar es Salaam Stock Exchange
+            Official market data, stock listings, and indices from the Dar es Salaam Stock Exchange
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function MarketDashboard() {
                   Dar es Salaam<br />Stock Exchange
                 </h3>
                 <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-                  Tanzania&apos;s official securities exchange, providing real-time market data, stock listings, indices, and investment information.
+                  Tanzania&apos;s official securities exchange, providing market data, stock listings, indices, and investment information.
                 </p>
 
                 <div

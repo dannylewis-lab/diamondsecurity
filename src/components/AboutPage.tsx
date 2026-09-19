@@ -6,6 +6,7 @@ import {
   Heart, Briefcase, PieChart, BadgeCheck,
   Lock, Handshake, ChevronRight
 } from 'lucide-react'
+import { OFFICE_MAPS_URL, OFFICE_MAPS_EMBED_URL } from '@/lib/location'
 
 const ABOUT_HERO_IMG = 'https://images.unsplash.com/photo-1560472355-536de3962603?w=900&q=80&auto=format&fit=crop&crop=top'
 const ABOUT_TEAM_IMG  = 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80&auto=format&fit=crop'
@@ -107,7 +108,7 @@ export default function AboutPage() {
                 on the Dar es Salaam Stock Exchange.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-7 py-3 font-semibold rounded-lg text-sm text-white">
+                <Link href="/open-account" className="btn-blue inline-flex items-center gap-2 px-7 py-3 font-semibold rounded-lg text-sm text-white">
                   Open an Account <ArrowUpRight size={15} />
                 </Link>
                 <Link
@@ -542,7 +543,9 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-[#1d1d1d] uppercase tracking-wider mb-1">Address</p>
-                    <p className="text-gray-500 text-sm">Victoria, Dar es Salaam, Tanzania</p>
+                    <a href={OFFICE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-gray-500 text-sm hover:text-[#3457d5] transition-colors">
+                      Victoria, Dar es Salaam, Tanzania
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -551,7 +554,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-[#1d1d1d] uppercase tracking-wider mb-1">Phone</p>
-                    <p className="text-gray-500 text-sm">+255 655 952 075</p>
+                    <a href="tel:+255791228239" className="text-gray-500 text-sm hover:text-[#3457d5] transition-colors">+255 791 228 239</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -574,12 +577,14 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="min-h-[280px] flex flex-col items-center justify-center bg-[#fafafa] border-t lg:border-t-0 lg:border-l border-gray-100">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ background: 'rgba(52,87,213,0.08)' }}>
-                <MapPin size={28} className="text-[#3457d5]" />
-              </div>
-              <p className="text-[#1d1d1d] font-semibold text-sm tracking-wide">Victoria</p>
-              <p className="text-gray-400 text-xs mt-1 tracking-wide">Dar es Salaam, Tanzania</p>
+            <div className="min-h-[280px] relative border-t lg:border-t-0 lg:border-l border-gray-100">
+              <iframe
+                src={OFFICE_MAPS_EMBED_URL}
+                title="Diamond Global Securities office location"
+                className="absolute inset-0 w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
@@ -603,7 +608,7 @@ export default function AboutPage() {
             through to your first trade and beyond. Every engagement begins with listening to you.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg text-sm">
+            <Link href="/open-account" className="btn-blue inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg text-sm">
               Open an Account
               <ArrowUpRight size={15} />
             </Link>
@@ -611,7 +616,7 @@ export default function AboutPage() {
               href="/market"
               className="inline-flex items-center gap-2 px-8 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-[#fafafa] hover:border-blue-200 transition-colors text-sm"
             >
-              View Live Market
+              View Market
               <ChevronRight size={15} />
             </Link>
           </div>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { MapPin, Phone, Mail, Instagram, Linkedin, Twitter, Facebook } from 'lucide-react'
+import { MapPin, Phone, Mail, Instagram } from 'lucide-react'
+import { OFFICE_MAPS_URL } from '@/lib/location'
 
 const navLinks = [
   { label: 'About Us',       href: '/about'    },
@@ -17,10 +18,7 @@ const serviceLinks = [
 ]
 
 const socials = [
-  { Icon: Facebook,  href: '#',                label: 'Facebook'  },
-  { Icon: Twitter,   href: '#',                label: 'Twitter'   },
-  { Icon: Linkedin,  href: '#',                label: 'LinkedIn'  },
-  { Icon: Instagram, href: 'https://www.instagram.com/diamond_globalsecurities?igsh=d2Q0a2s5aWQyeXVr&utm_source=qr', label: 'Instagram' },
+  { Icon: Instagram, href: 'https://www.instagram.com/diamond_globalsecurities', label: 'Instagram' },
 ]
 
 export default function Footer() {
@@ -64,11 +62,13 @@ export default function Footer() {
             <div className="flex flex-col gap-2.5">
               <div className="flex items-start gap-3 text-sm text-white/50">
                 <MapPin size={14} className="mt-0.5 shrink-0 text-white/30" />
-                <span>Victoria, Dar es Salaam, Tanzania</span>
+                <a href={OFFICE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  Victoria, Dar es Salaam, Tanzania
+                </a>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/50">
                 <Phone size={14} className="shrink-0 text-white/30" />
-                <a href="tel:+255655952075" className="hover:text-white transition-colors">+255 655 952 075</a>
+                <a href="tel:+255791228239" className="hover:text-white transition-colors">+255 791 228 239</a>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/50">
                 <Mail size={14} className="shrink-0 text-white/30" />
@@ -152,13 +152,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/25">
-            © 2026 Diamond Global Securities Limited. All rights reserved.
+            © {new Date().getFullYear()} Diamond Global Securities Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
-            {['Privacy Policy', 'Terms of Service', 'Disclaimer'].map((l) => (
-              <a key={l} href="#" className="text-xs text-white/25 hover:text-white/60 transition-colors">
-                {l}
-              </a>
+            {[
+              { label: 'Privacy Policy',    href: '/privacy'    },
+              { label: 'Terms of Service',  href: '/terms'      },
+              { label: 'Disclaimer',        href: '/disclaimer' },
+            ].map(({ label, href }) => (
+              <Link key={label} href={href} className="text-xs text-white/25 hover:text-white/60 transition-colors">
+                {label}
+              </Link>
             ))}
           </div>
         </div>

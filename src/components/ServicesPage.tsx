@@ -68,7 +68,7 @@ const steps = [
 const faqs = [
   {
     q: 'How long does it take to open a trading account?',
-    a: 'Account opening typically takes 24-48 hours once all required documents are submitted. You will need a valid ID, proof of address, and a tax identification number (TIN).',
+    a: 'Account opening typically takes 24-48 hours once all required documents are submitted. You will need a valid ID and proof of address.',
   },
   {
     q: 'What is the difference between Advisory and Fund Management?',
@@ -234,7 +234,7 @@ export default function ServicesPage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Link href="/contact" className="btn-blue inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg shadow-lg">
+            <Link href="/open-account" className="btn-blue inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg shadow-lg">
               Open Your Account Now <ArrowUpRight size={16} />
             </Link>
           </div>

@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { BarChart2, TrendingUp, TrendingDown, Minus, CheckCircle, ChevronRight } from 'lucide-react'
+import { BarChart2, TrendingUp, TrendingDown, Minus, ChevronRight } from 'lucide-react'
 type Report = {
   id: string
   title: string
@@ -28,14 +28,7 @@ const sentimentConfig = {
   },
 }
 
-const staticPoints = [
-  'Banking sector equities remained the most actively traded on the DSE',
-  'Market breadth positive — advancers outnumbered decliners',
-  'Investor participation remained steady across equity and bond markets',
-  'The DSE All-Share Index reflects continued growth in listed securities',
-]
-
-const staticSummary = `The Dar es Salaam Stock Exchange continued to attract investor interest, with banking stocks remaining among the most actively traded securities. CRDB and TCCL led activity among listed equities, reflecting sustained confidence in Tanzania's financial sector. Market breadth remained positive, with advancers outnumbering decliners — a sign of broad-based participation across the exchange.`
+const fallbackSummary = `Our team publishes market commentary here regularly. Check back soon, or visit the official DSE website for live prices and indices.`
 
 export default function LiveMarketOverview() {
   const [report, setReport] = useState<Report | null>(null)
@@ -48,10 +41,7 @@ export default function LiveMarketOverview() {
       .finally(() => setLoading(false))
   }, [])
 
-  const cfg = report
-    ? sentimentConfig[report.sentiment] ?? sentimentConfig.neutral
-    : sentimentConfig.bullish
-  const { Icon: SentimentIcon } = cfg
+  const cfg = report ? sentimentConfig[report.sentiment] ?? sentimentConfig.neutral : null
 
   return (
     <section className="py-20 bg-white dark:bg-[#0a1628]">
@@ -75,9 +65,9 @@ export default function LiveMarketOverview() {
               </p>
               <p className="text-gray-400 text-xs mt-0.5">Dar es Salaam Stock Exchange</p>
             </div>
-            {!loading && (
+            {!loading && cfg && (
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-[#3457d5] border border-blue-100">
-                <SentimentIcon size={11} />
+                <cfg.Icon size={11} />
                 {cfg.label}
               </span>
             )}
@@ -94,33 +84,18 @@ export default function LiveMarketOverview() {
             ) : (
               <>
                 <p className="text-gray-600 leading-relaxed mb-7 text-[15px]">
-                  {report?.summary ?? staticSummary}
+                  {report?.summary ?? fallbackSummary}
                 </p>
 
-                {!report && (
-                  <div className="bg-[#fafafa] rounded-xl p-6 border border-gray-100">
-                    <div className="flex items-center gap-2 mb-5">
-                      <div className="w-1 h-5 bg-blue-500 rounded-full" />
-                      <h4 className="font-bold text-[#1d1d1d] text-sm">Key Market Indicators</h4>
-                    </div>
-                    <ul className="space-y-3">
-                      {staticPoints.map(point => (
-                        <li key={point} className="flex items-start gap-3 text-sm text-gray-600">
-                          <CheckCircle size={14} className="text-blue-500 mt-0.5 shrink-0" />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
                 <div className="mt-6 flex items-center justify-between">
-                  <p className="text-xs text-gray-400">Source: Dar es Salaam Stock Exchange (DSE)</p>
+                  <p className="text-xs text-gray-400">
+                    {report ? 'Diamond Global Securities — Market Desk' : 'Commentary updates regularly'}
+                  </p>
                   <Link
                     href="/market"
                     className="text-sm font-semibold text-blue-600 hover:text-blue-500 transition-colors flex items-center gap-1"
                   >
-                    View Live Data
+                    View Market Data
                     <ChevronRight size={14} />
                   </Link>
                 </div>
