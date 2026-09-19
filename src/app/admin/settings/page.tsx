@@ -63,7 +63,7 @@ export default function SettingsPage() {
               { icon: Shield,  label: 'Licence',  value: 'CMSA Licensed - DSE Dealing Member' },
               { icon: Phone,   label: 'Phone',    value: '+255 791 228 239' },
               { icon: Mail,    label: 'Email',    value: 'info@diamondsecurities.co.tz' },
-              { icon: MapPin,  label: 'Location', value: 'Dar es Salaam, Tanzania' },
+              { icon: MapPin,  label: 'Location', value: 'NHC Business Nexus Building, Victoria, P.O. Box 79271, Dar es Salaam' },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-center gap-4 py-2.5 border-b border-gray-50 last:border-0">
                 <div className="w-8 h-8 bg-[#fafafa] rounded-lg flex items-center justify-center shrink-0">

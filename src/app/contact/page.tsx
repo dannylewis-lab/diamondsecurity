@@ -29,8 +29,8 @@ const contactInfo = [
   {
     icon: MapPin,
     label: 'Office',
-    value: 'Victoria, Dar es Salaam',
-    sub: 'Tanzania',
+    value: 'NHC Business Nexus Building, Victoria',
+    sub: 'P.O. Box 79271, Dar es Salaam',
     href: OFFICE_MAPS_URL,
   },
   {

@@ -1,6 +1,7 @@
 /**
- * Office location — displayed address stays "Victoria, Dar es Salaam, Tanzania";
- * these coordinates back the map link/embed wherever that address appears.
+ * Office location — NHC Business Nexus Building, Victoria, P.O. Box 79271,
+ * Dar es Salaam, Tanzania. These coordinates back the map link/embed
+ * wherever the address appears.
  */
 export const OFFICE_COORDS = { lat: -6.778588829389339, lng: 39.25212681627033 }
 

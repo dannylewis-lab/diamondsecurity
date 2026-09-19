@@ -63,8 +63,9 @@ export default function Footer() {
             <div className="flex flex-col gap-2.5">
               <div className="flex items-start gap-3 text-sm text-white/50">
                 <MapPin size={14} className="mt-0.5 shrink-0 text-white/30" />
-                <a href={OFFICE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  Victoria, Dar es Salaam, Tanzania
+                <a href={OFFICE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors leading-relaxed">
+                  NHC Business Nexus Building, Victoria<br />
+                  P.O. Box 79271, Dar es Salaam
                 </a>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/50">

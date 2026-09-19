@@ -466,7 +466,7 @@ export default function AboutPage() {
                 <div className="w-1 h-7 rounded-full" style={{ background: '#3457d5' }} />
                 <div>
                   <p className="text-xs font-bold text-[#1d1d1d] tracking-wide">Diamond Global Securities Limited</p>
-                  <p className="text-xs text-gray-400">Victoria, Dar es Salaam, Tanzania</p>
+                  <p className="text-xs text-gray-400">NHC Business Nexus Building, Victoria, Dar es Salaam</p>
                 </div>
               </div>
             </div>
@@ -539,8 +539,9 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-[#1d1d1d] uppercase tracking-wider mb-1">Address</p>
-                    <a href={OFFICE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-gray-500 text-sm hover:text-[#3457d5] transition-colors">
-                      Victoria, Dar es Salaam, Tanzania
+                    <a href={OFFICE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-gray-500 text-sm hover:text-[#3457d5] transition-colors block leading-relaxed">
+                      NHC Business Nexus Building, Victoria<br />
+                      P.O. Box 79271, Dar es Salaam, Tanzania
                     </a>
                   </div>
                 </div>
