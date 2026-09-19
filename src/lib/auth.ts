@@ -45,3 +45,14 @@ export async function getSessionFromRequest(req: NextRequest): Promise<AdminPayl
 export function unauthorized() {
   return Response.json({ error: 'Unauthorized' }, { status: 401 })
 }
+
+/**
+ * Guard for admin-only route handlers. Returns the session on success, or a
+ * ready-to-return 401 Response on failure — callers just need to check
+ * `instanceof Response`. Not for dual-mode routes (e.g. public/admin news
+ * listing) where anonymous callers get a filtered result instead of a 401.
+ */
+export async function requireAdminSession(req: NextRequest): Promise<AdminPayload | Response> {
+  const session = await getSessionFromRequest(req)
+  return session ?? unauthorized()
+}

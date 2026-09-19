@@ -1,11 +1,11 @@
 import { NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { getSessionFromRequest, unauthorized } from '@/lib/auth'
+import { requireAdminSession } from '@/lib/auth'
 
 export async function GET(req: NextRequest) {
   try {
-    const session = await getSessionFromRequest(req)
-    if (!session) return unauthorized()
+    const session = await requireAdminSession(req)
+    if (session instanceof Response) return session
 
     const [
       totalNews,

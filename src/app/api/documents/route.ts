@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { getSessionFromRequest, unauthorized } from '@/lib/auth'
+import { requireAdminSession } from '@/lib/auth'
 
 // GET /api/documents — public
 export async function GET() {
@@ -18,8 +18,8 @@ export async function GET() {
 // POST /api/documents — admin only (saves metadata after file upload)
 export async function POST(req: NextRequest) {
   try {
-    const session = await getSessionFromRequest(req)
-    if (!session) return unauthorized()
+    const session = await requireAdminSession(req)
+    if (session instanceof Response) return session
 
     const body = await req.json()
     const { name, category, type, size, storagePath, publicUrl } = body

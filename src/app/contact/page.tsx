@@ -1,8 +1,14 @@
+import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import { InquirySection } from '@/components/Sections'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Contact Us - Diamond Global Securities',
+  description: 'Get in touch with Diamond Global Securities — phone, email, office location, and an online inquiry form for account opening, advisory, and brokerage questions.',
+}
 
 const contactInfo = [
   {

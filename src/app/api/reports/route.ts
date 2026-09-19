@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { getSessionFromRequest, unauthorized } from '@/lib/auth'
+import { getSessionFromRequest, requireAdminSession } from '@/lib/auth'
 
 const ALLOWED_SENTIMENTS = ['bullish', 'bearish', 'neutral']
 
@@ -25,8 +25,8 @@ export async function GET(req: NextRequest) {
 // POST /api/reports — admin only
 export async function POST(req: NextRequest) {
   try {
-    const session = await getSessionFromRequest(req)
-    if (!session) return unauthorized()
+    const session = await requireAdminSession(req)
+    if (session instanceof Response) return session
 
     const body = await req.json()
     const { title, summary, sentiment } = body

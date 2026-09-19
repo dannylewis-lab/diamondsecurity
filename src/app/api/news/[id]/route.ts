@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { getSessionFromRequest, unauthorized } from '@/lib/auth'
+import { getSessionFromRequest, requireAdminSession } from '@/lib/auth'
 
 const ALLOWED_CATEGORIES = ['Market Update', 'Company News', 'Research', 'Economic Outlook', 'DSE News', 'General']
 
@@ -22,8 +22,8 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
 
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const session = await getSessionFromRequest(req)
-    if (!session) return unauthorized()
+    const session = await requireAdminSession(req)
+    if (session instanceof Response) return session
 
     const { id } = await params
     const body = await req.json()
@@ -63,8 +63,8 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
 
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const session = await getSessionFromRequest(req)
-    if (!session) return unauthorized()
+    const session = await requireAdminSession(req)
+    if (session instanceof Response) return session
 
     const { id } = await params
     await prisma.newsArticle.delete({ where: { id } })

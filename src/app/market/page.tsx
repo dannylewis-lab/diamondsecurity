@@ -1,7 +1,13 @@
+import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import MarketDashboard from '@/components/MarketDashboard'
+
+export const metadata: Metadata = {
+  title: 'Market Data - Diamond Global Securities',
+  description: 'Live Dar es Salaam Stock Exchange (DSE) market data, indices, top gainers and losers, and historical price charts.',
+}
 
 export default function MarketPage() {
   return (

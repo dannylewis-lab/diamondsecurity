@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { getSessionFromRequest, unauthorized } from '@/lib/auth'
+import { requireAdminSession } from '@/lib/auth'
 
 const ALLOWED_TYPES   = ['General Enquiry', 'Investment', 'Account Opening', 'Market Data', 'Other']
 const ALLOWED_STATUSES = ['new', 'read', 'replied', 'closed']
@@ -9,8 +9,8 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 // GET /api/inquiries — admin only
 export async function GET(req: NextRequest) {
   try {
-    const session = await getSessionFromRequest(req)
-    if (!session) return unauthorized()
+    const session = await requireAdminSession(req)
+    if (session instanceof Response) return session
 
     const { searchParams } = req.nextUrl
     const status = searchParams.get('status')

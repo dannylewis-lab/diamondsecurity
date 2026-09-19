@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server'
-import { getSessionFromRequest, unauthorized } from '@/lib/auth'
+import { requireAdminSession } from '@/lib/auth'
 import { writeFile, mkdir } from 'fs/promises'
 import path from 'path'
 
@@ -15,8 +15,8 @@ const MAX_IMAGE_MB = 5
 const MAX_DOC_MB   = 20
 
 export async function POST(req: NextRequest) {
-  const session = await getSessionFromRequest(req)
-  if (!session) return unauthorized()
+  const session = await requireAdminSession(req)
+  if (session instanceof Response) return session
 
   const formData = await req.formData()
   const file     = formData.get('file') as File | null

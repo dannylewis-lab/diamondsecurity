@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server'
 import bcrypt from 'bcryptjs'
 import { prisma } from '@/lib/prisma'
-import { getSessionFromRequest, unauthorized } from '@/lib/auth'
+import { requireAdminSession } from '@/lib/auth'
 
 const cookieFlags =
   `HttpOnly; Path=/; Max-Age=0; SameSite=Lax` +
@@ -9,8 +9,8 @@ const cookieFlags =
 
 export async function POST(req: NextRequest) {
   try {
-    const session = await getSessionFromRequest(req)
-    if (!session) return unauthorized()
+    const session = await requireAdminSession(req)
+    if (session instanceof Response) return session
 
     const body = await req.json()
     const currentPassword = typeof body.currentPassword === 'string' ? body.currentPassword : ''

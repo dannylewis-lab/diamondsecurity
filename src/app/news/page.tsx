@@ -1,7 +1,13 @@
+import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import NewsPageContent from '@/components/NewsPageContent'
+
+export const metadata: Metadata = {
+  title: 'News & Insights - Diamond Global Securities',
+  description: 'Market updates, company news, research, and economic outlook from Diamond Global Securities, a licensed DSE broker.',
+}
 
 export default function NewsPage() {
   return (

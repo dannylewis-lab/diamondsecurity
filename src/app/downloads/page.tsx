@@ -1,7 +1,13 @@
+import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import DownloadSection from '@/components/DownloadSection'
+
+export const metadata: Metadata = {
+  title: 'Downloads - Diamond Global Securities',
+  description: 'Download account opening forms, KYC documents, fee schedules, and other client forms for Diamond Global Securities.',
+}
 
 export default function DownloadsPage() {
   return (
