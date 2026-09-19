@@ -8,8 +8,7 @@ import {
 } from 'lucide-react'
 import { OFFICE_MAPS_URL, OFFICE_MAPS_EMBED_URL } from '@/lib/location'
 
-const ABOUT_HERO_IMG = 'https://images.unsplash.com/photo-1560472355-536de3962603?w=900&q=80&auto=format&fit=crop&crop=top'
-const ABOUT_TEAM_IMG  = 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80&auto=format&fit=crop'
+const ABOUT_HERO_IMG = 'https://images.unsplash.com/photo-1714974528693-f77f6fcc56af?w=900&q=80&auto=format&fit=crop&crop=top'
 
 const values = [
   {

@@ -92,7 +92,7 @@ function LoginScreen({ onLogin }: { onLogin: (admin: Admin) => void }) {
           className="relative shrink-0 bg-white rounded-2xl overflow-hidden"
           style={{ width: '76px', height: '76px', boxShadow: '0 0 24px 6px rgba(255,255,255,0.3), 0 6px 20px rgba(0,0,0,0.35)' }}
         >
-          <Image src="/diamond-logo.png" alt="Diamond Global Securities" fill className="object-cover scale-[1.2]" priority />
+          <Image src="/diamond-icon.png" alt="Diamond Global Securities" fill className="object-contain p-2" priority />
         </div>
         <div className="text-left leading-tight">
           <div className="font-extrabold text-white text-lg tracking-wide">DIAMOND GLOBAL</div>
@@ -188,7 +188,7 @@ function SidebarContent({ admin, pathname, onLinkClick, onLogout }: { admin: Adm
       <div className="px-5 py-5 border-b border-white/10">
         <Link href="/" className="flex items-center gap-3 group" onClick={onLinkClick}>
           <div className="relative shrink-0 bg-white rounded-xl overflow-hidden" style={{ width: '48px', height: '48px', boxShadow: '0 0 16px 4px rgba(255,255,255,0.25), 0 4px 10px rgba(0,0,0,0.3)' }}>
-            <Image src="/diamond-logo.png" alt="Diamond Global Securities" fill className="object-cover scale-[1.2]" />
+            <Image src="/diamond-icon.png" alt="Diamond Global Securities" fill className="object-contain p-1.5" />
           </div>
           <div className="leading-tight">
             <div className="font-extrabold text-white text-[13px] tracking-wide leading-tight">DIAMOND GLOBAL</div>

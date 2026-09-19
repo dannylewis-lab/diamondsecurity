@@ -36,10 +36,10 @@ export default function Footer() {
                 style={{ width: '44px', height: '44px', boxShadow: '0 0 14px 3px rgba(255,255,255,0.25)' }}
               >
                 <Image
-                  src="/diamond-logo.png"
+                  src="/diamond-icon.png"
                   alt="Diamond Global Securities Limited"
                   fill
-                  className="object-cover scale-[1.2]"
+                  className="object-contain p-1.5"
                 />
               </div>
               <div className="leading-tight">

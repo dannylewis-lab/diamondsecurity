@@ -18,7 +18,7 @@ const panels = [
     tall: false,
   },
   {
-    src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1768055104929-cf2317674a80?w=800&q=80&auto=format&fit=crop',
     alt: 'Portfolio risk analysis and performance charts',
     label: 'Fund Management',
     caption: 'Disciplined risk management and long-term value creation.',

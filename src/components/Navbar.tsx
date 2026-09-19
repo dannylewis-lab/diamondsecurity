@@ -65,10 +65,10 @@ export default function Navbar() {
               style={{ width: '52px', height: '52px', boxShadow: '0 0 18px 4px rgba(255,255,255,0.35), 0 4px 12px rgba(0,0,0,0.25)' }}
             >
               <Image
-                src="/diamond-logo.png"
+                src="/diamond-icon.png"
                 alt="Diamond Global Securities Limited"
                 fill
-                className="object-cover scale-[1.2]"
+                className="object-contain p-1.5"
                 priority
               />
             </div>
