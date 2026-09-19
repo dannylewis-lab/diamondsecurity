@@ -100,7 +100,7 @@ export default function LiveMarketTable() {
             <table className="w-full">
               <thead className="sticky top-0 bg-white">
                 <tr className="border-b border-gray-100">
-                  <th className="text-left px-6 sm:px-7 py-3 text-[10px] font-semibold tracking-widest uppercase text-gray-400">Symbol</th>
+                  <th className="text-left px-6 sm:px-7 py-3 text-[10px] font-semibold tracking-widest uppercase text-gray-400">Company</th>
                   <th className="text-right px-6 sm:px-7 py-3 text-[10px] font-semibold tracking-widest uppercase text-gray-400">Price</th>
                   <th className="text-right px-6 sm:px-7 py-3 text-[10px] font-semibold tracking-widest uppercase text-gray-400">Change</th>
                 </tr>
@@ -108,7 +108,10 @@ export default function LiveMarketTable() {
               <tbody>
                 {prices.map(p => (
                   <tr key={p.symbol} className="stock-row border-b border-gray-50 last:border-0">
-                    <td className="px-6 sm:px-7 py-3 text-sm font-bold text-[#1d1d1d]">{p.symbol}</td>
+                    <td className="px-6 sm:px-7 py-3">
+                      <p className="text-sm font-bold text-[#1d1d1d] leading-tight">{p.symbol}</p>
+                      {p.name && <p className="text-xs text-gray-400 leading-tight mt-0.5">{p.name}</p>}
+                    </td>
                     <td className="px-6 sm:px-7 py-3 text-sm text-right tabular-nums text-gray-700">{fmtPrice(p.price)}</td>
                     <td className="px-6 sm:px-7 py-3 text-sm text-right"><ChangeCell p={p} /></td>
                   </tr>

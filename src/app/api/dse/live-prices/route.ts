@@ -1,12 +1,16 @@
 // Proxies the real DSE live-prices feed server-side — avoids exposing the
 // upstream URL to the browser and sidesteps any CORS restriction on it.
 // Verified response shape (2026-09-19): { success: boolean, data: [{ id, company, price, change }] }
-// Note: no security name, %, or volume in this feed — only ticker/price/change.
+// Note: no security name, %, or volume in this feed — only ticker/price/change,
+// so full company names come from the separately-verified DSE_COMPANY_NAMES map.
+
+import { DSE_COMPANY_NAMES } from '@/lib/dseCompanies'
 
 type DsePriceRow = { id: number; company: string; price: number; change: number }
 
 export type LivePrice = {
   symbol: string
+  name: string | null
   price: number
   change: number
   pctChange: number | null
@@ -30,6 +34,7 @@ export async function GET() {
       const prevClose = r.price - r.change
       return {
         symbol: r.company,
+        name: DSE_COMPANY_NAMES[r.company] ?? null,
         price: r.price,
         change: r.change,
         pctChange: prevClose !== 0 ? (r.change / prevClose) * 100 : null,
