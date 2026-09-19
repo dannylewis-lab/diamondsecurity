@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight, Calendar, Newspaper } from 'lucide-react'
 import { useFadeUp } from '@/hooks/useFadeUp'
+import { Skeleton } from './Skeleton'
 type Article = {
   id: string
   title: string
@@ -62,11 +63,14 @@ export default function LiveNewsSection() {
         </div>
 
         {loading ? (
-          <div className="flex items-center justify-center py-16">
-            <svg className="animate-spin w-6 h-6 text-[#3457d5]" viewBox="0 0 24 24" fill="none">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-            </svg>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i}>
+                <Skeleton className="h-[200px] w-full mb-3" />
+                <Skeleton className="h-4 w-3/4 mb-2" />
+                <Skeleton className="h-4 w-1/2" />
+              </div>
+            ))}
           </div>
         ) : articles.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 text-center">
@@ -80,7 +84,7 @@ export default function LiveNewsSection() {
               return (
                 <Link
                   key={article.id}
-                  href="/news"
+                  href={`/news/${article.id}`}
                   className={`group block bg-white dark:bg-white/5 rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 hover:border-blue-200 hover:shadow-lg transition-all duration-300 ${i === 0 ? 'md:col-span-1' : ''}`}
                 >
                   {/* Image */}

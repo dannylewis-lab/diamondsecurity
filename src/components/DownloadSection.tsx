@@ -14,11 +14,7 @@ type Doc = {
 }
 
 const typeColors: Record<string, { bg: string; text: string }> = {
-  PDF:  { bg: 'bg-red-50',     text: 'text-red-500' },
-  DOC:  { bg: 'bg-blue-50',    text: 'text-blue-500' },
-  DOCX: { bg: 'bg-blue-50',    text: 'text-blue-500' },
-  XLSX: { bg: 'bg-blue-50', text: 'text-blue-500' },
-  XLS:  { bg: 'bg-blue-50', text: 'text-blue-500' },
+  PDF: { bg: 'bg-red-50', text: 'text-red-500' },
 }
 
 export default function DownloadSection() {

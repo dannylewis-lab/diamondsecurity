@@ -1,11 +1,12 @@
 'use client'
-import { useState, useEffect } from 'react'
-import { Eye, EyeOff, Trash2, Plus, X, Sparkles } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { Eye, EyeOff, Trash2, Plus, X, Sparkles, FileText, Upload, ExternalLink } from 'lucide-react'
 import { Skeleton } from '@/components/Skeleton'
 
 type Report = {
   id: string; title: string; summary: string | null
   sentiment: 'bullish' | 'bearish' | 'neutral'; published: boolean; createdAt: string
+  pdfUrl: string | null
 }
 
 const sentimentStyle: Record<string, string> = {
@@ -32,6 +33,12 @@ export default function MarketReports() {
   const [saving, setSaving]         = useState(false)
   const [error, setError]           = useState('')
 
+  // PDF attachment state
+  const [pdfFile, setPdfFile]           = useState<File | null>(null)
+  const [existingPdfUrl, setExistingPdfUrl] = useState<string | null>(null)
+  const [removePdf, setRemovePdf]       = useState(false)
+  const fileRef = useRef<HTMLInputElement>(null)
+
   const fetchReports = () => {
     setLoading(true)
     fetch('/api/reports')
@@ -41,13 +48,47 @@ export default function MarketReports() {
   }
   useEffect(fetchReports, [])
 
-  const openNew  = () => { setEditTarget(null); setForm(emptyForm); setError(''); setShowModal(true) }
-  const openEdit = (r: Report) => { setEditTarget(r); setForm({ title: r.title, summary: r.summary ?? '', sentiment: r.sentiment }); setError(''); setShowModal(true) }
+  const openNew  = () => {
+    setEditTarget(null); setForm(emptyForm); setError(''); setShowModal(true)
+    setPdfFile(null); setExistingPdfUrl(null); setRemovePdf(false)
+  }
+  const openEdit = (r: Report) => {
+    setEditTarget(r); setForm({ title: r.title, summary: r.summary ?? '', sentiment: r.sentiment }); setError(''); setShowModal(true)
+    setPdfFile(null); setExistingPdfUrl(r.pdfUrl); setRemovePdf(false)
+  }
+
+  const handlePdfChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    if (file.type !== 'application/pdf') { setError('Only PDF files are accepted for the report attachment.'); return }
+    setError('')
+    setPdfFile(file)
+    setRemovePdf(false)
+  }
 
   const handleSave = async () => {
     if (!form.title.trim()) { setError('Title is required.'); return }
     setSaving(true); setError('')
-    const payload = { title: form.title.trim(), summary: form.summary.trim() || null, sentiment: form.sentiment }
+
+    const payload: Record<string, unknown> = { title: form.title.trim(), summary: form.summary.trim() || null, sentiment: form.sentiment }
+
+    if (pdfFile) {
+      const fd = new FormData()
+      fd.append('file', pdfFile)
+      fd.append('bucket', 'reports')
+      const uploadRes = await fetch('/api/upload', { method: 'POST', body: fd })
+      if (!uploadRes.ok) {
+        const err = await uploadRes.json()
+        setError(err.error ?? 'PDF upload failed.'); setSaving(false); return
+      }
+      const { storagePath, publicUrl } = await uploadRes.json()
+      payload.pdfUrl = publicUrl
+      payload.pdfStoragePath = storagePath
+    } else if (removePdf) {
+      payload.pdfUrl = null
+      payload.pdfStoragePath = null
+    }
+
     const res = editTarget
       ? await fetch(`/api/reports/${editTarget.id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
       : await fetch('/api/reports', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
@@ -113,6 +154,11 @@ export default function MarketReports() {
                     <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${report.published ? 'bg-emerald-50 text-emerald-600 border border-emerald-200' : 'bg-gray-100 text-gray-500 border border-gray-200'}`}>
                       {report.published ? 'Published' : 'Draft'}
                     </span>
+                    {report.pdfUrl && (
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-red-600 border border-red-100">
+                        <FileText size={11} /> PDF attached
+                      </span>
+                    )}
                   </div>
                   <p className="text-xs text-gray-400 mb-3">{formatDate(report.createdAt)}</p>
                   {report.summary && <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">{report.summary}</p>}
@@ -126,6 +172,11 @@ export default function MarketReports() {
                 <button onClick={() => togglePublish(report)} className={`inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-lg transition-colors border ${report.published ? 'border-amber-200 text-amber-600 hover:bg-amber-50' : 'border-emerald-200 text-emerald-600 hover:bg-emerald-50'}`}>
                   {report.published ? <><EyeOff size={13} /> Unpublish</> : <><Eye size={13} /> Publish</>}
                 </button>
+                {report.pdfUrl && (
+                  <a href={report.pdfUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold border border-gray-200 rounded-lg hover:bg-[#fafafa] transition-colors text-gray-700">
+                    <ExternalLink size={13} /> View PDF
+                  </a>
+                )}
                 <button onClick={() => handleDelete(report)} className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold border border-red-100 text-red-500 rounded-lg hover:bg-red-50 transition-colors ml-auto">
                   <Trash2 size={13} /> Delete
                 </button>
@@ -137,7 +188,7 @@ export default function MarketReports() {
 
       {showModal && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
-          <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-lg">
+          <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-lg max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-[#1d1d1d]">{editTarget ? 'Edit Report' : 'New Market Report'}</h2>
               <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-gray-600"><X size={18} /></button>
@@ -159,6 +210,29 @@ export default function MarketReports() {
                 <label className="block text-xs font-semibold tracking-wide uppercase text-gray-500 mb-1.5">Summary / Commentary</label>
                 <textarea value={form.summary} onChange={e => setForm(p => ({ ...p, summary: e.target.value }))} rows={5} placeholder="Write a market summary that will appear on the homepage Market Overview section..." className={`${inputCls} resize-none`} />
               </div>
+
+              {/* PDF attachment */}
+              <div>
+                <label className="block text-xs font-semibold tracking-wide uppercase text-gray-500 mb-1.5">Full Report (PDF, optional)</label>
+                {existingPdfUrl && !pdfFile && !removePdf ? (
+                  <div className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-gray-200 bg-[#fafafa]">
+                    <a href={existingPdfUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-[#3457d5] font-medium hover:underline min-w-0">
+                      <FileText size={15} className="shrink-0" /> <span className="truncate">Current PDF attached</span>
+                    </a>
+                    <div className="flex items-center gap-3 shrink-0">
+                      <button type="button" onClick={() => fileRef.current?.click()} className="text-xs font-semibold text-gray-500 hover:text-[#3457d5]">Replace</button>
+                      <button type="button" onClick={() => setRemovePdf(true)} className="text-xs font-semibold text-red-400 hover:text-red-600">Remove</button>
+                    </div>
+                  </div>
+                ) : (
+                  <div onClick={() => fileRef.current?.click()} className={`border-2 border-dashed rounded-xl p-5 text-center cursor-pointer transition-colors ${pdfFile ? 'border-[#3457d5] bg-blue-50' : 'border-gray-200 hover:border-[#3457d5]'}`}>
+                    <Upload size={18} className={`mx-auto mb-1.5 ${pdfFile ? 'text-[#3457d5]' : 'text-gray-400'}`} />
+                    <p className="text-sm text-gray-600">{pdfFile ? pdfFile.name : removePdf ? 'PDF will be removed — click to attach a new one' : 'Click to attach the full PDF report'}</p>
+                  </div>
+                )}
+                <input ref={fileRef} type="file" accept=".pdf,application/pdf" className="hidden" onChange={handlePdfChange} />
+              </div>
+
               {error && <p className="text-sm text-red-600 bg-red-50 rounded-lg px-4 py-2">{error}</p>}
               <div className="flex items-center gap-3 pt-1">
                 <button onClick={handleSave} disabled={saving} className="btn-blue flex-1 py-2.5 text-white text-sm font-semibold rounded-xl disabled:opacity-70 flex items-center justify-center gap-2">

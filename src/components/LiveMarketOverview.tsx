@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { BarChart2, TrendingUp, TrendingDown, Minus, ChevronRight } from 'lucide-react'
+import { BarChart2, TrendingUp, TrendingDown, Minus, ChevronRight, FileDown } from 'lucide-react'
 import { Skeleton } from './Skeleton'
 import { useLatestMarketReport } from '@/hooks/useLatestMarketReport'
 import { useFadeUp } from '@/hooks/useFadeUp'
@@ -74,17 +74,29 @@ export default function LiveMarketOverview() {
                   {report?.summary ?? fallbackSummary}
                 </p>
 
-                <div className="mt-6 flex items-center justify-between">
+                <div className="mt-6 flex items-center justify-between flex-wrap gap-3">
                   <p className="text-xs text-gray-400">
                     {report ? 'Diamond Global Securities — Market Desk' : 'Commentary updates regularly'}
                   </p>
-                  <Link
-                    href="/market"
-                    className="text-sm font-semibold text-blue-600 hover:text-blue-500 transition-colors flex items-center gap-1"
-                  >
-                    View Market Data
-                    <ChevronRight size={14} />
-                  </Link>
+                  <div className="flex items-center gap-4">
+                    {report?.pdfUrl && (
+                      <a
+                        href={report.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-semibold text-blue-600 hover:text-blue-500 transition-colors flex items-center gap-1.5"
+                      >
+                        <FileDown size={13} /> PDF Report
+                      </a>
+                    )}
+                    <Link
+                      href="/market"
+                      className="text-sm font-semibold text-blue-600 hover:text-blue-500 transition-colors flex items-center gap-1"
+                    >
+                      View Market Data
+                      <ChevronRight size={14} />
+                    </Link>
+                  </div>
                 </div>
               </>
             )}

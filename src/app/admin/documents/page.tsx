@@ -8,14 +8,6 @@ type Doc = {
   size: string | null; storagePath: string; publicUrl: string | null; createdAt: string
 }
 
-const typeColors: Record<string, string> = {
-  PDF:  'bg-red-100 text-red-600',
-  DOC:  'bg-blue-100 text-blue-600',
-  DOCX: 'bg-blue-100 text-blue-600',
-  XLSX: 'bg-green-100 text-green-600',
-  XLS:  'bg-green-100 text-green-600',
-}
-
 const categories = ['Account Opening', 'KYC', 'Corporate', 'Fee Schedule', 'Other']
 
 export default function DocumentsPage() {
@@ -40,6 +32,8 @@ export default function DocumentsPage() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (!file) return
+    if (file.type !== 'application/pdf') { setUploadError('Only PDF files are accepted.'); return }
+    setUploadError('')
     setUploadFile(file)
     if (!uploadForm.name) setUploadForm(p => ({ ...p, name: file.name.replace(/\.[^/.]+$/, '') }))
   }
@@ -132,7 +126,7 @@ export default function DocumentsPage() {
                       </div>
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600">{doc.category}</td>
-                    <td className="px-6 py-4"><span className={`px-2.5 py-1 rounded-md text-xs font-bold ${typeColors[doc.type] ?? 'bg-gray-100 text-gray-600'}`}>{doc.type}</span></td>
+                    <td className="px-6 py-4"><span className="px-2.5 py-1 rounded-md text-xs font-bold bg-red-100 text-red-600">{doc.type}</span></td>
                     <td className="px-6 py-4 text-sm text-gray-500">{doc.size ?? '—'}</td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
@@ -158,10 +152,10 @@ export default function DocumentsPage() {
             <div className="space-y-4">
               <div onClick={() => fileRef.current?.click()} className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${uploadFile ? 'border-[#3457d5] bg-blue-50' : 'border-gray-200 hover:border-[#3457d5]'}`}>
                 <Upload size={24} className={`mx-auto mb-2 ${uploadFile ? 'text-[#3457d5]' : 'text-gray-400'}`} />
-                <p className="text-sm text-gray-600">{uploadFile ? uploadFile.name : 'Click to select a file'}</p>
-                {uploadFile && <p className="text-xs text-gray-400 mt-1">PDF, DOC, DOCX, XLSX — max 20MB</p>}
+                <p className="text-sm text-gray-600">{uploadFile ? uploadFile.name : 'Click to select a PDF'}</p>
+                {uploadFile && <p className="text-xs text-gray-400 mt-1">PDF only — max 20MB</p>}
               </div>
-              <input ref={fileRef} type="file" accept=".pdf,.doc,.docx,.xlsx,.xls" className="hidden" onChange={handleFileChange} />
+              <input ref={fileRef} type="file" accept=".pdf,application/pdf" className="hidden" onChange={handleFileChange} />
               <div>
                 <label className="block text-xs font-semibold tracking-wide uppercase text-gray-500 mb-1.5">Document Name *</label>
                 <input value={uploadForm.name} onChange={e => setUploadForm(p => ({ ...p, name: e.target.value }))} placeholder="e.g. Individual Account Opening Form" className="w-full px-4 py-2.5 bg-[#fafafa] border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3457d5]/20 focus:border-[#3457d5]" />

@@ -1,5 +1,5 @@
 'use client'
-import { TrendingUp, TrendingDown, Minus } from 'lucide-react'
+import { TrendingUp, TrendingDown, Minus, FileDown } from 'lucide-react'
 import { Skeleton } from './Skeleton'
 import { useLatestMarketReport } from '@/hooks/useLatestMarketReport'
 
@@ -57,7 +57,19 @@ export function TodaysMarketTrend() {
         {report.summary && (
           <p className="text-sm text-gray-600 leading-relaxed">{report.summary}</p>
         )}
-        <p className="text-xs text-gray-400 mt-4">Diamond Global Securities &middot; Market Desk</p>
+        <div className="flex items-center justify-between gap-3 mt-4 flex-wrap">
+          <p className="text-xs text-gray-400">Diamond Global Securities &middot; Market Desk</p>
+          {report.pdfUrl && (
+            <a
+              href={report.pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#3457d5] hover:text-[#2a46c0] transition-colors"
+            >
+              <FileDown size={13} /> Download full report (PDF)
+            </a>
+          )}
+        </div>
       </div>
     </div>
   )

@@ -48,13 +48,15 @@ model Document {
 }
 
 model MarketReport {
-  id        String   @id @default(cuid())
-  title     String
-  summary   String   @db.Text
-  sentiment String
-  published Boolean  @default(false)
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt      @map("updated_at")
+  id             String   @id @default(cuid())
+  title          String
+  summary        String   @db.Text
+  sentiment      String
+  pdfStoragePath String?  @map("pdf_storage_path")
+  pdfUrl         String?  @map("pdf_url")
+  published      Boolean  @default(false)
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt      @map("updated_at")
 
   @@map("market_reports")
 }

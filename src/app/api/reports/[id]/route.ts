@@ -1,6 +1,8 @@
 import { NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { requireAdminSession } from '@/lib/auth'
+import { unlink } from 'fs/promises'
+import path from 'path'
 
 const ALLOWED_SENTIMENTS = ['bullish', 'bearish', 'neutral']
 
@@ -11,7 +13,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
 
     const { id } = await params
     const body = await req.json()
-    const { title, summary, sentiment, published } = body
+    const { title, summary, sentiment, published, pdfUrl, pdfStoragePath } = body
 
     if (title !== undefined) {
       if (typeof title !== 'string' || title.length === 0 || title.length > 300)
@@ -24,13 +26,23 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
     if (sentiment !== undefined && !ALLOWED_SENTIMENTS.includes(sentiment))
       return Response.json({ error: 'Sentiment must be bullish, bearish, or neutral' }, { status: 400 })
 
+    // Replacing or removing the PDF — delete the old file from disk first
+    if (pdfUrl !== undefined) {
+      const existing = await prisma.marketReport.findUnique({ where: { id }, select: { pdfStoragePath: true } })
+      if (existing?.pdfStoragePath) {
+        try { await unlink(path.join(process.cwd(), 'public', existing.pdfStoragePath)) } catch {}
+      }
+    }
+
     const report = await prisma.marketReport.update({
       where: { id },
       data: {
-        ...(title     !== undefined && { title: title.trim() }),
-        ...(summary   !== undefined && { summary: summary.trim() }),
-        ...(sentiment !== undefined && { sentiment }),
-        ...(published !== undefined && { published: published === true }),
+        ...(title          !== undefined && { title: title.trim() }),
+        ...(summary        !== undefined && { summary: summary.trim() }),
+        ...(sentiment      !== undefined && { sentiment }),
+        ...(published      !== undefined && { published: published === true }),
+        ...(pdfUrl         !== undefined && { pdfUrl }),
+        ...(pdfStoragePath !== undefined && { pdfStoragePath }),
       },
     })
     return Response.json(report)
@@ -45,6 +57,10 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
     if (session instanceof Response) return session
 
     const { id } = await params
+    const report = await prisma.marketReport.findUnique({ where: { id }, select: { pdfStoragePath: true } })
+    if (report?.pdfStoragePath) {
+      try { await unlink(path.join(process.cwd(), 'public', report.pdfStoragePath)) } catch {}
+    }
     await prisma.marketReport.delete({ where: { id } })
     return Response.json({ ok: true })
   } catch {

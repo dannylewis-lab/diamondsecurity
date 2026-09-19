@@ -4,15 +4,16 @@ import { writeFile, mkdir } from 'fs/promises'
 import path from 'path'
 
 const IMAGE_TYPES  = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
-const DOC_TYPES    = [
-  'application/pdf',
-  'application/msword',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-  'application/vnd.ms-excel',
-  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-]
+const PDF_TYPE     = 'application/pdf'
 const MAX_IMAGE_MB = 5
 const MAX_DOC_MB   = 20
+
+// Which buckets accept which files — documents and market reports are PDF-only
+const BUCKET_RULES: Record<string, { types: string[]; maxMB: number; folder: string }> = {
+  'news-images': { types: IMAGE_TYPES, maxMB: MAX_IMAGE_MB, folder: 'news-images' },
+  'documents':   { types: [PDF_TYPE],  maxMB: MAX_DOC_MB,   folder: 'documents' },
+  'reports':     { types: [PDF_TYPE],  maxMB: MAX_DOC_MB,   folder: 'reports' },
+}
 
 export async function POST(req: NextRequest) {
   const session = await requireAdminSession(req)
@@ -20,27 +21,27 @@ export async function POST(req: NextRequest) {
 
   const formData = await req.formData()
   const file     = formData.get('file') as File | null
-  const bucket   = (formData.get('bucket') as string) ?? 'news-images'  // 'news-images' | 'documents'
+  const bucket   = (formData.get('bucket') as string) ?? 'news-images'
 
   if (!file) return Response.json({ error: 'No file provided' }, { status: 400 })
 
-  const isImage = IMAGE_TYPES.includes(file.type)
-  const isDoc   = DOC_TYPES.includes(file.type)
+  const rule = BUCKET_RULES[bucket]
+  if (!rule) return Response.json({ error: 'Unknown upload destination' }, { status: 400 })
 
-  if (!isImage && !isDoc)
-    return Response.json({ error: 'Unsupported file type' }, { status: 400 })
+  if (!rule.types.includes(file.type)) {
+    const label = rule.types === IMAGE_TYPES ? 'JPEG, PNG, WebP, or GIF images' : 'PDF files'
+    return Response.json({ error: `Unsupported file type — only ${label} are accepted here` }, { status: 400 })
+  }
 
-  const maxMB    = isImage ? MAX_IMAGE_MB : MAX_DOC_MB
-  const maxBytes = maxMB * 1024 * 1024
+  const maxBytes = rule.maxMB * 1024 * 1024
   if (file.size > maxBytes)
-    return Response.json({ error: `File exceeds ${maxMB}MB limit` }, { status: 400 })
+    return Response.json({ error: `File exceeds ${rule.maxMB}MB limit` }, { status: 400 })
 
   // Build a safe filename: timestamp + original name (no path traversal)
   const ext      = path.extname(file.name).toLowerCase()
   const baseName = path.basename(file.name, ext).replace(/[^a-zA-Z0-9_-]/g, '-').slice(0, 60)
   const filename = `${Date.now()}-${baseName}${ext}`
-  const folder   = bucket === 'documents' ? 'documents' : 'news-images'
-  const relative = `uploads/${folder}/${filename}`
+  const relative = `uploads/${rule.folder}/${filename}`
   const absolute = path.join(process.cwd(), 'public', relative)
 
   await mkdir(path.dirname(absolute), { recursive: true })

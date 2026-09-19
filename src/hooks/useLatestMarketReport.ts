@@ -6,6 +6,7 @@ export type MarketReport = {
   summary: string | null
   sentiment: 'bullish' | 'bearish' | 'neutral'
   createdAt: string
+  pdfUrl: string | null
 }
 
 export function useLatestMarketReport() {

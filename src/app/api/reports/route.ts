@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     if (session instanceof Response) return session
 
     const body = await req.json()
-    const { title, summary, sentiment } = body
+    const { title, summary, sentiment, pdfUrl, pdfStoragePath } = body
 
     if (!title || !summary || !sentiment)
       return Response.json({ error: 'Missing required fields' }, { status: 400 })
@@ -43,8 +43,14 @@ export async function POST(req: NextRequest) {
     if (!ALLOWED_SENTIMENTS.includes(sentiment))
       return Response.json({ error: 'Sentiment must be bullish, bearish, or neutral' }, { status: 400 })
 
+    if (pdfUrl !== undefined && pdfUrl !== null && typeof pdfUrl !== 'string')
+      return Response.json({ error: 'Invalid PDF reference' }, { status: 400 })
+
     const report = await prisma.marketReport.create({
-      data: { title: title.trim(), summary: summary.trim(), sentiment, published: false },
+      data: {
+        title: title.trim(), summary: summary.trim(), sentiment, published: false,
+        pdfUrl: pdfUrl ?? null, pdfStoragePath: pdfStoragePath ?? null,
+      },
     })
     return Response.json(report, { status: 201 })
   } catch {
