@@ -68,6 +68,7 @@ export default function Navbar() {
                 src="/diamond-icon.png"
                 alt="Diamond Global Securities Limited"
                 fill
+                sizes="52px"
                 className="object-contain p-1.5"
                 priority
               />

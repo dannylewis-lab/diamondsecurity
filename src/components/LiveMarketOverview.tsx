@@ -1,14 +1,9 @@
 'use client'
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { BarChart2, TrendingUp, TrendingDown, Minus, ChevronRight } from 'lucide-react'
-type Report = {
-  id: string
-  title: string
-  summary: string | null
-  sentiment: 'bullish' | 'bearish' | 'neutral'
-  createdAt: string
-}
+import { Skeleton } from './Skeleton'
+import { useLatestMarketReport } from '@/hooks/useLatestMarketReport'
+import { useFadeUp } from '@/hooks/useFadeUp'
 
 const sentimentConfig = {
   bullish: {
@@ -31,21 +26,14 @@ const sentimentConfig = {
 const fallbackSummary = `Our team publishes market commentary here regularly. Check back soon, or visit the official DSE website for live prices and indices.`
 
 export default function LiveMarketOverview() {
-  const [report, setReport] = useState<Report | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('/api/reports?limit=1')
-      .then(r => r.json())
-      .then((data: Report[]) => { if (data.length > 0) setReport(data[0]) })
-      .finally(() => setLoading(false))
-  }, [])
+  const { report, loading } = useLatestMarketReport()
+  const fadeRef = useFadeUp<HTMLDivElement>()
 
   const cfg = report ? sentimentConfig[report.sentiment] ?? sentimentConfig.neutral : null
 
   return (
     <section className="py-20 bg-white dark:bg-[#0a1628]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={fadeRef} className="fade-up max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-semibold tracking-widest uppercase mb-5">
             <BarChart2 size={13} />
@@ -75,11 +63,10 @@ export default function LiveMarketOverview() {
 
           <div className="p-8">
             {loading ? (
-              <div className="flex items-center justify-center py-10">
-                <svg className="animate-spin w-6 h-6 text-blue-500" viewBox="0 0 24 24" fill="none">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-                </svg>
+              <div>
+                <Skeleton className="h-4 w-full mb-2" />
+                <Skeleton className="h-4 w-full mb-2" />
+                <Skeleton className="h-4 w-2/3" />
               </div>
             ) : (
               <>

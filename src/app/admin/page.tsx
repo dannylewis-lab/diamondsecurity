@@ -1,7 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Newspaper, MessageSquare, FolderOpen, ArrowUpRight, Eye, ExternalLink, BarChart2 } from 'lucide-react'
+import { Newspaper, MessageSquare, FolderOpen, ArrowUpRight, Eye, ExternalLink, BarChart2, Sparkles } from 'lucide-react'
+import { Skeleton } from '@/components/Skeleton'
 
 type Inquiry = { id: string; name: string; type: string; status: string; createdAt: string }
 type Article  = { id: string; title: string; category: string; createdAt: string; published: boolean }
@@ -50,16 +51,32 @@ export default function AdminOverview() {
       </div>
 
       {loading ? (
-        <div className="flex items-center justify-center py-20">
-          <svg className="animate-spin w-8 h-8 text-blue-600" viewBox="0 0 24 24" fill="none">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-          </svg>
-        </div>
+        <>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-gray-100 p-5">
+                <Skeleton className="w-10 h-10 mb-4" />
+                <Skeleton className="h-7 w-12 mb-2" />
+                <Skeleton className="h-3 w-20" />
+              </div>
+            ))}
+          </div>
+          <Skeleton className="h-64 w-full" />
+        </>
       ) : (
         <>
           {/* Stat Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            {stats.totalNews === 0 && stats.totalInquiries === 0 && stats.totalDocs === 0 && stats.totalReports === 0 && (
+              <div className="col-span-2 lg:col-span-4 flex items-center gap-3 bg-blue-50 border border-blue-100 rounded-2xl px-5 py-4 mb-1">
+                <Sparkles size={16} className="text-blue-600 shrink-0" />
+                <p className="text-sm text-blue-700">
+                  Nothing published yet — add your first <Link href="/admin/news" className="font-semibold underline">news article</Link>,{' '}
+                  <Link href="/admin/reports" className="font-semibold underline">market report</Link>, or{' '}
+                  <Link href="/admin/documents" className="font-semibold underline">document</Link> to get the public site off its empty states.
+                </p>
+              </div>
+            )}
             {cards.map(({ icon: Icon, label, value, sub, href, color, bg, alert }) => (
               <Link key={label} href={href} className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 group relative overflow-hidden">
                 {alert && <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-blue-500 animate-pulse" />}

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight, Calendar, Newspaper } from 'lucide-react'
+import { useFadeUp } from '@/hooks/useFadeUp'
 type Article = {
   id: string
   title: string
@@ -32,6 +33,7 @@ function formatDate(iso: string) {
 export default function LiveNewsSection() {
   const [articles, setArticles] = useState<Article[]>([])
   const [loading, setLoading]   = useState(true)
+  const fadeRef = useFadeUp<HTMLDivElement>()
 
   useEffect(() => {
     fetch('/api/news?limit=3')
@@ -42,17 +44,11 @@ export default function LiveNewsSection() {
 
   return (
     <section className="py-24 bg-white dark:bg-[#050e25] border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={fadeRef} className="fade-up max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
           <div>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-6 h-px bg-[#3457d5]" />
-              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
-                Latest Updates
-              </span>
-            </div>
             <h2 className="font-display text-3xl sm:text-4xl text-[#0a0a0a] dark:text-white">
               News &amp; <span className="italic text-[#3457d5]">Insights</span>
             </h2>

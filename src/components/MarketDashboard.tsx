@@ -1,4 +1,5 @@
 import { ExternalLink, BarChart2, TrendingUp, ArrowUpRight, ShieldCheck } from 'lucide-react'
+import { TodaysMarketTrend } from './TodaysMarketTrend'
 
 const highlights = [
   { label: 'Equity Market', desc: 'Shares of listed companies'        },
@@ -22,6 +23,11 @@ export default function MarketDashboard() {
           <p className="text-gray-500 max-w-lg mx-auto">
             Official market data, stock listings, and indices from the Dar es Salaam Stock Exchange
           </p>
+        </div>
+
+        {/* Today's trend — admin-published, since live tick data isn't wired in */}
+        <div className="mb-6">
+          <TodaysMarketTrend />
         </div>
 
         {/* Main DSE card */}

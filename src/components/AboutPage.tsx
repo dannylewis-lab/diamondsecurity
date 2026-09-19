@@ -7,6 +7,7 @@ import {
   Lock, Handshake, ChevronRight
 } from 'lucide-react'
 import { OFFICE_MAPS_URL, OFFICE_MAPS_EMBED_URL } from '@/lib/location'
+import { blurDataURL } from '@/lib/blur'
 
 const ABOUT_HERO_IMG = 'https://images.unsplash.com/photo-1714974528693-f77f6fcc56af?w=900&q=80&auto=format&fit=crop&crop=top'
 
@@ -127,6 +128,8 @@ export default function AboutPage() {
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                placeholder="blur"
+                blurDataURL={blurDataURL}
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
@@ -251,12 +254,6 @@ export default function AboutPage() {
 
           <div className="rounded-2xl px-8 py-8 mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 bg-[#fafafa] border border-gray-200">
             <div>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-6 h-px bg-[#3457d5]" />
-                <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
-                  Regulatory Status
-                </span>
-              </div>
               <h2 className="font-display text-2xl text-[#0a0a0a] mb-2">Our Authorisations</h2>
               <p className="text-gray-500 text-sm mt-2 max-w-xl leading-relaxed">
                 Diamond Global Securities Limited is authorised and regulated by the Capital Markets and Securities
@@ -318,7 +315,6 @@ export default function AboutPage() {
       <section className="py-24 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Purpose</p>
             <h2 className="text-4xl font-bold text-[#1d1d1d]">Mission &amp; Vision</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -365,7 +361,6 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
             <div className="lg:col-span-1">
-              <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-4">Our Strengths</p>
               <h2 className="text-4xl font-bold text-[#1d1d1d] mb-5 leading-snug">
                 Why Invest with Diamond Global
               </h2>
@@ -406,7 +401,6 @@ export default function AboutPage() {
       <section className="py-24 bg-[#fafafa]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-3">Our People</p>
             <h2 className="text-4xl font-bold text-[#1d1d1d]">Leadership &amp; Team</h2>
             <p className="text-gray-400 mt-3 max-w-xl mx-auto text-[15px]">
               A team of licensed professionals dedicated to delivering disciplined, transparent, and client-centred financial services.
@@ -421,6 +415,8 @@ export default function AboutPage() {
                 alt="Mr. Beatus Mlingi — Chief Executive Officer, Diamond Global Securities Limited"
                 fill
                 className="object-cover object-top"
+                placeholder="blur"
+                blurDataURL={blurDataURL}
               />
               <div
                 className="absolute bottom-0 left-0 right-0 px-7 py-6"
@@ -493,6 +489,8 @@ export default function AboutPage() {
                     alt={`${name} — ${role}, Diamond Global Securities`}
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    placeholder="blur"
+                    blurDataURL={blurDataURL}
                   />
                   <div
                     className="absolute inset-0"
@@ -533,7 +531,6 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-gray-100 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
             <div className="p-10 lg:p-14">
-              <p className="text-[#3457d5] text-xs font-bold uppercase tracking-[0.2em] mb-4">Find Us</p>
               <h2 className="text-3xl font-bold text-[#1d1d1d] mb-8">Visit Our Office</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -592,13 +589,6 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-3 mb-7">
-            <div className="w-6 h-px bg-[#3457d5]" />
-            <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
-              CMSA Licensed · Professional · Client-Centred
-            </span>
-            <div className="w-6 h-px bg-[#3457d5]" />
-          </div>
           <h2 className="font-display text-4xl text-[#1d1d1d] mb-5 leading-[1.1]">
             Begin Your Investment Journey<br /><span className="italic">with a Partner You Can Trust</span>
           </h2>

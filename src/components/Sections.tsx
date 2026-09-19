@@ -17,12 +17,6 @@ export function WhatsAppSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-6 h-px bg-[#3457d5]" />
-              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-blue-400">
-                Direct Support
-              </span>
-            </div>
             <h2 className="font-display text-3xl text-white mb-2">
               Speak to an advisor today.
             </h2>
@@ -55,12 +49,6 @@ export function InquirySection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-6 h-px bg-[#3457d5]" />
-              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
-                Inquiries
-              </span>
-            </div>
             <h2 className="font-display text-3xl sm:text-4xl text-[#0a0a0a] dark:text-white leading-[1.1] mb-4">
               Send us a<br />
               <span className="italic text-[#3457d5]">message.</span>

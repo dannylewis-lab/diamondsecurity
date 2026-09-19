@@ -1,6 +1,9 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { FileText, Download, FolderOpen } from 'lucide-react'
+import { FileText, Download, FolderOpen, MessageCircle, ArrowUpRight } from 'lucide-react'
+import Link from 'next/link'
+import { Skeleton } from './Skeleton'
+import { useFadeUp } from '@/hooks/useFadeUp'
 type Doc = {
   id: string
   name: string
@@ -21,6 +24,7 @@ const typeColors: Record<string, { bg: string; text: string }> = {
 export default function DownloadSection() {
   const [docs, setDocs]       = useState<Doc[]>([])
   const [loading, setLoading] = useState(true)
+  const fadeRef = useFadeUp<HTMLDivElement>()
 
   useEffect(() => {
     fetch('/api/documents')
@@ -40,21 +44,36 @@ export default function DownloadSection() {
 
   return (
     <section className="py-16 bg-white dark:bg-[#0a1628]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={fadeRef} className="fade-up max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {loading ? (
-          <div className="flex items-center justify-center py-16">
-            <svg className="animate-spin w-6 h-6 text-blue-500" viewBox="0 0 24 24" fill="none">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-            </svg>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-gray-200 p-6">
+                <Skeleton className="h-4 w-1/2 mb-5" />
+                <Skeleton className="h-12 w-full mb-3" />
+                <Skeleton className="h-12 w-full" />
+              </div>
+            ))}
           </div>
         ) : categories.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 text-center">
-            <div className="w-14 h-14 bg-[#fafafa] rounded-2xl flex items-center justify-center mb-4">
-              <FolderOpen size={24} className="text-gray-300" />
+            <div className="w-14 h-14 bg-white border border-gray-200 rounded-2xl flex items-center justify-center mb-5">
+              <FolderOpen size={22} className="text-[#3457d5]" />
             </div>
-            <p className="text-gray-400 text-sm">No documents available yet.</p>
+            <p className="text-[#1d1d1d] font-semibold mb-1.5">No documents available yet</p>
+            <p className="text-gray-400 text-sm max-w-sm mb-6">
+              Account opening forms and other documents will appear here once our team publishes them.
+            </p>
+            <div className="flex items-center gap-3">
+              <Link href="/contact" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#3457d5] hover:text-[#2a46c0] transition-colors">
+                Request a form <ArrowUpRight size={13} />
+              </Link>
+              <span className="text-gray-200">&middot;</span>
+              <a href="https://wa.me/255791228239" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#3457d5] hover:text-[#2a46c0] transition-colors">
+                <MessageCircle size={13} /> WhatsApp us
+              </a>
+            </div>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

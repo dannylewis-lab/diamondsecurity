@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import { Eye, Pencil, Trash2, Plus, X, Upload, Globe, EyeOff, Calendar, Newspaper } from 'lucide-react'
+import { Skeleton } from '@/components/Skeleton'
 
 type Article = {
   id: string
@@ -185,9 +186,25 @@ export default function NewsManagement() {
 
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
         {loading ? (
-          <div className="flex items-center justify-center py-16"><svg className="animate-spin w-6 h-6 text-[#3457d5]" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" /></svg></div>
+          <div className="p-6 space-y-4">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <Skeleton className="w-10 h-10 shrink-0" />
+                <Skeleton className="h-4 flex-1" />
+              </div>
+            ))}
+          </div>
         ) : articles.length === 0 ? (
-          <div className="text-center py-16 text-gray-400 text-sm">No articles yet. Create your first one.</div>
+          <div className="flex flex-col items-center py-16 text-center px-6">
+            <div className="w-12 h-12 rounded-2xl bg-[#fafafa] flex items-center justify-center mb-4">
+              <Newspaper size={20} className="text-[#3457d5]" />
+            </div>
+            <p className="text-[#1d1d1d] font-semibold text-sm mb-1">No articles yet</p>
+            <p className="text-gray-400 text-sm mb-4">Create your first one — it'll appear on the public News page once published.</p>
+            <button onClick={openCreate} className="btn-blue inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold text-white">
+              <Plus size={13} /> New Article
+            </button>
+          </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">

@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { Eye, EyeOff, Trash2, Plus, X, Sparkles } from 'lucide-react'
+import { Skeleton } from '@/components/Skeleton'
 
 type Report = {
   id: string; title: string; summary: string | null
@@ -80,9 +81,26 @@ export default function MarketReports() {
       </div>
 
       {loading ? (
-        <div className="flex items-center justify-center py-20"><svg className="animate-spin w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" /></svg></div>
+        <div className="space-y-5">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="bg-white rounded-2xl border border-gray-100 p-6">
+              <Skeleton className="h-4 w-48 mb-3" />
+              <Skeleton className="h-3 w-full mb-1.5" />
+              <Skeleton className="h-3 w-2/3" />
+            </div>
+          ))}
+        </div>
       ) : reports.length === 0 ? (
-        <div className="text-center py-20 text-gray-400 text-sm">No market reports yet. Create one above.</div>
+        <div className="flex flex-col items-center py-20 text-center">
+          <div className="w-12 h-12 rounded-2xl bg-[#fafafa] flex items-center justify-center mb-4">
+            <Sparkles size={20} className="text-[#3457d5]" />
+          </div>
+          <p className="text-[#1d1d1d] font-semibold text-sm mb-1">No market reports yet</p>
+          <p className="text-gray-400 text-sm mb-4 max-w-sm">Publish a daily trend report — it shows up on the homepage and the Market page as today's market trend.</p>
+          <button onClick={openNew} className="btn-blue inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold text-white">
+            <Plus size={13} /> New Report
+          </button>
+        </div>
       ) : (
         <div className="space-y-5">
           {reports.map(report => (

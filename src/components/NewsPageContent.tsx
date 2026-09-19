@@ -1,6 +1,8 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
-import { Newspaper, X, Calendar, ArrowUpRight, ChevronRight } from 'lucide-react'
+import Link from 'next/link'
+import { Newspaper, X, Calendar, ArrowUpRight, ChevronRight, MessageCircle } from 'lucide-react'
+import { Skeleton } from './Skeleton'
 type Article = {
   id: string
   title: string
@@ -160,11 +162,20 @@ export default function NewsPageContent() {
 
   if (loading) {
     return (
-      <section className="py-16 bg-[#fafafa] min-h-[60vh] flex items-center justify-center">
-        <svg className="animate-spin w-7 h-7 text-[#3457d5]" viewBox="0 0 24 24" fill="none">
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-        </svg>
+      <section className="py-14 bg-[#fafafa] min-h-screen">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Skeleton className="h-10 w-full max-w-md mb-12" />
+          <Skeleton className="h-[320px] w-full mb-10" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i}>
+                <Skeleton className="h-[220px] w-full mb-3" />
+                <Skeleton className="h-4 w-3/4 mb-2" />
+                <Skeleton className="h-4 w-1/2" />
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     )
   }
@@ -202,8 +213,22 @@ export default function NewsPageContent() {
 
           {articles.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-28 text-center">
-              <Newspaper size={36} className="text-gray-200 mb-4" />
-              <p className="text-gray-400 text-sm">No published articles yet.</p>
+              <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 flex items-center justify-center mb-5">
+                <Newspaper size={22} className="text-[#3457d5]" />
+              </div>
+              <p className="text-[#1d1d1d] font-semibold mb-1.5">No articles published yet</p>
+              <p className="text-gray-400 text-sm max-w-sm mb-6">
+                Our team publishes market updates and company news here regularly — check back soon.
+              </p>
+              <div className="flex items-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#3457d5] hover:text-[#2a46c0] transition-colors">
+                  Contact us <ArrowUpRight size={13} />
+                </Link>
+                <span className="text-gray-200">&middot;</span>
+                <a href="https://wa.me/255791228239" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#3457d5] hover:text-[#2a46c0] transition-colors">
+                  <MessageCircle size={13} /> WhatsApp us
+                </a>
+              </div>
             </div>
           ) : (
             <>

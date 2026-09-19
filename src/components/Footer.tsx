@@ -39,6 +39,7 @@ export default function Footer() {
                   src="/diamond-icon.png"
                   alt="Diamond Global Securities Limited"
                   fill
+                  sizes="44px"
                   className="object-contain p-1.5"
                 />
               </div>

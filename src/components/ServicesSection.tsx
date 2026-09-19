@@ -50,12 +50,6 @@ export default function ServicesSection() {
       <section id="services" className="py-24 bg-white dark:bg-[#050e25]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-6 h-px bg-[#3457d5]" />
-            <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
-              Licensed Services
-            </span>
-          </div>
           <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
             <h2 className="font-display text-3xl sm:text-4xl text-[#0a0a0a] dark:text-white">
               What We Offer

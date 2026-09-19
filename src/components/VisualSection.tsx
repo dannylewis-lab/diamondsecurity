@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
+import { blurDataURL } from '@/lib/blur'
 
 const panels = [
   {
@@ -34,12 +35,6 @@ export default function VisualSection() {
         {/* Header */}
         <div className="flex items-end justify-between flex-wrap gap-6 mb-10">
           <div>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-6 h-px bg-[#3457d5]" />
-              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#3457d5]">
-                Our Practice
-              </span>
-            </div>
             <h2 className="font-display text-3xl sm:text-4xl text-[#0a0a0a]">
               Three services.<br />
               <span className="italic text-[#3457d5]">One trusted firm.</span>
@@ -65,6 +60,8 @@ export default function VisualSection() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 58vw"
+                placeholder="blur"
+                blurDataURL={blurDataURL}
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#020B2D]/80 via-transparent to-transparent" />
@@ -90,6 +87,8 @@ export default function VisualSection() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 42vw"
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020B2D]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">

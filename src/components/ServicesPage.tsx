@@ -18,9 +18,9 @@ const services = [
       'Precision, speed, and reliability on every transaction',
       'Dedicated dealer support for every client',
     ],
-    accent: '#1133f5',
-    light: '#eff6ff',
-    mid: '#dbeafe',
+    accent: '#3457d5',
+    light: '#eef2fc',
+    mid: '#dbe3f8',
   },
   {
     number: '02',
@@ -35,9 +35,9 @@ const services = [
       'Alignment with individual financial objectives',
       'Local market expertise with forward-looking perspective',
     ],
-    accent: '#1133f5',
-    light: '#f0f9ff',
-    mid: '#bae6fd',
+    accent: '#3457d5',
+    light: '#eef2fc',
+    mid: '#dbe3f8',
   },
   {
     number: '03',
@@ -52,9 +52,9 @@ const services = [
       'Long-term value creation philosophy',
       'Full transparency, accountability, and reporting',
     ],
-    accent: '#7c3aed',
-    light: '#faf5ff',
-    mid: '#ede9fe',
+    accent: '#3457d5',
+    light: '#eef2fc',
+    mid: '#dbe3f8',
   },
 ]
 
@@ -130,7 +130,7 @@ export default function ServicesPage() {
             ].map(({ icon: Icon, value, label }) => (
               <div key={label} className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                  <Icon size={16} className="text-[#1133f5]" />
+                  <Icon size={16} className="text-[#3457d5]" />
                 </div>
                 <div className="text-left">
                   <p className="text-sm font-bold text-gray-900 leading-tight">{value}</p>
@@ -224,7 +224,7 @@ export default function ServicesPage() {
                 )}
                 <div
                   className="w-16 h-16 rounded-full text-white font-bold text-lg flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg"
-                  style={{ background: '#1133f5' }}
+                  style={{ background: '#3457d5' }}
                 >
                   {p.step}
                 </div>
@@ -252,7 +252,7 @@ export default function ServicesPage() {
             {faqs.map((faq) => (
               <div key={faq.q} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-blue-100 transition-colors duration-300">
                 <h3 className="font-bold text-gray-900 mb-2 flex items-start gap-3">
-                  <span className="w-6 h-6 text-white rounded-full flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold" style={{ background: '#1133f5' }}>?</span>
+                  <span className="w-6 h-6 text-white rounded-full flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold" style={{ background: '#3457d5' }}>?</span>
                   {faq.q}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed pl-9">{faq.a}</p>
@@ -271,8 +271,8 @@ export default function ServicesPage() {
         <div className="glow-orb glow-orb-1 absolute" style={{ width: '350px', height: '350px', top: '-20%', right: '5%', opacity: 0.5 }} />
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Zap size={20} className="text-[#00D4FF]" />
-            <span className="text-[#00D4FF] text-sm font-semibold tracking-wide uppercase">Ready to invest?</span>
+            <Zap size={20} className="text-blue-300" />
+            <span className="text-blue-300 text-sm font-semibold tracking-wide uppercase">Ready to invest?</span>
           </div>
           <h2 className="text-4xl font-bold text-white mb-4">Start Your Investment Journey Today</h2>
           <p className="text-blue-200 mb-8 max-w-xl mx-auto leading-relaxed">
