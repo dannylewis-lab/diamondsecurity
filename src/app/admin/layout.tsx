@@ -182,7 +182,7 @@ function LoginScreen({ onLogin }: { onLogin: (admin: Admin) => void }) {
   )
 }
 
-function SidebarContent({ admin, pathname, onLinkClick, onLogout }: { admin: Admin; pathname: string; onLinkClick?: () => void; onLogout: () => void }) {
+function SidebarContent({ admin, pathname, onLinkClick, onLogout }: { admin: Admin; pathname: string | null; onLinkClick?: () => void; onLogout: () => void }) {
   return (
     <>
       <div className="px-5 py-5 border-b border-white/10">
